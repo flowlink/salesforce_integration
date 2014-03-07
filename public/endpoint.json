@@ -1,0 +1,8 @@
+{
+  "name": "salesforce",
+  "display": "Salesforce Endpoint",
+  "description": "Sync customers with Salesforce",
+  "help": "http://guides.spreecommerce.com/integration/endpoints/salesforce",
+  "icon_url": "salesforce_logo.png",
+  "services": []
+}

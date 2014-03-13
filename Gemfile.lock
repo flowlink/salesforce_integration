@@ -22,6 +22,11 @@ GEM
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
     diff-lcs (1.2.5)
+    faraday (0.8.9)
+      multipart-post (~> 1.2.0)
+    faraday_middleware (0.9.0)
+      faraday (>= 0.7.4, < 0.9)
+    hashie (2.0.5)
     i18n (0.6.9)
     jbuilder (2.0.4)
       activesupport (>= 3.0.0)
@@ -30,6 +35,7 @@ GEM
     method_source (0.8.2)
     minitest (4.7.5)
     multi_json (1.9.0)
+    multipart-post (1.2.0)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -40,6 +46,11 @@ GEM
     rack-test (0.6.2)
       rack (>= 1.0)
     rake (10.1.1)
+    restforce (1.4.3)
+      faraday (~> 0.8.4)
+      faraday_middleware (>= 0.8.8)
+      hashie (>= 1.2.0, < 2.1)
+      json (>= 1.7.5, < 1.9.0)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -74,6 +85,7 @@ DEPENDENCIES
   pry
   rack-test
   rake
+  restforce
   rspec (~> 2.14)
   sinatra
   tilt (~> 1.4.1)

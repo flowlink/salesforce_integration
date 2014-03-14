@@ -2,7 +2,7 @@ module SalesforceIntegration
   module Service
     class Contact < Base
       def initialize(config)
-        super("Contant", config)
+        super("Contact", config)
       end
 
       def find_id_by_email(email)

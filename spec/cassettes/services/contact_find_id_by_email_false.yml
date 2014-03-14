@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=3MVG9WtWSKUDG.x5hyqXeboVoSErlfbiCvJNDfuwmN77rRhJ6tqCeFKFhuFvMNo0COBif7CT1NnevkMq464Qp&client_secret=3920716088724079571&username=tester%2Bnetguru%40netguru.co&password=testtest12398feCLrdLjqN7Ji8zhhWf3uc
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2014 11:02:39 GMT
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1394794959211\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"3/oC8+i5AW811qAcFzsq0v9bkSSrlgr0S9GDgzEn4Qc=\",\"access_token\":\"00D20000000CtLC!ARcAQF5mwOH0BqQEB8EFeOb4O.a2Vnj_DxEC5M78y0Jp9mOZaxd1h6d0u8UHxLBuDDagvVc37Cq2N3A_Qo.IcCysi0t141NR\"}"
+    http_version: 
+  recorded_at: Fri, 14 Mar 2014 11:02:39 GMT
+- request:
+    method: get
+    uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'not-available@test.com'
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00D20000000CtLC!ARcAQF5mwOH0BqQEB8EFeOb4O.a2Vnj_DxEC5M78y0Jp9mOZaxd1h6d0u8UHxLBuDDagvVc37Cq2N3A_Qo.IcCysi0t141NR
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2014 11:02:40 GMT
+      Sforce-Limit-Info:
+      - api-usage=6/5000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "{\"totalSize\":0,\"done\":true,\"records\":[]}"
+    http_version: 
+  recorded_at: Fri, 14 Mar 2014 11:02:40 GMT
+recorded_with: VCR 2.8.0

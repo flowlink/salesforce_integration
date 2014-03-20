@@ -19,13 +19,13 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
   # customer webhooks
   ['/add_customer', '/update_customer'].each do |path|
     post path do
-      #begin
+      begin
         SalesforceIntegration::Customer.new(@payload, @config).upsert_contact!
         set_summary "Successfully upserted contact for #{@payload["customer"]["email"]}"
         process_result 200
-      # rescue StandardError => e
-      #  process_result 500
-      # end
+      rescue StandardError => e
+       process_result 500
+      end
     end
   end
 end

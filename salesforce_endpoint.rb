@@ -3,6 +3,7 @@ require 'endpoint_base'
 require 'salesforce_integration'
 
 class SalesforceEndpoint < EndpointBase::Sinatra::Base
+  endpoint_key '532ae093755b1c789d035cfc'
   # orders webhooks
   ['/add_order', '/update_order'].each do |path|
     post path do

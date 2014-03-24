@@ -13,7 +13,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
         set_summary "Successfully upserted contact for #{@payload["order"]["email"]}"
         result 200
       rescue Exception => e
-        App.report_error(e, request)
+        App.report_error(e, RequestDataExtractor.new.from_rack(env))
         result 500
       end
     end
@@ -27,7 +27,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
         set_summary "Successfully upserted contact for #{@payload["customer"]["email"]}"
         result 200
       rescue Exception => e
-        App.report_error(e, request)
+        App.report_error(e, RequestDataExtractor.new.from_rack(env))
         result 500
       end
     end

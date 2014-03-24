@@ -15,9 +15,9 @@ module App
       ENV['APP_ENDPOINT_KEY']
     end
 
-    def report_error(error, request)
+    def report_error(error)
       return unless env == 'production'
-      Rollbar.report_exception(error, request)
+      Rollbar.report_exception(error)
     end
   end
 end

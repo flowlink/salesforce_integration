@@ -12,7 +12,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
         SalesforceIntegration::Order.new(@payload, @config).upsert_contact!
         set_summary "Successfully upserted contact for #{@payload["order"]["email"]}"
         result 200
-      rescue StandardError => e
+      rescue Exception => e
         App.report_error(e, request)
         result 500
       end
@@ -26,7 +26,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
         SalesforceIntegration::Customer.new(@payload, @config).upsert_contact!
         set_summary "Successfully upserted contact for #{@payload["customer"]["email"]}"
         result 200
-      rescue StandardError => e
+      rescue Exception => e
         App.report_error(e, request)
         result 500
       end

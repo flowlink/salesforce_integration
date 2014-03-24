@@ -9,5 +9,15 @@ module App
     def root
       Pathname.pwd
     end
+
+    def endpoint_key
+      return '123' if env == 'test'
+      ENV['APP_ENDPOINT_KEY']
+    end
+
+    def report_error(error, requiest)
+      return unless env == 'production'
+      Rollbar.report_exception(error, request)
+    end
   end
 end

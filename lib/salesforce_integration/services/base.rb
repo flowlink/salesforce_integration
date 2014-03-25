@@ -16,11 +16,11 @@ module SalesforceIntegration
       private
       def get_client
         Restforce.new(
-          username: config['salesforce.username'],
-          password: config['salesforce.password'],
-          security_token: config['salesforce.security_token'],
-          client_id: config['salesforce.client_id'],
-          client_secret: config['salesforce.client_secret']
+          username: config['salesforce_username'],
+          password: config['salesforce_password'],
+          security_token: config['salesforce_security_token'],
+          client_id: config['salesforce_client_id'],
+          client_secret: config['salesforce_client_secret']
         )
       end
     end

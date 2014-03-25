@@ -4,6 +4,14 @@ require 'salesforce_integration'
 
 class SalesforceEndpoint < EndpointBase::Sinatra::Base
   endpoint_key App.endpoint_key
+  enable :logging
+
+  def report_error(error)
+    return unless App.env == 'production'
+    logger.info request
+    logger.info @payload
+    Rollbar.report_exception(error)
+  end
 
   # orders webhooks
   ['/add_order', '/update_order'].each do |path|
@@ -13,7 +21,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
         set_summary "Successfully upserted contact for #{@payload["order"]["email"]}"
         result 200
       rescue Exception => e
-        App.report_error(e)
+        report_error(e)
         result 500
       end
     end
@@ -27,7 +35,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
         set_summary "Successfully upserted contact for #{@payload["customer"]["email"]}"
         result 200
       rescue Exception => e
-        App.report_error(e)
+        report_error(e)
         result 500
       end
     end

@@ -10,5 +10,9 @@ module SalesforceIntegration
     def contact_service
       @contact_service ||= Service::Contact.new(config)
     end
+
+    def product_service
+      @product_service ||= Service::Product.new(config)
+    end
   end
 end

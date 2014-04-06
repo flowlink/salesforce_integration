@@ -40,4 +40,17 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       end
     end
   end
+
+  ['/add_product', '/update_product'].each do |path|
+    post path do
+      begin
+        SalesforceIntegration::Product.new(@payload, @config).upsert_product!
+        set_summary "Successfully upserted product for #{@payload["product"]["sku"]}"
+        result 200
+      rescue Exception => e
+        report_error(e)
+        result 500
+      end
+    end
+  end
 end

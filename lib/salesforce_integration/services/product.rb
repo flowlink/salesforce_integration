@@ -14,7 +14,7 @@ module SalesforceIntegration
       def upsert!(product_code, attributes = {})
         product_id = find_id_by_code(product_code)
         if product_id.present?
-          salesforce.update!('Product2', attributes.merge({ Id: id }))
+          salesforce.update!('Product2', attributes.merge({ Id: product_id }))
         else
           salesforce.create!('Product2', attributes)
         end

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe SalesforceIntegration::Service::ContactBuilder do
-  let(:payload) { Factories.add_order_payload }
-  subject { described_class.new(payload['order']) }
+describe SalesforceIntegration::Service::ProductBuilder do
+  let(:payload) { Factories.add_product_payload }
+  subject { described_class.new(payload['product']) }
 
   context 'methods' do
     describe '#build' do
@@ -10,7 +10,7 @@ describe SalesforceIntegration::Service::ContactBuilder do
 
       it 'returns hash with address data' do
         expect(method).to be_kind_of Hash
-        expect(method.keys.count).to eq 15
+        expect(method.keys.count).to eq 4
       end
     end
   end

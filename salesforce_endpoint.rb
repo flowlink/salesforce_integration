@@ -13,7 +13,6 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
     Rollbar.report_exception(error)
   end
 
-  # orders webhooks
   ['/add_order', '/update_order'].each do |path|
     post path do
       begin
@@ -27,7 +26,6 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
     end
   end
 
-  # customer webhooks
   ['/add_customer', '/update_customer'].each do |path|
     post path do
       begin

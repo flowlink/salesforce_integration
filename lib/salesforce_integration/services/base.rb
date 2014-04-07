@@ -13,7 +13,12 @@ module SalesforceIntegration
         salesforce.create!(model_name, attributes)
       end
 
+      def update!(attributes = {})
+        salesforce.update!(model_name, attributes)
+      end
+
       private
+
       def get_client
         Restforce.new(
           username: config['salesforce_username'],

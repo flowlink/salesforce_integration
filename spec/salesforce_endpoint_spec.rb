@@ -44,7 +44,7 @@ describe SalesforceEndpoint do
   end
 
   describe "upserting products" do
-    ['add_product'].each do |path|
+    ['add_product'].each do |path| #updating product has the same data sent
       describe path do
         let(:payload) do
           payload = Factories.send("#{path}_payload")

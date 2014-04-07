@@ -1,6 +1,7 @@
 $:.unshift File.dirname(__FILE__)
 
 require 'restforce'
+require 'executrix'
 
 require 'salesforce_integration/services/base'
 require 'salesforce_integration/services/contact_builder'

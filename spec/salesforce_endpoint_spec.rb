@@ -4,7 +4,7 @@ describe SalesforceEndpoint do
   include_examples 'config hash'
 
   context 'webhooks' do
-    ['add_order', 'update_order', 'add_customer', 'update_customer', 'add_product'].each do |path|
+    ['add_order', 'update_order', 'add_customer', 'update_customer', 'add_product', 'import_products'].each do |path|
       describe path do
         let(:payload) do
           payload = Factories.send("#{path}_payload")
@@ -44,21 +44,34 @@ describe SalesforceEndpoint do
   end
 
   describe "upserting products" do
-    ['add_product'].each do |path| #updating product has the same data sent
-      describe path do
-        let(:payload) do
-          payload = Factories.send("#{path}_payload")
-          payload.merge(parameters: config)
-        end
-        let(:product_code){ payload["product"]["sku"] }
+    describe 'add_product' do #updating product has the same data sent
+      let(:payload) do
+        payload = Factories.send("add_product_payload")
+        payload.merge(parameters: config)
+      end
+      let(:product_code){ payload["product"]["sku"] }
 
-        it 'works' do
-          VCR.use_cassette "requests/#{path}" do
-            post "/#{path}", payload.to_json, auth
-            body = JSON.parse(last_response.body)
-            expect(body["summary"]).to eq "Successfully upserted product for #{product_code}"
-          end
+      it 'works' do
+        VCR.use_cassette "requests/add_product" do
+          post "/add_product", payload.to_json, auth
+          body = JSON.parse(last_response.body)
+          expect(body["summary"]).to eq "Successfully upserted product for #{product_code}"
         end
+      end
+    end
+  end
+
+  describe "importing products" do
+    let(:payload) do
+      payload = Factories.import_products_payload
+      payload.merge(parameters: config)
+    end
+
+    it 'works' do
+      VCR.use_cassette "requests/import_products" do
+        post "/import_products", payload.to_json, auth
+        body = JSON.parse(last_response.body)
+        expect(body["summary"]).to eq "Successfully upserted products [batch_id: 751200000021wELAAY]"
       end
     end
   end

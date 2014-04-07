@@ -5,8 +5,17 @@ module SalesforceIntegration
       product_service.upsert!(product_params['ProductCode'], product_params)
     end
 
-    def product_params
-      Service::ProductBuilder.new(payload['product']).build
+    def import_products!
+      product_service.import!(products_params)
+    end
+
+    def product_params(payload_item = nil)
+      payload_item ||= payload['product']
+      Service::ProductBuilder.new(payload_item).build
+    end
+
+    def products_params
+      payload['products'].map { |item| product_params(item['product']) }
     end
   end
 end

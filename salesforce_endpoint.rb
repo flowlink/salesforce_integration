@@ -51,4 +51,16 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       end
     end
   end
+
+  post '/import_products' do
+    begin
+      batch = SalesforceIntegration::Product.new(@payload, @config).import_products!
+      batch_id = batch.instance_variable_get(:@batch_id)
+      set_summary "Successfully upserted products [batch_id: #{batch_id}]"
+      result 200
+    rescue Exception => e
+      report_error(e)
+      result 500
+    end
+  end
 end

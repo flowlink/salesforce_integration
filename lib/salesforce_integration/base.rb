@@ -3,7 +3,7 @@ module SalesforceIntegration
     attr_accessor :payload, :config
 
     def initialize(payload, config)
-      @payload = payload.with_indifferent_access
+      @payload = payload.is_a?(Array) ? payload.map(&:with_indifferent_access) : payload.with_indifferent_access
       @config = config
     end
 

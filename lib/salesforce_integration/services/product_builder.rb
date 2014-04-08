@@ -13,7 +13,8 @@ module SalesforceIntegration
           'Name' => object['name'],
           'ProductCode'  => object['sku'],
           'Description' => object['description'],
-          'Price__c' => object['price']
+          'Price__c' => object['price'],
+          'ExternalID__c' => object['sku']
         }
       end
     end

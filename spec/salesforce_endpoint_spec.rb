@@ -71,7 +71,7 @@ describe SalesforceEndpoint do
       VCR.use_cassette "requests/import_products" do
         post "/import_products", payload.to_json, auth
         body = JSON.parse(last_response.body)
-        expect(body["summary"]).to eq "Successfully upserted products [batch_id: 751200000021wELAAY]"
+        expect(body["summary"]).to eq "2/2 products successfully upserted."
       end
     end
   end

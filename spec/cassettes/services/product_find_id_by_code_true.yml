@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 Apr 2014 15:15:29 GMT
+      - Tue, 08 Apr 2014 15:15:32 GMT
       Pragma:
       - no-cache
       Cache-Control:
@@ -32,12 +32,12 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1396970129342\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"DdnEyCb6Zus4L9kQ3C75A6174ToZefG60adqjN4DqGc=\",\"access_token\":\"00D20000000CtLC!ARcAQD_4FVssYQj2LoRWNt2_AssFe_nfkwZRaG8Y_t7FIElRqwXY_GLZOjffsLQ5bBLSPgpfFTLk_DNFSG5tv0OJJFunyghd\"}"
+      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1396970132826\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"k4Bq1iTNQ7QmNtN40c4GuNTO/FzRB/g9lL+yGkXFTjk=\",\"access_token\":\"00D20000000CtLC!ARcAQD_4FVssYQj2LoRWNt2_AssFe_nfkwZRaG8Y_t7FIElRqwXY_GLZOjffsLQ5bBLSPgpfFTLk_DNFSG5tv0OJJFunyghd\"}"
     http_version: 
-  recorded_at: Tue, 08 Apr 2014 15:15:29 GMT
+  recorded_at: Tue, 08 Apr 2014 15:15:33 GMT
 - request:
     method: get
-    uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'tester@test.com'
+    uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Product2%20where%20ProductCode%20=%20'SPREE-T-SHIRT-S'
     body:
       encoding: US-ASCII
       string: ''
@@ -56,7 +56,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 Apr 2014 15:15:30 GMT
+      - Tue, 08 Apr 2014 15:15:33 GMT
       Sforce-Limit-Info:
       - api-usage=103/5000
       Content-Type:
@@ -65,7 +65,7 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"totalSize\":2,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001Ayc6ZAAR\"},\"Id\":\"0032000001Ayc6ZAAR\"},{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001Ayc82AAB\"},\"Id\":\"0032000001Ayc82AAB\"}]}"
+      string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Product2\",\"url\":\"/services/data/v26.0/sobjects/Product2/01t20000003xoy3AAA\"},\"Id\":\"01t20000003xoy3AAA\"}]}"
     http_version: 
-  recorded_at: Tue, 08 Apr 2014 15:15:30 GMT
+  recorded_at: Tue, 08 Apr 2014 15:15:33 GMT
 recorded_with: VCR 2.8.0

@@ -10,7 +10,7 @@ describe SalesforceIntegration::Service::ProductBuilder do
 
       it 'returns hash with address data' do
         expect(method).to be_kind_of Hash
-        expect(method.keys.count).to eq 4
+        expect(method.keys.count).to eq 5
       end
     end
   end

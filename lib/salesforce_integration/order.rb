@@ -1,10 +1,10 @@
 module SalesforceIntegration
   class Order < Base
     def upsert_order!
-      order_service.upsert!(order_params['Id'], order_params)
+      order_service.upsert!(order)
     end
 
-    def order_params
+    def order
       Service::OrderBuilder.new(payload['order']).build
     end
   end

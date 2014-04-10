@@ -14,5 +14,9 @@ module SalesforceIntegration
     def product_service
       @product_service ||= Service::Product.new(config)
     end
+
+    def order_service
+      @order_service ||= Service::Order.new(config)
+    end
   end
 end

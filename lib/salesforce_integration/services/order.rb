@@ -13,7 +13,6 @@ module SalesforceIntegration
 
       def upsert!(email, attributes = {})
         contact_id = find_id_by_email(email)
-        binding.pry
         contact_id.present? ? update!(attributes.merge({ Id: contact_id })) : create!(attributes)
       end
 

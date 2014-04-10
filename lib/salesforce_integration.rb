@@ -8,6 +8,8 @@ require 'salesforce_integration/services/contact_builder'
 require 'salesforce_integration/services/contact'
 require 'salesforce_integration/services/product_builder'
 require 'salesforce_integration/services/product'
+require 'salesforce_integration/services/order_builder'
+require 'salesforce_integration/services/order'
 
 require 'salesforce_integration/base'
 require 'salesforce_integration/order'

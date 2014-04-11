@@ -18,5 +18,9 @@ module SalesforceIntegration
     def order_service
       @order_service ||= Service::Order.new(config)
     end
+
+    def payment_service
+      @payment_service ||= Service::Payment.new(config)
+    end
   end
 end

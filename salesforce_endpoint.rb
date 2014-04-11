@@ -3,7 +3,6 @@ require 'endpoint_base'
 require 'salesforce_integration'
 
 class SalesforceEndpoint < EndpointBase::Sinatra::Base
-  endpoint_key App.endpoint_key
   enable :logging
 
   def report_error(error)

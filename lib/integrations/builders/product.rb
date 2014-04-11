@@ -1,6 +1,6 @@
-module SalesforceIntegration
-  module Service
-    class ProductBuilder
+module Integration
+  module Builder
+    class Product
 
       attr_reader :object
 

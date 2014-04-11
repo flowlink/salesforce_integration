@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SalesforceIntegration::Service::ContactBuilder do
+describe Integration::Builder::Contact do
   let(:payload) { Factories.add_order_payload }
   subject { described_class.new(payload['order']) }
 

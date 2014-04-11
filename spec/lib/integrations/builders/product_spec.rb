@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SalesforceIntegration::Service::ProductBuilder do
+describe Integration::Builder::Product do
   let(:payload) { Factories.add_product_payload }
   subject { described_class.new(payload['product']) }
 

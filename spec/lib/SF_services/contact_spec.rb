@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SalesforceIntegration::Service::Contact do
+describe SFService::Contact do
   include_examples 'config hash'
   subject { described_class.new(config) }
 
@@ -23,7 +23,7 @@ describe SalesforceIntegration::Service::Contact do
   end
 
   describe '#upsert!' do
-    it 'creates contact if it not exists' do
+    it 'creates contact if it doesnt exist' do
       subject.stub(:find_id_by_email).and_return(nil)
       subject.send(:salesforce).stub(:create!).and_return(true)
 

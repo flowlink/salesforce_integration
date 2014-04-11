@@ -16,8 +16,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
   ['/add_order', '/update_order'].each do |path|
     post path do
       begin
-        SalesforceIntegration::OrderClient.new(@payload, @config).upsert_order!
-        SalesforceIntegration::Order.new(@payload, @config).upsert_order!
+        SpreeService::Order.new(@payload, @config).upsert_contact_with_account!
         set_summary "Successfully upserted contact for #{@payload["order"]["email"]}"
         result 200
       rescue Exception => e
@@ -30,7 +29,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
   ['/add_customer', '/update_customer'].each do |path|
     post path do
       begin
-        SalesforceIntegration::Customer.new(@payload, @config).upsert_contact!
+        SpreeService::Customer.new(@payload, @config).upsert_contact_with_account!
         set_summary "Successfully upserted contact for #{@payload["customer"]["email"]}"
         result 200
       rescue Exception => e
@@ -43,7 +42,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
   ['/add_product', '/update_product'].each do |path|
     post path do
       begin
-        SalesforceIntegration::Product.new(@payload, @config).upsert_product!
+        SpreeService::Product.new(@payload, @config).upsert_product!
         set_summary "Successfully upserted product for #{@payload["product"]["sku"]}"
         result 200
       rescue Exception => e
@@ -66,7 +65,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       @config = test_config_hash
       @payload = JSON.parse IO.read("#{File.dirname(__FILE__)}/spec/support/factories/import_products.json")
       #
-      batch = SalesforceIntegration::Product.new(@payload, @config).import_products!
+      batch = SpreeService::Product.new(@payload, @config).import_products!
       status = batch.status
       failed = status[:number_records_failed].to_i
       all = status[:number_records_processed].to_i

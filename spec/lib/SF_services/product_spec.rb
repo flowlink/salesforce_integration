@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SalesforceIntegration::Service::Product do
+describe SFService::Product do
   include_examples 'config hash'
   subject { described_class.new(config) }
 
@@ -23,7 +23,7 @@ describe SalesforceIntegration::Service::Product do
   end
 
   describe '#upsert!' do
-    it 'creates product if it not exists' do
+    it 'creates product if it doesnt exist' do
       subject.stub(:find_id_by_code).and_return(nil)
       subject.send(:salesforce).stub(:create!).and_return(true)
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SalesforceIntegration::Service::Base do
+describe SFService::Base do
   include_examples 'config hash'
   subject { described_class.new('Product2', config) }
   it { should respond_to(:model_name) }

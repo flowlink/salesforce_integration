@@ -19,3 +19,5 @@ group :test do
   gem 'rack-test'
   gem 'webmock'
 end
+
+gem 'unicorn'

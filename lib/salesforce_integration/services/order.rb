@@ -7,7 +7,8 @@ module SalesforceIntegration
       end
 
       def is_present?(id)
-        salesforce.query("select Id from Order__c where Id__c = '#{id}'").any?
+        results = salesforce.query("select Id from Order__c where Id__c = '#{id}'")
+        results.any? ? results.first.fetch('Id') : nil
       end
 
       def find_client(email)
@@ -16,9 +17,11 @@ module SalesforceIntegration
       end
 
       def upsert!(order_attr = {})
-        contact_id = find_client(order_attr['Email__c'])
+        contact_id = find_client(order_attr.fetch 'Email__c')
         order_attr = order_attr.merge({ 'ContactId__c'=> contact_id }) if contact_id.present?
-        is_present?(order_attr.fetch 'Id__c') ? update!(order_attr) : create!(order_attr)
+
+        order_id = is_present?(order_attr.fetch 'Id__c')
+        order_id.present? ? update!(order_attr.merge({ Id: order_id })) : create!(order_attr)
       end
 
     end

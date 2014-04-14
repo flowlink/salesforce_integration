@@ -13,6 +13,10 @@ module SpreeService
       Integration::ContactAccount.new(config, payload[service_name]).upsert!
     end
 
+    def upsert_order!
+      Integration::Order.new(config, payload).upsert!
+    end
+
     def upsert_product!
       Integration::Product.new(config, payload).upsert! # need to pass the whole payload -> need to handle multiple products
     end

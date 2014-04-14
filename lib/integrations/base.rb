@@ -20,5 +20,9 @@ module Integration
     def account_service
       @account_service ||= SFService::Account.new(config)
     end
+
+    def order_service
+      @order_service ||= SFService::Order.new(config)
+    end
   end
 end

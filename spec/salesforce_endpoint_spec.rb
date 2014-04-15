@@ -25,7 +25,7 @@ describe SalesforceEndpoint do
     end
   end
 
-  describe "upserting customers" do
+  describe "upserting clients with accounts" do
     ['add_order', 'update_order',
      'add_customer', 'update_customer'].each do |path|
       describe path do
@@ -40,6 +40,27 @@ describe SalesforceEndpoint do
             post "/#{path}", payload.to_json, auth
             body = JSON.parse(last_response.body)
             expect(body["summary"]).to match "Successfully upserted contact for #{customer_email}"
+          end
+        end
+      end
+    end
+  end
+
+  describe "upserting orders" do
+    ['add_order', 'update_order', 'cancel_order', 'return_order'].each do |path|
+      describe path do
+        let(:payload) do
+          payload = Factories.send("#{path}_payload")
+          payload.merge(parameters: config)
+        end
+        let(:order_id){ payload["order"]["id"] }
+
+        it 'works' do
+          VCR.use_cassette "requests/#{path}" do
+            post "/#{path}", payload.to_json, auth
+            body = JSON.parse(last_response.body)
+            expect(body["summary"]).to match "Successfully"
+            expect(body["summary"]).to match "order ##{order_id}"
           end
         end
       end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Integration::Builder::Contact do
+describe Integration::Builder::Order do
   let(:payload) { Factories.add_order_payload }
   subject { described_class.new(payload['order']) }
 
@@ -11,10 +11,7 @@ describe Integration::Builder::Contact do
       it 'returns hash with address data' do
         expect(result).to be_kind_of Hash
         expect(result.keys).to eq(
-          ["FirstName", "LastName", "Email",
-            "MailingStreet", "MailingCity", "MailingState", "MailingPostalCode", "MailingCountry",
-            "OtherStreet", "OtherCity", "OtherState", "OtherPostalCode", "OtherCountry",
-            "Phone", "OtherPhone"]
+          ["Id__c", "Status__c", "Channel__c", "Email__c", "Currency__c", "Placed_on__c", "Subtotal__c", "Adjustment__c", "Tax__c", "Shipping__c", "Payment__c", "Total__c"]
         )
       end
     end

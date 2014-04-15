@@ -6,11 +6,11 @@ describe Integration::Builder::Product do
 
   context 'methods' do
     describe '#build' do
-      let(:method) { subject.build }
+      let(:result) { subject.build }
 
       it 'returns hash with address data' do
-        expect(method).to be_kind_of Hash
-        expect(method.keys.count).to eq 5
+        expect(result).to be_kind_of Hash
+        expect(result.keys).to eq(['Name', 'ProductCode', 'Description', 'Price__c', 'ExternalID__c'])
       end
     end
   end

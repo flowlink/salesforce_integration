@@ -24,5 +24,9 @@ module Integration
     def order_service
       @order_service ||= SFService::Order.new(config)
     end
+
+    def line_item_service
+      @line_item_service ||= SFService::LineItem.new(config)
+    end
   end
 end

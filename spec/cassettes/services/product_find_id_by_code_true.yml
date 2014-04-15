@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 Apr 2014 15:15:32 GMT
+      - Tue, 15 Apr 2014 18:25:59 GMT
       Pragma:
       - no-cache
       Cache-Control:
@@ -32,9 +32,9 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1396970132826\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"k4Bq1iTNQ7QmNtN40c4GuNTO/FzRB/g9lL+yGkXFTjk=\",\"access_token\":\"00D20000000CtLC!ARcAQD_4FVssYQj2LoRWNt2_AssFe_nfkwZRaG8Y_t7FIElRqwXY_GLZOjffsLQ5bBLSPgpfFTLk_DNFSG5tv0OJJFunyghd\"}"
+      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1397586360102\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"BtdG8f+qXBdVwECYe53/5ZMZVa1gSLkavtl3lXClWhg=\",\"access_token\":\"00D20000000CtLC!ARcAQAsLY0P0ovgb7Y2YDUSedWjkxoSVOpwoc48GAL6v1fFWnf2AYWvrdnCV5HdaIJYE2rLaXdI7kP7XvudWLUShAm2ijeiA\"}"
     http_version: 
-  recorded_at: Tue, 08 Apr 2014 15:15:33 GMT
+  recorded_at: Tue, 15 Apr 2014 18:26:00 GMT
 - request:
     method: get
     uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Product2%20where%20ProductCode%20=%20'SPREE-T-SHIRT-S'
@@ -45,7 +45,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00D20000000CtLC!ARcAQD_4FVssYQj2LoRWNt2_AssFe_nfkwZRaG8Y_t7FIElRqwXY_GLZOjffsLQ5bBLSPgpfFTLk_DNFSG5tv0OJJFunyghd
+      - OAuth 00D20000000CtLC!ARcAQAsLY0P0ovgb7Y2YDUSedWjkxoSVOpwoc48GAL6v1fFWnf2AYWvrdnCV5HdaIJYE2rLaXdI7kP7XvudWLUShAm2ijeiA
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -56,16 +56,16 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 Apr 2014 15:15:33 GMT
+      - Tue, 15 Apr 2014 18:26:00 GMT
       Sforce-Limit-Info:
-      - api-usage=103/5000
+      - api-usage=230/5000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Product2\",\"url\":\"/services/data/v26.0/sobjects/Product2/01t20000003xoy3AAA\"},\"Id\":\"01t20000003xoy3AAA\"}]}"
+      string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Product2\",\"url\":\"/services/data/v26.0/sobjects/Product2/01t20000003xwtoAAA\"},\"Id\":\"01t20000003xwtoAAA\"}]}"
     http_version: 
-  recorded_at: Tue, 08 Apr 2014 15:15:33 GMT
+  recorded_at: Tue, 15 Apr 2014 18:26:01 GMT
 recorded_with: VCR 2.8.0

@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 Apr 2014 15:15:35 GMT
+      - Tue, 15 Apr 2014 18:26:01 GMT
       Pragma:
       - no-cache
       Cache-Control:
@@ -32,9 +32,9 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1396970135587\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"5ZlT69VrFRIzPJFbep29M9HjTe/JDA+2XBXBQdbmTOA=\",\"access_token\":\"00D20000000CtLC!ARcAQD_4FVssYQj2LoRWNt2_AssFe_nfkwZRaG8Y_t7FIElRqwXY_GLZOjffsLQ5bBLSPgpfFTLk_DNFSG5tv0OJJFunyghd\"}"
+      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1397586361853\",\"token_type\":\"Bearer\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"FWERhWdvnc+CZAXW2srZ4ouAzUlswi06LuK9k5Xq8dg=\",\"access_token\":\"00D20000000CtLC!ARcAQAsLY0P0ovgb7Y2YDUSedWjkxoSVOpwoc48GAL6v1fFWnf2AYWvrdnCV5HdaIJYE2rLaXdI7kP7XvudWLUShAm2ijeiA\"}"
     http_version: 
-  recorded_at: Tue, 08 Apr 2014 15:15:35 GMT
+  recorded_at: Tue, 15 Apr 2014 18:26:02 GMT
 - request:
     method: get
     uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Product2%20where%20ProductCode%20=%20'something'
@@ -45,7 +45,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00D20000000CtLC!ARcAQD_4FVssYQj2LoRWNt2_AssFe_nfkwZRaG8Y_t7FIElRqwXY_GLZOjffsLQ5bBLSPgpfFTLk_DNFSG5tv0OJJFunyghd
+      - OAuth 00D20000000CtLC!ARcAQAsLY0P0ovgb7Y2YDUSedWjkxoSVOpwoc48GAL6v1fFWnf2AYWvrdnCV5HdaIJYE2rLaXdI7kP7XvudWLUShAm2ijeiA
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -56,9 +56,9 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 Apr 2014 15:15:36 GMT
+      - Tue, 15 Apr 2014 18:26:02 GMT
       Sforce-Limit-Info:
-      - api-usage=103/5000
+      - api-usage=230/5000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -67,5 +67,5 @@ http_interactions:
       encoding: UTF-8
       string: "{\"totalSize\":0,\"done\":true,\"records\":[]}"
     http_version: 
-  recorded_at: Tue, 08 Apr 2014 15:15:36 GMT
+  recorded_at: Tue, 15 Apr 2014 18:26:02 GMT
 recorded_with: VCR 2.8.0

@@ -3,21 +3,18 @@ require 'spec_helper'
 describe SFService::Product do
   include_examples 'config hash'
   subject { described_class.new(config) }
+  its(:model_name) { should eq 'Product2' }
 
-  it { expect(subject.model_name).to eq 'Product2' }
-
-  context "methods" do
-    describe '#find_id_by_code' do
-      it 'returns id when product with given code exists' do
-        VCR.use_cassette 'services/product_find_id_by_code_true' do
-          expect(subject.find_id_by_code('SPREE-T-SHIRT-S')).to be_a(String)
-        end
+  describe '#find_id_by_code' do
+    it 'returns id when product with given code exists' do
+      VCR.use_cassette 'services/product_find_id_by_code_true' do
+        expect(subject.find_id_by_code('SPREE-T-SHIRT-S')).to be_a(String)
       end
+    end
 
-      it 'returns nil if theres no product with given code' do
-        VCR.use_cassette 'services/product_find_id_by_code_false' do
-          expect(subject.find_id_by_code('something')).to be_nil
-        end
+    it 'returns nil if theres no product with given code' do
+      VCR.use_cassette 'services/product_find_id_by_code_false' do
+        expect(subject.find_id_by_code('something')).to be_nil
       end
     end
   end

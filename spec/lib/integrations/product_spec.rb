@@ -14,16 +14,4 @@ describe Integration::Product do
       subject.upsert!
     end
   end
-
-  describe "#import!" do
-    include_examples 'products payload hash'
-    subject { described_class.new(config, payload) }
-    it { should respond_to(:config) }
-    it { should respond_to(:object) }
-
-    it "calls the import! method on SF product service" do
-      expect(subject.send(:product_service)).to receive(:import!).once
-      subject.import!
-    end
-  end
 end

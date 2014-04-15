@@ -13,3 +13,11 @@ end
 shared_examples "product payload hash" do
   let(:payload) { JSON.parse IO.read("#{File.dirname(__FILE__)}/factories/add_product.json") }
 end
+
+shared_examples "products payload hash" do
+  let(:payload) { JSON.parse IO.read("#{File.dirname(__FILE__)}/factories/import_products.json") }
+end
+
+shared_examples "order payload hash" do
+  let(:payload) { JSON.parse IO.read("#{File.dirname(__FILE__)}/factories/add_order.json") }
+end

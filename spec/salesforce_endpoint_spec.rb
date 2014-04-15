@@ -4,9 +4,9 @@ describe SalesforceEndpoint do
   include_examples 'config hash'
 
   context 'webhooks' do
-    ['add_order', 'update_order',
+    ['add_order', 'update_order', 'cancel_order', 'return_order',
      'add_customer', 'update_customer',
-     'add_product', 'import_products'].each do |path|
+     'add_product', 'update_product', 'import_products'].each do |path|
       describe path do
         let(:payload) do
           payload = Factories.send("#{path}_payload")

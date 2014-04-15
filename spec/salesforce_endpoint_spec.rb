@@ -39,7 +39,7 @@ describe SalesforceEndpoint do
           VCR.use_cassette "requests/#{path}" do
             post "/#{path}", payload.to_json, auth
             body = JSON.parse(last_response.body)
-            expect(body["summary"]).to eq "Successfully upserted contact for #{customer_email}"
+            expect(body["summary"]).to match "Successfully upserted contact for #{customer_email}"
           end
         end
       end

@@ -13,6 +13,10 @@ module SpreeService
       Integration::ContactAccount.new(config, payload[service_name]).upsert!
     end
 
+    def upsert_lineitems!
+      Integration::LineItem.new(config, payload[service_name]).import!
+    end
+
     def upsert_order!
       Integration::Order.new(config, payload).upsert!
     end

@@ -9,11 +9,15 @@ module Integration
     end
 
     def upsert!(payment)
-      payment_service.upsert!(payment_params(payment))
+      payment_service.upsert!(payment_params(payment), order_id)
     end
 
     def import!
       look_up('payments').each { |p| upsert!(p) }
+    end
+
+    def order_id
+      look_up('id')
     end
 
     def look_up(what)

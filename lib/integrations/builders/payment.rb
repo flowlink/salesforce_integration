@@ -10,10 +10,10 @@ module Integration
 
       def build
         params = {
-          'Number__c'   => object['number'],
-          'Status__c'   => object['status'],
-          'Amount__c'   => object['amount'],
-          'Method__c'   => object['payment_method'],
+          'Number__c' => object['number'],
+          'Status__c' => object['status'],
+          'Amount__c' => object['amount'],
+          'Method__c' => object['payment_method'],
         }
       end
     end

@@ -17,6 +17,10 @@ module SpreeService
       Integration::LineItem.new(config, payload[service_name]).import!
     end
 
+    def upsert_payments!
+      Integration::Payment.new(config, payload[service_name]).import!
+    end
+
     def upsert_order!
       Integration::Order.new(config, payload).upsert!
     end

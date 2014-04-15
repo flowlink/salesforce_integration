@@ -2,7 +2,7 @@ module Factories
   class << self
     # TODO put this in a specific fixture folder and loop through each file on that dir
     [:add_customer, :update_customer,
-     :add_order, :update_order, :cancel_order,
+     :add_order, :update_order, :cancel_order, :return_order,
      :add_product, :update_product,
      :import_products,
      :models_to_import].each do |message|

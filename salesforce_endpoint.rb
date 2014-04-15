@@ -16,8 +16,9 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
   ['/add_order', '/update_order'].each do |path|
     post path do
       begin
-        SpreeService::Order.new(@payload, @config).upsert_order!
         SpreeService::Order.new(@payload, @config).upsert_contact_with_account!
+        SpreeService::Order.new(@payload, @config).upsert_order!
+        SpreeService::Order.new(@payload, @config).upsert_payments!
         set_summary "Successfully upserted contact for #{@payload["order"]["email"]} and order ##{@payload["order"]["id"]}"
         result 200
       rescue Exception => e

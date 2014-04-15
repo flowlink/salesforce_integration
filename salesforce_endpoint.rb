@@ -27,6 +27,28 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
     end
   end
 
+  post '/cancel_order' do
+    begin
+      # the real @config and @payload will be provided by the HUB later
+      test_config_hash = {
+        'salesforce_username' => 'tester+netguru@netguru.co',
+        'salesforce_password' => 'testtest123',
+        'salesforce_security_token' => '98feCLrdLjqN7Ji8zhhWf3uc',
+        'salesforce_client_id' => '3MVG9WtWSKUDG.x5hyqXeboVoSErlfbiCvJNDfuwmN77rRhJ6tqCeFKFhuFvMNo0COBif7CT1NnevkMq464Qp',
+        'salesforce_client_secret' => '3920716088724079571'
+      }.with_indifferent_access
+      @config = test_config_hash
+      @payload = JSON.parse IO.read("#{File.dirname(__FILE__)}/spec/support/factories/cancel_order.json")
+      #
+      SpreeService::Order.new(@payload, @config).upsert_order!
+      set_summary "Successfully upserted order ##{@payload["order"]["id"]}"
+      result 200
+    rescue Exception => e
+      report_error(e)
+      result 500
+    end
+  end
+
   ['/add_customer', '/update_customer'].each do |path|
     post path do
       begin

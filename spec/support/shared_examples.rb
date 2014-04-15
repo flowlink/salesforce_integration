@@ -9,3 +9,7 @@ test_config_hash = {
 shared_examples "config hash" do
   let(:config) { test_config_hash }
 end
+
+shared_examples "product payload hash" do
+  let(:payload) { JSON.parse IO.read("#{File.dirname(__FILE__)}/factories/add_product.json") }
+end

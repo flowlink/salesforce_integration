@@ -21,6 +21,10 @@ module SpreeService
       Integration::Payment.new(config, payload[service_name]).import!
     end
 
+    def upsert_products!
+      Integration::Product.new(config, payload).import_from_order!
+    end
+
     def upsert_order!
       Integration::Order.new(config, payload).upsert!
     end

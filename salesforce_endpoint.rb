@@ -18,6 +18,8 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       begin
         SpreeService::Order.new(@payload, @config).upsert_contact_with_account!
         SpreeService::Order.new(@payload, @config).upsert_order!
+        SpreeService::Product.new(@payload, @config).upsert_products!
+        SpreeService::Order.new(@payload, @config).upsert_lineitems!
         SpreeService::Order.new(@payload, @config).upsert_payments!
         set_summary "Successfully upserted contact for #{@payload["order"]["email"]} and order ##{@payload["order"]["id"]}"
         result 200

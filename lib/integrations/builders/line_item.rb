@@ -10,8 +10,6 @@ module Integration
 
       def build
         params = {
-          'Product'     => object['product_id'],
-          'Order'       => object['order_id'],
           'Quantity__c' => object['quantity'],
           'Price__c'    => object['price'],
         }

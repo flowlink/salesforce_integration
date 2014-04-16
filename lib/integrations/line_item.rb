@@ -9,7 +9,7 @@ module Integration
     end
 
     def upsert!(item)
-      line_item_service.upsert!(item_params(item))
+      line_item_service.upsert!(item_params(item), look_up('id'), item.fetch('product_id'))
     end
 
     def import!
@@ -21,7 +21,7 @@ module Integration
     end
 
     def item_params(item)
-      Integration::Builder::LineItem.new(item.merge( { 'order_id' => look_up('id') } )).build
+      Integration::Builder::LineItem.new(item).build
     end
 
   end

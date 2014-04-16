@@ -23,6 +23,7 @@ require 'integrations/builders/product'
 require 'integrations/builders/order'
 require 'integrations/builders/line_item'
 require 'integrations/builders/payment'
+require 'integrations/builders/order_product'
 
 require 'SF_services/base'
 require 'SF_services/account'

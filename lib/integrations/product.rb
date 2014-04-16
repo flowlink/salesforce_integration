@@ -8,12 +8,21 @@ module Integration
       super(config)
     end
 
-    def upsert!
-      product_service.upsert!(product_params['ProductCode'], product_params)
+    def upsert!(item = nil)
+      item ||= product_params
+      product_service.upsert!(item['ProductCode'], item)
     end
 
     def import!
       product_service.import!(products_params)
+    end
+
+    def import_from_order!
+      look_up('line_items').each { |item| upsert!(order_product_params(item)) }
+    end
+
+    def look_up(what)
+      object[what]
     end
 
     private
@@ -24,7 +33,15 @@ module Integration
     end
 
     def products_params
-      object['products'].map { |item| product_params(item['product']) }
+      object['products'].map { |item| product_params(item) }
+    end
+
+    def order_product_params(payload_item)
+      Integration::Builder::OrderProduct.new(payload_item).build
+    end
+
+    def look_up(what)
+      object['order'][what]
     end
 
   end

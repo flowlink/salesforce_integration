@@ -14,11 +14,18 @@ module SFService
       results.any? ? results.first['Id'] : nil
     end
 
-    def upsert!(line_item_attr = {})
-      order_id   = find_order(line_item_attr['Order'])
-      product_id = find_product(line_item_attr['Product'])
+    def find_line_item(order_id, product_id)
+      results = salesforce.query("select Id from LineItem__c where Order__c = '#{order_id}' and Product__c = '#{product_id}'")
+      results.any? ? results.first['Id'] : nil
+    end
 
-      create!(line_item_attr.merge( { 'Order__c' => order_id } ))
+    def upsert!(line_item_attr = {}, order_code, product_code)
+      order_id     = find_order(order_code)
+      product_id   = find_product(product_code)
+      line_item_id = find_line_item(order_id, product_id)
+
+      line_item_attr = [line_item_attr, { 'Order__c' => order_id }, { 'Product__c' => product_id }].reduce &:merge
+      line_item_id.present? ? update!(line_item_attr) : create!(line_item_attr)
     end
   end
 end

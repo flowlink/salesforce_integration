@@ -27,7 +27,7 @@ module SFService
       payment_attr = payment_attr.merge( { 'Account__c' => account_id } ) if account_id.present?
 
       payment_id = is_present?(payment_attr.fetch 'Number__c')
-      payment_id.present? ? update!(payment_id.merge({ Id: payment_id })) : create!(payment_attr)
+      payment_id.present? ? update!(payment_attr.merge({ Id: payment_id })) : create!(payment_attr)
     end
   end
 end

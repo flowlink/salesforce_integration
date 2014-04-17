@@ -9,7 +9,7 @@ module Integration
     end
 
     def upsert!(payment)
-      payment_service.upsert!(payment_params(payment), order_id)
+      payment_service.upsert!(payment_params(payment), order_id, email)
     end
 
     def import!
@@ -18,6 +18,10 @@ module Integration
 
     def order_id
       look_up('id')
+    end
+
+    def email
+      look_up('email')
     end
 
     def look_up(what)

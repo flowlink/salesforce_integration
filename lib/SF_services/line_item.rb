@@ -25,7 +25,7 @@ module SFService
       line_item_id = find_line_item(order_id, product_id)
 
       line_item_attr = [line_item_attr, { 'Order__c' => order_id }, { 'Product__c' => product_id }].reduce &:merge
-      line_item_id.present? ? update!(line_item_attr) : create!(line_item_attr)
+      line_item_id.present? ? update!(line_item_attr.merge({ Id: line_item_id })) : create!(line_item_attr)
     end
   end
 end

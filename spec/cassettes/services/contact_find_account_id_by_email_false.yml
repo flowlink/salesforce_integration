@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2014 18:25:52 GMT
+      - Tue, 15 Apr 2014 18:25:58 GMT
       Pragma:
       - no-cache
       Cache-Control:
@@ -32,12 +32,12 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1397586352594\",\"token_type\":\"Bearer\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"HpUgBoFyVhQBs4yiMwkigScINvGWan9evcfXAI3/tu0=\",\"access_token\":\"00D20000000CtLC!ARcAQAsLY0P0ovgb7Y2YDUSedWjkxoSVOpwoc48GAL6v1fFWnf2AYWvrdnCV5HdaIJYE2rLaXdI7kP7XvudWLUShAm2ijeiA\"}"
+      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1397586358251\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"B15+ooTKX1nFEdogQ3dhxbFBSnZmXnHolIVYgPbpl3k=\",\"access_token\":\"00D20000000CtLC!ARcAQAsLY0P0ovgb7Y2YDUSedWjkxoSVOpwoc48GAL6v1fFWnf2AYWvrdnCV5HdaIJYE2rLaXdI7kP7XvudWLUShAm2ijeiA\"}"
     http_version: 
-  recorded_at: Tue, 15 Apr 2014 18:25:52 GMT
+  recorded_at: Tue, 15 Apr 2014 18:25:58 GMT
 - request:
     method: get
-    uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'spree@example.com'
+    uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Account__c%20from%20Contact%20where%20Email%20=%20'not-available@test.com'
     body:
       encoding: US-ASCII
       string: ''
@@ -56,7 +56,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2014 18:25:53 GMT
+      - Tue, 15 Apr 2014 18:25:59 GMT
       Sforce-Limit-Info:
       - api-usage=230/5000
       Content-Type:
@@ -65,7 +65,7 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ\"},\"Id\":\"0032000001CocEKAAZ\"}]}"
+      string: "{\"totalSize\":0,\"done\":true,\"records\":[]}"
     http_version: 
-  recorded_at: Tue, 15 Apr 2014 18:25:53 GMT
+  recorded_at: Tue, 15 Apr 2014 18:25:59 GMT
 recorded_with: VCR 2.8.0

@@ -1,7 +1,7 @@
-{ "products": [
-  {
-    "request_id": "52f367367575e449c3000001",
-    "product": {
+{
+  "request_id": "52f367367575e449c3000001",
+  "products": [
+    {
       "id": 58,
       "parent_id": 11,
       "name": "Spree T-Shirt",
@@ -45,11 +45,8 @@
           }
         }
       ]
-    }
-  },
-  {
-    "request_id": "52f367367575e449c3000002",
-    "product": {
+    },
+    {
       "id": 59,
       "parent_id": 11,
       "name": "Spree T-Shirt-2",
@@ -94,5 +91,5 @@
         }
       ]
     }
-  }
-] }
+  ]
+}

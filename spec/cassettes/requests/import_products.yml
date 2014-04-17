@@ -34,11 +34,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 07 Apr 2014 11:50:17 GMT
+      - Fri, 11 Apr 2014 19:25:08 GMT
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '795'
+      - '796'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -53,9 +53,9 @@ http_interactions:
         PmZhbHNlPC9wYXNzd29yZEV4cGlyZWQ+PHNhbmRib3g+ZmFsc2U8L3NhbmRi
         b3g+PHNlcnZlclVybD5odHRwczovL2VtZWEuc2FsZXNmb3JjZS5jb20vc2Vy
         dmljZXMvU29hcC91LzI4LjAvMDBEMjAwMDAwMDBDdExDPC9zZXJ2ZXJVcmw+
-        PHNlc3Npb25JZD4wMEQyMDAwMDAwMEN0TEMhQVJjQVFMdGRXNS55b042NHVV
-        VG45NmtCd0NqWExoUThFakZ5c2JHRWNSOGRianJKbUV4eWVrcmR4SWN4VW9V
-        T2l4ZXdpS0s5M1NlekNwMVQxSU9hVUR5NmJtbl9hRXJXPC9zZXNzaW9uSWQ+
+        PHNlc3Npb25JZD4wMEQyMDAwMDAwMEN0TEMhQVJjQVFJRVNKXzBTcXYxcV9m
+        b0hybDZLMWI5R3lyUnZpUThqcXd0eEdBSkE3MlZ2NG5wX2s0aXFIVVRhMTJF
+        V3JwNW0uRzBrcHZzYVNnT0oucVFrOW42R1h0bjFQY25GPC9zZXNzaW9uSWQ+
         PHVzZXJJZD4wMDUyMDAwMDAwMzlEQzRBQU08L3VzZXJJZD48dXNlckluZm8+
         PGFjY2Vzc2liaWxpdHlNb2RlPmZhbHNlPC9hY2Nlc3NpYmlsaXR5TW9kZT48
         Y3VycmVuY3lTeW1ib2w+4oKsPC9jdXJyZW5jeVN5bWJvbD48b3JnQXR0YWNo
@@ -81,8 +81,8 @@ http_interactions:
         aW4+VGhlbWUzPC91c2VyVWlTa2luPjwvdXNlckluZm8+PC9yZXN1bHQ+PC9s
         b2dpblJlc3BvbnNlPjwvc29hcGVudjpCb2R5Pjwvc29hcGVudjpFbnZlbG9w
         ZT4=
-    http_version:
-  recorded_at: Mon, 07 Apr 2014 11:50:17 GMT
+    http_version: 
+  recorded_at: Fri, 11 Apr 2014 19:25:08 GMT
 - request:
     method: post
     uri: https://emea.salesforce.com/services/async/28.0/job
@@ -96,7 +96,7 @@ http_interactions:
       Content-Type:
       - application/xml; charset=utf-8
       X-Sfdc-Session:
-      - 00D20000000CtLC!ARcAQLtdW5.yoN64uUTn96kBwCjXLhQ8EjFysbGEcR8dbjrJmExyekrdxIcxUoUOixewiKK93SezCp1T1IOaUDy6bmn_aErW
+      - 00D20000000CtLC!ARcAQIESJ_0Sqv1q_foHrl6K1b9GyrRviQ8jqwtxGAJA72Vv4np_k4iqHUTa12EWrp5m.G0kpvsaSgOJ.qQk9n6GXtn1PcnF
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -109,9 +109,9 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Mon, 07 Apr 2014 11:50:18 GMT
+      - Fri, 11 Apr 2014 19:25:09 GMT
       Location:
-      - "/services/async/28.0/job/750200000019mHSAAY"
+      - "/services/async/28.0/job/750200000019uScAAI"
       Content-Type:
       - application/xml
       Transfer-Encoding:
@@ -121,12 +121,12 @@ http_interactions:
       string: |-
         <?xml version="1.0" encoding="UTF-8"?><jobInfo
            xmlns="http://www.force.com/2009/06/asyncapi/dataload">
-         <id>750200000019mHSAAY</id>
+         <id>750200000019uScAAI</id>
          <operation>upsert</operation>
          <object>Product2</object>
          <createdById>005200000039DC4AAM</createdById>
-         <createdDate>2014-04-07T11:50:18.000Z</createdDate>
-         <systemModstamp>2014-04-07T11:50:18.000Z</systemModstamp>
+         <createdDate>2014-04-11T19:25:10.000Z</createdDate>
+         <systemModstamp>2014-04-11T19:25:10.000Z</systemModstamp>
          <state>Open</state>
          <externalIdFieldName>ExternalId__c</externalIdFieldName>
          <concurrencyMode>Parallel</concurrencyMode>
@@ -144,20 +144,22 @@ http_interactions:
          <apiActiveProcessingTime>0</apiActiveProcessingTime>
          <apexProcessingTime>0</apexProcessingTime>
         </jobInfo>
-    http_version:
-  recorded_at: Mon, 07 Apr 2014 11:50:18 GMT
+    http_version: 
+  recorded_at: Fri, 11 Apr 2014 19:25:10 GMT
 - request:
     method: post
-    uri: https://emea.salesforce.com/services/async/28.0/job/750200000019mHSAAY/batch
+    uri: https://emea.salesforce.com/services/async/28.0/job/750200000019uScAAI/batch
     body:
       encoding: UTF-8
       string: |
-        ""
+        "Name","ProductCode","Description","Price__c","ExternalID__c"
+        "Spree T-Shirt","SPREE-T-SHIRT-S","Awesome Spree T-Shirt","35","SPREE-T-SHIRT-S"
+        "Spree T-Shirt-2","SPREE-T-SHIRT-S-2","Awesome Spree T-Shirt-2","36","SPREE-T-SHIRT-S-2"
     headers:
       Content-Type:
       - text/csv; charset=UTF-8
       X-Sfdc-Session:
-      - 00D20000000CtLC!ARcAQLtdW5.yoN64uUTn96kBwCjXLhQ8EjFysbGEcR8dbjrJmExyekrdxIcxUoUOixewiKK93SezCp1T1IOaUDy6bmn_aErW
+      - 00D20000000CtLC!ARcAQIESJ_0Sqv1q_foHrl6K1b9GyrRviQ8jqwtxGAJA72Vv4np_k4iqHUTa12EWrp5m.G0kpvsaSgOJ.qQk9n6GXtn1PcnF
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -170,9 +172,9 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Mon, 07 Apr 2014 11:50:18 GMT
+      - Fri, 11 Apr 2014 19:25:10 GMT
       Location:
-      - "/services/async/28.0/job/750200000019mHSAAY/batch/751200000021wELAAY"
+      - "/services/async/28.0/job/750200000019uScAAI/batch/7512000000222THAAY"
       Content-Type:
       - application/xml
       Transfer-Encoding:
@@ -182,22 +184,22 @@ http_interactions:
       string: |-
         <?xml version="1.0" encoding="UTF-8"?><batchInfo
            xmlns="http://www.force.com/2009/06/asyncapi/dataload">
-         <id>751200000021wELAAY</id>
-         <jobId>750200000019mHSAAY</jobId>
+         <id>7512000000222THAAY</id>
+         <jobId>750200000019uScAAI</jobId>
          <state>Queued</state>
-         <createdDate>2014-04-07T11:50:18.000Z</createdDate>
-         <systemModstamp>2014-04-07T11:50:18.000Z</systemModstamp>
+         <createdDate>2014-04-11T19:25:10.000Z</createdDate>
+         <systemModstamp>2014-04-11T19:25:11.000Z</systemModstamp>
          <numberRecordsProcessed>0</numberRecordsProcessed>
          <numberRecordsFailed>0</numberRecordsFailed>
          <totalProcessingTime>0</totalProcessingTime>
          <apiActiveProcessingTime>0</apiActiveProcessingTime>
          <apexProcessingTime>0</apexProcessingTime>
         </batchInfo>
-    http_version:
-  recorded_at: Mon, 07 Apr 2014 11:50:18 GMT
+    http_version: 
+  recorded_at: Fri, 11 Apr 2014 19:25:11 GMT
 - request:
     method: post
-    uri: https://emea.salesforce.com/services/async/28.0/job/750200000019mHSAAY
+    uri: https://emea.salesforce.com/services/async/28.0/job/750200000019uScAAI
     body:
       encoding: UTF-8
       string: "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n          <jobInfo xmlns=\"http://www.force.com/2009/06/asyncapi/dataload\">\n
@@ -206,7 +208,7 @@ http_interactions:
       Content-Type:
       - application/xml; charset=utf-8
       X-Sfdc-Session:
-      - 00D20000000CtLC!ARcAQLtdW5.yoN64uUTn96kBwCjXLhQ8EjFysbGEcR8dbjrJmExyekrdxIcxUoUOixewiKK93SezCp1T1IOaUDy6bmn_aErW
+      - 00D20000000CtLC!ARcAQIESJ_0Sqv1q_foHrl6K1b9GyrRviQ8jqwtxGAJA72Vv4np_k4iqHUTa12EWrp5m.G0kpvsaSgOJ.qQk9n6GXtn1PcnF
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -219,7 +221,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 07 Apr 2014 11:50:19 GMT
+      - Fri, 11 Apr 2014 19:25:11 GMT
       Content-Type:
       - application/xml
       Transfer-Encoding:
@@ -229,12 +231,12 @@ http_interactions:
       string: |-
         <?xml version="1.0" encoding="UTF-8"?><jobInfo
            xmlns="http://www.force.com/2009/06/asyncapi/dataload">
-         <id>750200000019mHSAAY</id>
+         <id>750200000019uScAAI</id>
          <operation>upsert</operation>
          <object>Product2</object>
          <createdById>005200000039DC4AAM</createdById>
-         <createdDate>2014-04-07T11:50:18.000Z</createdDate>
-         <systemModstamp>2014-04-07T11:50:18.000Z</systemModstamp>
+         <createdDate>2014-04-11T19:25:10.000Z</createdDate>
+         <systemModstamp>2014-04-11T19:25:10.000Z</systemModstamp>
          <state>Closed</state>
          <externalIdFieldName>ExternalId__c</externalIdFieldName>
          <concurrencyMode>Parallel</concurrencyMode>
@@ -247,35 +249,22 @@ http_interactions:
          <numberRecordsProcessed>2</numberRecordsProcessed>
          <numberRetries>0</numberRetries>
          <apiVersion>28.0</apiVersion>
-         <numberRecordsFailed>2</numberRecordsFailed>
-         <totalProcessingTime>143</totalProcessingTime>
-         <apiActiveProcessingTime>5</apiActiveProcessingTime>
+         <numberRecordsFailed>0</numberRecordsFailed>
+         <totalProcessingTime>151</totalProcessingTime>
+         <apiActiveProcessingTime>75</apiActiveProcessingTime>
          <apexProcessingTime>0</apexProcessingTime>
         </jobInfo>
-    http_version:
-  recorded_at: Mon, 07 Apr 2014 11:50:19 GMT
+    http_version: 
+  recorded_at: Fri, 11 Apr 2014 19:25:11 GMT
 - request:
-    method: post
-    uri: https://login.salesforce.com/services/Soap/u/28.0
+    method: get
+    uri: https://emea.salesforce.com/services/async/28.0/job/750200000019uScAAI/batch/7512000000222THAAY
     body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" encoding="utf-8" ?>
-                <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                    xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
-                  <env:Body>
-                    <n1:login xmlns:n1="urn:partner.soap.sforce.com">
-                      <n1:username>tester+netguru@netguru.co</n1:username>
-                      <n1:password>testtest12398feCLrdLjqN7Ji8zhhWf3uc</n1:password>
-                    </n1:login>
-                  </env:Body>
-                </env:Envelope>
+      encoding: US-ASCII
+      string: ''
     headers:
-      Content-Type:
-      - text/xml; charset=utf-8
-      Soapaction:
-      - login
+      X-Sfdc-Session:
+      - 00D20000000CtLC!ARcAQIESJ_0Sqv1q_foHrl6K1b9GyrRviQ8jqwtxGAJA72Vv4np_k4iqHUTa12EWrp5m.G0kpvsaSgOJ.qQk9n6GXtn1PcnF
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -288,145 +277,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 07 Apr 2014 11:51:08 GMT
-      Content-Type:
-      - text/xml;charset=UTF-8
-      Content-Length:
-      - '795'
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c29hcGVu
-        djpFbnZlbG9wZSB4bWxuczpzb2FwZW52PSJodHRwOi8vc2NoZW1hcy54bWxz
-        b2FwLm9yZy9zb2FwL2VudmVsb3BlLyIgeG1sbnM9InVybjpwYXJ0bmVyLnNv
-        YXAuc2ZvcmNlLmNvbSIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8y
-        MDAxL1hNTFNjaGVtYS1pbnN0YW5jZSI+PHNvYXBlbnY6Qm9keT48bG9naW5S
-        ZXNwb25zZT48cmVzdWx0PjxtZXRhZGF0YVNlcnZlclVybD5odHRwczovL2Vt
-        ZWEuc2FsZXNmb3JjZS5jb20vc2VydmljZXMvU29hcC9tLzI4LjAvMDBEMjAw
-        MDAwMDBDdExDPC9tZXRhZGF0YVNlcnZlclVybD48cGFzc3dvcmRFeHBpcmVk
-        PmZhbHNlPC9wYXNzd29yZEV4cGlyZWQ+PHNhbmRib3g+ZmFsc2U8L3NhbmRi
-        b3g+PHNlcnZlclVybD5odHRwczovL2VtZWEuc2FsZXNmb3JjZS5jb20vc2Vy
-        dmljZXMvU29hcC91LzI4LjAvMDBEMjAwMDAwMDBDdExDPC9zZXJ2ZXJVcmw+
-        PHNlc3Npb25JZD4wMEQyMDAwMDAwMEN0TEMhQVJjQVFMdGRXNS55b042NHVV
-        VG45NmtCd0NqWExoUThFakZ5c2JHRWNSOGRianJKbUV4eWVrcmR4SWN4VW9V
-        T2l4ZXdpS0s5M1NlekNwMVQxSU9hVUR5NmJtbl9hRXJXPC9zZXNzaW9uSWQ+
-        PHVzZXJJZD4wMDUyMDAwMDAwMzlEQzRBQU08L3VzZXJJZD48dXNlckluZm8+
-        PGFjY2Vzc2liaWxpdHlNb2RlPmZhbHNlPC9hY2Nlc3NpYmlsaXR5TW9kZT48
-        Y3VycmVuY3lTeW1ib2w+4oKsPC9jdXJyZW5jeVN5bWJvbD48b3JnQXR0YWNo
-        bWVudEZpbGVTaXplTGltaXQ+NTI0Mjg4MDwvb3JnQXR0YWNobWVudEZpbGVT
-        aXplTGltaXQ+PG9yZ0RlZmF1bHRDdXJyZW5jeUlzb0NvZGU+RVVSPC9vcmdE
-        ZWZhdWx0Q3VycmVuY3lJc29Db2RlPjxvcmdEaXNhbGxvd0h0bWxBdHRhY2ht
-        ZW50cz5mYWxzZTwvb3JnRGlzYWxsb3dIdG1sQXR0YWNobWVudHM+PG9yZ0hh
-        c1BlcnNvbkFjY291bnRzPmZhbHNlPC9vcmdIYXNQZXJzb25BY2NvdW50cz48
-        b3JnYW5pemF0aW9uSWQ+MDBEMjAwMDAwMDBDdExDRUEwPC9vcmdhbml6YXRp
-        b25JZD48b3JnYW5pemF0aW9uTXVsdGlDdXJyZW5jeT5mYWxzZTwvb3JnYW5p
-        emF0aW9uTXVsdGlDdXJyZW5jeT48b3JnYW5pemF0aW9uTmFtZT51bmRlZmlu
-        ZWQ8L29yZ2FuaXphdGlvbk5hbWU+PHByb2ZpbGVJZD4wMGUyMDAwMDAwMUdK
-        a3dBQUc8L3Byb2ZpbGVJZD48cm9sZUlkIHhzaTpuaWw9InRydWUiLz48c2Vz
-        c2lvblNlY29uZHNWYWxpZD43MjAwPC9zZXNzaW9uU2Vjb25kc1ZhbGlkPjx1
-        c2VyRGVmYXVsdEN1cnJlbmN5SXNvQ29kZSB4c2k6bmlsPSJ0cnVlIi8+PHVz
-        ZXJFbWFpbD5tYXJlay5idXN6bWFuK3NhbGVzZm9yY2VAbmV0Z3VydS5jbzwv
-        dXNlckVtYWlsPjx1c2VyRnVsbE5hbWU+VGVzdGVyPC91c2VyRnVsbE5hbWU+
-        PHVzZXJJZD4wMDUyMDAwMDAwMzlEQzRBQU08L3VzZXJJZD48dXNlckxhbmd1
-        YWdlPmVuX1VTPC91c2VyTGFuZ3VhZ2U+PHVzZXJMb2NhbGU+cGxfUEw8L3Vz
-        ZXJMb2NhbGU+PHVzZXJOYW1lPnRlc3RlcituZXRndXJ1QG5ldGd1cnUuY288
-        L3VzZXJOYW1lPjx1c2VyVGltZVpvbmU+RXVyb3BlL0R1YmxpbjwvdXNlclRp
-        bWVab25lPjx1c2VyVHlwZT5TdGFuZGFyZDwvdXNlclR5cGU+PHVzZXJVaVNr
-        aW4+VGhlbWUzPC91c2VyVWlTa2luPjwvdXNlckluZm8+PC9yZXN1bHQ+PC9s
-        b2dpblJlc3BvbnNlPjwvc29hcGVudjpCb2R5Pjwvc29hcGVudjpFbnZlbG9w
-        ZT4=
-    http_version:
-  recorded_at: Mon, 07 Apr 2014 11:51:08 GMT
-- request:
-    method: post
-    uri: https://emea.salesforce.com/services/async/28.0/job
-    body:
-      encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n          <jobInfo xmlns=\"http://www.force.com/2009/06/asyncapi/dataload\">\n
-        \           <operation>upsert</operation>\n            <object>Product2</object>\n
-        \           <externalIdFieldName>ExternalId__c</externalIdFieldName>\n            <contentType>CSV</contentType>\n
-        \         </jobInfo>\n        "
-    headers:
-      Content-Type:
-      - application/xml; charset=utf-8
-      X-Sfdc-Session:
-      - 00D20000000CtLC!ARcAQLtdW5.yoN64uUTn96kBwCjXLhQ8EjFysbGEcR8dbjrJmExyekrdxIcxUoUOixewiKK93SezCp1T1IOaUDy6bmn_aErW
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Date:
-      - Mon, 07 Apr 2014 11:51:09 GMT
-      Location:
-      - "/services/async/28.0/job/750200000019mIPAAY"
-      Content-Type:
-      - application/xml
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" encoding="UTF-8"?><jobInfo
-           xmlns="http://www.force.com/2009/06/asyncapi/dataload">
-         <id>750200000019mIPAAY</id>
-         <operation>upsert</operation>
-         <object>Product2</object>
-         <createdById>005200000039DC4AAM</createdById>
-         <createdDate>2014-04-07T11:51:10.000Z</createdDate>
-         <systemModstamp>2014-04-07T11:51:10.000Z</systemModstamp>
-         <state>Open</state>
-         <externalIdFieldName>ExternalId__c</externalIdFieldName>
-         <concurrencyMode>Parallel</concurrencyMode>
-         <contentType>CSV</contentType>
-         <numberBatchesQueued>0</numberBatchesQueued>
-         <numberBatchesInProgress>0</numberBatchesInProgress>
-         <numberBatchesCompleted>0</numberBatchesCompleted>
-         <numberBatchesFailed>0</numberBatchesFailed>
-         <numberBatchesTotal>0</numberBatchesTotal>
-         <numberRecordsProcessed>0</numberRecordsProcessed>
-         <numberRetries>0</numberRetries>
-         <apiVersion>28.0</apiVersion>
-         <numberRecordsFailed>0</numberRecordsFailed>
-         <totalProcessingTime>0</totalProcessingTime>
-         <apiActiveProcessingTime>0</apiActiveProcessingTime>
-         <apexProcessingTime>0</apexProcessingTime>
-        </jobInfo>
-    http_version:
-  recorded_at: Mon, 07 Apr 2014 11:51:10 GMT
-- request:
-    method: post
-    uri: https://emea.salesforce.com/services/async/28.0/job/750200000019mIPAAY/batch
-    body:
-      encoding: UTF-8
-      string: |
-        ""
-    headers:
-      Content-Type:
-      - text/csv; charset=UTF-8
-      X-Sfdc-Session:
-      - 00D20000000CtLC!ARcAQLtdW5.yoN64uUTn96kBwCjXLhQ8EjFysbGEcR8dbjrJmExyekrdxIcxUoUOixewiKK93SezCp1T1IOaUDy6bmn_aErW
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Date:
-      - Mon, 07 Apr 2014 11:51:10 GMT
-      Location:
-      - "/services/async/28.0/job/750200000019mIPAAY/batch/751200000021wEVAAY"
+      - Fri, 11 Apr 2014 19:25:12 GMT
       Content-Type:
       - application/xml
       Transfer-Encoding:
@@ -436,76 +287,17 @@ http_interactions:
       string: |-
         <?xml version="1.0" encoding="UTF-8"?><batchInfo
            xmlns="http://www.force.com/2009/06/asyncapi/dataload">
-         <id>751200000021wEVAAY</id>
-         <jobId>750200000019mIPAAY</jobId>
-         <state>Queued</state>
-         <createdDate>2014-04-07T11:51:10.000Z</createdDate>
-         <systemModstamp>2014-04-07T11:51:10.000Z</systemModstamp>
-         <numberRecordsProcessed>0</numberRecordsProcessed>
+         <id>7512000000222THAAY</id>
+         <jobId>750200000019uScAAI</jobId>
+         <state>Completed</state>
+         <createdDate>2014-04-11T19:25:10.000Z</createdDate>
+         <systemModstamp>2014-04-11T19:25:11.000Z</systemModstamp>
+         <numberRecordsProcessed>2</numberRecordsProcessed>
          <numberRecordsFailed>0</numberRecordsFailed>
-         <totalProcessingTime>0</totalProcessingTime>
-         <apiActiveProcessingTime>0</apiActiveProcessingTime>
+         <totalProcessingTime>151</totalProcessingTime>
+         <apiActiveProcessingTime>75</apiActiveProcessingTime>
          <apexProcessingTime>0</apexProcessingTime>
         </batchInfo>
-    http_version:
-  recorded_at: Mon, 07 Apr 2014 11:51:10 GMT
-- request:
-    method: post
-    uri: https://emea.salesforce.com/services/async/28.0/job/750200000019mIPAAY
-    body:
-      encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n          <jobInfo xmlns=\"http://www.force.com/2009/06/asyncapi/dataload\">\n
-        \           <state>Closed</state>\n          </jobInfo>\n        "
-    headers:
-      Content-Type:
-      - application/xml; charset=utf-8
-      X-Sfdc-Session:
-      - 00D20000000CtLC!ARcAQLtdW5.yoN64uUTn96kBwCjXLhQ8EjFysbGEcR8dbjrJmExyekrdxIcxUoUOixewiKK93SezCp1T1IOaUDy6bmn_aErW
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Mon, 07 Apr 2014 11:51:11 GMT
-      Content-Type:
-      - application/xml
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" encoding="UTF-8"?><jobInfo
-           xmlns="http://www.force.com/2009/06/asyncapi/dataload">
-         <id>750200000019mIPAAY</id>
-         <operation>upsert</operation>
-         <object>Product2</object>
-         <createdById>005200000039DC4AAM</createdById>
-         <createdDate>2014-04-07T11:51:10.000Z</createdDate>
-         <systemModstamp>2014-04-07T11:51:10.000Z</systemModstamp>
-         <state>Closed</state>
-         <externalIdFieldName>ExternalId__c</externalIdFieldName>
-         <concurrencyMode>Parallel</concurrencyMode>
-         <contentType>CSV</contentType>
-         <numberBatchesQueued>0</numberBatchesQueued>
-         <numberBatchesInProgress>0</numberBatchesInProgress>
-         <numberBatchesCompleted>1</numberBatchesCompleted>
-         <numberBatchesFailed>0</numberBatchesFailed>
-         <numberBatchesTotal>1</numberBatchesTotal>
-         <numberRecordsProcessed>2</numberRecordsProcessed>
-         <numberRetries>0</numberRetries>
-         <apiVersion>28.0</apiVersion>
-         <numberRecordsFailed>2</numberRecordsFailed>
-         <totalProcessingTime>65</totalProcessingTime>
-         <apiActiveProcessingTime>6</apiActiveProcessingTime>
-         <apexProcessingTime>0</apexProcessingTime>
-        </jobInfo>
-    http_version:
-  recorded_at: Mon, 07 Apr 2014 11:51:11 GMT
+    http_version: 
+  recorded_at: Fri, 11 Apr 2014 19:25:12 GMT
 recorded_with: VCR 2.8.0

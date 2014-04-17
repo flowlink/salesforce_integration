@@ -1,7 +1,9 @@
-module SalesforceIntegration
-  module Service
-    class ContactBuilder
+module Integration
+  module Builder
+    class Contact
+
       attr_reader :object
+
       def initialize(object)
         @object = object.with_indifferent_access
       end
@@ -18,6 +20,7 @@ module SalesforceIntegration
       end
 
       private
+
       def import_phone_numbers
         {
           'Phone'      => shipping_address['phone'],

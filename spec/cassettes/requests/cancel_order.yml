@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2014 10:24:24 GMT
+      - Tue, 15 Apr 2014 12:07:30 GMT
       Pragma:
       - no-cache
       Cache-Control:
@@ -32,9 +32,9 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1397557464142\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"ogrx3KKoypcU5mwJoZFjG1SZjzUbEt5RLQ2Xv8+w340=\",\"access_token\":\"00D20000000CtLC!ARcAQGqLE_LXcXVbpy2MUngfFw5SBIiDdjDCqQWmpbJIrCcLg_zk3Z_XIBvMpFGjW0.HWoyc0OMZ37aknY4nahDWYdeK9QOt\"}"
+      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1397563650314\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"Cqpj8l7XopPDgnMTwtcwiyxVkInPC2CDOgmIhn0Jj7M=\",\"access_token\":\"00D20000000CtLC!ARcAQGqLE_LXcXVbpy2MUngfFw5SBIiDdjDCqQWmpbJIrCcLg_zk3Z_XIBvMpFGjW0.HWoyc0OMZ37aknY4nahDWYdeK9QOt\"}"
     http_version: 
-  recorded_at: Tue, 15 Apr 2014 10:24:24 GMT
+  recorded_at: Tue, 15 Apr 2014 12:07:30 GMT
 - request:
     method: get
     uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Account__c%20from%20Contact%20where%20Email%20=%20'spree@example.com'
@@ -56,9 +56,9 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2014 10:24:25 GMT
+      - Tue, 15 Apr 2014 12:07:31 GMT
       Sforce-Limit-Info:
-      - api-usage=91/5000
+      - api-usage=106/5000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -67,7 +67,7 @@ http_interactions:
       encoding: UTF-8
       string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ\"},\"Account__c\":\"00120000017cLeRAAU\"}]}"
     http_version: 
-  recorded_at: Tue, 15 Apr 2014 10:24:25 GMT
+  recorded_at: Tue, 15 Apr 2014 12:07:31 GMT
 - request:
     method: get
     uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'spree@example.com'
@@ -89,9 +89,9 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2014 10:24:25 GMT
+      - Tue, 15 Apr 2014 12:07:31 GMT
       Sforce-Limit-Info:
-      - api-usage=91/5000
+      - api-usage=106/5000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -100,7 +100,7 @@ http_interactions:
       encoding: UTF-8
       string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ\"},\"Id\":\"0032000001CocEKAAZ\"}]}"
     http_version: 
-  recorded_at: Tue, 15 Apr 2014 10:24:25 GMT
+  recorded_at: Tue, 15 Apr 2014 12:07:32 GMT
 - request:
     method: patch
     uri: https://emea.salesforce.com/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ
@@ -126,14 +126,14 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Tue, 15 Apr 2014 10:24:26 GMT
+      - Tue, 15 Apr 2014 12:07:32 GMT
       Sforce-Limit-Info:
-      - api-usage=91/5000
+      - api-usage=107/5000
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 15 Apr 2014 10:24:26 GMT
+  recorded_at: Tue, 15 Apr 2014 12:07:32 GMT
 - request:
     method: post
     uri: https://login.salesforce.com/services/oauth2/token
@@ -155,7 +155,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2014 10:24:27 GMT
+      - Tue, 15 Apr 2014 12:07:33 GMT
       Pragma:
       - no-cache
       Cache-Control:
@@ -166,9 +166,9 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1397557467292\",\"token_type\":\"Bearer\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"i8kTzGf59lnMkfRWKG29TO7OnMowWnhns17KC997nTM=\",\"access_token\":\"00D20000000CtLC!ARcAQGqLE_LXcXVbpy2MUngfFw5SBIiDdjDCqQWmpbJIrCcLg_zk3Z_XIBvMpFGjW0.HWoyc0OMZ37aknY4nahDWYdeK9QOt\"}"
+      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1397563653597\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"YniJlKOrdKfQRUKdU97xOmwa9CFoyiQ9Zx+Umh/JM/A=\",\"access_token\":\"00D20000000CtLC!ARcAQGqLE_LXcXVbpy2MUngfFw5SBIiDdjDCqQWmpbJIrCcLg_zk3Z_XIBvMpFGjW0.HWoyc0OMZ37aknY4nahDWYdeK9QOt\"}"
     http_version: 
-  recorded_at: Tue, 15 Apr 2014 10:24:27 GMT
+  recorded_at: Tue, 15 Apr 2014 12:07:33 GMT
 - request:
     method: get
     uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'spree@example.com'
@@ -190,9 +190,9 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2014 10:24:28 GMT
+      - Tue, 15 Apr 2014 12:07:34 GMT
       Sforce-Limit-Info:
-      - api-usage=91/5000
+      - api-usage=106/5000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -201,7 +201,7 @@ http_interactions:
       encoding: UTF-8
       string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ\"},\"Id\":\"0032000001CocEKAAZ\"}]}"
     http_version: 
-  recorded_at: Tue, 15 Apr 2014 10:24:28 GMT
+  recorded_at: Tue, 15 Apr 2014 12:07:34 GMT
 - request:
     method: get
     uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Order__c%20where%20Id__c%20=%20'R154085346'
@@ -223,9 +223,9 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2014 10:24:28 GMT
+      - Tue, 15 Apr 2014 12:07:35 GMT
       Sforce-Limit-Info:
-      - api-usage=91/5000
+      - api-usage=106/5000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -234,13 +234,13 @@ http_interactions:
       encoding: UTF-8
       string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Order__c\",\"url\":\"/services/data/v26.0/sobjects/Order__c/a002000000UnGB4AAN\"},\"Id\":\"a002000000UnGB4AAN\"}]}"
     http_version: 
-  recorded_at: Tue, 15 Apr 2014 10:24:29 GMT
+  recorded_at: Tue, 15 Apr 2014 12:07:35 GMT
 - request:
     method: patch
     uri: https://emea.salesforce.com/services/data/v26.0/sobjects/Order__c/a002000000UnGB4AAN
     body:
       encoding: UTF-8
-      string: "{\"Id__c\":\"R154085346\",\"Status__c\":\"complete\",\"Channel__c\":\"spree\",\"Email__c\":\"spree@example.com\",\"Currency__c\":\"USD\",\"Placed_on__c\":\"2014-02-03T17:29:15.219Z\",\"Subtotal__c\":200,\"Adjustment__c\":10,\"Tax__c\":0,\"Shipping__c\":10,\"Payment__c\":220,\"Total__c\":220,\"ContactId__c\":\"0032000001CocEKAAZ\"}"
+      string: "{\"Id__c\":\"R154085346\",\"Status__c\":\"cancelled\",\"Channel__c\":\"spree\",\"Email__c\":\"spree@example.com\",\"Currency__c\":\"USD\",\"Placed_on__c\":\"2014-02-03T17:29:15.219Z\",\"Subtotal__c\":200,\"Adjustment__c\":10,\"Tax__c\":0,\"Shipping__c\":10,\"Payment__c\":220,\"Total__c\":220,\"ContactId__c\":\"0032000001CocEKAAZ\"}"
     headers:
       User-Agent:
       - Faraday v0.8.9
@@ -258,146 +258,12 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Tue, 15 Apr 2014 10:24:29 GMT
+      - Tue, 15 Apr 2014 12:07:35 GMT
       Sforce-Limit-Info:
-      - api-usage=91/5000
+      - api-usage=106/5000
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 15 Apr 2014 10:24:29 GMT
-- request:
-    method: post
-    uri: https://login.salesforce.com/services/oauth2/token
-    body:
-      encoding: US-ASCII
-      string: grant_type=password&client_id=3MVG9WtWSKUDG.x5hyqXeboVoSErlfbiCvJNDfuwmN77rRhJ6tqCeFKFhuFvMNo0COBif7CT1NnevkMq464Qp&client_secret=3920716088724079571&username=tester%2Bnetguru%40netguru.co&password=testtest12398feCLrdLjqN7Ji8zhhWf3uc
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 15 Apr 2014 10:24:30 GMT
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache, no-store
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1397557470553\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"8q4Ri/GosPVW0CJTxCY6hXrb2tv7X3SeFTXhzjYEA80=\",\"access_token\":\"00D20000000CtLC!ARcAQGqLE_LXcXVbpy2MUngfFw5SBIiDdjDCqQWmpbJIrCcLg_zk3Z_XIBvMpFGjW0.HWoyc0OMZ37aknY4nahDWYdeK9QOt\"}"
-    http_version: 
-  recorded_at: Tue, 15 Apr 2014 10:24:30 GMT
-- request:
-    method: get
-    uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Account__c%20from%20Contact%20where%20Email%20=%20'spree@example.com'
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Authorization:
-      - OAuth 00D20000000CtLC!ARcAQGqLE_LXcXVbpy2MUngfFw5SBIiDdjDCqQWmpbJIrCcLg_zk3Z_XIBvMpFGjW0.HWoyc0OMZ37aknY4nahDWYdeK9QOt
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 15 Apr 2014 10:24:31 GMT
-      Sforce-Limit-Info:
-      - api-usage=91/5000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ\"},\"Account__c\":\"00120000017cLeRAAU\"}]}"
-    http_version: 
-  recorded_at: Tue, 15 Apr 2014 10:24:31 GMT
-- request:
-    method: get
-    uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'spree@example.com'
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Authorization:
-      - OAuth 00D20000000CtLC!ARcAQGqLE_LXcXVbpy2MUngfFw5SBIiDdjDCqQWmpbJIrCcLg_zk3Z_XIBvMpFGjW0.HWoyc0OMZ37aknY4nahDWYdeK9QOt
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 15 Apr 2014 10:24:32 GMT
-      Sforce-Limit-Info:
-      - api-usage=92/5000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ\"},\"Id\":\"0032000001CocEKAAZ\"}]}"
-    http_version: 
-  recorded_at: Tue, 15 Apr 2014 10:24:32 GMT
-- request:
-    method: patch
-    uri: https://emea.salesforce.com/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ
-    body:
-      encoding: UTF-8
-      string: "{\"FirstName\":\"Joe\",\"LastName\":\"Smith\",\"Email\":\"spree@example.com\",\"MailingStreet\":\"1234
-        Awesome Street\",\"MailingCity\":\"Hollywood\",\"MailingState\":\"California\",\"MailingPostalCode\":\"90210\",\"MailingCountry\":\"US\",\"OtherStreet\":\"1234
-        Awesome Street\",\"OtherCity\":\"Hollywood\",\"OtherState\":\"California\",\"OtherPostalCode\":\"90210\",\"OtherCountry\":\"US\",\"Phone\":\"0000000000\",\"OtherPhone\":\"0000000000\",\"Account__c\":\"00120000017cLeRAAU\"}"
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Content-Type:
-      - application/json
-      Authorization:
-      - OAuth 00D20000000CtLC!ARcAQGqLE_LXcXVbpy2MUngfFw5SBIiDdjDCqQWmpbJIrCcLg_zk3Z_XIBvMpFGjW0.HWoyc0OMZ37aknY4nahDWYdeK9QOt
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Tue, 15 Apr 2014 10:24:32 GMT
-      Sforce-Limit-Info:
-      - api-usage=91/5000
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Tue, 15 Apr 2014 10:24:33 GMT
+  recorded_at: Tue, 15 Apr 2014 12:07:35 GMT
 recorded_with: VCR 2.8.0

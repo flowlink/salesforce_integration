@@ -28,7 +28,7 @@ module Integration
     private
 
     def with_currency(item)
-      item.merge({ 'currency' => look_up('currency') })
+      item.merge({ 'Currency' => look_up('currency') })
     end
 
     def product_params(payload_item = nil)

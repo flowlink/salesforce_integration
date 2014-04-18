@@ -17,7 +17,7 @@ module Integration
     end
 
     def with_currency(item)
-      item.merge({ 'currency' => look_up('currency') })
+      item.merge({ 'Currency' => look_up('currency') })
     end
 
     def look_up(what)

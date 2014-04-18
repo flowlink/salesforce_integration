@@ -21,7 +21,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
         SpreeService::Product.new(@payload, @config).upsert_products!
         SpreeService::Order.new(@payload, @config).upsert_lineitems!
         SpreeService::Order.new(@payload, @config).upsert_payments!
-        set_summary "Successfully upserted contact for #{@payload["order"]["email"]} and order ##{@payload["order"]["id"]}"
+        set_summary "Contact for #{@payload["order"]["email"]} and order ##{@payload["order"]["id"]} updated (or created) in Salesforce"
         result 200
       rescue Exception => e
         report_error(e)
@@ -48,7 +48,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       # the real @payload will be provided by the HUB later
       @payload = JSON.parse IO.read("#{File.dirname(__FILE__)}/spec/support/factories/return_order.json")
       SpreeService::Order.new(@payload, @config).upsert_order!
-      set_summary "Successfully upserted order ##{@payload["order"]["id"]}"
+      set_summary "Order ##{@payload["order"]["id"]} updated (or created) in Salesforce"
       result 200
     rescue Exception => e
       report_error(e)
@@ -60,7 +60,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
     post path do
       begin
         SpreeService::Customer.new(@payload, @config).upsert_contact_with_account!
-        set_summary "Successfully upserted contact for #{@payload["customer"]["email"]}"
+        set_summary "Contact for #{@payload["customer"]["email"]} updated (or created) in Salesforce"
         result 200
       rescue Exception => e
         report_error(e)
@@ -73,7 +73,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
     post path do
       begin
         SpreeService::Product.new(@payload, @config).upsert_product!
-        set_summary "Successfully upserted product for #{@payload["product"]["sku"]}"
+        set_summary "Product for #{@payload["product"]["sku"]} updated (or created) in Salesforce"
         result 200
       rescue Exception => e
         report_error(e)
@@ -99,7 +99,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       failed = status[:number_records_failed].to_i
       all = status[:number_records_processed].to_i
       successed = all - failed
-      set_summary "#{successed}/#{all} products successfully upserted."
+      set_summary "#{successed}/#{all} products updated (or created) in Salesforce"
       result 200
     rescue Exception => e
       report_error(e)

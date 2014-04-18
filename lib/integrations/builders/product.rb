@@ -10,11 +10,12 @@ module Integration
 
       def build
         params = {
-          'Name' => object['name'],
-          'ProductCode'  => object['sku'],
-          'Description' => object['description'],
-          'Price__c' => object['price'],
-          'ExternalID__c' => object['sku']
+          'Name'          => object['name'],
+          'ProductCode'   => object['sku'],
+          'Description'   => object['description'],
+          'Price__c'      => object['price'],
+          'ExternalID__c' => object['sku'],
+          'Currency__c'   => object['currency'],
         }
       end
     end

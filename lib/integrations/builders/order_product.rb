@@ -14,6 +14,7 @@ module Integration
           'ProductCode'   => object['product_id'],
           'Price__c'      => object['price'],
           'ExternalID__c' => object['product_id'],
+          'Currency__c'   => object['currency'],
         }
       end
 

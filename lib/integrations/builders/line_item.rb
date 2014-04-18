@@ -12,6 +12,7 @@ module Integration
         params = {
           'Quantity__c' => object['quantity'],
           'Price__c'    => object['price'],
+          'Currency__c' => object['currency'],
         }
       end
 

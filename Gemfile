@@ -7,6 +7,7 @@ gem 'restforce'
 gem 'endpoint_base', github: 'spree/endpoint_base'
 gem 'rollbar'
 gem 'executrix'
+gem 'async_sinatra'
 
 group :development do
   gem "rake"

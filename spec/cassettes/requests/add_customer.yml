@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 11 Apr 2014 19:18:58 GMT
+      - Tue, 22 Apr 2014 08:56:47 GMT
       Pragma:
       - no-cache
       Cache-Control:
@@ -32,9 +32,9 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1397243939049\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"b0EUJQFdcPL0YMMxYRozMO4a5NVypQhXoA3Je5Owt+4=\",\"access_token\":\"00D20000000CtLC!ARcAQOhfg7d8ONPj1MUts5yrP2WW.ul0dDQxhDWGOrw9MwkaZ_g3IoyVloqdiJ5.xBW8sayE6VkFteHWWnJSYVnbFnQPKFsx\"}"
+      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1398157008766\",\"token_type\":\"Bearer\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"gNjKjbLVk35l5SuL6Jkf7jVxGvtm+6iVj07LJh/uvlE=\",\"access_token\":\"00D20000000CtLC!ARcAQOQIBzjFw6NKiFX._jaU84nm9l_Q7FDu.X2sL8.1A5MGAXC.hBh7gqTlqgNVGvL6vZYDWKepw9w4M.UCRcqzopwK.tv6\"}"
     http_version: 
-  recorded_at: Fri, 11 Apr 2014 19:18:59 GMT
+  recorded_at: Tue, 22 Apr 2014 08:56:59 GMT
 - request:
     method: get
     uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Account__c%20from%20Contact%20where%20Email%20=%20'spree@example.com'
@@ -45,7 +45,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00D20000000CtLC!ARcAQOhfg7d8ONPj1MUts5yrP2WW.ul0dDQxhDWGOrw9MwkaZ_g3IoyVloqdiJ5.xBW8sayE6VkFteHWWnJSYVnbFnQPKFsx
+      - OAuth 00D20000000CtLC!ARcAQOQIBzjFw6NKiFX._jaU84nm9l_Q7FDu.X2sL8.1A5MGAXC.hBh7gqTlqgNVGvL6vZYDWKepw9w4M.UCRcqzopwK.tv6
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -56,18 +56,18 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 11 Apr 2014 19:19:00 GMT
+      - Tue, 22 Apr 2014 08:56:49 GMT
       Sforce-Limit-Info:
-      - api-usage=81/5000
+      - api-usage=61/5000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001BfIFGAA3\"},\"Account__c\":\"00120000017blv9AAA\"}]}"
+      string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ\"},\"Account__c\":\"00120000017cLeRAAU\"}]}"
     http_version: 
-  recorded_at: Fri, 11 Apr 2014 19:19:00 GMT
+  recorded_at: Tue, 22 Apr 2014 08:57:00 GMT
 - request:
     method: get
     uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'spree@example.com'
@@ -78,7 +78,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00D20000000CtLC!ARcAQOhfg7d8ONPj1MUts5yrP2WW.ul0dDQxhDWGOrw9MwkaZ_g3IoyVloqdiJ5.xBW8sayE6VkFteHWWnJSYVnbFnQPKFsx
+      - OAuth 00D20000000CtLC!ARcAQOQIBzjFw6NKiFX._jaU84nm9l_Q7FDu.X2sL8.1A5MGAXC.hBh7gqTlqgNVGvL6vZYDWKepw9w4M.UCRcqzopwK.tv6
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -89,33 +89,33 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 11 Apr 2014 19:19:01 GMT
+      - Tue, 22 Apr 2014 08:56:50 GMT
       Sforce-Limit-Info:
-      - api-usage=82/5000
+      - api-usage=62/5000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001BfIFGAA3\"},\"Id\":\"0032000001BfIFGAA3\"}]}"
+      string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ\"},\"Id\":\"0032000001CocEKAAZ\"}]}"
     http_version: 
-  recorded_at: Fri, 11 Apr 2014 19:19:01 GMT
+  recorded_at: Tue, 22 Apr 2014 08:57:01 GMT
 - request:
     method: patch
-    uri: https://emea.salesforce.com/services/data/v26.0/sobjects/Contact/0032000001BfIFGAA3
+    uri: https://emea.salesforce.com/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ
     body:
       encoding: UTF-8
       string: "{\"FirstName\":\"Brian\",\"LastName\":\"Smith\",\"Email\":\"spree@example.com\",\"MailingStreet\":\"1234
         Awesome Street\",\"MailingCity\":\"Hollywood\",\"MailingState\":\"California\",\"MailingPostalCode\":\"90210\",\"MailingCountry\":\"US\",\"OtherStreet\":\"1234
-        Awesome Street\",\"OtherCity\":\"Hollywood\",\"OtherState\":\"California\",\"OtherPostalCode\":\"90210\",\"OtherCountry\":\"US\",\"Phone\":\"0000000000\",\"OtherPhone\":\"0000000000\",\"Account__c\":\"00120000017blv9AAA\"}"
+        Awesome Street\",\"OtherCity\":\"Hollywood\",\"OtherState\":\"California\",\"OtherPostalCode\":\"90210\",\"OtherCountry\":\"US\",\"Phone\":\"0000000000\",\"OtherPhone\":\"0000000000\",\"Account__c\":\"00120000017cLeRAAU\"}"
     headers:
       User-Agent:
       - Faraday v0.8.9
       Content-Type:
       - application/json
       Authorization:
-      - OAuth 00D20000000CtLC!ARcAQOhfg7d8ONPj1MUts5yrP2WW.ul0dDQxhDWGOrw9MwkaZ_g3IoyVloqdiJ5.xBW8sayE6VkFteHWWnJSYVnbFnQPKFsx
+      - OAuth 00D20000000CtLC!ARcAQOQIBzjFw6NKiFX._jaU84nm9l_Q7FDu.X2sL8.1A5MGAXC.hBh7gqTlqgNVGvL6vZYDWKepw9w4M.UCRcqzopwK.tv6
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -126,12 +126,12 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Fri, 11 Apr 2014 19:19:01 GMT
+      - Tue, 22 Apr 2014 08:56:51 GMT
       Sforce-Limit-Info:
-      - api-usage=81/5000
+      - api-usage=65/5000
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Fri, 11 Apr 2014 19:19:02 GMT
+  recorded_at: Tue, 22 Apr 2014 08:57:02 GMT
 recorded_with: VCR 2.8.0

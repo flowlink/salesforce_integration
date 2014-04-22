@@ -81,30 +81,4 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       end
     end
   end
-
-  post '/import_products' do
-    begin
-      # the real @config and @payload will be provided by the HUB later
-      # test_config_hash = {
-      #   'salesforce_username' => 'tester+netguru@netguru.co',
-      #   'salesforce_password' => 'testtest123',
-      #   'salesforce_security_token' => '98feCLrdLjqN7Ji8zhhWf3uc',
-      #   'salesforce_client_id' => '3MVG9WtWSKUDG.x5hyqXeboVoSErlfbiCvJNDfuwmN77rRhJ6tqCeFKFhuFvMNo0COBif7CT1NnevkMq464Qp',
-      #   'salesforce_client_secret' => '3920716088724079571'
-      # }.with_indifferent_access
-      # @config = test_config_hash
-      @payload = JSON.parse IO.read("#{File.dirname(__FILE__)}/spec/support/factories/import_products.json")
-      batch = SpreeService::Product.new(@payload, @config).import_products!
-      status = batch.status
-      failed = status[:number_records_failed].to_i
-      all = status[:number_records_processed].to_i
-      successed = all - failed
-      set_summary "#{successed}/#{all} products updated (or created) in Salesforce"
-      result 200
-    rescue Exception => e
-      report_error(e)
-      result 500
-    end
-  end
-
 end

@@ -25,6 +25,7 @@ require 'integrations/builders/order'
 require 'integrations/builders/order_from_sf'
 require 'integrations/builders/line_item'
 require 'integrations/builders/payment'
+require 'integrations/builders/payment_from_return'
 require 'integrations/builders/order_product'
 
 require 'SF_services/base'

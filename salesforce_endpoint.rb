@@ -33,7 +33,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
   post '/add_returns' do
     begin
       SpreeService::Return.new(@payload, @config).handle_returns!
-      set_summary "Returns marked in Order ##{@payload["returns"].first["inventory_units"].first["order_id"]} in Salesforce"
+      set_summary "Returns marked in Order ##{@payload["returns"].first["order_id"]} in Salesforce"
       result 200
     rescue Exception => e
       report_error(e)

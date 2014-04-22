@@ -6,7 +6,6 @@ gem 'tilt-jbuilder', require: 'sinatra/jbuilder'
 gem 'restforce'
 gem 'endpoint_base', github: 'spree/endpoint_base'
 gem 'rollbar'
-gem 'async_sinatra'
 
 group :development do
   gem "rake"

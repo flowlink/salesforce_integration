@@ -30,11 +30,7 @@ module SpreeService
     end
 
     def upsert_product!
-      Integration::Product.new(config, payload).upsert! # need to pass the whole payload -> need to handle multiple products
-    end
-
-    def import_products!
-      Integration::Product.new(config, payload).import!
+      Integration::Product.new(config, payload[service_name]).upsert!
     end
   end
 end

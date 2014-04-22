@@ -80,24 +80,9 @@ describe SalesforceEndpoint do
           VCR.use_cassette "requests/#{path}" do
             post "/#{path}", payload.to_json, auth
             body = JSON.parse(last_response.body)
-            expect(body["summary"]).to eq "Successfully upserted product for #{product_code}"
+            expect(body["summary"]).to eq "Product for #{product_code} updated (or created) in Salesforce"
           end
         end
-      end
-    end
-  end
-
-  describe "importing products" do
-    let(:payload) do
-      payload = Factories.import_products_payload
-      payload.merge(parameters: config)
-    end
-
-    it 'works' do
-      VCR.use_cassette "requests/import_products" do
-        post "/import_products", payload.to_json, auth
-        body = JSON.parse(last_response.body)
-        expect(body["summary"]).to eq "2/2 products successfully upserted."
       end
     end
   end

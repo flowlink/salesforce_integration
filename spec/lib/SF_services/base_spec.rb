@@ -19,13 +19,4 @@ describe SFService::Base do
       subject.update!
     end
   end
-
-  describe '#import!' do
-    let(:models) { Factories.models_to_import_payload }
-
-    it 'calls upsert in salesforce bulk client' do
-      expect(subject.send(:salesforce_bulk)).to receive(:upsert).once
-      subject.import!(models)
-    end
-  end
 end

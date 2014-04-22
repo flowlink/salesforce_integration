@@ -106,4 +106,5 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       result 500
     end
   end
+
 end

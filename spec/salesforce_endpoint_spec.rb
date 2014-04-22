@@ -4,7 +4,7 @@ describe SalesforceEndpoint do
   include_examples 'config hash'
 
   context 'webhooks' do
-    ['add_order', 'update_order', 'cancel_order',
+    ['add_order', 'update_order',
      'add_customer', 'update_customer',
      'add_product', 'update_product'].each do |path|
       describe path do
@@ -47,7 +47,7 @@ describe SalesforceEndpoint do
   end
 
   describe "upserting orders" do
-    ['add_order', 'update_order', 'cancel_order'].each do |path|
+    ['add_order', 'update_order'].each do |path|
       describe path do
         let(:payload) do
           payload = Factories.send("#{path}_payload")
@@ -80,7 +80,7 @@ describe SalesforceEndpoint do
           VCR.use_cassette "requests/#{path}" do
             post "/#{path}", payload.to_json, auth
             body = JSON.parse(last_response.body)
-            expect(body["summary"]).to eq "Product for #{product_code} updated (or created) in Salesforce"
+            expect(body["summary"]).to eq "Product #{product_code} updated (or created) in Salesforce"
           end
         end
       end

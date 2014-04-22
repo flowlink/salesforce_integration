@@ -30,32 +30,6 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
     end
   end
 
-  post '/cancel_order' do
-    begin
-      # the real @payload will be provided by the HUB later
-      @payload = JSON.parse IO.read("#{File.dirname(__FILE__)}/spec/support/factories/cancel_order.json")
-      SpreeService::Order.new(@payload, @config).upsert_order!
-      set_summary "Contact for #{@payload["order"]["email"]} and order ##{@payload["order"]["id"]} updated (or created) in Salesforce"
-      result 200
-    rescue Exception => e
-      report_error(e)
-      result 500
-    end
-  end
-
-  post '/return_order' do
-    begin
-      # the real @payload will be provided by the HUB later
-      @payload = JSON.parse IO.read("#{File.dirname(__FILE__)}/spec/support/factories/return_order.json")
-      SpreeService::Order.new(@payload, @config).upsert_order!
-      set_summary "Order ##{@payload["order"]["id"]} updated (or created) in Salesforce"
-      result 200
-    rescue Exception => e
-      report_error(e)
-      result 500
-    end
-  end
-
   ['/add_customer', '/update_customer'].each do |path|
     post path do
       begin

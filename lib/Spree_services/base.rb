@@ -32,5 +32,9 @@ module SpreeService
     def upsert_product!
       Integration::Product.new(config, payload[service_name]).upsert!
     end
+
+    def handle_returns!
+      Integration::Return.new(config, payload[service_name]).handle_all!
+    end
   end
 end

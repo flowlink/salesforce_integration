@@ -9,6 +9,10 @@ module SFService
       results.any? ? results.first.fetch('Id') : nil
     end
 
+    def find(id)
+      salesforce.find('Order__c', id, 'Id__c')
+    end
+
     def find_client(email)
       results = salesforce.query("select Id from Contact where Email = '#{email}'")
       results.any? ? results.first.fetch('Id') : nil

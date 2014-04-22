@@ -1,7 +1,6 @@
 $:.unshift File.dirname(__FILE__)
 
 require 'restforce'
-require 'executrix'
 
 require 'Spree_services/base'
 require 'Spree_services/order'

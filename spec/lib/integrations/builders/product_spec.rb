@@ -9,7 +9,7 @@ describe Integration::Builder::Product do
 
     it 'returns hash with address data' do
       expect(result).to be_kind_of Hash
-      expect(result.keys).to eq(['Name', 'ProductCode', 'Description', 'Price__c', 'ExternalID__c'])
+      expect(result.keys).to eq(['Name', 'ProductCode', 'Description', 'Price__c', 'ExternalID__c', 'Currency__c'])
     end
   end
 end

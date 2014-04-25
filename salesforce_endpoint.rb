@@ -1,16 +1,7 @@
-require 'sinatra'
-require 'endpoint_base'
 require 'salesforce_integration'
 
 class SalesforceEndpoint < EndpointBase::Sinatra::Base
   enable :logging
-
-  def report_error(error)
-    return unless App.env == 'production'
-    logger.info request
-    logger.info @payload
-    Rollbar.report_exception(error)
-  end
 
   ['/add_order', '/update_order'].each do |path|
     post path do
@@ -23,8 +14,8 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
         set_summary "Successfully upserted contact for #{@payload["order"]["email"]} and order ##{@payload["order"]["id"]}"
         result 200
       rescue Exception => e
-        report_error(e)
-        result 500
+        log_exception(e)
+        result 500, e.message
       end
     end
   end
@@ -37,8 +28,8 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       set_summary "Successfully upserted order ##{@payload["order"]["id"]}"
       result 200
     rescue Exception => e
-      report_error(e)
-      result 500
+      log_exception(e)
+      result 500, e.message
     end
   end
 
@@ -50,8 +41,8 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       set_summary "Successfully upserted order ##{@payload["order"]["id"]}"
       result 200
     rescue Exception => e
-      report_error(e)
-      result 500
+      log_exception(e)
+      result 500, e.message
     end
   end
 
@@ -62,8 +53,8 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
         set_summary "Successfully upserted contact for #{@payload["customer"]["email"]}"
         result 200
       rescue Exception => e
-        report_error(e)
-        result 500
+        log_exception(e)
+        result 500, e.message
       end
     end
   end
@@ -75,8 +66,8 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
         set_summary "Successfully upserted product for #{@payload["product"]["sku"]}"
         result 200
       rescue Exception => e
-        report_error(e)
-        result 500
+        log_exception(e)
+        result 500, e.message
       end
     end
   end
@@ -101,8 +92,8 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       set_summary "#{successed}/#{all} products successfully upserted."
       result 200
     rescue Exception => e
-      report_error(e)
-      result 500
+      log_exception(e)
+      result 500, e.message
     end
   end
 end

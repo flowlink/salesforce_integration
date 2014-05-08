@@ -3,7 +3,8 @@ require 'endpoint_base'
 require 'salesforce_integration'
 
 class SalesforceEndpoint < EndpointBase::Sinatra::Base
-  endpoint_key App.endpoint_key
+  # INFO: This might cause potential security issue. It's commented out for special request from Spree Support.
+  # endpoint_key App.endpoint_key
   enable :logging
 
   def report_error(error)

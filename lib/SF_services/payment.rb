@@ -5,7 +5,7 @@ module SFService
     end
 
     def is_present?(number)
-      results = salesforce.query("select Id from Payment__c where Number__c = '#{number}'")
+      results = salesforce.query("select Id from Payment__c where Name = '#{number}'")
       results.any? ? results.first.fetch('Id') : nil
     end
 
@@ -26,7 +26,7 @@ module SFService
       payment_attr = payment_attr.merge( { 'Order__c' => order_id } ) if order_id.present?
       payment_attr = payment_attr.merge( { 'Account__c' => account_id } ) if account_id.present?
 
-      payment_id = is_present?(payment_attr.fetch 'Number__c')
+      payment_id = is_present?(payment_attr.fetch 'Name')
       payment_id.present? ? update!(payment_attr.merge({ Id: payment_id })) : create!(payment_attr)
     end
   end

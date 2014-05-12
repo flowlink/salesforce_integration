@@ -10,7 +10,7 @@ module Integration
 
       def build
         params = {
-          'Number__c' => "0",
+          'Name'      => "0",
           'Status__c' => "returned",
           'Amount__c' => object['amount'],
           'Method__c' => "-",

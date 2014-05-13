@@ -1,3 +1,5 @@
+require 'sinatra'
+require 'endpoint_base'
 require 'salesforce_integration'
 
 class SalesforceEndpoint < EndpointBase::Sinatra::Base

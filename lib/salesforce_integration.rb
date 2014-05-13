@@ -1,7 +1,6 @@
 $:.unshift File.dirname(__FILE__)
 
 require 'restforce'
-require 'executrix'
 
 require 'Spree_services/base'
 require 'Spree_services/order'
@@ -9,6 +8,7 @@ require 'Spree_services/customer'
 require 'Spree_services/product'
 require 'Spree_services/line_item'
 require 'Spree_services/payment'
+require 'Spree_services/return'
 
 require 'integrations/base'
 require 'integrations/contact_account'
@@ -16,13 +16,16 @@ require 'integrations/product'
 require 'integrations/order'
 require 'integrations/line_item'
 require 'integrations/payment'
+require 'integrations/return'
 
 require 'integrations/builders/account'
 require 'integrations/builders/contact'
 require 'integrations/builders/product'
 require 'integrations/builders/order'
+require 'integrations/builders/order_from_sf'
 require 'integrations/builders/line_item'
 require 'integrations/builders/payment'
+require 'integrations/builders/payment_from_return'
 require 'integrations/builders/order_product'
 
 require 'SF_services/base'

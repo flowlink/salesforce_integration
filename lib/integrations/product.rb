@@ -13,12 +13,8 @@ module Integration
       product_service.upsert!(item['ProductCode'], item)
     end
 
-    def import!
-      product_service.import!(products_params)
-    end
-
     def import_from_order!
-      look_up('line_items').each { |item| upsert!(order_product_params(item)) }
+      look_up('line_items').each { |item| upsert!(order_product_params(with_currency(item))) }
     end
 
     def look_up(what)
@@ -27,13 +23,12 @@ module Integration
 
     private
 
-    def product_params(payload_item = nil)
-      payload_item ||= object['product']
-      Integration::Builder::Product.new(payload_item).build
+    def with_currency(item)
+      item.merge({ 'Currency' => look_up('currency') })
     end
 
-    def products_params
-      object['products'].map { |item| product_params(item) }
+    def product_params
+      Integration::Builder::Product.new(object).build
     end
 
     def order_product_params(payload_item)

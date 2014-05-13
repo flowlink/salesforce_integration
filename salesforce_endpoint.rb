@@ -1,6 +1,8 @@
 require 'salesforce_integration'
 
 class SalesforceEndpoint < EndpointBase::Sinatra::Base
+  # INFO: This might cause potential security issue. It's commented out for special request from Spree Support.
+  # endpoint_key App.endpoint_key
   enable :logging
 
   ['/add_order', '/update_order'].each do |path|
@@ -11,7 +13,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
         SpreeService::Product.new(@payload, @config).upsert_products!
         SpreeService::Order.new(@payload, @config).upsert_lineitems!
         SpreeService::Order.new(@payload, @config).upsert_payments!
-        set_summary "Successfully upserted contact for #{@payload["order"]["email"]} and order ##{@payload["order"]["id"]}"
+        set_summary "Contact for #{@payload["order"]["email"]} and order ##{@payload["order"]["id"]} updated (or created) in Salesforce"
         result 200
       rescue Exception => e
         log_exception(e)
@@ -20,25 +22,10 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
     end
   end
 
-  post '/cancel_order' do
+  post '/add_returns' do
     begin
-      # the real @payload will be provided by the HUB later
-      @payload = JSON.parse IO.read("#{File.dirname(__FILE__)}/spec/support/factories/cancel_order.json")
-      SpreeService::Order.new(@payload, @config).upsert_order!
-      set_summary "Successfully upserted order ##{@payload["order"]["id"]}"
-      result 200
-    rescue Exception => e
-      log_exception(e)
-      result 500, e.message
-    end
-  end
-
-  post '/return_order' do
-    begin
-      # the real @payload will be provided by the HUB later
-      @payload = JSON.parse IO.read("#{File.dirname(__FILE__)}/spec/support/factories/return_order.json")
-      SpreeService::Order.new(@payload, @config).upsert_order!
-      set_summary "Successfully upserted order ##{@payload["order"]["id"]}"
+      SpreeService::Return.new(@payload, @config).handle_returns!
+      set_summary "Returns marked in Order ##{@payload["returns"].first["order_id"]} in Salesforce"
       result 200
     rescue Exception => e
       log_exception(e)
@@ -50,7 +37,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
     post path do
       begin
         SpreeService::Customer.new(@payload, @config).upsert_contact_with_account!
-        set_summary "Successfully upserted contact for #{@payload["customer"]["email"]}"
+        set_summary "Contact for #{@payload["customer"]["email"]} updated (or created) in Salesforce"
         result 200
       rescue Exception => e
         log_exception(e)
@@ -63,37 +50,12 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
     post path do
       begin
         SpreeService::Product.new(@payload, @config).upsert_product!
-        set_summary "Successfully upserted product for #{@payload["product"]["sku"]}"
+        set_summary "Product #{@payload["product"]["sku"]} updated (or created) in Salesforce"
         result 200
       rescue Exception => e
         log_exception(e)
         result 500, e.message
       end
-    end
-  end
-
-  post '/import_products' do
-    begin
-      # the real @config and @payload will be provided by the HUB later
-      # test_config_hash = {
-      #   'salesforce_username' => 'tester+netguru@netguru.co',
-      #   'salesforce_password' => 'testtest123',
-      #   'salesforce_security_token' => '98feCLrdLjqN7Ji8zhhWf3uc',
-      #   'salesforce_client_id' => '3MVG9WtWSKUDG.x5hyqXeboVoSErlfbiCvJNDfuwmN77rRhJ6tqCeFKFhuFvMNo0COBif7CT1NnevkMq464Qp',
-      #   'salesforce_client_secret' => '3920716088724079571'
-      # }.with_indifferent_access
-      # @config = test_config_hash
-      @payload = JSON.parse IO.read("#{File.dirname(__FILE__)}/spec/support/factories/import_products.json")
-      batch = SpreeService::Product.new(@payload, @config).import_products!
-      status = batch.status
-      failed = status[:number_records_failed].to_i
-      all = status[:number_records_processed].to_i
-      successed = all - failed
-      set_summary "#{successed}/#{all} products successfully upserted."
-      result 200
-    rescue Exception => e
-      log_exception(e)
-      result 500, e.message
     end
   end
 end

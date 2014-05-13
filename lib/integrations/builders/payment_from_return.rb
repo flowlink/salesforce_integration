@@ -1,6 +1,6 @@
 module Integration
   module Builder
-    class Payment
+    class PaymentFromReturn
 
       attr_reader :object
 
@@ -10,10 +10,10 @@ module Integration
 
       def build
         params = {
-          'Name'      => object['number'],
-          'Status__c' => object['status'],
+          'Name'      => "0",
+          'Status__c' => "returned",
           'Amount__c' => object['amount'],
-          'Method__c' => object['payment_method'],
+          'Method__c' => "-",
         }
       end
     end

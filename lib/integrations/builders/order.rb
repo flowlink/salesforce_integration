@@ -10,12 +10,12 @@ module Integration
 
       def build
         params = {
-          'Id__c'            => object['id'],
+          'Name'             => object['id'],
           'Status__c'        => object['status'],
           'Channel__c'       => object['channel'],
           'Email__c'         => object['email'],
           'Currency__c'      => object['currency'],
-          'Placed_on__c'     => object['placed_on'],
+          'PlacedOn__c'      => object['placed_on'],
           'Subtotal__c'      => object['totals']['item'],
           'Adjustment__c'    => object['totals']['adjustment'],
           'Tax__c'           => object['totals']['tax'],

@@ -29,12 +29,5 @@ describe SpreeService::Base do
         subject.upsert_product!
       end
     end
-
-    describe '#import_products!' do
-      it 'creates an product integration and calls import! on it' do
-        expect_any_instance_of(Integration::Product).to receive(:import!).once
-        subject.import_products!
-      end
-    end
   end
 end

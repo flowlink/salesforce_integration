@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 11 Apr 2014 19:27:12 GMT
+      - Tue, 22 Apr 2014 09:39:09 GMT
       Pragma:
       - no-cache
       Cache-Control:
@@ -32,9 +32,9 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1397244432468\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"xceiwtX1j8yaiaGqnJIkxOIGwmZ43VFPOJ0WGPDDgcw=\",\"access_token\":\"00D20000000CtLC!ARcAQOhfg7d8ONPj1MUts5yrP2WW.ul0dDQxhDWGOrw9MwkaZ_g3IoyVloqdiJ5.xBW8sayE6VkFteHWWnJSYVnbFnQPKFsx\"}"
+      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1398159549152\",\"token_type\":\"Bearer\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"qHFgSz+w5/2/nAGVqt1zgsMH/g+DugUt7q6bnpLnno0=\",\"access_token\":\"00D20000000CtLC!ARcAQOQIBzjFw6NKiFX._jaU84nm9l_Q7FDu.X2sL8.1A5MGAXC.hBh7gqTlqgNVGvL6vZYDWKepw9w4M.UCRcqzopwK.tv6\"}"
     http_version: 
-  recorded_at: Fri, 11 Apr 2014 19:27:12 GMT
+  recorded_at: Tue, 22 Apr 2014 09:39:20 GMT
 - request:
     method: get
     uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Product2%20where%20ProductCode%20=%20'SPREE-T-SHIRT-S'
@@ -45,7 +45,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00D20000000CtLC!ARcAQOhfg7d8ONPj1MUts5yrP2WW.ul0dDQxhDWGOrw9MwkaZ_g3IoyVloqdiJ5.xBW8sayE6VkFteHWWnJSYVnbFnQPKFsx
+      - OAuth 00D20000000CtLC!ARcAQOQIBzjFw6NKiFX._jaU84nm9l_Q7FDu.X2sL8.1A5MGAXC.hBh7gqTlqgNVGvL6vZYDWKepw9w4M.UCRcqzopwK.tv6
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -56,9 +56,9 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 11 Apr 2014 19:27:13 GMT
+      - Tue, 22 Apr 2014 09:39:09 GMT
       Sforce-Limit-Info:
-      - api-usage=107/5000
+      - api-usage=117/5000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -67,21 +67,21 @@ http_interactions:
       encoding: UTF-8
       string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Product2\",\"url\":\"/services/data/v26.0/sobjects/Product2/01t20000003xwtoAAA\"},\"Id\":\"01t20000003xwtoAAA\"}]}"
     http_version: 
-  recorded_at: Fri, 11 Apr 2014 19:27:13 GMT
+  recorded_at: Tue, 22 Apr 2014 09:39:20 GMT
 - request:
     method: patch
     uri: https://emea.salesforce.com/services/data/v26.0/sobjects/Product2/01t20000003xwtoAAA
     body:
       encoding: UTF-8
       string: "{\"Name\":\"Spree T-Shirt\",\"ProductCode\":\"SPREE-T-SHIRT-S\",\"Description\":\"Awesome
-        Spree T-Shirt\",\"Price__c\":35,\"ExternalID__c\":\"SPREE-T-SHIRT-S\"}"
+        Spree T-Shirt\",\"Price__c\":35,\"ExternalID__c\":\"SPREE-T-SHIRT-S\",\"Currency__c\":null}"
     headers:
       User-Agent:
       - Faraday v0.8.9
       Content-Type:
       - application/json
       Authorization:
-      - OAuth 00D20000000CtLC!ARcAQOhfg7d8ONPj1MUts5yrP2WW.ul0dDQxhDWGOrw9MwkaZ_g3IoyVloqdiJ5.xBW8sayE6VkFteHWWnJSYVnbFnQPKFsx
+      - OAuth 00D20000000CtLC!ARcAQOQIBzjFw6NKiFX._jaU84nm9l_Q7FDu.X2sL8.1A5MGAXC.hBh7gqTlqgNVGvL6vZYDWKepw9w4M.UCRcqzopwK.tv6
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -92,12 +92,12 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Fri, 11 Apr 2014 19:27:14 GMT
+      - Tue, 22 Apr 2014 09:39:10 GMT
       Sforce-Limit-Info:
-      - api-usage=106/5000
+      - api-usage=117/5000
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Fri, 11 Apr 2014 19:27:14 GMT
+  recorded_at: Tue, 22 Apr 2014 09:39:21 GMT
 recorded_with: VCR 2.8.0

@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler'
-Bundler.require(:default)
+Bundler.setup
 
 require './config/environment'
 require "./salesforce_endpoint"
+

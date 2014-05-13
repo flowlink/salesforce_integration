@@ -13,7 +13,11 @@ module Integration
     end
 
     def import!
-      look_up('line_items').each { |li| upsert!(li) }
+      look_up('line_items').each { |li| upsert!(with_currency(li)) }
+    end
+
+    def with_currency(item)
+      item.merge({ 'Currency' => look_up('currency') })
     end
 
     def look_up(what)

@@ -10,7 +10,7 @@ module Integration
 
       def build
         params = {
-          'Id__c'            => object['id'],
+          'Name'             => object['id'],
           'Status__c'        => object['status'],
           'Channel__c'       => object['channel'],
           'Email__c'         => object['email'],

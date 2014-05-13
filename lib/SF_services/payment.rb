@@ -10,7 +10,7 @@ module SFService
     end
 
     def find_order(id)
-      results = salesforce.query("select Id from Order__c where Id__c = '#{id}'")
+      results = salesforce.query("select Id from Order__c where Name = '#{id}'")
       results.any? ? results.first['Id'] : nil
     end
 

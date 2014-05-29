@@ -1,19 +1,19 @@
-Spree_SF_integration
-====================
+# Salesforce Integration
 
-Push data to your [sales force](http://www.salesforce.com/)
+[Salesforce](http://www.salesforce.com/)
 
-There are 2 env variables required:
+This is a fully hosted and supported integration for use with the [Wombat](http://wombat.co)
+product. With this integration you can perform the following functions:
 
-* `APP_ENVIRONMENT` - `development` by default
-* `APP_ENDPOINT_KEY` - integration endpoint key specified by spree-hub
+* Send orders to Salesforce
+* Send returns to Salesforce
+* Send products to Salesforce
+* Send customers to Salesforce
 
-#### Connection Parameters
+[Wombat](http://wombat.co) allows you to connect to your own custom integrations.
+Feel free to modify the source code and host your own version of the integration
+- or beter yet, help to make the official integration better by submitting a pull request!
 
-| Name | Value | example |
-| :----| :-----| :------ |
-| salesforce_username | username | sales@force.com |
-| salesforce_password | Password | huhu |
-| salesforce_security_token | Security token | EasylToken |
-| salesforce_client_id | Client ID | crazystring.WEFewfwefwef |
-| salesforce_client_secret | Client secret | 4344353548809709 |
+![Wombat Logo](http://spreecommerce.com/images/wombat_logo.png)
+
+This integration is 100% open source an licensed under the terms of the New BSD License.

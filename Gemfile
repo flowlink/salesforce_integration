@@ -21,4 +21,7 @@ group :test do
   gem 'webmock'
 end
 
-gem 'unicorn'
+group :production do
+  gem 'foreman'
+  gem 'unicorn'
+end

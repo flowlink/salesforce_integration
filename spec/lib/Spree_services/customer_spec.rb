@@ -4,5 +4,9 @@ describe SpreeService::Customer do
   include_examples 'config hash'
   let(:payload) { Hash.new }
   subject { described_class.new(payload, config) }
-  its(:service_name) { should == "customer" }
+
+  describe '#service_name' do
+    subject { super().service_name }
+    it { should == "customer" }
+  end
 end

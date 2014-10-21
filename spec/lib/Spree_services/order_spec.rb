@@ -4,5 +4,9 @@ describe SpreeService::Order do
   include_examples 'config hash'
   let(:payload) { Hash.new }
   subject { described_class.new(payload, config) }
-  its(:service_name) { should == "order" }
+
+  describe '#service_name' do
+    subject { super().service_name }
+    it { should == "order" }
+  end
 end

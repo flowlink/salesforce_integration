@@ -18,9 +18,10 @@ require 'spree/testing_support/controllers'
 Sinatra::Base.environment = 'test'
 
 VCR.configure do |c|
-  c.allow_http_connections_when_no_cassette = true
+  c.allow_http_connections_when_no_cassette = false
   c.cassette_library_dir = 'spec/cassettes'
   c.hook_into :webmock
+
   c.filter_sensitive_data('spree_user')   { |_| ENV['SALESFORCE_USERNAME'] }
   c.filter_sensitive_data('spree_user')   { |_| ENV['SALESFORCE_USERNAME'].gsub('@','%40') }
   c.filter_sensitive_data('spree_pwd')    { |_| ENV['SALESFORCE_PASSWORD'] }

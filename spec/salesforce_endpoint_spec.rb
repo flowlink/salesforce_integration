@@ -67,23 +67,24 @@ describe SalesforceEndpoint do
     end
   end
 
-  describe "upserting products" do
-    ['add_product', 'update_product'].each do |path|
-      describe path do
-        let(:payload) do
-          payload = Factories.send("#{path}_payload")
-          payload.merge(parameters: config)
-        end
-        let(:product_code){ payload["product"]["sku"] }
+  it 'adds product' do
+    payload = Factories.add_product_payload.merge(parameters: config)
+    id = payload['product']['id']
 
-        it 'works' do
-          VCR.use_cassette "requests/#{path}" do
-            post "/#{path}", payload.to_json, auth
-            body = JSON.parse(last_response.body)
-            expect(body["summary"]).to eq "Product #{product_code} updated (or created) in Salesforce"
-          end
-        end
-      end
+    VCR.use_cassette "requests/add_product" do
+      post "/add_product", payload.to_json, auth
+      expect(json_response["summary"]).to match "Product #{id}"
+    end
+  end
+
+  it 'updates product' do
+    payload = Factories.add_product_payload.merge(parameters: config)
+    id = payload['product']['id']
+    payload['product']['price'] = 101
+
+    VCR.use_cassette "requests/update_product" do
+      post "/update_product", payload.to_json, auth
+      expect(json_response["summary"]).to match "Product #{id}"
     end
   end
 end

@@ -1,12 +1,11 @@
 {
   "request_id": "52f367367575e449c3000001",
   "product": {
-    "id": 58,
-    "parent_id": 11,
+    "id": "5432543542352325",
     "name": "Spree T-Shirt",
-    "sku": "SPREE-T-SHIRT-S",
+    "sku": "SPREE-T-SHIRT",
     "description": "Awesome Spree T-Shirt",
-    "price": 35,
+    "price": 44,
     "cost_price": 22.33,
     "available_on": "2014-01-29T14:01:28.000Z",
     "permalink": "spree-tshirt",
@@ -28,13 +27,17 @@
         "Open Source"
       ]
     ],
-    "options": {
-      "color": "GREY",
-      "size": "S"
+    "options": [
+      "color",
+      "size"
+    ],
+    "properties": {
+      "material": "cotton",
+      "fit": "smart fit"
     },
     "images": [
       {
-        "url": "http://emaple.com/p/1/v/4/image.jpg",
+        "url": "http://dummyimage.com/600x400/000/fff.jpg&text=Spree T-Shirt",
         "position": 1,
         "title": "Spree T-Shirt - Grey Small",
         "type": "thumbnail",
@@ -42,6 +45,30 @@
           "height": 220,
           "width": 100
         }
+      }
+    ],
+    "variants": [
+      {
+        "sku": "SPREE-T-SHIRT-S",
+        "price": 39.99,
+        "cost_price": 22.33,
+        "quantity": 1,
+        "options": {
+          "color": "GREY",
+          "size": "S"
+        },
+        "images": [
+          {
+            "url": "http://dummyimage.com/600x400/000/fff.jpg&text=Spree T-Shirt Grey Small",
+            "position": 1,
+            "title": "Spree T-Shirt - Grey Small",
+            "type": "thumbnail",
+            "dimensions": {
+              "height": 220,
+              "width": 100
+            }
+          }
+        ]
       }
     ]
   }

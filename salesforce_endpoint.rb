@@ -3,8 +3,7 @@ require 'endpoint_base'
 require 'salesforce_integration'
 
 class SalesforceEndpoint < EndpointBase::Sinatra::Base
-  # INFO: This might cause potential security issue. It's commented out for special request from Spree Support.
-  # endpoint_key App.endpoint_key
+  endpoint_key ENV['ENDPOINT_KEY']
   enable :logging
 
   ['/add_order', '/update_order'].each do |path|

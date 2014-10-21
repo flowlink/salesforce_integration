@@ -5,6 +5,7 @@ require 'dotenv'
 Dotenv.load
 
 ENV['APP_ENV'] = 'test'
+ENV['ENDPOINT_KEY'] = '123'
 Bundler.require(:default, :test)
 
 require File.join(File.dirname(__FILE__), '..', 'config/environment')

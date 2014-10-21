@@ -10,21 +10,20 @@ module Integration
 
       def build
         params = {
-          'Name'             => object['id'],
-          'Status__c'        => object['status'],
-          'Channel__c'       => object['channel'],
-          'Email__c'         => object['email'],
-          'Currency__c'      => object['currency'],
-          'PlacedOn__c'      => object['placed_on'],
-          'Subtotal__c'      => object['totals']['item'],
-          'Adjustment__c'    => object['totals']['adjustment'],
-          'Tax__c'           => object['totals']['tax'],
-          'Shipping__c'      => object['totals']['shipping'],
-          'Payment__c'       => object['totals']['payment'],
-          'Total__c'         => object['totals']['order'],
+          'AccountId'              => object['email'],
+          'Amount'                 => object['totals']['order'],
+          'CloseDate'              => object['placed_on'],
+          'HasOpportunityLineItem' => true,
+          'Name'                   => object['id'],
+          'Pricebook2Id'           => get_pricebook2,
+          'StageName'              => object['status'],
+          'CurrencyIsoCode'        => object['currency']
         }
       end
 
+      def get_pricebook2
+
+      end
     end
   end
 end

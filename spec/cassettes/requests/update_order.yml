@@ -21,10 +21,10 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 21 Oct 2014 18:29:32 GMT
+      - Tue, 21 Oct 2014 23:25:34 GMT
       Set-Cookie:
-      - BrowserId=OMv8t1ChRbyR9LIlNKhC4A;Path=/;Domain=.salesforce.com;Expires=Sat,
-        20-Dec-2014 18:29:32 GMT
+      - BrowserId=RpbtmgxWTqOwbDoTOIj7mg;Path=/;Domain=.salesforce.com;Expires=Sat,
+        20-Dec-2014 23:25:34 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Pragma:
@@ -37,9 +37,9 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1413916172708","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"6m0KmUrxx1Ef1Cghgn/cIlzhkOPIwZa8Gd9a0OBdjcY=","access_token":"00Dj0000000HAIT!AQoAQEq2ZP7kvxdyHgaS7S0AQFtviH72zEcMYQS1P.Dltw.cPMvkx8YwCAvG1ialIb5hY9H05azNwmlQpclrud4ch1AExdP3"}'
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1413933934243","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"95ehUZFg+1F3XyBLZWoZOj2HPsfwH5XCbNwEyRohYDQ=","access_token":"00Dj0000000HAIT!AQoAQEq2ZP7kvxdyHgaS7S0AQFtviH72zEcMYQS1P.Dltw.cPMvkx8YwCAvG1ialIb5hY9H05azNwmlQpclrud4ch1AExdP3"}'
     http_version: 
-  recorded_at: Tue, 21 Oct 2014 18:29:32 GMT
+  recorded_at: Tue, 21 Oct 2014 23:25:34 GMT
 - request:
     method: get
     uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Account__c%20from%20Contact%20where%20Email%20=%20'spree@example.com'
@@ -61,14 +61,14 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Tue, 21 Oct 2014 18:29:33 GMT
+      - Tue, 21 Oct 2014 23:25:35 GMT
       Set-Cookie:
-      - BrowserId=NMAM95wbQlO4SBYOGdD-Pw;Path=/;Domain=.salesforce.com;Expires=Sat,
-        20-Dec-2014 18:29:33 GMT
+      - BrowserId=PEKIDtwVSZWH88m7tFDj3w;Path=/;Domain=.salesforce.com;Expires=Sat,
+        20-Dec-2014 23:25:35 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=60/15000
+      - api-usage=232/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -81,5 +81,5 @@ http_interactions:
         the custom field name. Please reference your WSDL or the describe call for
         the appropriate names.","errorCode":"INVALID_FIELD"}]'
     http_version: 
-  recorded_at: Tue, 21 Oct 2014 18:29:33 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Tue, 21 Oct 2014 23:25:35 GMT
+recorded_with: VCR 2.9.3

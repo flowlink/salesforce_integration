@@ -1,9 +1,9 @@
 test_config_hash = {
-  'salesforce_username' => 'tester+netguru@netguru.co',
-  'salesforce_password' => 'testtest123',
-  'salesforce_security_token' => '98feCLrdLjqN7Ji8zhhWf3uc',
-  'salesforce_client_id' => '3MVG9WtWSKUDG.x5hyqXeboVoSErlfbiCvJNDfuwmN77rRhJ6tqCeFKFhuFvMNo0COBif7CT1NnevkMq464Qp',
-  'salesforce_client_secret' => '3920716088724079571'
+  'salesforce_username'       => ENV['SALESFORCE_USERNAME'],
+  'salesforce_password'       => ENV['SALESFORCE_PASSWORD'],
+  'salesforce_security_token' => ENV['SALESFORCE_SECURITY_TOKEN'],
+  'salesforce_client_id'      => ENV['SALESFORCE_CLIENT_ID'],
+  'salesforce_client_secret'  => ENV['SALESFORCE_CLIENT_SECRET']
 }.with_indifferent_access
 
 shared_examples "config hash" do

@@ -8,6 +8,7 @@ gem 'endpoint_base', github: 'spree/endpoint_base'
 gem 'executrix'
 gem 'honeybadger'
 gem 'rollbar'
+gem 'dotenv'
 
 group :development do
   gem "rake"

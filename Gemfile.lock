@@ -108,6 +108,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   endpoint_base!
   executrix
   foreman

@@ -5,8 +5,7 @@ describe SalesforceEndpoint do
 
   context 'webhooks' do
     ['add_order', 'update_order',
-     'add_customer', 'update_customer',
-     'add_product', 'update_product'].each do |path|
+     'add_customer', 'update_customer'].each do |path|
       describe path do
         let(:payload) do
           payload = Factories.send("#{path}_payload")

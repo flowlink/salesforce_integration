@@ -15,14 +15,10 @@ module Integration
           'CloseDate'              => object['placed_on'],
           'HasOpportunityLineItem' => true,
           'Name'                   => object['id'],
-          'Pricebook2Id'           => get_pricebook2,
-          'StageName'              => object['status'],
+          'Pricebook2Id'           => object['price_book_id'],
+          'StageName'              => object.has_key?('stage_name') ? object['stage_name'] : object['status'],
           'CurrencyIsoCode'        => object['currency']
         }
-      end
-
-      def get_pricebook2
-
       end
     end
   end

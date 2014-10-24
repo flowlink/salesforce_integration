@@ -1,4 +1,13 @@
 module SFService
+  # Note about `query` methods: 
+  #
+  #   http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_query.htm
+  #
+  #   If the query results are too large, the response contains the first batch
+  #   of results and a query identifier in the nextRecordsUrl field of the
+  #   response. The identifier can be used in an additional request to retrieve
+  #   the next batch.
+  #
   class Base
     attr_reader :salesforce, :config, :model_name
 

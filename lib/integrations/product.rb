@@ -15,8 +15,9 @@ module Integration
 
     def fetch_updates
       products = product_service.latest_updates config[:salesforce_products_since]
-      product_ids = products.map { |p| "'#{p["Id"]}'" }.join(", ")
+      return [] if products.to_a.empty?
 
+      product_ids = products.map { |p| "'#{p["Id"]}'" }.join(", ")
       prices = product_service.find_prices_by_product_ids product_ids
 
       products.map do |product|

@@ -100,4 +100,16 @@ describe SalesforceEndpoint do
       expect(json_response["products"]).to be_a Array
     end
   end
+
+  it "empty get products result" do
+    payload = {
+      parameters: config.merge(salesforce_products_since: "2014-10-24T19:14:57-03:00")
+    }
+
+    VCR.use_cassette "requests/get_products_empty" do
+      post "/get_products", payload.to_json, auth
+      expect(json_response["summary"]).to be_nil
+      expect(last_response.status).to eq 200
+    end
+  end
 end

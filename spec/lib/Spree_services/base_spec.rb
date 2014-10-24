@@ -22,12 +22,5 @@ describe SpreeService::Base do
         subject.upsert_order!
       end
     end
-
-    describe '#upsert_product!' do
-      it 'creates an product integration and calls upsert! on it' do
-        expect_any_instance_of(Integration::Product).to receive(:upsert!).once
-        subject.upsert_product!
-      end
-    end
   end
 end

@@ -29,10 +29,6 @@ module SpreeService
       Integration::Order.new(config, payload).upsert!
     end
 
-    def upsert_product!
-      Integration::Product.new(config, payload[service_name]).upsert!
-    end
-
     def handle_returns!
       Integration::Return.new(config, payload[service_name]).handle_all!
     end

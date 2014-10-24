@@ -50,7 +50,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
   ['/add_product', '/update_product'].each do |path|
     post path do
       begin
-        SpreeService::Product.new(@payload, @config).upsert_product!
+        Integration::Product.new(@config, @payload[:product]).upsert!
         set_summary "Product #{@payload["product"]["id"]} updated (or created) in Salesforce"
         result 200
       rescue Exception => e

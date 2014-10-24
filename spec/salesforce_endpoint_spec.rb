@@ -86,4 +86,18 @@ describe SalesforceEndpoint do
       expect(json_response["summary"]).to match "Product #{id}"
     end
   end
+
+  it "get products" do
+    payload = {
+      parameters: config.merge(salesforce_products_since: "2014-10-17T16:14:57-03:00")
+    }
+
+    VCR.use_cassette "requests/get_products" do
+      post "/get_products", payload.to_json, auth
+
+      expect(json_response["summary"]).to match "Received"
+      expect(last_response.status).to eq 200
+      expect(json_response["products"]).to be_a Array
+    end
+  end
 end

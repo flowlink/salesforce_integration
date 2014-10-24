@@ -59,4 +59,15 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       end
     end
   end
+
+  post "/get_products" do
+    products = Integration::Product.new(@config, @payload).fetch_updates
+    products.each { |p| add_object "product", p }
+
+    if (count = products.count) > 0
+      result 200, "Received #{count} #{"product".pluralize count} from Salesforce"
+    else
+      result 200
+    end
+  end
 end

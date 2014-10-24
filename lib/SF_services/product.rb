@@ -15,6 +15,18 @@ module SFService
       results.any? ? results.first['Id'] : nil
     end
 
+    def latest_updates(time = Time.now.utc.iso8601)
+      since = time ? Time.parse(time).utc.iso8601 : Time.now.utc.iso8601
+
+      fields = "Id, Name, ProductCode, Description"
+      products = salesforce.query("select #{fields} from Product2 where LastModifiedDate > #{since}")
+    end
+
+    def find_prices_by_product_ids(product_ids)
+      fields = "Product2Id, UnitPrice"
+      salesforce.query("select #{fields} from PricebookEntry where Product2Id in (#{product_ids})")
+    end
+
     def upsert!(product_code, attributes = {})
       product_id = find_id_by_code(product_code)
 

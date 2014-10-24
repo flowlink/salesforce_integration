@@ -18,7 +18,7 @@ module SFService
     def latest_updates(time = Time.now.utc.iso8601)
       since = time ? Time.parse(time).utc.iso8601 : Time.now.utc.iso8601
 
-      fields = "Id, Name, ProductCode, Description"
+      fields = "Id, Name, ProductCode, Description, LastModifiedDate"
       products = salesforce.query("select #{fields} from Product2 where LastModifiedDate > #{since}")
     end
 

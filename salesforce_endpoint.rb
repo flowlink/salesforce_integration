@@ -61,10 +61,12 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
   end
 
   post "/get_products" do
-    products = Integration::Product.new(@config, @payload).fetch_updates
+    product_service = Integration::Product.new(@config, @payload)
+    products = product_service.fetch_updates
     products.each { |p| add_object "product", p }
 
     if (count = products.count) > 0
+      add_parameter "salesforce_products_since", product_service.latest_timestamp_update
       result 200, "Received #{count} #{"product".pluralize count} from Salesforce"
     else
       result 200

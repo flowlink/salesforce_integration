@@ -97,6 +97,8 @@ describe SalesforceEndpoint do
 
       expect(json_response["summary"]).to match "Received"
       expect(last_response.status).to eq 200
+
+      expect(json_response["parameters"]).to have_key "salesforce_products_since"
       expect(json_response["products"]).to be_a Array
     end
   end

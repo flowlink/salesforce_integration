@@ -51,4 +51,17 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
       result 200
     end
   end
+
+  post "/get_customers" do
+    contact_integration = Integration::ContactAccount.new(@config, @payload[:customer])
+    contacts = contact_integration.fetch_updates
+    add_value "customers", contacts
+
+    if (count = contacts.count) > 0
+      add_parameter "salesforce_contacts_since", contact_integration.latest_timestamp_update
+      result 200, "Received #{count} #{"customer".pluralize count} from Salesforce"
+    else
+      result 200
+    end
+  end
 end

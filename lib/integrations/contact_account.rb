@@ -4,7 +4,7 @@ module Integration
     attr_reader :object
 
     def initialize(config, object)
-      @object = object.with_indifferent_access
+      @object = object
       super(config)
     end
 
@@ -12,7 +12,33 @@ module Integration
       contact_service.upsert!(customer_params['Email'], customer_params_with_account)
     end
 
+    def fetch_updates
+      return [] if latest_contacts.to_a.empty?
+
+      latest_contacts.map do |contact|
+        {
+          id: contact["Id"],
+          first_name: contact["Firstname"],
+          last_name: contact["Lastname"],
+          email: contact["Email"],
+          account_name: contact["Account"]["Name"],
+          salesforce_id: contact["Id"]
+        }
+      end
+    end
+
+    def latest_timestamp_update(contacts = nil)
+      if contact = (contacts || latest_contacts).to_a.last
+        Time.parse(contact["LastModifiedDate"]).utc.iso8601
+      else
+        Time.now.utc.iso8601
+      end
+    end
+
     private
+    def latest_contacts
+      @latest_contacts ||= contact_service.latest_updates config[:salesforce_contacts_since]
+    end
 
     def account_id
       contact_service.find_account_id_by_email(customer_params['Email']) || account_service.create!(account_params)

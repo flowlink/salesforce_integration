@@ -135,4 +135,20 @@ describe SalesforceEndpoint do
       expect(last_response.status).to eq 200
     end
   end
+
+  it "get customers" do
+    payload = {
+      parameters: config.merge(salesforce_contacts_since: "2014-10-25T18:06:36-03:00")
+    }
+
+    VCR.use_cassette "requests/get_customers" do
+      post "/get_customers", payload.to_json, auth
+
+      expect(json_response["summary"]).to match "Received"
+      expect(last_response.status).to eq 200
+
+      expect(json_response["parameters"]).to have_key "salesforce_contacts_since"
+      expect(json_response["customers"]).to be_a Array
+    end
+  end
 end

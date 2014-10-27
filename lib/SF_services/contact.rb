@@ -19,5 +19,19 @@ module SFService
       contact_id = find_id_by_email(email)
       contact_id.present? ? update!(attributes.merge({ Id: contact_id })) : create!(attributes)
     end
+
+    def latest_updates(time = Time.now.utc.iso8601)
+      since = time ? Time.parse(time).utc.iso8601 : Time.now.utc.iso8601
+
+      fields = ["Contact.Id",
+                "Contact.Firstname",
+                "Contact.Lastname",
+                "Contact.Email",
+                "Contact.Account.Name",
+                "Contact.LastModifiedDate"]
+
+      filter = "LastModifiedDate > #{since} ORDER BY LastModifiedDate ASC LIMIT 100"
+      salesforce.query("SELECT #{fields.join(", ")} FROM Contact WHERE #{filter}")
+    end
   end
 end

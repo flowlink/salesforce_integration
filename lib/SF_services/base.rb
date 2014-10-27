@@ -8,6 +8,11 @@ module SFService
   #   response. The identifier can be used in an additional request to retrieve
   #   the next batch.
   #
+  #
+  # About Salesforce Object Query Language (SOQL):
+  #
+  #   http://www.salesforce.com/us/developer/docs/soql_sosl/index.htm
+  #
   class Base
     attr_reader :salesforce, :config, :model_name
 

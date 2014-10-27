@@ -10,7 +10,8 @@ module Integration
 
       def build
         params = {
-          'Name' => name
+          'Name' => name,
+          'AccountNumber' => object['id']
         }
       end
 

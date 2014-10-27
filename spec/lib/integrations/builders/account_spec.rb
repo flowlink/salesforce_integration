@@ -9,9 +9,7 @@ describe Integration::Builder::Account do
 
     it 'returns hash with address data' do
       expect(result).to be_kind_of Hash
-      expect(result.keys).to eq(
-        ["Name"]
-      )
+      expect(result.keys).to eq ["Name", "AccountNumber"]
     end
   end
 end

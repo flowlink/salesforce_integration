@@ -18,11 +18,11 @@ module Integration
         account = contact["Account"] || {}
 
         {
-          id: contact["Id"],
+          id: account["AccountNumber"] || contact["Id"],
           first_name: contact["FirstName"],
           last_name: contact["LastName"],
           email: contact["Email"],
-          account_name: contact["Account"]["Name"],
+          account_name: account["Name"],
           salesforce_id: contact["Id"],
           shipping_address: build_address(account, "Shipping"),
           billing_address: build_address(account)

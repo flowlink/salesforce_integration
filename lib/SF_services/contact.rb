@@ -28,6 +28,7 @@ module SFService
                 "Contact.Lastname",
                 "Contact.Email",
                 "Contact.Account.Name",
+                "Contact.Account.AccountNumber",
                 "Contact.Account.BillingCity",
                 "Contact.Account.BillingCountry",
                 # "Contact.Account.BillingCountryCode",

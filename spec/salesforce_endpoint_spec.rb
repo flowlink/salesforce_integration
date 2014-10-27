@@ -68,7 +68,7 @@ describe SalesforceEndpoint do
     payload = Factories.add_customer_payload.merge(parameters: config)
     email = payload['customer']['email']
 
-    VCR.use_cassette "requests/add_customer" do
+    VCR.use_cassette "requests/1414442508" do
       post "/add_customer", payload.to_json, auth
       expect(json_response["summary"]).to match "#{email} updated in Salesforce"
       expect(last_response.status).to eq 200

@@ -21,10 +21,10 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 27 Oct 2014 16:50:13 GMT
+      - Mon, 27 Oct 2014 20:49:10 GMT
       Set-Cookie:
-      - BrowserId=QA30Ak18ToiHravZdKZh6w;Path=/;Domain=.salesforce.com;Expires=Fri,
-        26-Dec-2014 16:50:13 GMT
+      - BrowserId=Lmgz3vU8R96jurIXzjTwrg;Path=/;Domain=.salesforce.com;Expires=Fri,
+        26-Dec-2014 20:49:10 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Pragma:
@@ -37,12 +37,12 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1414428613507","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"lUhm7HA16rIVrjNPQ4vJ5bhYGSGdkx6swFVpU+G9zKs=","access_token":"00Dj0000000HAIT!AQoAQO3.sA9TZCfsUw5b_bHMAAU0POqpkb15Bx_TNH9sEw00N5UCSVxtlmHdHTFRkPxcYRkw.I7kY_dECHgWTXVLRgZEsI6d"}'
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1414442951058","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"t5nr8+/uNLZkg1C5mRCOLexb5+PJAzm4wbp6hVP+1fk=","access_token":"00Dj0000000HAIT!AQoAQO3.sA9TZCfsUw5b_bHMAAU0POqpkb15Bx_TNH9sEw00N5UCSVxtlmHdHTFRkPxcYRkw.I7kY_dECHgWTXVLRgZEsI6d"}'
     http_version: 
-  recorded_at: Mon, 27 Oct 2014 16:50:15 GMT
+  recorded_at: Mon, 27 Oct 2014 20:49:13 GMT
 - request:
     method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'spree@example.com'
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'washington@wombat.com'
     body:
       encoding: US-ASCII
       string: ''
@@ -61,26 +61,26 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 27 Oct 2014 16:50:14 GMT
+      - Mon, 27 Oct 2014 20:49:13 GMT
       Set-Cookie:
-      - BrowserId=G1cNmbs3SsyjZy7GP13NEg;Path=/;Domain=.salesforce.com;Expires=Fri,
-        26-Dec-2014 16:50:14 GMT
+      - BrowserId=CkX03DibTzCrEomK70ikSQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        26-Dec-2014 20:49:13 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=7/15000
+      - api-usage=45/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"AccountId":"001j0000001wYXZAA2"}]}'
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001QovwAAC"},"AccountId":"001j0000001wcSoAAI"}]}'
     http_version: 
-  recorded_at: Mon, 27 Oct 2014 16:50:16 GMT
+  recorded_at: Mon, 27 Oct 2014 20:49:16 GMT
 - request:
     method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'spree@example.com'
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'washington@wombat.com'
     body:
       encoding: US-ASCII
       string: ''
@@ -99,32 +99,32 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 27 Oct 2014 16:50:15 GMT
+      - Mon, 27 Oct 2014 20:49:14 GMT
       Set-Cookie:
-      - BrowserId=aj1wth9YSTeymNmJJt_G8g;Path=/;Domain=.salesforce.com;Expires=Fri,
-        26-Dec-2014 16:50:15 GMT
+      - BrowserId=eianoqeCTxiRWgGcGx2f5g;Path=/;Domain=.salesforce.com;Expires=Fri,
+        26-Dec-2014 20:49:14 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=7/15000
+      - api-usage=45/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"Id":"003j0000001Qlh7AAC"}]}'
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001QovwAAC"},"Id":"003j0000001QovwAAC"}]}'
     http_version: 
-  recorded_at: Mon, 27 Oct 2014 16:50:17 GMT
+  recorded_at: Mon, 27 Oct 2014 20:49:17 GMT
 - request:
     method: patch
-    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC
+    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/Contact/003j0000001QovwAAC
     body:
       encoding: UTF-8
-      string: '{"FirstName":"Brian","LastName":"Smith","Email":"spree@example.com","MailingStreet":"1234
+      string: '{"FirstName":"Washington","LastName":"Smith","Email":"washington@wombat.com","MailingStreet":"1234
         Awesome Street","MailingCity":"Hollywood","MailingState":"California","MailingPostalCode":"90210","MailingCountry":"US","OtherStreet":"1234
         Awesome Street","OtherCity":"Hollywood","OtherState":"California","OtherPostalCode":"90210","OtherCountry":"US","Phone":"333
-        333 333","OtherPhone":"0000000000","AccountId":"001j0000001wYXZAA2"}'
+        333 333","OtherPhone":"0000000000","AccountId":"001j0000001wcSoAAI"}'
     headers:
       User-Agent:
       - Faraday v0.8.9
@@ -142,17 +142,17 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Mon, 27 Oct 2014 16:50:16 GMT
+      - Mon, 27 Oct 2014 20:49:15 GMT
       Set-Cookie:
-      - BrowserId=gxOuqgqOQJ-m5e1xoBB-Lw;Path=/;Domain=.salesforce.com;Expires=Fri,
-        26-Dec-2014 16:50:16 GMT
+      - BrowserId=9P-zqQXHQZ6bLBtYvqw9Bw;Path=/;Domain=.salesforce.com;Expires=Fri,
+        26-Dec-2014 20:49:15 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=7/15000
+      - api-usage=45/15000
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Mon, 27 Oct 2014 16:50:18 GMT
+  recorded_at: Mon, 27 Oct 2014 20:49:17 GMT
 recorded_with: VCR 2.9.3

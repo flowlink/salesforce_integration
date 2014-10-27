@@ -8,54 +8,34 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
 
   ['/add_order', '/update_order'].each do |path|
     post path do
-      begin
-        SpreeService::Order.new(@payload, @config).upsert_contact_with_account!
-        SpreeService::Order.new(@payload, @config).upsert_order!
-        SpreeService::Product.new(@payload, @config).upsert_products!
-        SpreeService::Order.new(@payload, @config).upsert_lineitems!
-        SpreeService::Order.new(@payload, @config).upsert_payments!
-        set_summary "Contact for #{@payload["order"]["email"]} and order ##{@payload["order"]["id"]} updated (or created) in Salesforce"
-        result 200
-      rescue Exception => e
-        log_exception(e)
-        result 500, e.message
-      end
+      SpreeService::Order.new(@payload, @config).upsert_contact_with_account!
+      SpreeService::Order.new(@payload, @config).upsert_order!
+      SpreeService::Product.new(@payload, @config).upsert_products!
+      SpreeService::Order.new(@payload, @config).upsert_lineitems!
+      SpreeService::Order.new(@payload, @config).upsert_payments!
+      set_summary "Contact for #{@payload["order"]["email"]} and order ##{@payload["order"]["id"]} updated (or created) in Salesforce"
+      result 200
     end
   end
 
   post '/add_returns' do
-    begin
-      SpreeService::Return.new(@payload, @config).handle_returns!
-      set_summary "Returns marked in Order ##{@payload["returns"].first["order_id"]} in Salesforce"
-      result 200
-    rescue Exception => e
-      log_exception(e)
-      result 500, e.message
-    end
+    SpreeService::Return.new(@payload, @config).handle_returns!
+    set_summary "Returns marked in Order ##{@payload["returns"].first["order_id"]} in Salesforce"
+    result 200
   end
 
   ['/add_customer', '/update_customer'].each do |path|
     post path do
-      begin
-        Integration::ContactAccount.new(@config, @payload[:customer]).upsert!
-        result 200, "Contact for #{@payload[:customer][:email]} updated in Salesforce"
-      rescue Exception => e
-        log_exception(e)
-        result 500, e.message
-      end
+      Integration::ContactAccount.new(@config, @payload[:customer]).upsert!
+      result 200, "Contact for #{@payload[:customer][:email]} updated in Salesforce"
     end
   end
 
   ['/add_product', '/update_product'].each do |path|
     post path do
-      begin
-        Integration::Product.new(@config, @payload[:product]).upsert!
-        set_summary "Product #{@payload["product"]["id"]} updated (or created) in Salesforce"
-        result 200
-      rescue Exception => e
-        log_exception(e)
-        result 500, e.message
-      end
+      Integration::Product.new(@config, @payload[:product]).upsert!
+      set_summary "Product #{@payload["product"]["id"]} updated (or created) in Salesforce"
+      result 200
     end
   end
 

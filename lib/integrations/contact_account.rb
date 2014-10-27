@@ -1,6 +1,5 @@
 module Integration
   class ContactAccount < Base
-
     attr_reader :object
 
     def initialize(config, object)
@@ -16,13 +15,17 @@ module Integration
       return [] if latest_contacts.to_a.empty?
 
       latest_contacts.map do |contact|
+        account = contact["Account"] || {}
+
         {
           id: contact["Id"],
-          first_name: contact["Firstname"],
-          last_name: contact["Lastname"],
+          first_name: contact["FirstName"],
+          last_name: contact["LastName"],
           email: contact["Email"],
           account_name: contact["Account"]["Name"],
-          salesforce_id: contact["Id"]
+          salesforce_id: contact["Id"],
+          shipping_address: build_address(account, "Shipping"),
+          billing_address: build_address(account)
         }
       end
     end
@@ -33,6 +36,17 @@ module Integration
       else
         Time.now.utc.iso8601
       end
+    end
+
+    def build_address(account, kind = "Billing")
+      {
+        address1: account["#{kind}Street"],
+        zipcode: account["#{kind}PostalCode"],
+        city: account["#{kind}City"],
+        country: account["#{kind}Country"],
+        state: account["#{kind}State"],
+        phone: account["Phone"]
+      }
     end
 
     private

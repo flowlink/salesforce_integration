@@ -43,7 +43,7 @@ module Integration
     end
 
     def latest_timestamp_update(products = nil)
-      if product = (products || latest_products).sort_by { |p| p["LastModifiedDate"] }.last
+      if product = (products || latest_products).to_a.last
         Time.parse(product["LastModifiedDate"]).utc.iso8601
       else
         Time.now.utc.iso8601

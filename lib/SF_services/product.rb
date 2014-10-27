@@ -19,7 +19,8 @@ module SFService
       since = time ? Time.parse(time).utc.iso8601 : Time.now.utc.iso8601
 
       fields = "Id, Name, ProductCode, Description, LastModifiedDate"
-      products = salesforce.query("select #{fields} from Product2 where LastModifiedDate > #{since}")
+      filter = "LastModifiedDate > #{since} ORDER BY LastModifiedDate ASC LIMIT 100"
+      salesforce.query("select #{fields} from Product2 where #{filter}")
     end
 
     def find_prices_by_product_ids(product_ids)

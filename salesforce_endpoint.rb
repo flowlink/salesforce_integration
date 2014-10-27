@@ -37,9 +37,8 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
   ['/add_customer', '/update_customer'].each do |path|
     post path do
       begin
-        SpreeService::Customer.new(@payload, @config).upsert_contact_with_account!
-        set_summary "Contact for #{@payload["customer"]["email"]} updated (or created) in Salesforce"
-        result 200
+        Integration::ContactAccount.new(@config, @payload[:customer]).upsert!
+        result 200, "Contact for #{@payload[:customer][:email]} updated in Salesforce"
       rescue Exception => e
         log_exception(e)
         result 500, e.message

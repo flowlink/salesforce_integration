@@ -27,7 +27,7 @@ module Integration
     end
 
     def customer_params_with_account
-      Integration::Builder::Contact.new(object).build.merge({ Account__c: account_id })
+      Builder::Contact.new(object).build.merge({ AccountId: account_id })
     end
   end
 end

@@ -14,17 +14,17 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 21 Oct 2014 18:29:36 GMT
+      - Mon, 27 Oct 2014 16:50:13 GMT
       Set-Cookie:
-      - BrowserId=39hNcNT6Rhq8hqyBssEnyw;Path=/;Domain=.salesforce.com;Expires=Sat,
-        20-Dec-2014 18:29:36 GMT
+      - BrowserId=QA30Ak18ToiHravZdKZh6w;Path=/;Domain=.salesforce.com;Expires=Fri,
+        26-Dec-2014 16:50:13 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Pragma:
@@ -37,12 +37,12 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1413916177011","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"OFzn+TkPB+cEcP1/fiakDhQsfrHrBIqNXnJyc9+nrOk=","access_token":"00Dj0000000HAIT!AQoAQEq2ZP7kvxdyHgaS7S0AQFtviH72zEcMYQS1P.Dltw.cPMvkx8YwCAvG1ialIb5hY9H05azNwmlQpclrud4ch1AExdP3"}'
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1414428613507","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"lUhm7HA16rIVrjNPQ4vJ5bhYGSGdkx6swFVpU+G9zKs=","access_token":"00Dj0000000HAIT!AQoAQO3.sA9TZCfsUw5b_bHMAAU0POqpkb15Bx_TNH9sEw00N5UCSVxtlmHdHTFRkPxcYRkw.I7kY_dECHgWTXVLRgZEsI6d"}'
     http_version: 
-  recorded_at: Tue, 21 Oct 2014 18:29:37 GMT
+  recorded_at: Mon, 27 Oct 2014 16:50:15 GMT
 - request:
     method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Account__c%20from%20Contact%20where%20Email%20=%20'spree@example.com'
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'spree@example.com'
     body:
       encoding: US-ASCII
       string: ''
@@ -50,36 +50,109 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQEq2ZP7kvxdyHgaS7S0AQFtviH72zEcMYQS1P.Dltw.cPMvkx8YwCAvG1ialIb5hY9H05azNwmlQpclrud4ch1AExdP3
+      - OAuth 00Dj0000000HAIT!AQoAQO3.sA9TZCfsUw5b_bHMAAU0POqpkb15Bx_TNH9sEw00N5UCSVxtlmHdHTFRkPxcYRkw.I7kY_dECHgWTXVLRgZEsI6d
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
   response:
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
     headers:
       Date:
-      - Tue, 21 Oct 2014 18:29:37 GMT
+      - Mon, 27 Oct 2014 16:50:14 GMT
       Set-Cookie:
-      - BrowserId=HU_R3fK6Tju0IlqSVjzp1A;Path=/;Domain=.salesforce.com;Expires=Sat,
-        20-Dec-2014 18:29:37 GMT
+      - BrowserId=G1cNmbs3SsyjZy7GP13NEg;Path=/;Domain=.salesforce.com;Expires=Fri,
+        26-Dec-2014 16:50:14 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=61/15000
+      - api-usage=7/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '[{"message":"\nselect Account__c from Contact where Email\n       ^\nERROR
-        at Row:1:Column:8\nNo such column ''Account__c'' on entity ''Contact''. If
-        you are attempting to use a custom field, be sure to append the ''__c'' after
-        the custom field name. Please reference your WSDL or the describe call for
-        the appropriate names.","errorCode":"INVALID_FIELD"}]'
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"AccountId":"001j0000001wYXZAA2"}]}'
     http_version: 
-  recorded_at: Tue, 21 Oct 2014 18:29:38 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Mon, 27 Oct 2014 16:50:16 GMT
+- request:
+    method: get
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'spree@example.com'
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQO3.sA9TZCfsUw5b_bHMAAU0POqpkb15Bx_TNH9sEw00N5UCSVxtlmHdHTFRkPxcYRkw.I7kY_dECHgWTXVLRgZEsI6d
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Oct 2014 16:50:15 GMT
+      Set-Cookie:
+      - BrowserId=aj1wth9YSTeymNmJJt_G8g;Path=/;Domain=.salesforce.com;Expires=Fri,
+        26-Dec-2014 16:50:15 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=7/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"Id":"003j0000001Qlh7AAC"}]}'
+    http_version: 
+  recorded_at: Mon, 27 Oct 2014 16:50:17 GMT
+- request:
+    method: patch
+    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC
+    body:
+      encoding: UTF-8
+      string: '{"FirstName":"Brian","LastName":"Smith","Email":"spree@example.com","MailingStreet":"1234
+        Awesome Street","MailingCity":"Hollywood","MailingState":"California","MailingPostalCode":"90210","MailingCountry":"US","OtherStreet":"1234
+        Awesome Street","OtherCity":"Hollywood","OtherState":"California","OtherPostalCode":"90210","OtherCountry":"US","Phone":"333
+        333 333","OtherPhone":"0000000000","AccountId":"001j0000001wYXZAA2"}'
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQO3.sA9TZCfsUw5b_bHMAAU0POqpkb15Bx_TNH9sEw00N5UCSVxtlmHdHTFRkPxcYRkw.I7kY_dECHgWTXVLRgZEsI6d
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Mon, 27 Oct 2014 16:50:16 GMT
+      Set-Cookie:
+      - BrowserId=gxOuqgqOQJ-m5e1xoBB-Lw;Path=/;Domain=.salesforce.com;Expires=Fri,
+        26-Dec-2014 16:50:16 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=7/15000
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 27 Oct 2014 16:50:18 GMT
+recorded_with: VCR 2.9.3

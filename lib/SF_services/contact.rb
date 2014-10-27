@@ -11,8 +11,8 @@ module SFService
     end
 
     def find_account_id_by_email(email)
-      results = salesforce.query("select Account__c from Contact where Email = '#{email}'")
-      results.any? ? results.first['Account__c'] : nil
+      results = salesforce.query("select AccountId from Contact where Email = '#{email}'")
+      results.any? ? results.first['AccountId'] : nil
     end
 
     def upsert!(email, attributes = {})

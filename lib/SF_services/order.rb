@@ -20,10 +20,8 @@ module SFService
     end
 
     def upsert!(order_attr = {})
-      account_id    = @account_service.find_account_id_by_email(order_attr.fetch 'AccountId')
       price_book_id = find_price_book_by_id(order_attr.fetch 'Pricebook2Id')
 
-      order_attr = order_attr.merge( { 'AccountId'    => account_id } ) if account_id.present?
       order_attr = order_attr.merge( { 'Pricebook2Id' => price_book_id } ) if price_book_id.present?
 
       order_id = is_present?(order_attr.fetch 'Name')

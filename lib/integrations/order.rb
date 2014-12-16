@@ -4,12 +4,16 @@ module Integration
     attr_reader :object
 
     def initialize(config, object)
-      @object = object.with_indifferent_access
+      @object = object
       super(config)
     end
 
     def upsert!
-      order_service.upsert!(order_params)
+      contact_account = ContactAccount.new(config, object[:order])
+      account_id = contact_account.account_id
+      contact_account.upsert! AccountId: account_id
+
+      order_service.upsert!(order_params.merge "AccountId" => account_id)
     end
 
     private
@@ -17,6 +21,5 @@ module Integration
     def order_params
       Integration::Builder::Order.new(object['order']).build
     end
-
   end
 end

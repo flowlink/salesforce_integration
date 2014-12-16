@@ -7,8 +7,9 @@ module Integration
       super(config)
     end
 
-    def upsert!
-      contact_service.upsert!(customer_params['Email'], customer_params_with_account)
+    def upsert!(account_id = {})
+      params = customer_params.merge account_id
+      contact_service.upsert!(customer_params['Email'], params)
     end
 
     def fetch_updates
@@ -49,13 +50,13 @@ module Integration
       }
     end
 
+    def account_id
+      contact_service.find_account_id_by_email(customer_params['Email']) || account_service.create!(account_params)
+    end
+
     private
     def latest_contacts
       @latest_contacts ||= contact_service.latest_updates config[:salesforce_contacts_since]
-    end
-
-    def account_id
-      contact_service.find_account_id_by_email(customer_params['Email']) || account_service.create!(account_params)
     end
 
     def account_params
@@ -64,10 +65,6 @@ module Integration
 
     def customer_params
       Integration::Builder::Contact.new(object).build
-    end
-
-    def customer_params_with_account
-      Builder::Contact.new(object).build.merge({ AccountId: account_id })
     end
   end
 end

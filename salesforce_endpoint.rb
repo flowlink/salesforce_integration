@@ -8,7 +8,6 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
 
   ['/add_order', '/update_order'].each do |path|
     post path do
-      Integration::ContactAccount.new(@config, @payload[:order]).upsert!
       Integration::Order.new(@config, @payload).upsert!
 
       Integration::Product.new(@config, @payload).import_from_order!

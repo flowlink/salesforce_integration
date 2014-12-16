@@ -10,7 +10,6 @@ module Integration
 
       def build
         params = {
-          'AccountId'              => object['email'],
           'Amount'                 => object['totals']['order'],
           'CloseDate'              => object['placed_on'],
           # 'HasOpportunityLineItem' => true,

@@ -17,7 +17,7 @@ module Integration
       opportunity_id = order_service.upsert! params
 
       product_integration = Product.new(config, object[:order])
-      line_item_integration = LineItem.new(config, object[:order])
+      line_item_integration = LineItem.new(config)
 
       object[:order][:line_items].each do |line_item|
 
@@ -27,15 +27,26 @@ module Integration
 
           product_id = product_integration.create! params
         end
-      end
 
-      LineItem.new(config, object[:order]).upsert! opportunity_id
+        line_item_integration.upsert! line_item, opportunity_id, product_id
+      end
     end
 
     private
 
     def order_params
       Builder::Order.new(object[:order]).build
+    end
+  end
+
+  class LineItem < Base
+    def upsert!(item, opportunity_id, product_id)
+      params = build_oportunity_line item
+      line_item_service.upsert!(params, opportunity_id, product_id)
+    end
+
+    def build_oportunity_line(item)
+      Builder::LineItem.new(item).build
     end
   end
 end

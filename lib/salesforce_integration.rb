@@ -9,7 +9,6 @@ require 'integrations/base'
 require 'integrations/contact_account'
 require 'integrations/product'
 require 'integrations/order'
-require 'integrations/line_item'
 require 'integrations/payment'
 require 'integrations/return'
 

@@ -16,20 +16,13 @@ module SFService
       results.any? ? results.first['Id'] : nil
     end
 
-    def upsert!(line_item_attr = {}, opportunity_id, product_code)
-      # FIXME product ids are already fetched before on the stack
-      results = salesforce.query("select Id from Product2 where ProductCode = '#{product_code}'")
-      raise SalesfoceIntegrationError, "Product #{product_code} not found" unless results.first
-
-      product_id = results.first["Id"]
-
+    def upsert!(line_item_attr = {}, opportunity_id, product_id)
       # FIXME same here standard price book id is already fetched before
       unless standard = salesforce.query("select Id from Pricebook2 where isStandard=true").first
-        raise SalesfoceIntegrationError, "Standard price book not found for #{product_code}"
+        raise SalesfoceIntegrationError, "Standard price book when building opportunity line"
       end
 
       standard_id = standard['Id']
-      product_id = results.first['Id']
 
       pricebookentry = SFService::Base.new "PricebookEntry", config
 

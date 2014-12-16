@@ -13,7 +13,7 @@ module Integration
       attr_reader :object
 
       def initialize(object)
-        @object = object.with_indifferent_access
+        @object = object
       end
 
       def build

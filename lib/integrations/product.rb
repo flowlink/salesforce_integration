@@ -4,7 +4,7 @@ module Integration
     attr_reader :object
 
     def initialize(config, object)
-      @object = object.with_indifferent_access
+      @object = object
       super(config)
     end
 
@@ -23,6 +23,7 @@ module Integration
         {
           id: product["ProductCode"],
           name: product["Name"],
+          sku: product["ProductCode"],
           description: product["Description"],
           price: price_from_product_id(prices, product["Id"]),
           salesforce_id: product["Id"]

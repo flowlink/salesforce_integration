@@ -10,7 +10,7 @@ describe Integration::Builder::Order do
     it 'returns hash with address data' do
       expect(result).to be_kind_of Hash
       expect(result.keys).to eq(
-        ["AccountId", "Amount", "CloseDate", "HasOpportunityLineItem", "Name", "Pricebook2Id", "StageName", "CurrencyIsoCode"]
+        ["AccountId", "Amount", "CloseDate", "Name", "Pricebook2Id", "StageName"]
       )
     end
   end

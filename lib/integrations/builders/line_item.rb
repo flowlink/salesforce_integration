@@ -12,7 +12,7 @@ module Integration
         params = {
           'Quantity'        => object['quantity'],
           'UnitPrice'       => object['price'],
-          'CurrencyIsoCode' => object['currency'],
+          # 'CurrencyIsoCode' => object['currency'],
         }
       end
     end

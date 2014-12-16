@@ -3,63 +3,18 @@ require 'spec_helper'
 describe SalesforceEndpoint do
   include_examples 'config hash'
 
-  context 'webhooks' do
-    ['add_order', 'update_order'].each do |path|
-      describe path do
-        let(:payload) do
-          payload = Factories.send("#{path}_payload")
-          payload.merge(parameters: config)
-        end
-
-        it 'works' do
-          VCR.use_cassette "requests/#{path}" do
-            post "/#{path}", payload.to_json, auth
-            expect(last_response).to be_ok
-            body = JSON.parse(last_response.body)
-            expect(body["request_id"]).to eq payload["request_id"]
-          end
-        end
-      end
+  context "orders" do
+    let(:payload) do
+      payload = Factories.send("add_order_payload")
+      payload.merge(parameters: config)
     end
-  end
 
-  describe "upserting clients with accounts" do
-    ['add_order', 'update_order'].each do |path|
-      describe path do
-        let(:payload) do
-          payload = Factories.send("#{path}_payload")
-          payload.merge(parameters: config)
-        end
-        let(:customer_email){ payload["order"].nil? ? payload["customer"]["email"] : payload["order"]["email"] }
+    it "adds" do
+      VCR.use_cassette "requests/add_order" do
+        post "/add_order", payload.to_json, auth
 
-        it 'works' do
-          VCR.use_cassette "requests/#{path}" do
-            post "/#{path}", payload.to_json, auth
-            body = JSON.parse(last_response.body)
-            expect(body["summary"]).to match "Contact for #{customer_email}"
-          end
-        end
-      end
-    end
-  end
-
-  describe "upserting orders" do
-    ['add_order', 'update_order'].each do |path|
-      describe path do
-        let(:payload) do
-          payload = Factories.send("#{path}_payload")
-          payload.merge(parameters: config)
-        end
-        let(:customer_email) { payload["order"]["email"] }
-        let(:order_id){ payload["order"]["id"] }
-
-        it 'works' do
-          VCR.use_cassette "requests/#{path}" do
-            post "/#{path}", payload.to_json, auth
-            body = JSON.parse(last_response.body)
-            expect(body["summary"]).to eq "Contact for #{customer_email} and order ##{order_id} updated (or created) in Salesforce"
-          end
-        end
+        expect(json_response["summary"]).to match "sent to Salesforce"
+        expect(last_response.status).to eq 200
       end
     end
   end

@@ -12,12 +12,9 @@ module Integration
         params = {
           'Name'          => object['name'],
           'ProductCode'   => object['product_id'],
-          'Price__c'      => object['price'],
-          'ExternalID__c' => object['product_id'],
-          'Currency__c'   => object['currency'],
+          'DefaultPrice'  => object['price']
         }
       end
-
     end
   end
 end

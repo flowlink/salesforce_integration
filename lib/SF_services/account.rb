@@ -5,8 +5,8 @@ module SFService
     end
 
     def find_account_id_by_email(email)
-      results = salesforce.query("select Id from Account where PersonEmail = '#{email}'")
-      results.any? ? results.first['Account__c'] : nil
+      results = salesforce.query("SELECT Contact.Account.Id FROM Contact WHERE Email = '#{email}'")
+      results.any? ? results.first['Account']['Id'] : nil
     end
   end
 end

@@ -10,11 +10,13 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
     post path do
       SpreeService::Order.new(@payload, @config).upsert_contact_with_account!
       SpreeService::Order.new(@payload, @config).upsert_order!
-      SpreeService::Product.new(@payload, @config).upsert_products!
+
+      Integration::Product.new(@config, @payload).import_from_order!
+
       SpreeService::Order.new(@payload, @config).upsert_lineitems!
       SpreeService::Order.new(@payload, @config).upsert_payments!
-      set_summary "Contact for #{@payload["order"]["email"]} and order ##{@payload["order"]["id"]} updated (or created) in Salesforce"
-      result 200
+
+      result 200, "Opportunity ##{@payload["order"]["id"]} sent to Salesforce"
     end
   end
 

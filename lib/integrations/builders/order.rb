@@ -13,11 +13,11 @@ module Integration
           'AccountId'              => object['email'],
           'Amount'                 => object['totals']['order'],
           'CloseDate'              => object['placed_on'],
-          'HasOpportunityLineItem' => true,
+          # 'HasOpportunityLineItem' => true,
           'Name'                   => object['id'],
-          'Pricebook2Id'           => object['price_book_id'].present? ? object['price_book_id'] : 'standard price list',
+          'Pricebook2Id'           => object['price_book_id'] || 'Standard Price Book',
           'StageName'              => 'closed-won',
-          'CurrencyIsoCode'        => object['currency']
+          # 'CurrencyIsoCode'        => object['currency']
         }
       end
     end

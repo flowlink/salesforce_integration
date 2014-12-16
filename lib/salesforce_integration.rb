@@ -33,3 +33,5 @@ require 'SF_services/product'
 require 'SF_services/order'
 require 'SF_services/line_item'
 require 'SF_services/payment'
+
+class SalesfoceIntegrationError < StandardError; end

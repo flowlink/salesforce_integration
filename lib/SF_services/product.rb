@@ -40,11 +40,12 @@ module SFService
 
       if product_id.present?
         update!(attributes.merge({ Id: product_id }))
-
         result = salesforce.query "select Id from PricebookEntry where Pricebook2Id = '#{standard["Id"]}' and Product2Id = '#{product_id}'"
-        pricebookentry_id = result.first["Id"]
 
-        pricebookentry.update!(Id: pricebookentry_id, UnitPrice: price)
+        # NOTE Create if can find pricebook entry?
+        if result.first && pricebookentry_id = result.first["Id"]
+          pricebookentry.update!(Id: pricebookentry_id, UnitPrice: price) 
+        end
       else
         product_id = create!(attributes)
         pricebookentry.create!(

@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/spree/endpoint_base.git
-  revision: 5a819541b20ade1b7ec6eb19f38fbab7eaf3e14e
+  revision: f9e595fbf41c1509a4afc58ab805a7b0e5c74a51
   specs:
     endpoint_base (0.3)
       activesupport
@@ -10,7 +10,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.1.6)
+    activesupport (4.1.8)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -46,14 +46,14 @@ GEM
     honeybadger (1.13.0)
       json
     i18n (0.6.11)
-    jbuilder (2.2.4)
+    jbuilder (2.2.5)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     json (1.8.1)
     kgio (2.9.2)
     method_source (0.8.2)
     mini_portile (0.5.3)
-    minitest (5.4.2)
+    minitest (5.5.0)
     multi_json (1.10.1)
     multipart-post (1.2.0)
     nokogiri (1.6.1)

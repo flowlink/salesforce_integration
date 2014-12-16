@@ -5,8 +5,8 @@ module SFService
       @account_service = SFService::Account.new(config)
     end
 
-    def is_present?(id)
-      results = salesforce.query("select Id from Opportunity where Name = '#{id}'")
+    def find_opportunity_id_by_name(name)
+      results = salesforce.query("SELECT Id FROM Opportunity WHERE Name = '#{name}' LIMIT 1")
       results.any? ? results.first.fetch('Id') : nil
     end
 
@@ -24,8 +24,12 @@ module SFService
 
       order_attr = order_attr.merge( { 'Pricebook2Id' => price_book_id } ) if price_book_id.present?
 
-      order_id = is_present?(order_attr.fetch 'Name')
-      order_id.present? ? update!(order_attr.merge({ Id: order_id })) : create!(order_attr)
+      if opportunity_id = find_opportunity_id_by_name(order_attr.fetch 'Name')
+        update! order_attr.merge(Id: opportunity_id)
+        opportunity_id
+      else
+        create!(order_attr)
+      end
     end
   end
 end

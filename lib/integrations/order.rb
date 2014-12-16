@@ -13,7 +13,10 @@ module Integration
       account_id = contact_account.account_id
       contact_account.upsert! AccountId: account_id
 
-      order_service.upsert!(order_params.merge "AccountId" => account_id)
+      params = order_params.merge "AccountId" => account_id
+      opportunity_id = order_service.upsert! params
+
+      Integration::LineItem.new(config, object[:order]).upsert! opportunity_id
     end
 
     private

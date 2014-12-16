@@ -1,32 +1,23 @@
 module Integration
   class LineItem < Base
 
-    attr_reader :object
+    attr_reader :order, :items
 
-    def initialize(config, object)
-      @object = object.with_indifferent_access
+    def initialize(config, order)
+      @order = order
+      @items = order[:line_items]
+
       super(config)
     end
 
-    def upsert!(item)
-      line_item_service.upsert!(item_params(item), look_up('id'), item.fetch('product_id'))
-    end
-
-    def import!
-      look_up('line_items').each { |li| upsert!(with_currency(li)) }
-    end
-
-    def with_currency(item)
-      item.merge({ 'Currency' => look_up('currency') })
-    end
-
-    def look_up(what)
-      object[what]
+    def upsert!(opportunity_id)
+      items.each do |item|
+        line_item_service.upsert!(item_params(item), opportunity_id, item.fetch('product_id'))
+      end
     end
 
     def item_params(item)
-      Integration::Builder::LineItem.new(item).build
+      Integration::Builder::LineItem.new(item).build.merge 'Currency' => order['currency']
     end
-
   end
 end

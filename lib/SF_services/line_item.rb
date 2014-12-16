@@ -5,11 +5,6 @@ module SFService
       super("OpportunityLineItem", config)
     end
 
-    def find_order(order_code)
-      results = salesforce.query("select Id from Opportunity where Name = '#{order_code}'")
-      results.any? ? results.first['Id'] : nil
-    end
-
     def find_pricebook_entry(standard_id, product_id)
       filter = "where Pricebook2Id = '#{standard_id}' and Product2Id = '#{product_id}'"
       results = salesforce.query "select Id, IsActive from PricebookEntry #{filter}"
@@ -21,9 +16,7 @@ module SFService
       results.any? ? results.first['Id'] : nil
     end
 
-    def upsert!(line_item_attr = {}, order_code, product_code)
-      order_id     = find_order(order_code)
-
+    def upsert!(line_item_attr = {}, opportunity_id, product_code)
       # FIXME product ids are already fetched before on the stack
       results = salesforce.query("select Id from Product2 where ProductCode = '#{product_code}'")
       raise SalesfoceIntegrationError, "Product #{product_code} not found" unless results.first
@@ -58,8 +51,8 @@ module SFService
         )
       end
 
-      if line_item_id = find_line_item(order_id, pricebook_entry_id)
-        line_item_attr = line_item_attr.merge OpportunityId: order_id , PricebookEntryId: pricebook_entry_id
+      if line_item_id = find_line_item(opportunity_id, pricebook_entry_id)
+        line_item_attr = line_item_attr.merge OpportunityId: opportunity_id, PricebookEntryId: pricebook_entry_id
         create!(line_item_attr)
       else
         update!(line_item_attr.merge Id: line_item_id )

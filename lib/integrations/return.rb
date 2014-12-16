@@ -13,11 +13,6 @@ module Integration
     end
 
     def handle _return
-      returned_items = _return["inventory_units"].map{|item| item["variant"]["sku"]}
-      returned_counts = returned_items.inject(Hash.new(0)) { |total, item| total[item] += 1; total }
-      result = "Returned items: "
-      returned_counts.each { |item_name, count| result += "#{item_name}: (#{count}) " }
-      #.merge({"extra" => result})
       return_service.upsert!(return_params(_return), _return['order_id'])
     end
 

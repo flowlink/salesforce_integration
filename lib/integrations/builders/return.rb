@@ -17,10 +17,15 @@ module Integration
       end
 
       def build_body(object)
+        returned_items = object["inventory_units"].map{|item| item["variant"]["sku"]}
+        returned_counts = returned_items.inject(Hash.new(0)) { |total, item| total[item] += 1; total }
+        extra = "Returned items: "
+        returned_counts.each { |item_name, count| extra += "#{item_name}: (#{count}) " }
+
         <<-body
-Status: #{object['status']}
-Amount: #{object['refund_amount']}
-Extra: #{object['extra']}
+Status: #{object['state']}
+Amount: #{object['amount']}
+Extra: #{extra}
         body
       end
     end

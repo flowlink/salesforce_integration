@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=spree_id&client_secret=spree_secret&username=spree_user&password=spree_pwdspree_sec
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Oct 2014 17:04:58 GMT
+      Set-Cookie:
+      - BrowserId=jCTjvIc-QMu_eI8v68ihxQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        26-Dec-2014 17:04:58 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1414429498591","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"Sc2lYvn1tu8Xlff18phgFCumRfb0rkIHTgR8qK3ERfs=","access_token":"00Dj0000000HAIT!AQoAQO3.sA9TZCfsUw5b_bHMAAU0POqpkb15Bx_TNH9sEw00N5UCSVxtlmHdHTFRkPxcYRkw.I7kY_dECHgWTXVLRgZEsI6d"}'
+    http_version: 
+  recorded_at: Mon, 27 Oct 2014 17:05:00 GMT
+- request:
+    method: get
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'not-available@test.com'
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQO3.sA9TZCfsUw5b_bHMAAU0POqpkb15Bx_TNH9sEw00N5UCSVxtlmHdHTFRkPxcYRkw.I7kY_dECHgWTXVLRgZEsI6d
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Oct 2014 17:04:59 GMT
+      Set-Cookie:
+      - BrowserId=yYUysbkzR2GLkbSr7FYH_g;Path=/;Domain=.salesforce.com;Expires=Fri,
+        26-Dec-2014 17:04:59 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=10/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":0,"done":true,"records":[]}'
+    http_version: 
+  recorded_at: Mon, 27 Oct 2014 17:05:01 GMT
+recorded_with: VCR 2.9.3

@@ -28,8 +28,8 @@ module SFService
       salesforce.query("select #{fields} from PricebookEntry where Product2Id in (#{product_ids})")
     end
 
-    def upsert!(product_code, attributes = {})
-      product_id = find_id_by_code(product_code)
+    def upsert!(attributes = {})
+      product_id = attributes["Id"]
 
       pricebookentry = SFService::Base.new "PricebookEntry", config
 
@@ -42,7 +42,7 @@ module SFService
         update!(attributes.merge({ Id: product_id }))
         result = salesforce.query "select Id from PricebookEntry where Pricebook2Id = '#{standard["Id"]}' and Product2Id = '#{product_id}'"
 
-        # NOTE Create if can find pricebook entry?
+        # NOTE Create if cant find pricebook entry?
         if result.first && pricebookentry_id = result.first["Id"]
           pricebookentry.update!(Id: pricebookentry_id, UnitPrice: price) 
         end

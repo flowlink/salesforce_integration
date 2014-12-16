@@ -1,6 +1,7 @@
 module Integration
   class Product < Base
 
+    delegate :find_id_by_code, :create!, to: :product_service
     attr_reader :object
 
     def initialize(config, object)
@@ -10,7 +11,8 @@ module Integration
 
     def upsert!(item = nil)
       item ||= product_params
-      product_service.upsert!(item['ProductCode'], item)
+      item.merge Id: product_id if product_id = find_id_by_code(product_code)
+      product_service.upsert! item
     end
 
     def fetch_updates
@@ -57,6 +59,10 @@ module Integration
       end
     end
 
+    def order_product_params(payload_item)
+      Integration::Builder::OrderProduct.new(payload_item).build
+    end
+
     private
 
     def with_currency(item)
@@ -65,10 +71,6 @@ module Integration
 
     def product_params
       Integration::Builder::Product.new(object).build
-    end
-
-    def order_product_params(payload_item)
-      Integration::Builder::OrderProduct.new(payload_item).build
     end
 
     def look_up(what)

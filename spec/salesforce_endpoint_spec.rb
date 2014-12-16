@@ -19,6 +19,22 @@ describe SalesforceEndpoint do
     end
   end
 
+  context "returns" do
+    let(:payload) do
+      payload = Factories.send("add_returns_payload")
+      payload.merge(parameters: config)
+    end
+
+    it "adds" do
+      VCR.use_cassette "requests/add_returns" do
+        post "/add_returns", payload.to_json, auth
+
+        expect(json_response["summary"]).to match "Returns marked in Order"
+        expect(last_response.status).to eq 200
+      end
+    end
+  end
+
   it "adds customer" do
     payload = Factories.add_customer_payload.merge(parameters: config)
     email = payload['customer']['email']

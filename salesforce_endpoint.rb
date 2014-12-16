@@ -8,15 +8,15 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
 
   ['/add_order', '/update_order'].each do |path|
     post path do
-      SpreeService::Order.new(@payload, @config).upsert_contact_with_account!
-      SpreeService::Order.new(@payload, @config).upsert_order!
+      Integration::ContactAccount.new(@config, @payload[:order]).upsert!
+      Integration::Order.new(@config, @payload).upsert!
 
       Integration::Product.new(@config, @payload).import_from_order!
 
-      SpreeService::Order.new(@payload, @config).upsert_lineitems!
-      SpreeService::Order.new(@payload, @config).upsert_payments!
+      Integration::LineItem.new(@config, @payload[:order]).import!
+      Integration::Payment.new(@config, @payload[:order]).import!
 
-      result 200, "Opportunity ##{@payload["order"]["id"]} sent to Salesforce"
+      result 200, "Opportunity # #{@payload["order"]["id"]} sent to Salesforce"
     end
   end
 

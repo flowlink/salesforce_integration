@@ -9,26 +9,6 @@ module SpreeService
       @service_name = service_name
     end
 
-    def upsert_contact_with_account!
-      Integration::ContactAccount.new(config, payload[service_name]).upsert!
-    end
-
-    def upsert_lineitems!
-      Integration::LineItem.new(config, payload[service_name]).import!
-    end
-
-    def upsert_payments!
-      Integration::Payment.new(config, payload[service_name]).import!
-    end
-
-    def upsert_products!
-      Integration::Product.new(config, payload).import_from_order!
-    end
-
-    def upsert_order!
-      Integration::Order.new(config, payload).upsert!
-    end
-
     def handle_returns!
       Integration::Return.new(config, payload[service_name]).handle_all!
     end

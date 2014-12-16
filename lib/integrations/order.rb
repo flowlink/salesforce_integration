@@ -16,13 +16,13 @@ module Integration
       params = order_params.merge "AccountId" => account_id
       opportunity_id = order_service.upsert! params
 
-      Integration::LineItem.new(config, object[:order]).upsert! opportunity_id
+      LineItem.new(config, object[:order]).upsert! opportunity_id
     end
 
     private
 
     def order_params
-      Integration::Builder::Order.new(object['order']).build
+      Builder::Order.new(object['order']).build
     end
   end
 end

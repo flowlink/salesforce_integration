@@ -12,12 +12,13 @@ module Integration
 
     def upsert!(opportunity_id)
       items.each do |item|
-        line_item_service.upsert!(item_params(item), opportunity_id, item.fetch('product_id'))
+        params = item_params(item)
+        line_item_service.upsert!(params, opportunity_id, item.fetch('product_id'))
       end
     end
 
     def item_params(item)
-      Integration::Builder::LineItem.new(item).build.merge 'Currency' => order['currency']
+      Integration::Builder::LineItem.new(item).build
     end
   end
 end

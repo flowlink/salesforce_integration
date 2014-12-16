@@ -52,10 +52,10 @@ module SFService
       end
 
       if line_item_id = find_line_item(opportunity_id, pricebook_entry_id)
+        update!(line_item_attr.merge Id: line_item_id )
+      else
         line_item_attr = line_item_attr.merge OpportunityId: opportunity_id, PricebookEntryId: pricebook_entry_id
         create!(line_item_attr)
-      else
-        update!(line_item_attr.merge Id: line_item_id )
       end
     end
   end

@@ -25,7 +25,7 @@ module Integration
         <<-body
 Status: #{object['state']}
 Amount: #{object['amount']}
-Extra: #{extra}
+#{extra}
         body
       end
     end

@@ -14,7 +14,7 @@ module SFService
       results.any? ? results.first['Id'] : nil
     end
 
-    def upsert!(payment_attr = {}, order_code, email)
+    def upsert!(payment_attr = {}, order_code)
       order_id = find_order(order_code)
 
       payment_attr = payment_attr.merge( { 'ParentId' => order_id } ) if order_id.present?

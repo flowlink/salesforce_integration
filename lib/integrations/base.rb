@@ -32,5 +32,9 @@ module Integration
     def payment_service
       @payment_service ||= SFService::Payment.new(config)
     end
+
+    def return_service
+      @return_service ||= SFService::Return.new(config)
+    end
   end
 end

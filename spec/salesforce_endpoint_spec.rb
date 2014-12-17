@@ -65,6 +65,7 @@ describe SalesforceEndpoint do
     VCR.use_cassette "requests/add_product" do
       post "/add_product", payload.to_json, auth
       expect(json_response["summary"]).to match "Product #{id}"
+      expect(last_response.status).to eq 200
     end
   end
 
@@ -76,6 +77,7 @@ describe SalesforceEndpoint do
     VCR.use_cassette "requests/update_product" do
       post "/update_product", payload.to_json, auth
       expect(json_response["summary"]).to match "Product #{id}"
+      expect(last_response.status).to eq 200
     end
   end
 

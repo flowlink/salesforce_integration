@@ -12,7 +12,11 @@ module Integration
 
     def upsert!(item = nil)
       item ||= product_params
-      item.merge Id: product_id if product_id = find_id_by_code(product_code)
+
+      if product_id = find_id_by_code(item['ProductCode'])
+        item.merge! "Id" => product_id
+      end
+
       product_service.upsert! item
     end
 

@@ -61,11 +61,11 @@ module SFService
     def upsert!(attributes = {})
       product_id = attributes["Id"]
 
-      standard_id = standard_pricebook.first["Id"]
+      standard_id = standard_pricebook["Id"]
       price = attributes.delete "DefaultPrice"
 
       if product_id
-        update! attributes.merge Id: product_id
+        update! attributes
       else
         product_id = create! attributes
       end

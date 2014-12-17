@@ -1,7 +1,6 @@
 {
-  "request_id": "52f367367575e449c3000001",
   "order": {
-    "id": "R154085346",
+    "id": "R43534532545",
     "status": "complete",
     "channel": "spree",
     "email": "spree@example.com",

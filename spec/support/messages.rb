@@ -1,12 +1,11 @@
 module Factories
   class << self
-    # TODO put this in a specific fixture folder and loop through each file on that dir
-    [:add_customer, :update_customer,
-     :add_order, :update_order, :cancel_order,
-     :add_product, :update_product,
-     :add_returns].each do |message|
-      define_method("#{message}_payload") do
-        JSON.parse IO.read("#{File.dirname(__FILE__)}/factories/#{message}.json")
+    Dir.entries("#{File.dirname(__FILE__)}/factories").each do |file_name|
+      next if file_name == '.' or file_name == '..'
+      name, ext = file_name.split(".", 2)
+
+      define_method("#{name}_payload") do
+        JSON.parse(IO.read("#{File.dirname(__FILE__)}/factories/#{name}.json")).with_indifferent_access
       end
     end
   end

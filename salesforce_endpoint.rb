@@ -3,7 +3,6 @@ require 'endpoint_base'
 require 'salesforce_integration'
 
 class SalesforceEndpoint < EndpointBase::Sinatra::Base
-  endpoint_key ENV['ENDPOINT_KEY']
   enable :logging
 
   ['/add_order', '/update_order'].each do |path|

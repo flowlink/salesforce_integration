@@ -4,14 +4,23 @@ describe SalesforceEndpoint do
   include_examples 'config hash'
 
   context "orders" do
-    let(:payload) do
-      payload = Factories.send("add_order_payload")
-      payload.merge(parameters: config)
+    it "places a new order with new products opportunity" do
+      # Make sure payload has new order id and line_item product_ids
+      payload = Factories.send("new_order_payload")
+
+      VCR.use_cassette "requests/add_order" do
+        post "/add_order", payload.merge(parameters: config).to_json, auth
+
+        expect(json_response["summary"]).to match "sent to Salesforce"
+        expect(last_response.status).to eq 200
+      end
     end
 
-    it "adds" do
-      VCR.use_cassette "requests/add_order" do
-        post "/add_order", payload.to_json, auth
+    it "updates order as opportunity" do
+      payload = Factories.send("order_payload")
+
+      VCR.use_cassette "requests/update_order" do
+        post "/update_order", payload.merge(parameters: config).to_json, auth
 
         expect(json_response["summary"]).to match "sent to Salesforce"
         expect(last_response.status).to eq 200

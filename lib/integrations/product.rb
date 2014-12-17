@@ -10,14 +10,14 @@ module Integration
       super(config)
     end
 
-    def upsert!(item = nil)
-      item ||= product_params
+    def upsert!(attributes = nil)
+      attributes ||= Integration::Builder::Product.new(object).build
 
-      if product_id = find_id_by_code(item['ProductCode'])
-        item.merge! "Id" => product_id
+      if product_id = find_id_by_code(attributes['ProductCode'])
+        attributes.merge! "Id" => product_id
       end
 
-      product_service.upsert! item
+      product_service.upsert! attributes
     end
 
     def fetch_updates
@@ -38,14 +38,6 @@ module Integration
       end
     end
 
-    def import_from_order!
-      look_up('line_items').each { |item| upsert!(order_product_params(with_currency(item))) }
-    end
-
-    def look_up(what)
-      object[what]
-    end
-
     def latest_products
       @latest_products ||= product_service.latest_updates config[:salesforce_products_since]
     end
@@ -62,24 +54,6 @@ module Integration
       if price = prices.find { |p| p["Product2Id"] == product_id }
         price["UnitPrice"]
       end
-    end
-
-    def order_product_params(payload_item)
-      Integration::Builder::OrderProduct.new(payload_item).build
-    end
-
-    private
-
-    def with_currency(item)
-      item.merge({ 'Currency' => look_up('currency') })
-    end
-
-    def product_params
-      Integration::Builder::Product.new(object).build
-    end
-
-    def look_up(what)
-      object['order'][what]
     end
   end
 end

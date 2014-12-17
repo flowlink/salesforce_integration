@@ -8,6 +8,10 @@ module Integration
       super(config)
     end
 
+    # Related docs:
+    #
+    # http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_objects_opportunity.htm
+    # http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_objects_opportunitylineitem.htm
     def upsert!
       # Create or Update the Contact. Set the account id
       contact_account = ContactAccount.new(config, object[:order])
@@ -28,10 +32,9 @@ module Integration
 
         # Create Product in case it doesn't exist in Salesforce yet
         unless product_id = product_integration.find_id_by_code(line_item[:product_id])
-          params = product_integration.order_product_params
-          params.merge Currency: object[:order][:currency]
-
-          product_id = product_integration.create! params
+          attributes = Builder::Product.new(line_item).build.except "DefaultPrice"
+          attributes.merge Currency: object[:order][:currency]
+          product_id = product_integration.create! attributes
         end
 
         # Create (if not found) pricebook entry

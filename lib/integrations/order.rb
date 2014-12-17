@@ -40,6 +40,12 @@ module Integration
         # Create or Update Opportunity line
         line_item_integration.upsert! line_item, opportunity_id, pricebook_entry_id
       end
+
+      payment_integration = Payment.new(config)
+
+      object[:order][:payments].each do |payment|
+        payment_integration.upsert! payment, opportunity_id
+      end
     end
 
     private
@@ -52,6 +58,13 @@ module Integration
     def upsert!(item, opportunity_id, pricebook_entry_id)
       params = Builder::LineItem.new(item).build
       line_item_service.upsert!(params, opportunity_id, pricebook_entry_id)
+    end
+  end
+
+  class Payment < Base
+    def upsert!(payment, opportunity_id)
+      attributes = Integration::Builder::Payment.new(payment).build
+      payment_service.upsert! attributes, opportunity_id
     end
   end
 end

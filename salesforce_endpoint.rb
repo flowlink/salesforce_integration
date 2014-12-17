@@ -9,8 +9,6 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
   ['/add_order', '/update_order'].each do |path|
     post path do
       Integration::Order.new(@config, @payload).upsert!
-      Integration::Payment.new(@config, @payload[:order]).import!
-
       result 200, "Opportunity # #{@payload["order"]["id"]} sent to Salesforce"
     end
   end

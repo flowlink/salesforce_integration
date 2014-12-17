@@ -36,5 +36,9 @@ module Integration
     def return_service
       @return_service ||= SFService::Return.new(config)
     end
+
+    def pricebook_entry_service
+      @pricebook_entry_service ||= SFService::Base.new "PricebookEntry", config
+    end
   end
 end

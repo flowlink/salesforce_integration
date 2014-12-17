@@ -1,7 +1,8 @@
 module Integration
   class Product < Base
+    delegate :find_id_by_code, :create!, :standard_pricebook, :setup_pricebook_entry,
+      to: :product_service
 
-    delegate :find_id_by_code, :create!, to: :product_service
     attr_reader :object
 
     def initialize(config, object)

@@ -7,7 +7,15 @@ module SFService
     end
 
     def standard_pricebook
-      salesforce.query "select Id from Pricebook2 where isStandard=true"
+      standard = salesforce.query("SELECT Id FROM Pricebook2 WHERE isStandard = true").first
+      raise SalesfoceIntegrationError, "Standard Pricebook not found" unless standard
+      standard
+    end
+
+    def find_pricebook_entry(pricebook_id, product_id)
+      filter = "where Pricebook2Id = '#{pricebook_id}' and Product2Id = '#{product_id}'"
+      results = salesforce.query "SELECT Id, IsActive FROM PricebookEntry #{filter}"
+      results.first
     end
 
     def find_id_by_code(product_code)
@@ -28,32 +36,41 @@ module SFService
       salesforce.query("select #{fields} from PricebookEntry where Product2Id in (#{product_ids})")
     end
 
+    def setup_pricebook_entry(standard_id, product_id, price)
+      pricebook_entry_service = SFService::Base.new "PricebookEntry", config
+      pricebook_entry = find_pricebook_entry standard_id, product_id
+
+      if pricebook_entry
+        pricebook_entry_service.update!(
+          Id: pricebook_entry["Id"],
+          IsActive: true,
+          UnitPrice: price
+        )
+
+        pricebook_entry["Id"]
+      else
+        pricebook_entry_service.create!(
+          Pricebook2Id: standard_id,
+          Product2Id: product_id,
+          UnitPrice: price,
+          IsActive: true
+        )
+      end
+    end
+
     def upsert!(attributes = {})
       product_id = attributes["Id"]
 
-      pricebookentry = SFService::Base.new "PricebookEntry", config
-
-      # NOTE Raise if it cant find a standard pricebook?
-      standard = standard_pricebook.first
-
+      standard_id = standard_pricebook.first["Id"]
       price = attributes.delete "DefaultPrice"
 
-      if product_id.present?
-        update!(attributes.merge({ Id: product_id }))
-        result = salesforce.query "select Id from PricebookEntry where Pricebook2Id = '#{standard["Id"]}' and Product2Id = '#{product_id}'"
-
-        # NOTE Create if cant find pricebook entry?
-        if result.first && pricebookentry_id = result.first["Id"]
-          pricebookentry.update!(Id: pricebookentry_id, UnitPrice: price) 
-        end
+      if product_id
+        update! attributes.merge Id: product_id
       else
-        product_id = create!(attributes)
-        pricebookentry.create!(
-          Pricebook2Id: standard["Id"],
-          Product2Id: product_id,
-          UnitPrice: price
-        )
+        product_id = create! attributes
       end
+
+      setup_pricebook_entry standard_id, product_id, price
 
       product_id
     end

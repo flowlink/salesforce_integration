@@ -2,7 +2,23 @@ module SFService
   class Order < Base
     def initialize(config)
       super("Opportunity", config)
-      @account_service = SFService::Account.new(config)
+    end
+
+    def latest_updates(time = Time.now.utc.iso8601)
+      since = time ? Time.parse(time).utc.iso8601 : Time.now.utc.iso8601
+
+      line_fields = ["OpportunityLineItem.Quantity",
+                     "OpportunityLineItem.UnitPrice",
+                     "OpportunityLineItem.PricebookEntry.Product2.ProductCode"]
+
+      line_nested = "SELECT #{line_fields.join(", ")} FROM Opportunity.OpportunityLineItems"
+
+      fields = "Id, Name, Amount, CloseDate, LastModifiedDate, (#{line_nested})"
+
+      constraints = "LeadSource = 'Web' AND StageName = 'closed-won'"
+      filter = "LastModifiedDate > #{since} ORDER BY LastModifiedDate ASC LIMIT 100"
+
+      salesforce.query("SELECT #{fields} FROM Opportunity WHERE #{constraints} AND #{filter}")
     end
 
     def find_opportunity_id_by_name(name)

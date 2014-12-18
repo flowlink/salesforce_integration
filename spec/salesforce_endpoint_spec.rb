@@ -26,6 +26,17 @@ describe SalesforceEndpoint do
         expect(last_response.status).to eq 200
       end
     end
+
+    it "get orders" do
+      config.merge! salesforce_orders_since: "2014-12-17T12:08:52Z"
+
+      VCR.use_cassette "requests/get_orders" do
+        post "/get_orders", { parameters: config }.to_json, auth
+
+        expect(json_response["summary"]).to eq nil
+        expect(last_response.status).to eq 200
+      end
+    end
   end
 
   context "returns" do

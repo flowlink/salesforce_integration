@@ -51,6 +51,14 @@ module Integration
       end
     end
 
+    def fetch_updates
+      return [] if latest_opportunities.to_a.empty?
+    end
+
+    def latest_opportunities
+      @latest_opportunities ||= order_service.latest_updates config[:salesforce_orders_since]
+    end
+
     private
       def order_params
         Builder::Order.new(object[:order]).build

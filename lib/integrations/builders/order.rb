@@ -1,22 +1,20 @@
 module Integration
   module Builder
     class Order
-
       attr_reader :object
 
       def initialize(object)
-        @object = object.with_indifferent_access
+        @object = object
       end
 
       def build
         params = {
           'Amount'                 => object['totals']['order'],
           'CloseDate'              => object['placed_on'],
-          # 'HasOpportunityLineItem' => true,
           'Name'                   => object['id'],
           'Pricebook2Id'           => object['price_book_id'] || 'Standard Price Book',
-          'StageName'              => 'closed-won',
-          # 'CurrencyIsoCode'        => object['currency']
+          'LeadSource'             => object['lead_source'] || 'Web',
+          'StageName'              => 'closed-won'
         }
       end
     end

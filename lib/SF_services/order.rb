@@ -7,13 +7,14 @@ module SFService
     def latest_updates(time = Time.now.utc.iso8601)
       since = time ? Time.parse(time).utc.iso8601 : Time.now.utc.iso8601
 
-      line_fields = ["OpportunityLineItem.Quantity",
-                     "OpportunityLineItem.UnitPrice",
-                     "OpportunityLineItem.PricebookEntry.Product2.ProductCode"]
+      line_fields = ["Quantity",
+                     "UnitPrice",
+                     "PricebookEntry.Product2.Name",
+                     "PricebookEntry.Product2.ProductCode"]
 
-      line_nested = "SELECT #{line_fields.join(", ")} FROM Opportunity.OpportunityLineItems"
+      line_nested = "SELECT #{line_fields.join(", ")} FROM OpportunityLineItems"
 
-      fields = "Id, Name, Amount, CloseDate, LastModifiedDate, (#{line_nested})"
+      fields = "Id, Name, Amount, CloseDate, LastModifiedDate, Account.Id, (#{line_nested})"
 
       constraints = "LeadSource = 'Web' AND StageName = 'closed-won'"
       filter = "LastModifiedDate > #{since} ORDER BY LastModifiedDate ASC LIMIT 100"

@@ -60,17 +60,15 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
   end
 
   post "/get_orders" do
-    SFService::Order.new(@config).latest_updates @config[:salesforce_orders_since]
-    result 200
-    # orders = order_integration.fetch_updates
+    integration = Integration::Order.new(@config)
+    orders = integration.fetch_updates
 
-    # add_value "orders", orders
-
-    # if (count = orders.count) > 0
-    #   add_parameter "salesforce_orders_since", order_integration.latest_timestamp_update
-    #   result 200, "Received #{count} #{"order".pluralize count} from Salesforce"
-    # else
-    #   result 200
-    # end
+    if (count = orders.count) > 0
+      add_value "orders", orders
+      add_parameter "salesforce_orders_since", integration.latest_timestamp_update
+      result 200, "Received #{count} #{"order".pluralize count} from Salesforce"
+    else
+      result 200
+    end
   end
 end

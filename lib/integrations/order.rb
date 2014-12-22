@@ -3,7 +3,7 @@ module Integration
 
     attr_reader :object
 
-    def initialize(config, object)
+    def initialize(config, object = {})
       @object = object
       super(config)
     end
@@ -52,14 +52,67 @@ module Integration
     end
 
     def fetch_updates
-      return [] if latest_opportunities.to_a.empty?
+      latest_opportunities.map do |o|
+        account = accounts_by_id.find { |a| a[:Id] == o[:Account][:Id] }
+        contact = account[:Contacts].first
+
+        {
+          id: o[:Name],
+          email: contact[:Email],
+          placed_on: o[:CloseDate],
+          channel: 'salesforce',
+          updated_at: o[:LastModifiedDate],
+          totals: {
+            order: o[:Amount]
+          },
+          line_items: build_line_items(o[:OpportunityLineItems]),
+          shipping_address: build_address(account, "Shipping"),
+          billing_address: build_address(account),
+          salesforce_id: o[:Id]
+        }
+      end
     end
 
     def latest_opportunities
-      @latest_opportunities ||= order_service.latest_updates config[:salesforce_orders_since]
+      @latest_opportunities ||= order_service.latest_updates(config[:salesforce_orders_since]).to_a
+    end
+
+    def accounts_by_id
+      ids = latest_opportunities.map { |o| "'#{o[:Account][:Id]}'" }
+      account_service.fetch_contacts_along ids
+    end
+
+    def latest_timestamp_update(orders = nil)
+      if order = (orders || latest_opportunities).last
+        Time.parse(order["LastModifiedDate"]).utc.iso8601
+      else
+        Time.now.utc.iso8601
+      end
     end
 
     private
+      def build_address(account, kind = "Billing")
+        {
+          address1: account["#{kind}Street"],
+          zipcode: account["#{kind}PostalCode"],
+          city: account["#{kind}City"],
+          country: account["#{kind}Country"],
+          state: account["#{kind}State"],
+          phone: account["Phone"]
+        }
+      end
+
+      def build_line_items(opportunity_lines)
+        opportunity_lines.to_a.map do |line|
+          {
+            name: line[:PricebookEntry][:Product2][:Name],
+            product_id: line[:PricebookEntry][:Product2][:ProductCode],
+            price: line[:UnitPrice],
+            quantity: line[:Quantity]
+          }
+        end
+      end
+
       def order_params
         Builder::Order.new(object[:order]).build
       end

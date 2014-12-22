@@ -33,8 +33,10 @@ describe SalesforceEndpoint do
       VCR.use_cassette "requests/get_orders" do
         post "/get_orders", { parameters: config }.to_json, auth
 
-        expect(json_response["summary"]).to eq nil
+        expect(json_response["summary"]).to match "from Salesforce"
         expect(last_response.status).to eq 200
+
+        expect(json_response["orders"].count).to be >= 1
       end
     end
   end

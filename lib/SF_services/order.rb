@@ -13,8 +13,16 @@ module SFService
                      "PricebookEntry.Product2.ProductCode"]
 
       line_nested = "SELECT #{line_fields.join(", ")} FROM OpportunityLineItems"
+      notes_nested = "SELECT Title, Body FROM Notes WHERE Title LIKE 'Payment%'"
 
-      fields = "Id, Name, Amount, CloseDate, LastModifiedDate, Account.Id, (#{line_nested})"
+      fields = ["Id",
+                "Name",
+                "Amount",
+                "CloseDate",
+                "LastModifiedDate",
+                "Account.Id",
+                "(#{line_nested})",
+                "(#{notes_nested})"].join(", ")
 
       constraints = "LeadSource = 'Web' AND StageName = 'closed-won'"
       filter = "LastModifiedDate > #{since} ORDER BY LastModifiedDate ASC LIMIT 100"

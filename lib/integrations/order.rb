@@ -66,6 +66,7 @@ module Integration
             order: o[:Amount]
           },
           line_items: build_line_items(o[:OpportunityLineItems]),
+          payments: build_payments(o[:Notes]),
           shipping_address: build_address(account, "Shipping"),
           billing_address: build_address(account),
           salesforce_id: o[:Id]
@@ -91,6 +92,15 @@ module Integration
     end
 
     private
+      def build_payments(notes)
+        notes.to_a.map do |note|
+          {
+            title: note[:Title],
+            body: note[:Body]
+          }
+        end
+      end
+
       def build_address(account, kind = "Billing")
         {
           address1: account["#{kind}Street"],

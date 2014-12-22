@@ -1,0 +1,183 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=spree_id&client_secret=spree_secret&username=spree_user&password=spree_pwdspree_sec
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Dec 2014 18:46:17 GMT
+      Set-Cookie:
+      - BrowserId=Oq3gUehRR5q3E031QHOgUA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        20-Feb-2015 18:46:17 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1419273977204","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"N9MEpPHFMrrNebVr28+6dvsT+ILmTQ8hbDtdDMkxli4=","access_token":"00Dj0000000HAIT!AQoAQKUUgM8HafpA3lNvKpxZmuAs73z7_goCtYtPBgmWVdXGaGLIzgOXDt3ckx8sEp3Dfc72WFxaPIVV8.zHr_xU9gBWDt60"}'
+    http_version: 
+  recorded_at: Mon, 22 Dec 2014 18:46:17 GMT
+- request:
+    method: get
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20Name,%20Amount,%20CloseDate,%20LastModifiedDate,%20Account.Id,%20(SELECT%20Quantity,%20UnitPrice,%20PricebookEntry.Product2.Name,%20PricebookEntry.Product2.ProductCode%20FROM%20OpportunityLineItems),%20(SELECT%20Title,%20Body%20FROM%20Notes%20WHERE%20Title%20LIKE%20'Payment%25')%20FROM%20Opportunity%20WHERE%20LeadSource%20=%20'Web'%20AND%20StageName%20=%20'closed-won'%20AND%20LastModifiedDate%20%3E%202014-12-17T12:08:52Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQKUUgM8HafpA3lNvKpxZmuAs73z7_goCtYtPBgmWVdXGaGLIzgOXDt3ckx8sEp3Dfc72WFxaPIVV8.zHr_xU9gBWDt60
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Dec 2014 18:46:18 GMT
+      Set-Cookie:
+      - BrowserId=4Mqf9w8pQJiqcC3LY_qT6w;Path=/;Domain=.salesforce.com;Expires=Fri,
+        20-Feb-2015 18:46:18 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=27/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000002YAdbAAG"},"Id":"006j0000002YAdbAAG","Name":"R43534532545","Amount":1600.0,"CloseDate":"2014-02-03","LastModifiedDate":"2014-12-18T01:21:09.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2"},"OpportunityLineItems":{"totalSize":8,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NIsNAAW"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NIrUAAW"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ88AAG"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ8cAAG"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ8mAAG"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ8wAAG"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ9BAAW"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ9LAAW"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}}]},"Notes":{"totalSize":15,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D39EAAS"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001CjxQAAS"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3BeAAK"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3EYAA0"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3ACAA0"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3N6AAK"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3QyAAK"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D4JrAAK"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D5CEAA0"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001DK20AAG"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D46LAAS"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001CjxGAAS"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D39xAAC"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3HDAA0"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D4g2AAC"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 22 Dec 2014 18:46:18 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=spree_id&client_secret=spree_secret&username=spree_user&password=spree_pwdspree_sec
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Dec 2014 18:46:19 GMT
+      Set-Cookie:
+      - BrowserId=kJbLGUz8RFiV6hqHB0aRNA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        20-Feb-2015 18:46:19 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1419273979112","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"YyYO+GQyCcdrXzZ71nTrzQg8xEw+bBvYGE9kOcIYQwM=","access_token":"00Dj0000000HAIT!AQoAQKUUgM8HafpA3lNvKpxZmuAs73z7_goCtYtPBgmWVdXGaGLIzgOXDt3ckx8sEp3Dfc72WFxaPIVV8.zHr_xU9gBWDt60"}'
+    http_version: 
+  recorded_at: Mon, 22 Dec 2014 18:46:19 GMT
+- request:
+    method: get
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQKUUgM8HafpA3lNvKpxZmuAs73z7_goCtYtPBgmWVdXGaGLIzgOXDt3ckx8sEp3Dfc72WFxaPIVV8.zHr_xU9gBWDt60
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Dec 2014 18:46:20 GMT
+      Set-Cookie:
+      - BrowserId=usQTMBnNRJetOy_Xy9U_CA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        20-Feb-2015 18:46:20 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=28/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 22 Dec 2014 18:46:20 GMT
+recorded_with: VCR 2.9.3

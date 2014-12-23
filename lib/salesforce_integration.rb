@@ -25,6 +25,5 @@ require 'SF_services/product'
 require 'SF_services/order'
 require 'SF_services/line_item'
 require 'SF_services/note'
-require 'SF_services/return'
 
 class SalesfoceIntegrationError < StandardError; end

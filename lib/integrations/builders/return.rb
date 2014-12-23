@@ -9,7 +9,7 @@ module Integration
 
       def build
         params = {
-          'Title'     => "Return:#{object['id']}",
+          'Title'     => "Return # #{object['id']}",
           'Body'      => build_body(object),
           'IsPrivate' => false
         }

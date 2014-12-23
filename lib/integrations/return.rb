@@ -8,8 +8,9 @@ module Integration
     end
 
     def upsert!
+      opportunity = order_service.find(object[:return][:order_id])
       attributes = Builder::Return.new(object[:return]).build
-      return_service.upsert! attributes, object[:return]['order_id']
+      note_service.upsert! attributes, opportunity[:Id]
     end
   end
 end

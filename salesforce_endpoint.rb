@@ -33,6 +33,15 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
     end
   end
 
+  post '/add_shipment' do
+    begin
+      Integration::Shipment.new(@config, @payload).upsert!
+      result 200, "Shipment #{@payload[:shipment][:id]} updated as Note in Salesforce"
+    rescue Faraday::Error::ResourceNotFound
+      result 500, "Could not find Opportunity # #{@payload[:shipment][:order_id]}"
+    end
+  end
+
   post "/get_products" do
     product_service = Integration::Product.new(@config, @payload)
     products = product_service.fetch_updates

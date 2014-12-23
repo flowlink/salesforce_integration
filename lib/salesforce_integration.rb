@@ -10,6 +10,7 @@ require 'integrations/contact_account'
 require 'integrations/product'
 require 'integrations/order'
 require 'integrations/return'
+require 'integrations/shipment'
 
 require 'integrations/builders/account'
 require 'integrations/builders/contact'
@@ -26,7 +27,7 @@ require 'SF_services/contact'
 require 'SF_services/product'
 require 'SF_services/order'
 require 'SF_services/line_item'
-require 'SF_services/payment'
+require 'SF_services/note'
 require 'SF_services/return'
 
 class SalesfoceIntegrationError < StandardError; end

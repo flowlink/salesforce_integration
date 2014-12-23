@@ -10,7 +10,7 @@ module Integration
 
       def build
         params = {
-          'Title'     => "Payment:#{object['number']}",
+          'Title'     => "Payment # #{object['number']}",
           'Body'      => build_body(object),
           'IsPrivate' => false,
         }

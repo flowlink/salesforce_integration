@@ -138,7 +138,7 @@ module Integration
   class Payment < Base
     def upsert!(payment, opportunity_id)
       attributes = Integration::Builder::Payment.new(payment).build
-      payment_service.upsert! attributes, opportunity_id
+      note_service.upsert! attributes, opportunity_id
     end
   end
 end

@@ -29,8 +29,8 @@ module Integration
       @line_item_service ||= SFService::LineItem.new(config)
     end
 
-    def payment_service
-      @payment_service ||= SFService::Payment.new(config)
+    def note_service
+      @note_service ||= SFService::Note.new(config)
     end
 
     def return_service

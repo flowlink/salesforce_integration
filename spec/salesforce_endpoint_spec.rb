@@ -146,4 +146,29 @@ describe SalesforceEndpoint do
       expect(json_response["customers"]).to be_a Array
     end
   end
+
+  context "shipments" do
+    it "tells if linked Opportunity doesnt exist" do
+      payload = Factories.shipment_payload
+
+      VCR.use_cassette "requests/no_shipment" do
+        post "/add_shipment", payload.merge(parameters: config).to_json, auth
+
+        expect(json_response["summary"]).to match "Could not find Opportunity"
+        expect(last_response.status).to eq 500
+      end
+    end
+
+    it "adds shipment as Note" do
+      payload = Factories.shipment_payload
+      payload[:shipment][:order_id] = "R43534532545"
+
+      VCR.use_cassette "requests/add_shipment" do
+        post "/add_shipment", payload.merge(parameters: config).to_json, auth
+
+        expect(json_response["summary"]).to match "as Note in Salesforce"
+        expect(last_response.status).to eq 200
+      end
+    end
+  end
 end

@@ -21,10 +21,10 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:04:58 GMT
+      - Tue, 23 Dec 2014 01:34:43 GMT
       Set-Cookie:
-      - BrowserId=i_11hOfOT3CaSvIKLNlQvg;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:04:58 GMT
+      - BrowserId=4EzyhvxnTcq-8R4WM_pD8A;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:43 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Pragma:
@@ -37,9 +37,9 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1418843098835","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"9blmNBEHgpvCZP/plfhJHeoD+kwObs8MAp2Uxx0hjKA=","access_token":"00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx"}'
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1419298483563","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"s48N9tNIvASqwuq+IGpyW+0rGDVL5B+YrJjlXiFoub4=","access_token":"00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g"}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:04:58 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:43 GMT
 - request:
     method: get
     uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'spree@example.com'
@@ -50,7 +50,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -61,14 +61,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:00 GMT
+      - Tue, 23 Dec 2014 01:34:44 GMT
       Set-Cookie:
-      - BrowserId=g0ppP4v3RY2Dju6lQXVPaw;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:00 GMT
+      - BrowserId=BeD0JCGTRSyiLiDWUCDsPg;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:44 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=155/15000
+      - api-usage=59/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -77,7 +77,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"AccountId":"001j0000001wYXZAA2"}]}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:00 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:44 GMT
 - request:
     method: get
     uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'spree@example.com'
@@ -88,7 +88,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -99,14 +99,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:01 GMT
+      - Tue, 23 Dec 2014 01:34:45 GMT
       Set-Cookie:
-      - BrowserId=-itKv1elSn6DW10_Dxpo_A;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:01 GMT
+      - BrowserId=a-Ahz72xTsmI4TvJJVt53g;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:45 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=155/15000
+      - api-usage=59/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -115,7 +115,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"Id":"003j0000001Qlh7AAC"}]}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:00 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:45 GMT
 - request:
     method: patch
     uri: https://na16.salesforce.com/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC
@@ -130,7 +130,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -141,19 +141,19 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:02 GMT
+      - Tue, 23 Dec 2014 01:34:46 GMT
       Set-Cookie:
-      - BrowserId=Q1CGkh6GQwOBF_R3XfA_9g;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:02 GMT
+      - BrowserId=IQaD2u68RdeNo77Ha7MXbA;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:46 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=155/15000
+      - api-usage=59/15000
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:02 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:46 GMT
 - request:
     method: post
     uri: https://login.salesforce.com/services/oauth2/token
@@ -175,10 +175,10 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:03 GMT
+      - Tue, 23 Dec 2014 01:34:47 GMT
       Set-Cookie:
-      - BrowserId=WNJoQTpbSXW2LFMCuk0gzw;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:03 GMT
+      - BrowserId=kYNhl0MeQ6SE71P-HTOq1Q;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:47 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Pragma:
@@ -191,9 +191,9 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1418843103551","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"IsQglCfW7HVvM6I7rMt44FBFP6sU+D2MCB9nGad2nP8=","access_token":"00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx"}'
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1419298487328","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"KyP+yaFr8KSPukOHNRaiWABMs3D4myAV1CG+KVRgrt8=","access_token":"00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g"}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:03 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:47 GMT
 - request:
     method: get
     uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20PriceBook2%20where%20Name%20=%20'Standard%20Price%20Book'
@@ -204,7 +204,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -215,14 +215,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:04 GMT
+      - Tue, 23 Dec 2014 01:34:48 GMT
       Set-Cookie:
-      - BrowserId=IVLIl1bBQkGBi2eCLRr4Aw;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:04 GMT
+      - BrowserId=by_vtXKfTxKrd0R5Zmbspw;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:48 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=155/15000
+      - api-usage=59/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -231,10 +231,10 @@ http_interactions:
       encoding: UTF-8
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Pricebook2","url":"/services/data/v26.0/sobjects/Pricebook2/01sj0000000DbL5AAK"},"Id":"01sj0000000DbL5AAK"}]}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:04 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:48 GMT
 - request:
     method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=SELECT%20Id%20FROM%20Opportunity%20WHERE%20Name%20=%20'R324199999'%20LIMIT%201
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=SELECT%20Id%20FROM%20Opportunity%20WHERE%20Name%20=%20'R777899900'%20LIMIT%201
     body:
       encoding: US-ASCII
       string: ''
@@ -242,7 +242,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -253,59 +253,65 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:06 GMT
+      - Tue, 23 Dec 2014 01:34:49 GMT
       Set-Cookie:
-      - BrowserId=maKbanPrS0-yVnyKpX7puQ;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:06 GMT
+      - BrowserId=unV2uLaARx68m6TtzmMkaQ;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:49 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=155/15000
+      - api-usage=59/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000002tSOwAAM"},"Id":"006j0000002tSOwAAM"}]}'
+      string: '{"totalSize":0,"done":true,"records":[]}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:06 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:49 GMT
 - request:
-    method: patch
-    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/Opportunity/006j0000002tSOwAAM
+    method: post
+    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/Opportunity
     body:
       encoding: UTF-8
-      string: '{"Amount":210,"CloseDate":"2014-12-17T17:29:15.219Z","Name":"R324199999","Pricebook2Id":"01sj0000000DbL5AAK","StageName":"closed-won","AccountId":"001j0000001wYXZAA2"}'
+      string: '{"Amount":210,"CloseDate":"2014-12-17T17:29:15.219Z","Name":"R777899900","Pricebook2Id":"01sj0000000DbL5AAK","LeadSource":"Web","StageName":"closed-won","AccountId":"001j0000001wYXZAA2"}'
     headers:
       User-Agent:
       - Faraday v0.8.9
       Content-Type:
       - application/json
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
   response:
     status:
-      code: 204
-      message: No Content
+      code: 201
+      message: Created
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:07 GMT
+      - Tue, 23 Dec 2014 01:34:50 GMT
       Set-Cookie:
-      - BrowserId=vm1hVE7QTKmr7FcYdZaRPQ;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:07 GMT
+      - BrowserId=8QcIdOZxRneUOhguHlPp9Q;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:50 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=155/15000
+      - api-usage=59/15000
+      Location:
+      - "/services/data/v26.0/sobjects/Opportunity/006j0000002tztXAAQ"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: UTF-8
-      string: ''
+      string: '{"id":"006j0000002tztXAAQ","success":true,"errors":[]}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:07 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:50 GMT
 - request:
     method: post
     uri: https://login.salesforce.com/services/oauth2/token
@@ -327,10 +333,10 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:08 GMT
+      - Tue, 23 Dec 2014 01:34:51 GMT
       Set-Cookie:
-      - BrowserId=8zx1IkJeSZGRywp7rk0NVg;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:08 GMT
+      - BrowserId=R426GbICSF6XJG156jfl1w;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:51 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Pragma:
@@ -343,9 +349,9 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1418843108762","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"SCP96WWhSl/bSBaQZXRKeXJ5OcMlwHAZgdtXpqhzP1Y=","access_token":"00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx"}'
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1419298491221","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"0u0pKQ2Lb8lQ/cDG3L0F4pEyDaUs/iEfrv8vgTAZW1A=","access_token":"00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g"}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:08 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:51 GMT
 - request:
     method: get
     uri: https://na16.salesforce.com/services/data/v26.0/query?q=SELECT%20Id%20FROM%20Pricebook2%20WHERE%20isStandard%20=%20true
@@ -356,7 +362,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -367,14 +373,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:09 GMT
+      - Tue, 23 Dec 2014 01:34:52 GMT
       Set-Cookie:
-      - BrowserId=kEhvsEuOQOOMD3xfwT05tA;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:09 GMT
+      - BrowserId=AWEs4iCOSjW2q6sqGyEEvg;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:52 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=156/15000
+      - api-usage=59/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -383,10 +389,10 @@ http_interactions:
       encoding: UTF-8
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Pricebook2","url":"/services/data/v26.0/sobjects/Pricebook2/01sj0000000DbL5AAK"},"Id":"01sj0000000DbL5AAK"}]}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:09 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:52 GMT
 - request:
     method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Product2%20where%20ProductCode%20=%20'152014'
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Product2%20where%20ProductCode%20=%20'998122323'
     body:
       encoding: US-ASCII
       string: ''
@@ -394,7 +400,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -405,280 +411,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:10 GMT
+      - Tue, 23 Dec 2014 01:34:53 GMT
       Set-Cookie:
-      - BrowserId=Z7omYwTyT1iYXdjZKd9AYg;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:10 GMT
+      - BrowserId=Wo_QD0gyTyGD7KgyMupsbQ;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:53 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=155/15000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009F6rAAE"},"Id":"01tj00000009F6rAAE"}]}'
-    http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:10 GMT
-- request:
-    method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20IsActive%20FROM%20PricebookEntry%20where%20Pricebook2Id%20=%20'01sj0000000DbL5AAK'%20and%20Product2Id%20=%20'01tj00000009F6rAAE'
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 17 Dec 2014 19:05:12 GMT
-      Set-Cookie:
-      - BrowserId=5khpVHCyQXejPY0R08YhSQ;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:12 GMT
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Sforce-Limit-Info:
-      - api-usage=156/15000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RYGhAAO"},"Id":"01uj0000000RYGhAAO","IsActive":true}]}'
-    http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:12 GMT
-- request:
-    method: post
-    uri: https://login.salesforce.com/services/oauth2/token
-    body:
-      encoding: US-ASCII
-      string: grant_type=password&client_id=spree_id&client_secret=spree_secret&username=spree_user&password=spree_pwdspree_sec
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 17 Dec 2014 19:05:13 GMT
-      Set-Cookie:
-      - BrowserId=HqeP04bdQEeUHm8zVuTmbA;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:13 GMT
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache, no-store
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1418843113155","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"ZB8M10SfSmzpIIrbCybFQRyU9EIIDIN6eoyGDu0Zqg0=","access_token":"00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx"}'
-    http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:13 GMT
-- request:
-    method: patch
-    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RYGhAAO
-    body:
-      encoding: UTF-8
-      string: '{"IsActive":true,"UnitPrice":12.33}'
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Content-Type:
-      - application/json
-      Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Wed, 17 Dec 2014 19:05:14 GMT
-      Set-Cookie:
-      - BrowserId=Sm2zGnLaRImpPRru0PNQZw;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:14 GMT
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Sforce-Limit-Info:
-      - api-usage=157/15000
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:14 GMT
-- request:
-    method: post
-    uri: https://login.salesforce.com/services/oauth2/token
-    body:
-      encoding: US-ASCII
-      string: grant_type=password&client_id=spree_id&client_secret=spree_secret&username=spree_user&password=spree_pwdspree_sec
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 17 Dec 2014 19:05:15 GMT
-      Set-Cookie:
-      - BrowserId=Q5M_8XavRsm2cteme8Vj9g;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:15 GMT
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache, no-store
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1418843115269","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"7OEQlcv98pzjDEhvPkeFmiS1T5SzI0owdIaNYBWmITI=","access_token":"00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx"}'
-    http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:15 GMT
-- request:
-    method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20OpportunityLineItem%20where%20OpportunityId%20=%20'006j0000002tSOwAAM'%20and%20PricebookEntryId%20=%20'01uj0000000RYGhAAO'
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 17 Dec 2014 19:05:16 GMT
-      Set-Cookie:
-      - BrowserId=LDfiwzb9RkefncPF4dsLvg;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:16 GMT
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Sforce-Limit-Info:
-      - api-usage=155/15000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJevAAG"},"Id":"00kj0000003NJevAAG"}]}'
-    http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:16 GMT
-- request:
-    method: patch
-    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJevAAG
-    body:
-      encoding: UTF-8
-      string: '{"Quantity":2,"UnitPrice":12.33}'
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Content-Type:
-      - application/json
-      Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Date:
-      - Wed, 17 Dec 2014 19:05:17 GMT
-      Set-Cookie:
-      - BrowserId=kIOpweWrRniBX6oRDrgaIQ;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:17 GMT
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Sforce-Limit-Info:
-      - api-usage=156/15000
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:17 GMT
-- request:
-    method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Product2%20where%20ProductCode%20=%20'152914'
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 17 Dec 2014 19:05:18 GMT
-      Set-Cookie:
-      - BrowserId=EdqvbGU3TOOT8J0xaoRyAg;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:18 GMT
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Sforce-Limit-Info:
-      - api-usage=155/15000
+      - api-usage=59/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -687,20 +427,20 @@ http_interactions:
       encoding: UTF-8
       string: '{"totalSize":0,"done":true,"records":[]}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:18 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:53 GMT
 - request:
     method: post
     uri: https://na16.salesforce.com/services/data/v26.0/sobjects/Product2
     body:
       encoding: UTF-8
-      string: '{"Name":"Otto Sem Gravidade Nebulosas","ProductCode":"152914","Description":null}'
+      string: '{"Name":"JS","ProductCode":"998122323","Description":null}'
     headers:
       User-Agent:
       - Faraday v0.8.9
       Content-Type:
       - application/json
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -711,28 +451,28 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:19 GMT
+      - Tue, 23 Dec 2014 01:34:54 GMT
       Set-Cookie:
-      - BrowserId=nvoO_DWHQQa-pzBq-UY33Q;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:19 GMT
+      - BrowserId=jeuyBReGSUKnz8MatHbM0Q;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:54 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=155/15000
+      - api-usage=60/15000
       Location:
-      - "/services/data/v26.0/sobjects/Product2/01tj00000009F8YAAU"
+      - "/services/data/v26.0/sobjects/Product2/01tj00000009HO1AAM"
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"01tj00000009F8YAAU","success":true,"errors":[]}'
+      string: '{"id":"01tj00000009HO1AAM","success":true,"errors":[]}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:19 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:54 GMT
 - request:
     method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20IsActive%20FROM%20PricebookEntry%20where%20Pricebook2Id%20=%20'01sj0000000DbL5AAK'%20and%20Product2Id%20=%20'01tj00000009F8YAAU'
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20IsActive%20FROM%20PricebookEntry%20where%20Pricebook2Id%20=%20'01sj0000000DbL5AAK'%20and%20Product2Id%20=%20'01tj00000009HO1AAM'
     body:
       encoding: US-ASCII
       string: ''
@@ -740,7 +480,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -751,14 +491,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:21 GMT
+      - Tue, 23 Dec 2014 01:34:55 GMT
       Set-Cookie:
-      - BrowserId=K5kpVdKXSQGFX3EEVP3xfw;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:21 GMT
+      - BrowserId=QxDIhzCLQVqDvtGLhGl9Hw;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:55 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=155/15000
+      - api-usage=59/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -767,7 +507,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"totalSize":0,"done":true,"records":[]}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:20 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:55 GMT
 - request:
     method: post
     uri: https://login.salesforce.com/services/oauth2/token
@@ -789,10 +529,10 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:21 GMT
+      - Tue, 23 Dec 2014 01:34:56 GMT
       Set-Cookie:
-      - BrowserId=IW0_t0ZDQECAmEHsVU5tSw;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:21 GMT
+      - BrowserId=f4-j5WrIRWqdcKt0jmfElQ;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:56 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Pragma:
@@ -805,22 +545,22 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1418843122191","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"Id1uJcunFR8MYH8qGPI96vjhoAB/S/QfZGUAZlIC1g8=","access_token":"00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx"}'
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1419298496307","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"8h3gyaKsUAoh7hjBKqofeDpHYe+2HlH30Tm7PvyXkB8=","access_token":"00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g"}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:22 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:56 GMT
 - request:
     method: post
     uri: https://na16.salesforce.com/services/data/v26.0/sobjects/PricebookEntry
     body:
       encoding: UTF-8
-      string: '{"Pricebook2Id":"01sj0000000DbL5AAK","Product2Id":"01tj00000009F8YAAU","UnitPrice":10.33,"IsActive":true}'
+      string: '{"Pricebook2Id":"01sj0000000DbL5AAK","Product2Id":"01tj00000009HO1AAM","UnitPrice":12.33,"IsActive":true}'
     headers:
       User-Agent:
       - Faraday v0.8.9
       Content-Type:
       - application/json
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -831,105 +571,25 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:23 GMT
+      - Tue, 23 Dec 2014 01:34:57 GMT
       Set-Cookie:
-      - BrowserId=EGwsnozpRM2iih6CgmGb6A;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:23 GMT
+      - BrowserId=6YgyruvWRK-10pjy9CgX2A;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:57 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=156/15000
+      - api-usage=60/15000
       Location:
-      - "/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RYHGAA4"
+      - "/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMLAA0"
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"01uj0000000RYHGAA4","success":true,"errors":[]}'
+      string: '{"id":"01uj0000000RcMLAA0","success":true,"errors":[]}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:23 GMT
-- request:
-    method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20OpportunityLineItem%20where%20OpportunityId%20=%20'006j0000002tSOwAAM'%20and%20PricebookEntryId%20=%20'01uj0000000RYHGAA4'
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 17 Dec 2014 19:05:24 GMT
-      Set-Cookie:
-      - BrowserId=HnPXj6NtT-C-f_beMkLk5w;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:24 GMT
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Sforce-Limit-Info:
-      - api-usage=155/15000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:24 GMT
-- request:
-    method: post
-    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/OpportunityLineItem
-    body:
-      encoding: UTF-8
-      string: '{"Quantity":2,"UnitPrice":10.33,"OpportunityId":"006j0000002tSOwAAM","PricebookEntryId":"01uj0000000RYHGAA4"}'
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Content-Type:
-      - application/json
-      Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Date:
-      - Wed, 17 Dec 2014 19:05:25 GMT
-      Set-Cookie:
-      - BrowserId=3-w59S1CR5GAz235S8eXXw;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:25 GMT
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Sforce-Limit-Info:
-      - api-usage=155/15000
-      Location:
-      - "/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJf0AAG"
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"id":"00kj0000003NJf0AAG","success":true,"errors":[]}'
-    http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:25 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:57 GMT
 - request:
     method: post
     uri: https://login.salesforce.com/services/oauth2/token
@@ -951,10 +611,10 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:27 GMT
+      - Tue, 23 Dec 2014 01:34:58 GMT
       Set-Cookie:
-      - BrowserId=nQ5Zk-MgRlqQg8T94-mh7g;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:27 GMT
+      - BrowserId=ZxQxW6ixSamxS0JLWoykjg;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:58 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Pragma:
@@ -967,12 +627,12 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1418843127283","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"e92aIOjGjwjYt5ui13Y4frA7jgvdAnkmLMAVaDWLDW0=","access_token":"00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx"}'
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1419298498405","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"XfmhqNZUdVTtLXlb4jh96NhAsG9wsfDhfH33iRiMjgs=","access_token":"00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g"}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:27 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:58 GMT
 - request:
     method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=SELECT%20Id%20FROM%20Note%20WHERE%20Title%20=%20'Payment:Payment:63'%20LIMIT%201
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20OpportunityLineItem%20where%20OpportunityId%20=%20'006j0000002tztXAAQ'%20and%20PricebookEntryId%20=%20'01uj0000000RcMLAA0'
     body:
       encoding: US-ASCII
       string: ''
@@ -980,7 +640,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -991,14 +651,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:28 GMT
+      - Tue, 23 Dec 2014 01:34:59 GMT
       Set-Cookie:
-      - BrowserId=CPDmoxg5TfabV7gbYOBQtw;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:28 GMT
+      - BrowserId=XEYozUv0Ta6oaLuKBVdRtw;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:34:59 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=158/15000
+      - api-usage=60/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -1007,21 +667,20 @@ http_interactions:
       encoding: UTF-8
       string: '{"totalSize":0,"done":true,"records":[]}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:28 GMT
+  recorded_at: Tue, 23 Dec 2014 01:34:59 GMT
 - request:
     method: post
-    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/Note
+    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/OpportunityLineItem
     body:
       encoding: UTF-8
-      string: '{"Title":"Payment:63","Body":"Number: 63\nStatus: completed\nAmount:
-        210\nPayment Method: Credit Card\n","IsPrivate":false,"ParentId":"006j0000002tSOwAAM"}'
+      string: '{"Quantity":2,"UnitPrice":12.33,"OpportunityId":"006j0000002tztXAAQ","PricebookEntryId":"01uj0000000RcMLAA0"}'
     headers:
       User-Agent:
       - Faraday v0.8.9
       Content-Type:
       - application/json
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQMMlns8.2_SHmcgj.8iP_mBOA_j5N9t6NbR9sfnD8sYm8ZCP1cHWbytObJwJJ_DSyZmJTZnAnj3orJlFMIpNHny9knPx
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -1032,23 +691,424 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 17 Dec 2014 19:05:29 GMT
+      - Tue, 23 Dec 2014 01:35:00 GMT
       Set-Cookie:
-      - BrowserId=uAAn3-wARUifN0wmylVdJw;Path=/;Domain=.salesforce.com;Expires=Sun,
-        15-Feb-2015 19:05:29 GMT
+      - BrowserId=r-LUhWlbR4qfBxzZpd5-lA;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:35:00 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=156/15000
+      - api-usage=59/15000
       Location:
-      - "/services/data/v26.0/sobjects/Note/002j0000001D5CsAAK"
+      - "/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003b1OpAAI"
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"002j0000001D5CsAAK","success":true,"errors":[]}'
+      string: '{"id":"00kj0000003b1OpAAI","success":true,"errors":[]}'
     http_version: 
-  recorded_at: Wed, 17 Dec 2014 19:05:29 GMT
+  recorded_at: Tue, 23 Dec 2014 01:35:00 GMT
+- request:
+    method: get
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Product2%20where%20ProductCode%20=%20'09238888'
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 23 Dec 2014 01:35:01 GMT
+      Set-Cookie:
+      - BrowserId=T0ml6_T7Tr-8jdyNZ84TZQ;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:35:01 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=59/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":0,"done":true,"records":[]}'
+    http_version: 
+  recorded_at: Tue, 23 Dec 2014 01:35:01 GMT
+- request:
+    method: post
+    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/Product2
+    body:
+      encoding: UTF-8
+      string: '{"Name":"Java","ProductCode":"09238888","Description":null}'
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Tue, 23 Dec 2014 01:35:02 GMT
+      Set-Cookie:
+      - BrowserId=d1DNooomSvGtiC5OP6WvAw;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:35:02 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=59/15000
+      Location:
+      - "/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"01tj00000009HO6AAM","success":true,"errors":[]}'
+    http_version: 
+  recorded_at: Tue, 23 Dec 2014 01:35:02 GMT
+- request:
+    method: get
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20IsActive%20FROM%20PricebookEntry%20where%20Pricebook2Id%20=%20'01sj0000000DbL5AAK'%20and%20Product2Id%20=%20'01tj00000009HO6AAM'
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 23 Dec 2014 01:35:03 GMT
+      Set-Cookie:
+      - BrowserId=evr-IbSfSDydeKkGqht2cw;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:35:03 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=60/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":0,"done":true,"records":[]}'
+    http_version: 
+  recorded_at: Tue, 23 Dec 2014 01:35:03 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=spree_id&client_secret=spree_secret&username=spree_user&password=spree_pwdspree_sec
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 23 Dec 2014 01:35:04 GMT
+      Set-Cookie:
+      - BrowserId=bPkm3boNTCK5OtFzhNmhsw;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:35:04 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1419298504216","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"P7M+xpnNrI0L0WncaUByuqhvi88wjjz5cVuzs+OlXAE=","access_token":"00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g"}'
+    http_version: 
+  recorded_at: Tue, 23 Dec 2014 01:35:04 GMT
+- request:
+    method: post
+    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/PricebookEntry
+    body:
+      encoding: UTF-8
+      string: '{"Pricebook2Id":"01sj0000000DbL5AAK","Product2Id":"01tj00000009HO6AAM","UnitPrice":10.33,"IsActive":true}'
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Tue, 23 Dec 2014 01:35:05 GMT
+      Set-Cookie:
+      - BrowserId=DEZC8DZ3RW2Z5xV59hVt7w;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:35:05 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=61/15000
+      Location:
+      - "/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"01uj0000000RcMQAA0","success":true,"errors":[]}'
+    http_version: 
+  recorded_at: Tue, 23 Dec 2014 01:35:05 GMT
+- request:
+    method: get
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20OpportunityLineItem%20where%20OpportunityId%20=%20'006j0000002tztXAAQ'%20and%20PricebookEntryId%20=%20'01uj0000000RcMQAA0'
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 23 Dec 2014 01:35:06 GMT
+      Set-Cookie:
+      - BrowserId=Q2EzhNwuT82yoHVR_rKWcQ;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:35:06 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=59/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":0,"done":true,"records":[]}'
+    http_version: 
+  recorded_at: Tue, 23 Dec 2014 01:35:06 GMT
+- request:
+    method: post
+    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/OpportunityLineItem
+    body:
+      encoding: UTF-8
+      string: '{"Quantity":2,"UnitPrice":10.33,"OpportunityId":"006j0000002tztXAAQ","PricebookEntryId":"01uj0000000RcMQAA0"}'
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Tue, 23 Dec 2014 01:35:07 GMT
+      Set-Cookie:
+      - BrowserId=6In7pvLxQyi0n-kJd5e7gg;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:35:07 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=61/15000
+      Location:
+      - "/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003b1OuAAI"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"00kj0000003b1OuAAI","success":true,"errors":[]}'
+    http_version: 
+  recorded_at: Tue, 23 Dec 2014 01:35:07 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=spree_id&client_secret=spree_secret&username=spree_user&password=spree_pwdspree_sec
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 23 Dec 2014 01:35:08 GMT
+      Set-Cookie:
+      - BrowserId=2wPLNfRvTFK1uooRv9FqlQ;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:35:08 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1419298508494","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"/+5Ck4X87IsM27dlK3MrYCvWtxB/mv5znNYt0tT1138=","access_token":"00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g"}'
+    http_version: 
+  recorded_at: Tue, 23 Dec 2014 01:35:08 GMT
+- request:
+    method: get
+    uri: https://na16.salesforce.com/services/data/v26.0/query?q=SELECT%20Id%20FROM%20Note%20WHERE%20Title%20=%20'Payment%20%23%2063'%20AND%20ParentId%20=%20'006j0000002tztXAAQ'%20LIMIT%201
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 23 Dec 2014 01:35:09 GMT
+      Set-Cookie:
+      - BrowserId=UvljBFUXT9qA-dAEtNHQBw;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:35:09 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=62/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":0,"done":true,"records":[]}'
+    http_version: 
+  recorded_at: Tue, 23 Dec 2014 01:35:09 GMT
+- request:
+    method: post
+    uri: https://na16.salesforce.com/services/data/v26.0/sobjects/Note
+    body:
+      encoding: UTF-8
+      string: '{"Title":"Payment # 63","Body":"Number: 63\nStatus: completed\nAmount:
+        210\nPayment Method: Credit Card\n","IsPrivate":false,"ParentId":"006j0000002tztXAAQ"}'
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQIChpiaVGX_HZUhn66J9fOQ39jGe6f1ckqSd7qjzl8OmYcWGjwRaRkEp09EL5la2u4c3L50pHme9QKRczPTtJzmvle_g
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Tue, 23 Dec 2014 01:35:10 GMT
+      Set-Cookie:
+      - BrowserId=dnKijJaWTz-uvWqLD65E4A;Path=/;Domain=.salesforce.com;Expires=Sat,
+        21-Feb-2015 01:35:10 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=61/15000
+      Location:
+      - "/services/data/v26.0/sobjects/Note/002j0000001KkZGAA0"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"002j0000001KkZGAA0","success":true,"errors":[]}'
+    http_version: 
+  recorded_at: Tue, 23 Dec 2014 01:35:10 GMT
 recorded_with: VCR 2.9.3

@@ -1,6 +1,6 @@
 {
   "order": {
-    "id": "R324199999",
+    "id": "R777899900",
     "status": "complete",
     "channel": "spree",
     "email": "spree@example.com",
@@ -16,14 +16,14 @@
     },
     "line_items": [
       {
-        "product_id": "152014",
-        "name": "Spree T-Shirt",
+        "product_id": "998122323",
+        "name": "JS",
         "quantity": 2,
         "price": 12.33
       },
       {
-        "product_id": "152914",
-        "name": "Otto Sem Gravidade Nebulosas",
+        "product_id": "09238888",
+        "name": "Java",
         "quantity": 2,
         "price": 10.33
       }

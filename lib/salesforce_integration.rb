@@ -2,9 +2,6 @@ $:.unshift File.dirname(__FILE__)
 
 require 'restforce'
 
-require 'Spree_services/base'
-require 'Spree_services/return'
-
 require 'integrations/base'
 require 'integrations/contact_account'
 require 'integrations/product'

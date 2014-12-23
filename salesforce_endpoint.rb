@@ -13,7 +13,7 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
   end
 
   post '/add_returns' do
-    SpreeService::Return.new(@payload, @config).handle_returns!
+    Integration::Return.new(@config, @payload[:returns]).handle_all!
     set_summary "Returns marked in Order ##{@payload["returns"].first["order_id"]} in Salesforce"
     result 200
   end

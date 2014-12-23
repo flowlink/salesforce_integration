@@ -12,10 +12,9 @@ class SalesforceEndpoint < EndpointBase::Sinatra::Base
     end
   end
 
-  post '/add_returns' do
-    Integration::Return.new(@config, @payload[:returns]).handle_all!
-    set_summary "Returns marked in Order ##{@payload["returns"].first["order_id"]} in Salesforce"
-    result 200
+  post '/add_return' do
+    Integration::Return.new(@config, @payload).upsert!
+    result 200, "Return # #{@payload[:return][:id]} updated as Note in Salesforce"
   end
 
   ['/add_customer', '/update_customer'].each do |path|

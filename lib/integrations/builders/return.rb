@@ -1,11 +1,10 @@
 module Integration
   module Builder
     class Return
-
       attr_reader :object
 
       def initialize(object)
-        @object = object.with_indifferent_access
+        @object = object
       end
 
       def build

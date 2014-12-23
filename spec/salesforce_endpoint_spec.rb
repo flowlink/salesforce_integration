@@ -49,9 +49,9 @@ describe SalesforceEndpoint do
 
     it "adds" do
       VCR.use_cassette "requests/add_returns" do
-        post "/add_returns", payload.to_json, auth
+        post "/add_return", payload.to_json, auth
 
-        expect(json_response["summary"]).to match "Returns marked in Order"
+        expect(json_response["summary"]).to match "updated as Note in Salesforce"
         expect(last_response.status).to eq 200
       end
     end

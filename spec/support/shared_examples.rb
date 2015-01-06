@@ -3,7 +3,9 @@ test_config_hash = {
   'salesforce_password'       => ENV['SALESFORCE_PASSWORD'],
   'salesforce_security_token' => ENV['SALESFORCE_SECURITY_TOKEN'],
   'salesforce_client_id'      => ENV['SALESFORCE_CLIENT_ID'],
-  'salesforce_client_secret'  => ENV['SALESFORCE_CLIENT_SECRET']
+  'salesforce_client_secret'  => ENV['SALESFORCE_CLIENT_SECRET'],
+  'salesforce_instance_url'   => ENV['SALESFORCE_INSTANCE_URL'],
+  'salesforce_access_token'   => ENV['SALESFORCE_ACCESS_TOKEN']
 }.with_indifferent_access
 
 shared_examples "config hash" do

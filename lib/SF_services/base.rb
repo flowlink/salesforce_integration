@@ -30,15 +30,38 @@ module SFService
     end
 
     private
+      def salesforce
+        @salesforce ||= Restforce.new user_credentials.merge(app_credentials)
+      end
 
-    def salesforce
-      @salesforce ||= Restforce.new(
-        username: config['salesforce_username'],
-        password: config['salesforce_password'],
-        security_token: config['salesforce_security_token'],
-        client_id: config['salesforce_client_id'],
-        client_secret: config['salesforce_client_secret']
-      )
-    end
+      def user_credentials
+        if config[:salesforce_instance_url].present?
+          oauth_params
+        else
+          user_passwd_params
+        end
+      end
+
+      def app_credentials
+        {
+          client_id: config[:salesforce_client_id],
+          client_secret: config[:salesforce_client_secret]
+        }
+      end
+
+      def oauth_params
+        {
+          instance_url: config[:salesforce_instance_url],
+          oauth_token: config[:salesforce_access_token]
+        }
+      end
+
+      def user_passwd_params
+        {
+          username: config[:salesforce_username],
+          password: config[:salesforce_password],
+          security_token: config[:salesforce_security_token],
+        }
+      end
   end
 end

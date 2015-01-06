@@ -24,11 +24,13 @@ VCR.configure do |c|
   c.hook_into :webmock
 
   c.filter_sensitive_data('spree_user')   { |_| ENV['SALESFORCE_USERNAME'] }
-  c.filter_sensitive_data('spree_user')   { |_| ENV['SALESFORCE_USERNAME'].gsub('@','%40') }
+  c.filter_sensitive_data('spree_user')   { |_| ENV['SALESFORCE_USERNAME'].to_s.gsub('@','%40') }
   c.filter_sensitive_data('spree_pwd')    { |_| ENV['SALESFORCE_PASSWORD'] }
   c.filter_sensitive_data('spree_sec')    { |_| ENV['SALESFORCE_SECURITY_TOKEN'] }
   c.filter_sensitive_data('spree_id')     { |_| ENV['SALESFORCE_CLIENT_ID'] }
   c.filter_sensitive_data('spree_secret') { |_| ENV['SALESFORCE_CLIENT_SECRET'] }
+  c.filter_sensitive_data('instance_url') { |_| ENV['SALESFORCE_INSTANCE_URL'] }
+  c.filter_sensitive_data('access_token') { |_| ENV['SALESFORCE_ACCESS_TOKEN'] }
 end
 
 RSpec.configure do |config|

@@ -44,8 +44,8 @@ module SFService
 
       def app_credentials
         {
-          client_id: config[:salesforce_client_id],
-          client_secret: config[:salesforce_client_secret]
+          client_id: ENV['SALESFORCE_CLIENT_ID'],
+          client_secret: ENV['SALESFORCE_CLIENT_SECRET']
         }
       end
 

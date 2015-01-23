@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'endpoint_base'
-require 'salesforce_integration'
+
+require File.expand_path(File.dirname(__FILE__) + '/lib/salesforce_integration')
 
 class SalesforceEndpoint < EndpointBase::Sinatra::Base
   enable :logging

@@ -12,10 +12,23 @@ module Integration
         params = {
           'Name' => name,
           'AccountNumber' => object['id']
-        }
+        }.merge(
+          import_address_data('Shipping', shipping_address)
+        ).merge(
+          import_address_data('Billing', billing_address)
+        )
       end
 
       private
+      def import_address_data(type, data)
+        {
+          "#{type}Street"     => [data['address1'], data['address2']].reject(&:empty?).join(' '),
+          "#{type}City"       => data['city'],
+          "#{type}State"      => data['state'],
+          "#{type}PostalCode" => data['zipcode'],
+          "#{type}Country"    => data['country']
+        }
+      end
 
       def name
         "#{customer_name('firstname')} #{customer_name('lastname')}"

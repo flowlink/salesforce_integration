@@ -1,11 +1,11 @@
 {
   "order": {
-    "id": "R4452353543",
+    "id": "R434432432524354",
     "status": "complete",
     "channel": "spree",
-    "email": "spree@example.com",
+    "email": "peter@reggae.com",
     "currency": "USD",
-    "placed_on": "2015-01-17T17:29:15.219Z",
+    "placed_on": "2015-01-20T17:29:15.219Z",
     "totals": {
       "item": 200,
       "adjustment": 10,
@@ -16,7 +16,7 @@
     },
     "line_items": [
       {
-        "product_id": "245353545",
+        "product_id": "324324134",
         "name": "JS",
         "quantity": 2,
         "price": 12.33

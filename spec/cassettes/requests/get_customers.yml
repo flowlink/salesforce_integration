@@ -1,48 +1,8 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://login.salesforce.com/services/oauth2/token
-    body:
-      encoding: US-ASCII
-      string: grant_type=password&client_id=spree_id&client_secret=spree_secret&username=spree_user&password=spree_pwdspree_sec
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Mon, 27 Oct 2014 20:47:51 GMT
-      Set-Cookie:
-      - BrowserId=UD8vZySnSzSQte-OrKbzmQ;Path=/;Domain=.salesforce.com;Expires=Fri,
-        26-Dec-2014 20:47:51 GMT
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache, no-store
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1414442872030","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"k1tI16oYl9BzIDgAQrzWf5c+qASFSOZGf+0re3Gbu9o=","access_token":"00Dj0000000HAIT!AQoAQO3.sA9TZCfsUw5b_bHMAAU0POqpkb15Bx_TNH9sEw00N5UCSVxtlmHdHTFRkPxcYRkw.I7kY_dECHgWTXVLRgZEsI6d"}'
-    http_version: 
-  recorded_at: Mon, 27 Oct 2014 20:47:54 GMT
-- request:
     method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=SELECT%20Contact.Id,%20Contact.Firstname,%20Contact.Lastname,%20Contact.Email,%20Contact.Account.Name,%20Contact.Account.AccountNumber,%20Contact.Account.BillingCity,%20Contact.Account.BillingCountry,%20Contact.Account.BillingPostalCode,%20Contact.Account.BillingState,%20Contact.Account.BillingStreet,%20Contact.Account.Rating,%20Contact.Account.Phone,%20Contact.Account.ShippingCity,%20Contact.Account.ShippingCountry,%20Contact.Account.ShippingPostalCode,%20Contact.Account.ShippingState,%20Contact.Account.ShippingStreet,%20Contact.Account.Website,%20Contact.Account.Type,%20Contact.LastModifiedDate%20FROM%20Contact%20WHERE%20LastModifiedDate%20%3E%202014-10-25T21:06:36Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    uri: instance_url/services/data/v26.0/query?q=SELECT%20Contact.Id,%20Contact.Firstname,%20Contact.Lastname,%20Contact.Email,%20Contact.Account.Name,%20Contact.Account.AccountNumber,%20Contact.Account.BillingCity,%20Contact.Account.BillingCountry,%20Contact.Account.BillingPostalCode,%20Contact.Account.BillingState,%20Contact.Account.BillingStreet,%20Contact.Account.Rating,%20Contact.Account.Phone,%20Contact.Account.ShippingCity,%20Contact.Account.ShippingCountry,%20Contact.Account.ShippingPostalCode,%20Contact.Account.ShippingState,%20Contact.Account.ShippingStreet,%20Contact.Account.Website,%20Contact.Account.Type,%20Contact.LastModifiedDate%20FROM%20Contact%20WHERE%20LastModifiedDate%20%3E%202014-10-25T21:06:36Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
     body:
       encoding: US-ASCII
       string: ''
@@ -50,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQO3.sA9TZCfsUw5b_bHMAAU0POqpkb15Bx_TNH9sEw00N5UCSVxtlmHdHTFRkPxcYRkw.I7kY_dECHgWTXVLRgZEsI6d
+      - OAuth access_token
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -61,24 +21,68 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 27 Oct 2014 20:47:53 GMT
+      - Fri, 23 Jan 2015 02:39:31 GMT
       Set-Cookie:
-      - BrowserId=VAn7ZkT-TtyG0XkvR95egg;Path=/;Domain=.salesforce.com;Expires=Fri,
-        26-Dec-2014 20:47:53 GMT
+      - BrowserId=4675yx8_TX6hgTgXwJsSLg;Path=/;Domain=.salesforce.com;Expires=Tue,
+        24-Mar-2015 02:39:31 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=44/15000
+      - api-usage=63/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
-      encoding: UTF-8
-      string: '{"totalSize":2,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"Id":"003j0000001Qlh7AAC","FirstName":"Brian","LastName":"Smith","Email":"spree@example.com","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Name":"Brian
-        Smith","AccountNumber":null,"BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
-        Street","Rating":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Website":null,"Type":null},"LastModifiedDate":"2014-10-27T16:50:16.000+0000"},{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001QovwAAC"},"Id":"003j0000001QovwAAC","FirstName":"Washington","LastName":"Smith","Email":"washington@wombat.com","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wcSoAAI"},"Name":"Washington
-        Smith","AccountNumber":"b435232435","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Rating":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Website":null,"Type":null},"LastModifiedDate":"2014-10-27T20:41:53.000+0000"}]}'
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJ0b3RhbFNpemUiOjMsImRvbmUiOnRydWUsInJlY29yZHMiOlt7ImF0dHJp
+        YnV0ZXMiOnsidHlwZSI6IkNvbnRhY3QiLCJ1cmwiOiIvc2VydmljZXMvZGF0
+        YS92MjYuMC9zb2JqZWN0cy9Db250YWN0LzAwM2owMDAwMDA1c0dzSUFBVSJ9
+        LCJJZCI6IjAwM2owMDAwMDA1c0dzSUFBVSIsIkZpcnN0TmFtZSI6IkPDqXUi
+        LCJMYXN0TmFtZSI6Ik11c2ljIiwiRW1haWwiOiJjZXVtdXNpY0B3b21iYXQu
+        Y28iLCJBY2NvdW50Ijp7ImF0dHJpYnV0ZXMiOnsidHlwZSI6IkFjY291bnQi
+        LCJ1cmwiOiIvc2VydmljZXMvZGF0YS92MjYuMC9zb2JqZWN0cy9BY2NvdW50
+        LzAwMWowMDAwMDBDRUJxM0FBSCJ9LCJOYW1lIjoiQ8OpdSIsIkFjY291bnRO
+        dW1iZXIiOiJsaXZlbGl2ZSIsIkJpbGxpbmdDaXR5IjpudWxsLCJCaWxsaW5n
+        Q291bnRyeSI6bnVsbCwiQmlsbGluZ1Bvc3RhbENvZGUiOm51bGwsIkJpbGxp
+        bmdTdGF0ZSI6bnVsbCwiQmlsbGluZ1N0cmVldCI6bnVsbCwiUmF0aW5nIjpu
+        dWxsLCJQaG9uZSI6bnVsbCwiU2hpcHBpbmdDaXR5IjpudWxsLCJTaGlwcGlu
+        Z0NvdW50cnkiOm51bGwsIlNoaXBwaW5nUG9zdGFsQ29kZSI6bnVsbCwiU2hp
+        cHBpbmdTdGF0ZSI6bnVsbCwiU2hpcHBpbmdTdHJlZXQiOm51bGwsIldlYnNp
+        dGUiOm51bGwsIlR5cGUiOm51bGx9LCJMYXN0TW9kaWZpZWREYXRlIjoiMjAx
+        NC0xMi0xNlQwMDozODo1Ny4wMDArMDAwMCJ9LHsiYXR0cmlidXRlcyI6eyJ0
+        eXBlIjoiQ29udGFjdCIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3YyNi4wL3Nv
+        YmplY3RzL0NvbnRhY3QvMDAzajAwMDAwMDFRbGg3QUFDIn0sIklkIjoiMDAz
+        ajAwMDAwMDFRbGg3QUFDIiwiRmlyc3ROYW1lIjoiSm9lIiwiTGFzdE5hbWUi
+        OiJTbWl0aCIsIkVtYWlsIjoic3ByZWVAZXhhbXBsZS5jb20iLCJBY2NvdW50
+        Ijp7ImF0dHJpYnV0ZXMiOnsidHlwZSI6IkFjY291bnQiLCJ1cmwiOiIvc2Vy
+        dmljZXMvZGF0YS92MjYuMC9zb2JqZWN0cy9BY2NvdW50LzAwMWowMDAwMDAx
+        d1lYWkFBMiJ9LCJOYW1lIjoiQnJpYW4gU21pdGgiLCJBY2NvdW50TnVtYmVy
+        IjpudWxsLCJCaWxsaW5nQ2l0eSI6IkJldGhlc2RhIiwiQmlsbGluZ0NvdW50
+        cnkiOm51bGwsIkJpbGxpbmdQb3N0YWxDb2RlIjpudWxsLCJCaWxsaW5nU3Rh
+        dGUiOiJNRCIsIkJpbGxpbmdTdHJlZXQiOiJBd2Vzb21lIFN0cmVldCIsIlJh
+        dGluZyI6bnVsbCwiUGhvbmUiOm51bGwsIlNoaXBwaW5nQ2l0eSI6bnVsbCwi
+        U2hpcHBpbmdDb3VudHJ5IjpudWxsLCJTaGlwcGluZ1Bvc3RhbENvZGUiOm51
+        bGwsIlNoaXBwaW5nU3RhdGUiOm51bGwsIlNoaXBwaW5nU3RyZWV0IjpudWxs
+        LCJXZWJzaXRlIjpudWxsLCJUeXBlIjpudWxsfSwiTGFzdE1vZGlmaWVkRGF0
+        ZSI6IjIwMTUtMDEtMjNUMDI6MzQ6MTUuMDAwKzAwMDAifSx7ImF0dHJpYnV0
+        ZXMiOnsidHlwZSI6IkNvbnRhY3QiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92
+        MjYuMC9zb2JqZWN0cy9Db250YWN0LzAwM2owMDAwMDAxUW92d0FBQyJ9LCJJ
+        ZCI6IjAwM2owMDAwMDAxUW92d0FBQyIsIkZpcnN0TmFtZSI6Ildhc2hpbmd0
+        b24iLCJMYXN0TmFtZSI6IlNtaXRoIiwiRW1haWwiOiJ3YXNoaW5ndG9uQHdv
+        bWJhdC5jb20iLCJBY2NvdW50Ijp7ImF0dHJpYnV0ZXMiOnsidHlwZSI6IkFj
+        Y291bnQiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92MjYuMC9zb2JqZWN0cy9B
+        Y2NvdW50LzAwMWowMDAwMDAxd2NTb0FBSSJ9LCJOYW1lIjoiV2FzaGluZ3Rv
+        biBTbWl0aCIsIkFjY291bnROdW1iZXIiOiJiNDM1MjMyNDM1IiwiQmlsbGlu
+        Z0NpdHkiOm51bGwsIkJpbGxpbmdDb3VudHJ5IjpudWxsLCJCaWxsaW5nUG9z
+        dGFsQ29kZSI6bnVsbCwiQmlsbGluZ1N0YXRlIjpudWxsLCJCaWxsaW5nU3Ry
+        ZWV0IjpudWxsLCJSYXRpbmciOm51bGwsIlBob25lIjpudWxsLCJTaGlwcGlu
+        Z0NpdHkiOm51bGwsIlNoaXBwaW5nQ291bnRyeSI6bnVsbCwiU2hpcHBpbmdQ
+        b3N0YWxDb2RlIjpudWxsLCJTaGlwcGluZ1N0YXRlIjpudWxsLCJTaGlwcGlu
+        Z1N0cmVldCI6bnVsbCwiV2Vic2l0ZSI6bnVsbCwiVHlwZSI6bnVsbH0sIkxh
+        c3RNb2RpZmllZERhdGUiOiIyMDE1LTAxLTIzVDAyOjM2OjI2LjAwMCswMDAw
+        In1dfQ==
     http_version: 
-  recorded_at: Mon, 27 Oct 2014 20:47:55 GMT
+  recorded_at: Fri, 23 Jan 2015 02:39:30 GMT
 recorded_with: VCR 2.9.3

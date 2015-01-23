@@ -121,7 +121,7 @@ describe SalesforceEndpoint do
 
   it "empty get products result" do
     payload = {
-      parameters: config.merge(salesforce_products_since: "2014-10-28T19:14:57-03:00")
+      parameters: config.merge(salesforce_products_since: "2015-01-23T19:14:57-03:00")
     }
 
     VCR.use_cassette "requests/get_products_empty" do

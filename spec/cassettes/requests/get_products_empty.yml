@@ -1,48 +1,8 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://login.salesforce.com/services/oauth2/token
-    body:
-      encoding: US-ASCII
-      string: grant_type=password&client_id=spree_id&client_secret=spree_secret&username=spree_user&password=spree_pwdspree_sec
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Mon, 27 Oct 2014 20:01:25 GMT
-      Set-Cookie:
-      - BrowserId=jndOymzOS7GGzVQ1GC8f2g;Path=/;Domain=.salesforce.com;Expires=Fri,
-        26-Dec-2014 20:01:25 GMT
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache, no-store
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1414440085697","token_type":"Bearer","instance_url":"https://na16.salesforce.com","signature":"yELp75UlJVDZeZctSxMej6JT34cWvZcmcnoQ0OeyfKY=","access_token":"00Dj0000000HAIT!AQoAQO3.sA9TZCfsUw5b_bHMAAU0POqpkb15Bx_TNH9sEw00N5UCSVxtlmHdHTFRkPxcYRkw.I7kY_dECHgWTXVLRgZEsI6d"}'
-    http_version: 
-  recorded_at: Mon, 27 Oct 2014 20:01:28 GMT
-- request:
     method: get
-    uri: https://na16.salesforce.com/services/data/v26.0/query?q=select%20Id,%20Name,%20ProductCode,%20Description,%20LastModifiedDate%20from%20Product2%20where%20LastModifiedDate%20%3E%202014-10-28T22:14:57Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    uri: instance_url/services/data/v26.0/query?q=select%20Id,%20Name,%20ProductCode,%20Description,%20LastModifiedDate%20from%20Product2%20where%20LastModifiedDate%20%3E%202015-01-23T22:14:57Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
     body:
       encoding: US-ASCII
       string: ''
@@ -50,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQO3.sA9TZCfsUw5b_bHMAAU0POqpkb15Bx_TNH9sEw00N5UCSVxtlmHdHTFRkPxcYRkw.I7kY_dECHgWTXVLRgZEsI6d
+      - OAuth access_token
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -61,14 +21,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 27 Oct 2014 20:01:26 GMT
+      - Fri, 23 Jan 2015 02:39:14 GMT
       Set-Cookie:
-      - BrowserId=9yXjCNPHTCaorNkueG1zpw;Path=/;Domain=.salesforce.com;Expires=Fri,
-        26-Dec-2014 20:01:26 GMT
+      - BrowserId=dKx9iTFARf2iOk6Dxdv-ww;Path=/;Domain=.salesforce.com;Expires=Tue,
+        24-Mar-2015 02:39:14 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=29/15000
+      - api-usage=62/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -77,5 +37,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"totalSize":0,"done":true,"records":[]}'
     http_version: 
-  recorded_at: Mon, 27 Oct 2014 20:01:29 GMT
+  recorded_at: Fri, 23 Jan 2015 02:39:13 GMT
 recorded_with: VCR 2.9.3

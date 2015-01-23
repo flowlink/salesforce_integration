@@ -9,7 +9,7 @@ describe SalesforceEndpoint do
       payload = Factories.send("new_order_payload")
 
       VCR.use_cassette "requests/add_order" do
-        post "/add_order", payload.merge(parameters: config).to_json, auth
+        post "/send_order", payload.merge(parameters: config).to_json, auth
 
         expect(json_response["summary"]).to match "sent to Salesforce"
         expect(last_response.status).to eq 200
@@ -20,7 +20,7 @@ describe SalesforceEndpoint do
       payload = Factories.send("order_payload")
 
       VCR.use_cassette "requests/update_order" do
-        post "/update_order", payload.merge(parameters: config).to_json, auth
+        post "/send_order", payload.merge(parameters: config).to_json, auth
 
         expect(json_response["summary"]).to match "sent to Salesforce"
         expect(last_response.status).to eq 200
@@ -49,7 +49,7 @@ describe SalesforceEndpoint do
 
     it "adds" do
       VCR.use_cassette "requests/add_returns" do
-        post "/add_return", payload.to_json, auth
+        post "/send_return", payload.to_json, auth
 
         expect(json_response["summary"]).to match "updated as Note in Salesforce"
         expect(last_response.status).to eq 200
@@ -62,7 +62,7 @@ describe SalesforceEndpoint do
     email = payload['customer']['email']
 
     VCR.use_cassette "requests/add_customer" do
-      post "/add_customer", payload.to_json, auth
+      post "/send_customer", payload.to_json, auth
       expect(json_response["summary"]).to match "#{email} updated in Salesforce"
       expect(last_response.status).to eq 200
     end
@@ -74,7 +74,7 @@ describe SalesforceEndpoint do
     email = payload['customer']['email']
 
     VCR.use_cassette "requests/update_customer" do
-      post "/add_customer", payload.to_json, auth
+      post "/send_customer", payload.to_json, auth
       expect(json_response["summary"]).to match "#{email} updated in Salesforce"
       expect(last_response.status).to eq 200
     end
@@ -85,7 +85,7 @@ describe SalesforceEndpoint do
     id = payload['product']['id']
 
     VCR.use_cassette "requests/add_product" do
-      post "/add_product", payload.to_json, auth
+      post "/send_product", payload.to_json, auth
       expect(json_response["summary"]).to match "Product #{id}"
       expect(last_response.status).to eq 200
     end
@@ -97,7 +97,7 @@ describe SalesforceEndpoint do
     payload['product']['price'] = 101
 
     VCR.use_cassette "requests/update_product" do
-      post "/update_product", payload.to_json, auth
+      post "/send_product", payload.to_json, auth
       expect(json_response["summary"]).to match "Product #{id}"
       expect(last_response.status).to eq 200
     end
@@ -152,7 +152,7 @@ describe SalesforceEndpoint do
       payload = Factories.shipment_payload
 
       VCR.use_cassette "requests/no_shipment" do
-        post "/add_shipment", payload.merge(parameters: config).to_json, auth
+        post "/send_shipment", payload.merge(parameters: config).to_json, auth
 
         expect(json_response["summary"]).to match "Could not find Opportunity"
         expect(last_response.status).to eq 500
@@ -164,7 +164,7 @@ describe SalesforceEndpoint do
       payload[:shipment][:order_id] = "R43534532545"
 
       VCR.use_cassette "requests/add_shipment" do
-        post "/add_shipment", payload.merge(parameters: config).to_json, auth
+        post "/send_shipment", payload.merge(parameters: config).to_json, auth
 
         expect(json_response["summary"]).to match "as Note in Salesforce"
         expect(last_response.status).to eq 200

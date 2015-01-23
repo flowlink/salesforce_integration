@@ -6,34 +6,28 @@ require File.expand_path(File.dirname(__FILE__) + '/lib/salesforce_integration')
 class SalesforceEndpoint < EndpointBase::Sinatra::Base
   enable :logging
 
-  ['/add_order', '/update_order'].each do |path|
-    post path do
-      Integration::Order.new(@config, @payload).upsert!
-      result 200, "Opportunity # #{@payload["order"]["id"]} sent to Salesforce"
-    end
+  post '/send_order' do
+    Integration::Order.new(@config, @payload).upsert!
+    result 200, "Opportunity # #{@payload["order"]["id"]} sent to Salesforce"
   end
 
-  post '/add_return' do
+  post '/send_return' do
     Integration::Return.new(@config, @payload).upsert!
     result 200, "Return # #{@payload[:return][:id]} updated as Note in Salesforce"
   end
 
-  ['/add_customer', '/update_customer'].each do |path|
-    post path do
-      Integration::ContactAccount.new(@config, @payload[:customer]).upsert!
-      result 200, "Contact for #{@payload[:customer][:email]} updated in Salesforce"
-    end
+  post '/send_customer' do
+    Integration::ContactAccount.new(@config, @payload[:customer]).upsert!
+    result 200, "Contact for #{@payload[:customer][:email]} updated in Salesforce"
   end
 
-  ['/add_product', '/update_product'].each do |path|
-    post path do
-      Integration::Product.new(@config, @payload[:product]).upsert!
-      set_summary "Product #{@payload["product"]["id"]} updated (or created) in Salesforce"
-      result 200
-    end
+  post '/send_product' do
+    Integration::Product.new(@config, @payload[:product]).upsert!
+    set_summary "Product #{@payload["product"]["id"]} updated (or created) in Salesforce"
+    result 200
   end
 
-  post '/add_shipment' do
+  post '/send_shipment' do
     begin
       Integration::Shipment.new(@config, @payload).upsert!
       result 200, "Shipment #{@payload[:shipment][:id]} updated as Note in Salesforce"

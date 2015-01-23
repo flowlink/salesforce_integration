@@ -2,7 +2,8 @@ shared_examples "config hash" do
   let(:config) do
     {
       'salesforce_instance_url'   => ENV['SALESFORCE_INSTANCE_URL'],
-      'salesforce_access_token'   => ENV['SALESFORCE_ACCESS_TOKEN']
+      'salesforce_access_token'   => ENV['SALESFORCE_ACCESS_TOKEN'],
+      'salesforce_refresh_token'  => ENV['SALESFORCE_REFRESH_TOKEN']
     }.with_indifferent_access
   end
 end

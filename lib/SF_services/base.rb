@@ -50,10 +50,16 @@ module SFService
       end
 
       def oauth_params
-        {
+        initial = {
           instance_url: config[:salesforce_instance_url],
           oauth_token: config[:salesforce_access_token]
         }
+
+        if config[:salesforce_refresh_token].present?
+          initial.merge refresh_token: config[:salesforce_refresh_token]
+        else
+          initial
+        end
       end
 
       def user_passwd_params

@@ -1,13 +1,10 @@
-test_config_hash = {
-  'salesforce_username'       => ENV['SALESFORCE_USERNAME'],
-  'salesforce_password'       => ENV['SALESFORCE_PASSWORD'],
-  'salesforce_security_token' => ENV['SALESFORCE_SECURITY_TOKEN'],
-  'salesforce_instance_url'   => ENV['SALESFORCE_INSTANCE_URL'],
-  'salesforce_access_token'   => ENV['SALESFORCE_ACCESS_TOKEN']
-}.with_indifferent_access
-
 shared_examples "config hash" do
-  let(:config) { test_config_hash }
+  let(:config) do
+    {
+      'salesforce_instance_url'   => ENV['SALESFORCE_INSTANCE_URL'],
+      'salesforce_access_token'   => ENV['SALESFORCE_ACCESS_TOKEN']
+    }.with_indifferent_access
+  end
 end
 
 shared_examples "product payload hash" do

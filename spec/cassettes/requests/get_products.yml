@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/query?q=select%20Id,%20Name,%20ProductCode,%20Description,%20LastModifiedDate%20from%20Product2%20where%20LastModifiedDate%20%3E%202014-10-17T19:14:57Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20Id,%20Name,%20ProductCode,%20Description,%20LastModifiedDate%20from%20Product2%20where%20LastModifiedDate%20%3E%202014-10-17T19:14:57Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
     body:
       encoding: US-ASCII
       string: ''
@@ -17,25 +17,110 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 401
+      message: Unauthorized
     headers:
       Date:
-      - Fri, 23 Jan 2015 02:37:36 GMT
+      - Mon, 26 Jan 2015 23:45:40 GMT
       Set-Cookie:
-      - BrowserId=-BX17uuZTsuZLBGi8k5YmQ;Path=/;Domain=.salesforce.com;Expires=Tue,
-        24-Mar-2015 02:37:36 GMT
+      - BrowserId=AAs8x2NBSXSt7RVmitj1TQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:40 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      Sforce-Limit-Info:
-      - api-usage=46/15000
+      Www-Authenticate:
+      - Token
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":36,"done":true,"records":[{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000I2RPAA0"},"Id":"01tj0000000I2RPAA0","Name":"GenWatt
+      string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:45:40 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=refresh_token&client_id=spree_id&client_secret=spree_secret
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:45:41 GMT
+      - Mon, 26 Jan 2015 23:45:41 GMT
+      Set-Cookie:
+      - BrowserId=a3LU6FYgRcqXqT0CswC1dA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:41 GMT
+      - BrowserId=jLUjH9s9TnOeG2qINypfcQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:41 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      - no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1422315941442","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"PvLD5pxpvpAqzzR+jsUuaI+6vXPr0kzW0FWJMF5nnHs=","access_token":"00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi."}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:45:41 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20Id,%20Name,%20ProductCode,%20Description,%20LastModifiedDate%20from%20Product2%20where%20LastModifiedDate%20%3E%202014-10-17T19:14:57Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:45:42 GMT
+      Set-Cookie:
+      - BrowserId=to8k1hD7SVy9BISBUL6psQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:42 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=137/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":39,"done":true,"records":[{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000I2RPAA0"},"Id":"01tj0000000I2RPAA0","Name":"GenWatt
         Diesel 200kW","ProductCode":"GC1040","Description":null,"LastModifiedDate":"2014-10-21T11:48:34.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000I2RfAAK"},"Id":"01tj0000000I2RfAAK","Name":"Installation:
         Industrial - Medium","ProductCode":"IN7060","Description":null,"LastModifiedDate":"2014-10-21T11:48:34.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000I2ReAAK"},"Id":"01tj0000000I2ReAAK","Name":"GenWatt
         Gasoline 2000kW","ProductCode":"GC5060","Description":null,"LastModifiedDate":"2014-10-21T11:48:34.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000I2RdAAK"},"Id":"01tj0000000I2RdAAK","Name":"Installation:
@@ -68,13 +153,16 @@ http_interactions:
         T-Shirt","ProductCode":"SPREE-T-SHIRT","Description":"Awesome Spree T-Shirt","LastModifiedDate":"2014-12-16T17:50:54.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009F6rAAE"},"Id":"01tj00000009F6rAAE","Name":"Otto
         Sem Gravidade","ProductCode":"152014","Description":"Album Otto Sem Gravidade","LastModifiedDate":"2014-12-17T18:25:38.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009F8YAAU"},"Id":"01tj00000009F8YAAU","Name":"Otto
         Sem Gravidade Nebulosas","ProductCode":"152914","Description":null,"LastModifiedDate":"2014-12-17T19:05:19.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009F8iAAE"},"Id":"01tj00000009F8iAAE","Name":"The
-        Moon 1111","ProductCode":"161614","Description":null,"LastModifiedDate":"2014-12-17T19:17:31.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HNrAAM"},"Id":"01tj00000009HNrAAM","Name":"Rust","ProductCode":"221214","Description":null,"LastModifiedDate":"2014-12-23T01:32:30.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HNwAAM"},"Id":"01tj00000009HNwAAM","Name":"Haskell","ProductCode":"222231","Description":null,"LastModifiedDate":"2014-12-23T01:32:39.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO1AAM"},"Id":"01tj00000009HO1AAM","Name":"JS","ProductCode":"998122323","Description":null,"LastModifiedDate":"2014-12-23T01:34:54.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Id":"01tj00000009HO6AAM","Name":"Java","ProductCode":"09238888","Description":null,"LastModifiedDate":"2014-12-23T01:35:02.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000hyTUAAY"},"Id":"01tj0000000hyTUAAY","Name":"JS","ProductCode":"245353545","Description":null,"LastModifiedDate":"2015-01-23T02:32:09.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009ExzAAE"},"Id":"01tj00000009ExzAAE","Name":"December
-        Shirts","ProductCode":"34532454253534","Description":"Awesome Spree T-Shirt","LastModifiedDate":"2015-01-23T02:37:18.000+0000"}]}'
+        Moon 1111","ProductCode":"161614","Description":null,"LastModifiedDate":"2014-12-17T19:17:31.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HNrAAM"},"Id":"01tj00000009HNrAAM","Name":"Rust","ProductCode":"221214","Description":null,"LastModifiedDate":"2014-12-23T01:32:30.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HNwAAM"},"Id":"01tj00000009HNwAAM","Name":"Haskell","ProductCode":"222231","Description":null,"LastModifiedDate":"2014-12-23T01:32:39.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO1AAM"},"Id":"01tj00000009HO1AAM","Name":"JS","ProductCode":"998122323","Description":null,"LastModifiedDate":"2014-12-23T01:34:54.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Id":"01tj00000009HO6AAM","Name":"Java","ProductCode":"09238888","Description":null,"LastModifiedDate":"2014-12-23T01:35:02.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000hyTUAAY"},"Id":"01tj0000000hyTUAAY","Name":"JS","ProductCode":"245353545","Description":null,"LastModifiedDate":"2015-01-23T02:32:09.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000hyVBAAY"},"Id":"01tj0000000hyVBAAY","Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT722172","Description":"Awesome Spree
+        T-Shirt","LastModifiedDate":"2015-01-23T04:02:33.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000i0nUAAQ"},"Id":"01tj0000000i0nUAAQ","Name":"JS","ProductCode":"324324134","Description":null,"LastModifiedDate":"2015-01-23T19:59:48.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000i0pfAAA"},"Id":"01tj0000000i0pfAAA","Name":"Java
+        43435","ProductCode":"2435345","Description":null,"LastModifiedDate":"2015-01-23T20:40:33.000+0000"},{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009ExzAAE"},"Id":"01tj00000009ExzAAE","Name":"December
+        Shirts","ProductCode":"34532454253534","Description":"Awesome Spree T-Shirt","LastModifiedDate":"2015-01-26T23:45:36.000+0000"}]}'
     http_version: 
-  recorded_at: Fri, 23 Jan 2015 02:37:35 GMT
+  recorded_at: Mon, 26 Jan 2015 23:45:42 GMT
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/query?q=select%20Product2Id,%20UnitPrice%20from%20PricebookEntry%20where%20Product2Id%20in%20('01tj0000000I2RPAA0',%20'01tj0000000I2RfAAK',%20'01tj0000000I2ReAAK',%20'01tj0000000I2RdAAK',%20'01tj0000000I2RcAAK',%20'01tj0000000I2RbAAK',%20'01tj0000000I2RaAAK',%20'01tj0000000I2RZAA0',%20'01tj0000000I2RYAA0',%20'01tj0000000I2RXAA0',%20'01tj0000000I2RWAA0',%20'01tj0000000I2RVAA0',%20'01tj0000000I2RUAA0',%20'01tj0000000I2RTAA0',%20'01tj0000000I2RSAA0',%20'01tj0000000I2RRAA0',%20'01tj0000000I2RQAA0',%20'01tj00000005bjiAAA',%20'01tj00000005bjnAAA',%20'01tj00000005bjsAAA',%20'01tj00000005bjxAAA',%20'01tj00000005bk2AAA',%20'01tj00000005bk7AAA',%20'01tj00000005bkCAAQ',%20'01tj00000009EQ4AAM',%20'01tj00000005bkgAAA',%20'01tj00000005bjJAAQ',%20'01tj00000009F6rAAE',%20'01tj00000009F8YAAU',%20'01tj00000009F8iAAE',%20'01tj00000009HNrAAM',%20'01tj00000009HNwAAM',%20'01tj00000009HO1AAM',%20'01tj00000009HO6AAM',%20'01tj0000000hyTUAAY',%20'01tj00000009ExzAAE')
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20Product2Id,%20UnitPrice%20from%20PricebookEntry%20where%20Product2Id%20in%20('01tj0000000I2RPAA0',%20'01tj0000000I2RfAAK',%20'01tj0000000I2ReAAK',%20'01tj0000000I2RdAAK',%20'01tj0000000I2RcAAK',%20'01tj0000000I2RbAAK',%20'01tj0000000I2RaAAK',%20'01tj0000000I2RZAA0',%20'01tj0000000I2RYAA0',%20'01tj0000000I2RXAA0',%20'01tj0000000I2RWAA0',%20'01tj0000000I2RVAA0',%20'01tj0000000I2RUAA0',%20'01tj0000000I2RTAA0',%20'01tj0000000I2RSAA0',%20'01tj0000000I2RRAA0',%20'01tj0000000I2RQAA0',%20'01tj00000005bjiAAA',%20'01tj00000005bjnAAA',%20'01tj00000005bjsAAA',%20'01tj00000005bjxAAA',%20'01tj00000005bk2AAA',%20'01tj00000005bk7AAA',%20'01tj00000005bkCAAQ',%20'01tj00000009EQ4AAM',%20'01tj00000005bkgAAA',%20'01tj00000005bjJAAQ',%20'01tj00000009F6rAAE',%20'01tj00000009F8YAAU',%20'01tj00000009F8iAAE',%20'01tj00000009HNrAAM',%20'01tj00000009HNwAAM',%20'01tj00000009HO1AAM',%20'01tj00000009HO6AAM',%20'01tj0000000hyTUAAY',%20'01tj0000000hyVBAAY',%20'01tj0000000i0nUAAQ',%20'01tj0000000i0pfAAA',%20'01tj00000009ExzAAE')
     body:
       encoding: US-ASCII
       string: ''
@@ -82,7 +170,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth access_token
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -93,21 +181,21 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 23 Jan 2015 02:37:37 GMT
+      - Mon, 26 Jan 2015 23:45:43 GMT
       Set-Cookie:
-      - BrowserId=dEILUVYmTt2rupcqeOHmYw;Path=/;Domain=.salesforce.com;Expires=Tue,
-        24-Mar-2015 02:37:37 GMT
+      - BrowserId=yh6eKRqYQHaYYD6eAz7bkA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:43 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=47/15000
+      - api-usage=138/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":49,"done":true,"records":[{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2Id":"01tj00000005bjJAAQ","UnitPrice":100.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000P6g5AAC"},"Product2Id":"01tj00000005bk2AAA","UnitPrice":33.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000P6gAAAS"},"Product2Id":"01tj00000005bk7AAA","UnitPrice":35.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000P6gFAAS"},"Product2Id":"01tj00000005bkCAAQ","UnitPrice":44.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000P6p4AAC"},"Product2Id":"01tj00000005bkgAAA","UnitPrice":44.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWq3AAG"},"Product2Id":"01tj00000009EQ4AAM","UnitPrice":5.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RXVYAA4"},"Product2Id":"01tj00000009ExzAAE","UnitPrice":101.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RYGhAAO"},"Product2Id":"01tj00000009F6rAAE","UnitPrice":100.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RYHGAA4"},"Product2Id":"01tj00000009F8YAAU","UnitPrice":10.33},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RYHQAA4"},"Product2Id":"01tj00000009F8iAAE","UnitPrice":59.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMBAA0"},"Product2Id":"01tj00000009HNrAAM","UnitPrice":12.33},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMGAA0"},"Product2Id":"01tj00000009HNwAAM","UnitPrice":10.33},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMLAA0"},"Product2Id":"01tj00000009HO1AAM","UnitPrice":12.33},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2Id":"01tj00000009HO6AAM","UnitPrice":10.33},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPGAAY"},"Product2Id":"01tj0000000I2RPAA0","UnitPrice":25000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPXAAY"},"Product2Id":"01tj0000000I2RPAA0","UnitPrice":25000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPHAAY"},"Product2Id":"01tj0000000I2RQAA0","UnitPrice":5000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPYAAY"},"Product2Id":"01tj0000000I2RQAA0","UnitPrice":5000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPIAAY"},"Product2Id":"01tj0000000I2RRAA0","UnitPrice":85000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPZAAY"},"Product2Id":"01tj0000000I2RRAA0","UnitPrice":85000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPJAAY"},"Product2Id":"01tj0000000I2RSAA0","UnitPrice":20000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPaAAI"},"Product2Id":"01tj0000000I2RSAA0","UnitPrice":20000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPKAAY"},"Product2Id":"01tj0000000I2RTAA0","UnitPrice":50000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPbAAI"},"Product2Id":"01tj0000000I2RTAA0","UnitPrice":50000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPLAAY"},"Product2Id":"01tj0000000I2RUAA0","UnitPrice":40000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPcAAI"},"Product2Id":"01tj0000000I2RUAA0","UnitPrice":40000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPMAAY"},"Product2Id":"01tj0000000I2RVAA0","UnitPrice":15000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPdAAI"},"Product2Id":"01tj0000000I2RVAA0","UnitPrice":15000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPNAAY"},"Product2Id":"01tj0000000I2RWAA0","UnitPrice":120000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPeAAI"},"Product2Id":"01tj0000000I2RWAA0","UnitPrice":120000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPOAAY"},"Product2Id":"01tj0000000I2RXAA0","UnitPrice":100000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPfAAI"},"Product2Id":"01tj0000000I2RXAA0","UnitPrice":100000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPPAAY"},"Product2Id":"01tj0000000I2RYAA0","UnitPrice":10000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPgAAI"},"Product2Id":"01tj0000000I2RYAA0","UnitPrice":10000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPQAAY"},"Product2Id":"01tj0000000I2RZAA0","UnitPrice":75000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPhAAI"},"Product2Id":"01tj0000000I2RZAA0","UnitPrice":75000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPRAAY"},"Product2Id":"01tj0000000I2RaAAK","UnitPrice":5000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPiAAI"},"Product2Id":"01tj0000000I2RaAAK","UnitPrice":5000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPSAAY"},"Product2Id":"01tj0000000I2RbAAK","UnitPrice":30000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPjAAI"},"Product2Id":"01tj0000000I2RbAAK","UnitPrice":30000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPTAAY"},"Product2Id":"01tj0000000I2RcAAK","UnitPrice":35000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPkAAI"},"Product2Id":"01tj0000000I2RcAAK","UnitPrice":35000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPUAAY"},"Product2Id":"01tj0000000I2RdAAK","UnitPrice":20000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPlAAI"},"Product2Id":"01tj0000000I2RdAAK","UnitPrice":20000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPVAAY"},"Product2Id":"01tj0000000I2ReAAK","UnitPrice":150000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPmAAI"},"Product2Id":"01tj0000000I2ReAAK","UnitPrice":150000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPWAAY"},"Product2Id":"01tj0000000I2RfAAK","UnitPrice":50000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPnAAI"},"Product2Id":"01tj0000000I2RfAAK","UnitPrice":50000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S8chAAC"},"Product2Id":"01tj0000000hyTUAAY","UnitPrice":12.33}]}'
+      string: '{"totalSize":52,"done":true,"records":[{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2Id":"01tj00000005bjJAAQ","UnitPrice":100.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000P6g5AAC"},"Product2Id":"01tj00000005bk2AAA","UnitPrice":33.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000P6gAAAS"},"Product2Id":"01tj00000005bk7AAA","UnitPrice":35.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000P6gFAAS"},"Product2Id":"01tj00000005bkCAAQ","UnitPrice":44.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000P6p4AAC"},"Product2Id":"01tj00000005bkgAAA","UnitPrice":44.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWq3AAG"},"Product2Id":"01tj00000009EQ4AAM","UnitPrice":5.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RXVYAA4"},"Product2Id":"01tj00000009ExzAAE","UnitPrice":101.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RYGhAAO"},"Product2Id":"01tj00000009F6rAAE","UnitPrice":100.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RYHGAA4"},"Product2Id":"01tj00000009F8YAAU","UnitPrice":10.33},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RYHQAA4"},"Product2Id":"01tj00000009F8iAAE","UnitPrice":59.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMBAA0"},"Product2Id":"01tj00000009HNrAAM","UnitPrice":12.33},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMGAA0"},"Product2Id":"01tj00000009HNwAAM","UnitPrice":10.33},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMLAA0"},"Product2Id":"01tj00000009HO1AAM","UnitPrice":12.33},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2Id":"01tj00000009HO6AAM","UnitPrice":10.33},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPGAAY"},"Product2Id":"01tj0000000I2RPAA0","UnitPrice":25000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPXAAY"},"Product2Id":"01tj0000000I2RPAA0","UnitPrice":25000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPHAAY"},"Product2Id":"01tj0000000I2RQAA0","UnitPrice":5000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPYAAY"},"Product2Id":"01tj0000000I2RQAA0","UnitPrice":5000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPIAAY"},"Product2Id":"01tj0000000I2RRAA0","UnitPrice":85000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPZAAY"},"Product2Id":"01tj0000000I2RRAA0","UnitPrice":85000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPJAAY"},"Product2Id":"01tj0000000I2RSAA0","UnitPrice":20000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPaAAI"},"Product2Id":"01tj0000000I2RSAA0","UnitPrice":20000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPKAAY"},"Product2Id":"01tj0000000I2RTAA0","UnitPrice":50000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPbAAI"},"Product2Id":"01tj0000000I2RTAA0","UnitPrice":50000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPLAAY"},"Product2Id":"01tj0000000I2RUAA0","UnitPrice":40000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPcAAI"},"Product2Id":"01tj0000000I2RUAA0","UnitPrice":40000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPMAAY"},"Product2Id":"01tj0000000I2RVAA0","UnitPrice":15000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPdAAI"},"Product2Id":"01tj0000000I2RVAA0","UnitPrice":15000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPNAAY"},"Product2Id":"01tj0000000I2RWAA0","UnitPrice":120000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPeAAI"},"Product2Id":"01tj0000000I2RWAA0","UnitPrice":120000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPOAAY"},"Product2Id":"01tj0000000I2RXAA0","UnitPrice":100000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPfAAI"},"Product2Id":"01tj0000000I2RXAA0","UnitPrice":100000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPPAAY"},"Product2Id":"01tj0000000I2RYAA0","UnitPrice":10000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPgAAI"},"Product2Id":"01tj0000000I2RYAA0","UnitPrice":10000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPQAAY"},"Product2Id":"01tj0000000I2RZAA0","UnitPrice":75000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPhAAI"},"Product2Id":"01tj0000000I2RZAA0","UnitPrice":75000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPRAAY"},"Product2Id":"01tj0000000I2RaAAK","UnitPrice":5000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPiAAI"},"Product2Id":"01tj0000000I2RaAAK","UnitPrice":5000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPSAAY"},"Product2Id":"01tj0000000I2RbAAK","UnitPrice":30000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPjAAI"},"Product2Id":"01tj0000000I2RbAAK","UnitPrice":30000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPTAAY"},"Product2Id":"01tj0000000I2RcAAK","UnitPrice":35000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPkAAI"},"Product2Id":"01tj0000000I2RcAAK","UnitPrice":35000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPUAAY"},"Product2Id":"01tj0000000I2RdAAK","UnitPrice":20000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPlAAI"},"Product2Id":"01tj0000000I2RdAAK","UnitPrice":20000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPVAAY"},"Product2Id":"01tj0000000I2ReAAK","UnitPrice":150000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPmAAI"},"Product2Id":"01tj0000000I2ReAAK","UnitPrice":150000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPWAAY"},"Product2Id":"01tj0000000I2RfAAK","UnitPrice":50000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000btPnAAI"},"Product2Id":"01tj0000000I2RfAAK","UnitPrice":50000.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S8chAAC"},"Product2Id":"01tj0000000hyTUAAY","UnitPrice":12.33},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S8g0AAC"},"Product2Id":"01tj0000000hyVBAAY","UnitPrice":35.0},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S98KAAS"},"Product2Id":"01tj0000000i0nUAAQ","UnitPrice":12.33},{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S9ABAA0"},"Product2Id":"01tj0000000i0pfAAA","UnitPrice":10.33}]}'
     http_version: 
-  recorded_at: Fri, 23 Jan 2015 02:37:36 GMT
+  recorded_at: Mon, 26 Jan 2015 23:45:43 GMT
 recorded_with: VCR 2.9.3

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/query?q=select%20Id,%20Name,%20ProductCode,%20Description,%20LastModifiedDate%20from%20Product2%20where%20LastModifiedDate%20%3E%202015-01-23T22:14:57Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20Id,%20Name,%20ProductCode,%20Description,%20LastModifiedDate%20from%20Product2%20where%20LastModifiedDate%20%3E%202015-01-23T22:14:57Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
     body:
       encoding: US-ASCII
       string: ''
@@ -17,18 +17,103 @@ http_interactions:
       - "*/*"
   response:
     status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:45:15 GMT
+      Set-Cookie:
+      - BrowserId=xlYG6yvoQXi1EzXfDWaPxg;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:15 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Www-Authenticate:
+      - Token
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:45:15 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=refresh_token&client_id=spree_id&client_secret=spree_secret
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
       code: 200
       message: OK
     headers:
       Date:
-      - Fri, 23 Jan 2015 02:39:14 GMT
+      - Mon, 26 Jan 2015 23:45:16 GMT
+      - Mon, 26 Jan 2015 23:45:16 GMT
       Set-Cookie:
-      - BrowserId=dKx9iTFARf2iOk6Dxdv-ww;Path=/;Domain=.salesforce.com;Expires=Tue,
-        24-Mar-2015 02:39:14 GMT
+      - BrowserId=GVOjfGkFRY2IW82CP2eLAA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:16 GMT
+      - BrowserId=rPUUIRY4RXeEL2SGuAoipA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:16 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      - no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1422315916816","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"CnWiUkaOxGZjsDwddHMDJQWOlSm8Zt9DuIl0B9Na8yk=","access_token":"00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi."}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:45:17 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20Id,%20Name,%20ProductCode,%20Description,%20LastModifiedDate%20from%20Product2%20where%20LastModifiedDate%20%3E%202015-01-23T22:14:57Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:45:17 GMT
+      Set-Cookie:
+      - BrowserId=8mdUcKrrSKi_ECZwyG22VQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:17 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=62/15000
+      - api-usage=137/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -37,5 +122,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"totalSize":0,"done":true,"records":[]}'
     http_version: 
-  recorded_at: Fri, 23 Jan 2015 02:39:13 GMT
+  recorded_at: Mon, 26 Jan 2015 23:45:17 GMT
 recorded_with: VCR 2.9.3

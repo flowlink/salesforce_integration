@@ -30,7 +30,7 @@ VCR.configure do |c|
 
   c.filter_sensitive_data('spree_id')     { |_| ENV['SALESFORCE_CLIENT_ID'] }
   c.filter_sensitive_data('spree_secret') { |_| ENV['SALESFORCE_CLIENT_SECRET'] }
-  c.filter_sensitive_data('instance_url') { |_| ENV['SALESFORCE_INSTANCE_URL'] }
+  c.filter_sensitive_data('https://na.salesforce.com') { |_| ENV['SALESFORCE_INSTANCE_URL'] }
   c.filter_sensitive_data('access_token') { |_| ENV['SALESFORCE_ACCESS_TOKEN'] }
   c.filter_sensitive_data('refresh_token') { |_| ENV['SALESFORCE_REFRESH_TOKEN'] }
 end

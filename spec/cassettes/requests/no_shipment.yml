@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/sobjects/Opportunity/Name/R9999999
+    uri: https://na.salesforce.com/services/data/v26.0/sobjects/Opportunity/Name/R9999999
     body:
       encoding: US-ASCII
       string: ''
@@ -17,18 +17,103 @@ http_interactions:
       - "*/*"
   response:
     status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:27 GMT
+      Set-Cookie:
+      - BrowserId=4ynlVvSqR7OmeUT_064vYA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:27 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Www-Authenticate:
+      - Token
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:27 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=refresh_token&client_id=spree_id&client_secret=spree_secret
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:28 GMT
+      - Mon, 26 Jan 2015 23:47:28 GMT
+      Set-Cookie:
+      - BrowserId=B-jYhQb_QoWYMGlSVbiY_g;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:28 GMT
+      - BrowserId=FW2D6R2JQGe-t88GrBWR6w;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:28 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      - no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1422316048475","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"2PIieitJ1g0uIOCDc2U8Idy6az4ZS2aW4KSF9fY/1DU=","access_token":"00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi."}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:28 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/sobjects/Opportunity/Name/R9999999
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
       code: 404
       message: Not Found
     headers:
       Date:
-      - Fri, 23 Jan 2015 02:39:49 GMT
+      - Mon, 26 Jan 2015 23:47:29 GMT
       Set-Cookie:
-      - BrowserId=XHIcfFHMTxS9b5ayd1yMAg;Path=/;Domain=.salesforce.com;Expires=Tue,
-        24-Mar-2015 02:39:49 GMT
+      - BrowserId=KiiDfWGeQwibLS8s4qBcMQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:29 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=64/15000
+      - api-usage=187/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -38,5 +123,5 @@ http_interactions:
       string: '[{"errorCode":"NOT_FOUND","message":"The requested resource does not
         exist"}]'
     http_version: 
-  recorded_at: Fri, 23 Jan 2015 02:39:48 GMT
+  recorded_at: Mon, 26 Jan 2015 23:47:29 GMT
 recorded_with: VCR 2.9.3

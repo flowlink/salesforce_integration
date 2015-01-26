@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/query?q=SELECT%20Id,%20Name,%20Amount,%20CloseDate,%20LastModifiedDate,%20Account.Id,%20(SELECT%20Quantity,%20UnitPrice,%20PricebookEntry.Product2.Name,%20PricebookEntry.Product2.ProductCode%20FROM%20OpportunityLineItems),%20(SELECT%20Title,%20Body%20FROM%20Notes%20WHERE%20Title%20LIKE%20'Payment%25')%20FROM%20Opportunity%20WHERE%20LeadSource%20=%20'Web'%20AND%20StageName%20=%20'closed-won'%20AND%20LastModifiedDate%20%3E%202014-12-17T12:08:52Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20Name,%20Amount,%20CloseDate,%20LastModifiedDate,%20Account.Id,%20(SELECT%20Quantity,%20UnitPrice,%20PricebookEntry.Product2.Name,%20PricebookEntry.Product2.ProductCode%20FROM%20OpportunityLineItems),%20(SELECT%20Title,%20Body%20FROM%20Notes%20WHERE%20Title%20LIKE%20'Payment%25')%20FROM%20Opportunity%20WHERE%20LeadSource%20=%20'Web'%20AND%20StageName%20=%20'closed-won'%20AND%20LastModifiedDate%20%3E%202014-12-17T12:08:52Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
     body:
       encoding: US-ASCII
       string: ''
@@ -17,43 +17,153 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 401
+      message: Unauthorized
     headers:
       Date:
-      - Fri, 23 Jan 2015 02:35:10 GMT
+      - Mon, 26 Jan 2015 23:46:57 GMT
       Set-Cookie:
-      - BrowserId=GO81dRhfSpmr_Ge5Pms__Q;Path=/;Domain=.salesforce.com;Expires=Tue,
-        24-Mar-2015 02:35:10 GMT
+      - BrowserId=4QhcUhcJSfOOfbZKX8yEiA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:46:57 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      Sforce-Limit-Info:
-      - api-usage=26/15000
+      Www-Authenticate:
+      - Token
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":6,"done":true,"records":[{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000002tztNAAQ"},"Id":"006j0000002tztNAAQ","Name":"R66777799","Amount":45.32,"CloseDate":"2014-12-17","LastModifiedDate":"2014-12-23T01:32:44.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003b1OfAAI"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMBAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HNrAAM"},"Name":"Rust","ProductCode":"221214"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003b1OkAAI"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMGAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HNwAAM"},"Name":"Haskell","ProductCode":"222231"}}}]},"Notes":null},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000002tztXAAQ"},"Id":"006j0000002tztXAAQ","Name":"R777899900","Amount":45.32,"CloseDate":"2014-12-17","LastModifiedDate":"2014-12-23T01:35:07.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003b1OpAAI"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMLAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO1AAM"},"Name":"JS","ProductCode":"998122323"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003b1OuAAI"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001KkZGAA0"},"Title":"Payment
+      string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:46:57 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=refresh_token&client_id=spree_id&client_secret=spree_secret
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:46:58 GMT
+      - Mon, 26 Jan 2015 23:46:58 GMT
+      Set-Cookie:
+      - BrowserId=sBYuiQoTRUWrllqS3jdlmg;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:46:58 GMT
+      - BrowserId=uYuYZW9lS8C5lBFQDB-MRw;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:46:58 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      - no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1422316018300","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"zJkdbOjj2Y79ThFP2423R6yciRSClrOrMm2rwxUceo4=","access_token":"00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi."}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:46:58 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20Name,%20Amount,%20CloseDate,%20LastModifiedDate,%20Account.Id,%20(SELECT%20Quantity,%20UnitPrice,%20PricebookEntry.Product2.Name,%20PricebookEntry.Product2.ProductCode%20FROM%20OpportunityLineItems),%20(SELECT%20Title,%20Body%20FROM%20Notes%20WHERE%20Title%20LIKE%20'Payment%25')%20FROM%20Opportunity%20WHERE%20LeadSource%20=%20'Web'%20AND%20StageName%20=%20'closed-won'%20AND%20LastModifiedDate%20%3E%202014-12-17T12:08:52Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:46:59 GMT
+      Set-Cookie:
+      - BrowserId=qvO9npAlSX6Btq49QqGWsg;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:46:59 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=160/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":15,"done":true,"records":[{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000002tztNAAQ"},"Id":"006j0000002tztNAAQ","Name":"R66777799","Amount":45.32,"CloseDate":"2014-12-17","LastModifiedDate":"2014-12-23T01:32:44.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003b1OfAAI"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMBAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HNrAAM"},"Name":"Rust","ProductCode":"221214"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003b1OkAAI"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMGAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HNwAAM"},"Name":"Haskell","ProductCode":"222231"}}}]},"Notes":null},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000002tztXAAQ"},"Id":"006j0000002tztXAAQ","Name":"R777899900","Amount":45.32,"CloseDate":"2014-12-17","LastModifiedDate":"2014-12-23T01:35:07.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003b1OpAAI"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMLAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO1AAM"},"Name":"JS","ProductCode":"998122323"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003b1OuAAI"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001KkZGAA0"},"Title":"Payment
         # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
-        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000002vOwSAAU"},"Id":"006j0000002vOwSAAU","Name":"R55555555509","Amount":45.32,"CloseDate":"2014-12-17","LastModifiedDate":"2015-01-06T18:15:59.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003cuUYAAY"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003cuUTAAY"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMLAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO1AAM"},"Name":"JS","ProductCode":"998122323"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001M6voAAC"},"Title":"Payment
+        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000002vOwSAAU"},"Id":"006j0000002vOwSAAU","Name":"R55555555509","Amount":45.32,"CloseDate":"2014-12-17","LastModifiedDate":"2015-01-06T18:15:59.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003cuUTAAY"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMLAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO1AAM"},"Name":"JS","ProductCode":"998122323"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003cuUYAAY"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001M6voAAC"},"Title":"Payment
         # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
         Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000002vQCXAA2"},"Id":"006j0000002vQCXAA2","Name":"R154085346536506","Amount":200.0,"CloseDate":"2015-01-03","LastModifiedDate":"2015-01-06T19:21:02.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2"},"OpportunityLineItems":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003cuW0AAI"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
         T-Shirt","ProductCode":"SPREE-T-SHIRT"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001M70vAAC"},"Title":"Payment
         # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
         Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000003Pu1lAAC"},"Id":"006j0000003Pu1lAAC","Name":"R4452353543","Amount":45.32,"CloseDate":"2015-01-17","LastModifiedDate":"2015-01-23T02:32:18.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fTKQAA2"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S8chAAC"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000hyTUAAY"},"Name":"JS","ProductCode":"245353545"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fTKVAA2"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001hk5dAAA"},"Title":"Payment
         # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
-        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000002YAdbAAG"},"Id":"006j0000002YAdbAAG","Name":"R43534532545","Amount":1600.0,"CloseDate":"2014-02-03","LastModifiedDate":"2015-01-23T02:34:23.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2"},"OpportunityLineItems":{"totalSize":8,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ9LAAW"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000003Pu60AAC"},"Id":"006j0000003Pu60AAC","Name":"R154085346725137","Amount":200.0,"CloseDate":"2014-02-03","LastModifiedDate":"2015-01-23T04:04:46.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2"},"OpportunityLineItems":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fU7PAAU"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001hkD8AAI"},"Title":"Payment
+        # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
+        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000003Pu65AAC"},"Id":"006j0000003Pu65AAC","Name":"R154085346769945","Amount":200.0,"CloseDate":"2014-02-03","LastModifiedDate":"2015-01-23T04:05:54.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT"},"OpportunityLineItems":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fU7UAAU"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001hkDDAAY"},"Title":"Payment
+        # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
+        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000003QFnSAAW"},"Id":"006j0000003QFnSAAW","Name":"R434432432524354","Amount":45.32,"CloseDate":"2015-01-20","LastModifiedDate":"2015-01-23T20:09:10.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fVElAAM"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fVEgAAM"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S98KAAS"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000i0nUAAQ"},"Name":"JS","ProductCode":"324324134"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001i21VAAQ"},"Title":"Payment
+        # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
+        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000003QFzLAAW"},"Id":"006j0000003QFzLAAW","Name":"R434352344300000","Amount":45.32,"CloseDate":"2015-01-20","LastModifiedDate":"2015-01-23T20:40:37.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fVFcAAM"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S9ABAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000i0pfAAA"},"Name":"Java
+        43435","ProductCode":"2435345"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fVFXAA2"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S98KAAS"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000i0nUAAQ"},"Name":"JS","ProductCode":"324324134"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001i2IJAAY"},"Title":"Payment
+        # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
+        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000003QZLFAA4"},"Id":"006j0000003QZLFAA4","Name":"R154085346475636","Amount":200.0,"CloseDate":"2014-02-03","LastModifiedDate":"2015-01-26T16:05:10.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB"},"OpportunityLineItems":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fYnWAAU"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001idS0AAI"},"Title":"Payment
+        # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
+        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000003QdhcAAC"},"Id":"006j0000003QdhcAAC","Name":"monday@afternoon.com","Amount":45.32,"CloseDate":"2015-01-20","LastModifiedDate":"2015-01-26T19:41:54.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003faIUAAY"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S98KAAS"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000i0nUAAQ"},"Name":"JS","ProductCode":"324324134"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003faIZAAY"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001if1cAAA"},"Title":"Payment
+        # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
+        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000003QeTzAAK"},"Id":"006j0000003QeTzAAK","Name":"spree@afternoon.com","Amount":45.32,"CloseDate":"2015-01-20","LastModifiedDate":"2015-01-26T20:17:31.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003faKAAAY"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003faK5AAI"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S98KAAS"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000i0nUAAQ"},"Name":"JS","ProductCode":"324324134"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001if2fAAA"},"Title":"Payment
+        # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
+        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000003QgXRAA0"},"Id":"006j0000003QgXRAA0","Name":"dev@spreecommerce.com","Amount":45.32,"CloseDate":"2015-01-20","LastModifiedDate":"2015-01-26T23:15:58.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fkqOAAQ"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fkqJAAQ"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S98KAAS"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000i0nUAAQ"},"Name":"JS","ProductCode":"324324134"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001ima4AAA"},"Title":"Payment
+        # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
+        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000003QhOtAAK"},"Id":"006j0000003QhOtAAK","Name":"R4352REG43534545","Amount":45.32,"CloseDate":"2015-01-20","LastModifiedDate":"2015-01-26T23:46:21.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fkqnAAA"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003fkqiAAA"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S98KAAS"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000i0nUAAQ"},"Name":"JS","ProductCode":"324324134"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001imaxAAA"},"Title":"Payment
+        # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
+        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000002YAdbAAG"},"Id":"006j0000002YAdbAAG","Name":"R43534532545","Amount":1600.0,"CloseDate":"2014-02-03","LastModifiedDate":"2015-01-26T23:46:47.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2"},"OpportunityLineItems":{"totalSize":8,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ8wAAG"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
         T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ9BAAW"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
-        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ8wAAG"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ9LAAW"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
         T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ8mAAG"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
-        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ8cAAG"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
         T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ88AAG"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
         T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NIrUAAW"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
         T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NIsNAAW"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
-        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}}]},"Notes":{"totalSize":16,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3ACAA0"},"Title":"Payment:63","Body":"Number:
-        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3HDAA0"},"Title":"Payment:63","Body":"Number:
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000003NJ8cAAG"},"Quantity":2.0,"UnitPrice":100.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RWrGAAW"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000005bjJAAQ"},"Name":"Spree
+        T-Shirt","ProductCode":"SPREE-T-SHIRT"}}}]},"Notes":{"totalSize":16,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3BeAAK"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001CjxQAAS"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3EYAA0"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3ACAA0"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3N6AAK"},"Title":"Payment:63","Body":"Number:
         63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3QyAAK"},"Title":"Payment:63","Body":"Number:
         63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D4JrAAK"},"Title":"Payment:63","Body":"Number:
         63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D5CEAA0"},"Title":"Payment:63","Body":"Number:
@@ -62,19 +172,16 @@ http_interactions:
         63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001CjxGAAS"},"Title":"Payment:63","Body":"Number:
         63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001KkZLAA0"},"Title":"Payment
         # 63","Body":"Number: 63\nStatus: completed\nAmount: 220\nPayment Method:
-        Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D4g2AAC"},"Title":"Payment:63","Body":"Number:
-        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D39xAAC"},"Title":"Payment:63","Body":"Number:
-        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3EYAA0"},"Title":"Payment:63","Body":"Number:
-        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3BeAAK"},"Title":"Payment:63","Body":"Number:
-        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001CjxQAAS"},"Title":"Payment:63","Body":"Number:
+        Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D39xAAC"},"Title":"Payment:63","Body":"Number:
         63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D39EAAS"},"Title":"Payment:63","Body":"Number:
-        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3N6AAK"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D4g2AAC"},"Title":"Payment:63","Body":"Number:
+        63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"},{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001D3HDAA0"},"Title":"Payment:63","Body":"Number:
         63\nStatus: completed\nAmount: 220\nPayment Method: Credit Card"}]}}]}'
     http_version: 
-  recorded_at: Fri, 23 Jan 2015 02:35:10 GMT
+  recorded_at: Mon, 26 Jan 2015 23:46:59 GMT
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2')
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
     body:
       encoding: US-ASCII
       string: ''
@@ -89,39 +196,38 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 401
+      message: Unauthorized
     headers:
       Date:
-      - Fri, 23 Jan 2015 02:35:11 GMT
+      - Mon, 26 Jan 2015 23:47:00 GMT
       Set-Cookie:
-      - BrowserId=ZxfYqwZqS8quWspkzC2NDA;Path=/;Domain=.salesforce.com;Expires=Tue,
-        24-Mar-2015 02:35:11 GMT
+      - BrowserId=bbEBkOnKTQaCswnIwQ9RkQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:00 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      Sforce-Limit-Info:
-      - api-usage=27/15000
+      Www-Authenticate:
+      - Token
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
-        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}}]}'
+      string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
     http_version: 
-  recorded_at: Fri, 23 Jan 2015 02:35:10 GMT
+  recorded_at: Mon, 26 Jan 2015 23:47:00 GMT
 - request:
-    method: get
-    uri: instance_url/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2')
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
     body:
       encoding: US-ASCII
-      string: ''
+      string: grant_type=refresh_token&refresh_token=refresh_token&client_id=spree_id&client_secret=spree_secret
     headers:
       User-Agent:
       - Faraday v0.8.9
-      Authorization:
-      - OAuth access_token
+      Content-Type:
+      - application/x-www-form-urlencoded
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -132,27 +238,35 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 23 Jan 2015 02:35:12 GMT
+      - Mon, 26 Jan 2015 23:47:01 GMT
+      - Mon, 26 Jan 2015 23:47:01 GMT
       Set-Cookie:
-      - BrowserId=YJa5sx4AQH2MF9K1EcK6IQ;Path=/;Domain=.salesforce.com;Expires=Tue,
-        24-Mar-2015 02:35:12 GMT
+      - BrowserId=4bxD_5Z_QUOn97ES6yjMXg;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:01 GMT
+      - BrowserId=f0E6O4oTTSKTfrYnLR6otQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:01 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      Sforce-Limit-Info:
-      - api-usage=26/15000
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      - no-store
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
-        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}}]}'
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1422316021276","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"/iYcTZiSuNx5131rAcrYByLFZXNGylhjfRa6rihBYWI=","access_token":"00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi."}'
     http_version: 
-  recorded_at: Fri, 23 Jan 2015 02:35:11 GMT
+  recorded_at: Mon, 26 Jan 2015 23:47:01 GMT
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2')
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
     body:
       encoding: US-ASCII
       string: ''
@@ -160,7 +274,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth access_token
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -171,27 +285,37 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 23 Jan 2015 02:35:13 GMT
+      - Mon, 26 Jan 2015 23:47:02 GMT
       Set-Cookie:
-      - BrowserId=CzOojYcNSSquVAXIneeHYw;Path=/;Domain=.salesforce.com;Expires=Tue,
-        24-Mar-2015 02:35:13 GMT
+      - BrowserId=KdL3TQBKRhqqbQkVx14bMg;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:02 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=28/15000
+      - api-usage=160/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
-        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}}]}'
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
     http_version: 
-  recorded_at: Fri, 23 Jan 2015 02:35:12 GMT
+  recorded_at: Mon, 26 Jan 2015 23:47:02 GMT
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2')
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
     body:
       encoding: US-ASCII
       string: ''
@@ -199,7 +323,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth access_token
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -210,27 +334,37 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 23 Jan 2015 02:35:14 GMT
+      - Mon, 26 Jan 2015 23:47:03 GMT
       Set-Cookie:
-      - BrowserId=oSuay9-RRfe0hhg_aIJAQA;Path=/;Domain=.salesforce.com;Expires=Tue,
-        24-Mar-2015 02:35:14 GMT
+      - BrowserId=JihCKCKZSd-LLoFN77y9TQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:03 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=26/15000
+      - api-usage=158/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
-        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}}]}'
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
     http_version: 
-  recorded_at: Fri, 23 Jan 2015 02:35:13 GMT
+  recorded_at: Mon, 26 Jan 2015 23:47:03 GMT
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2')
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
     body:
       encoding: US-ASCII
       string: ''
@@ -238,7 +372,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth access_token
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -249,27 +383,37 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 23 Jan 2015 02:35:15 GMT
+      - Mon, 26 Jan 2015 23:47:03 GMT
       Set-Cookie:
-      - BrowserId=Va19NkG_S-usd_oPDYcAmw;Path=/;Domain=.salesforce.com;Expires=Tue,
-        24-Mar-2015 02:35:15 GMT
+      - BrowserId=E7C1S1BZTjiCxf4rk-eM7w;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:03 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=27/15000
+      - api-usage=160/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
-        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}}]}'
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
     http_version: 
-  recorded_at: Fri, 23 Jan 2015 02:35:14 GMT
+  recorded_at: Mon, 26 Jan 2015 23:47:04 GMT
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2')
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
     body:
       encoding: US-ASCII
       string: ''
@@ -277,7 +421,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth access_token
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -288,22 +432,571 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 23 Jan 2015 02:35:16 GMT
+      - Mon, 26 Jan 2015 23:47:04 GMT
       Set-Cookie:
-      - BrowserId=L7i98XyuRbibNgKEc4WoHw;Path=/;Domain=.salesforce.com;Expires=Tue,
-        24-Mar-2015 02:35:16 GMT
+      - BrowserId=fk5MARZ8SoStcx6rH_bumw;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:04 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=26/15000
+      - api-usage=159/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
-        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}}]}'
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
     http_version: 
-  recorded_at: Fri, 23 Jan 2015 02:35:14 GMT
+  recorded_at: Mon, 26 Jan 2015 23:47:04 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:05 GMT
+      Set-Cookie:
+      - BrowserId=g3r8zwYdStWqklPD5hvh6g;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:05 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=158/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:05 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:06 GMT
+      Set-Cookie:
+      - BrowserId=69YJESbzQ862MMl-sVCG5g;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:06 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=160/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:06 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:07 GMT
+      Set-Cookie:
+      - BrowserId=fYOFSlBwRf2ve5RFBUlD3A;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:07 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=166/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:07 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:08 GMT
+      Set-Cookie:
+      - BrowserId=6lWOwn0-SVGI-3Faegi6jA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:08 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=165/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:08 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:08 GMT
+      Set-Cookie:
+      - BrowserId=xd3vQ8CSRAyuLWCTl5xrEg;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:08 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=166/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:09 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:09 GMT
+      Set-Cookie:
+      - BrowserId=ivrQ4ellQECAEy6Nmcru2w;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:09 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=170/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:09 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:10 GMT
+      Set-Cookie:
+      - BrowserId=0zYGu1znS-yEogwwZNfrbQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:10 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=169/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:10 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:11 GMT
+      Set-Cookie:
+      - BrowserId=MR0fbuumT4aCPOIWD0yK5A;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:11 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=174/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:11 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:12 GMT
+      Set-Cookie:
+      - BrowserId=sXySui6YSZuDKyZps9uHGw;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:12 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=172/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:12 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:12 GMT
+      Set-Cookie:
+      - BrowserId=_CjFW5t4SjCDUXdmwj-5xg;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:12 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=175/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:13 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j0000001wYXZAA2',%20'001j000000ELezVAAT',%20'001j000000EiUN4AAN',%20'001j000000EikLCAAZ',%20'001j000000Ek8pvAAB',%20'001j000000EkI4YAAV',%20'001j000000EkJ5RAAV',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j0000001wYXZAA2')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:13 GMT
+      Set-Cookie:
+      - BrowserId=-KkYpu_iQXqHtkG1L2GTXA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:13 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=176/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j0000001wYXZAA2"},"Id":"001j0000001wYXZAA2","BillingCity":"Bethesda","BillingCountry":null,"BillingPostalCode":null,"BillingState":"MD","BillingStreet":"Awesome
+        Street","Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001Qlh7AAC"},"FirstName":"Joe","LastName":"Smith","Email":"spree@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000ELezVAAT"},"Id":"001j000000ELezVAAT","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000086ulnAAA"},"FirstName":"Eucapiau","LastName":"Smith","Email":"eucapiau@example.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EiUN4AAN"},"Id":"001j000000EiUN4AAN","BillingCity":null,"BillingCountry":null,"BillingPostalCode":null,"BillingState":null,"BillingStreet":null,"Phone":null,"ShippingCity":null,"ShippingCountry":null,"ShippingPostalCode":null,"ShippingState":null,"ShippingStreet":null,"Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087kZbAAI"},"FirstName":"Joe","LastName":"Smith","Email":"peter@reggae.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EikLCAAZ"},"Id":"001j000000EikLCAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000087lHqAAI"},"FirstName":"Sonic","LastName":"Youth","Email":"sonic@youth.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Ek8pvAAB"},"Id":"001j000000Ek8pvAAB","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j00000089Ka4AAE"},"FirstName":"Sameer","LastName":"Gulati","Email":"sameer@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkI4YAAV"},"Id":"001j000000EkI4YAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IZxHAAW"},"FirstName":"Monday","LastName":"Afternoon","Email":"monday@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EkJ5RAAV"},"Id":"001j000000EkJ5RAAV","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IactAAC"},"FirstName":"Spree","LastName":"Afternoon","Email":"spree@afternoon.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+        Awesome Street","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:13 GMT
 recorded_with: VCR 2.9.3

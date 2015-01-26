@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'agent@matrix.com'
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'agent@matrix.com'
     body:
       encoding: US-ASCII
       string: ''
@@ -21,10 +21,10 @@ http_interactions:
       message: Unauthorized
     headers:
       Date:
-      - Mon, 26 Jan 2015 23:34:32 GMT
+      - Mon, 26 Jan 2015 23:45:48 GMT
       Set-Cookie:
-      - BrowserId=gx29ii28RjWei-CqwQfmnQ;Path=/;Domain=.salesforce.com;Expires=Fri,
-        27-Mar-2015 23:34:32 GMT
+      - BrowserId=-TyjkMx6QhOSUsOj0Qll1Q;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:48 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Www-Authenticate:
@@ -37,7 +37,7 @@ http_interactions:
       encoding: UTF-8
       string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
     http_version: 
-  recorded_at: Mon, 26 Jan 2015 23:34:33 GMT
+  recorded_at: Mon, 26 Jan 2015 23:45:48 GMT
 - request:
     method: post
     uri: https://login.salesforce.com/services/oauth2/token
@@ -59,13 +59,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 26 Jan 2015 23:34:33 GMT
-      - Mon, 26 Jan 2015 23:34:33 GMT
+      - Mon, 26 Jan 2015 23:45:49 GMT
+      - Mon, 26 Jan 2015 23:45:49 GMT
       Set-Cookie:
-      - BrowserId=0U_Kq7Z5TCm0pJMSRDBxow;Path=/;Domain=.salesforce.com;Expires=Fri,
-        27-Mar-2015 23:34:33 GMT
-      - BrowserId=BJke_rieSmaesabNRREU8A;Path=/;Domain=.salesforce.com;Expires=Fri,
-        27-Mar-2015 23:34:33 GMT
+      - BrowserId=UhjKc7yDTkqk3sOLn0ry6g;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:49 GMT
+      - BrowserId=hjyDBbzbRJaHVhMxjC2MfA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:49 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       - Thu, 01 Jan 1970 00:00:00 GMT
@@ -81,13 +81,13 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1422315273764","scope":"api
-        refresh_token","instance_url":"instance_url","token_type":"Bearer","signature":"h4ALVaC0CLm4+d8QG9RntlpvBKuRZJJVZMCDME6tQJ4=","access_token":"00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi."}'
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1422315949480","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"yT+H32Hyx3rRIyJve7FBsPFDemWkPkClBy/RfaB6bso=","access_token":"00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi."}'
     http_version: 
-  recorded_at: Mon, 26 Jan 2015 23:34:34 GMT
+  recorded_at: Mon, 26 Jan 2015 23:45:49 GMT
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'agent@matrix.com'
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'agent@matrix.com'
     body:
       encoding: US-ASCII
       string: ''
@@ -106,14 +106,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 26 Jan 2015 23:34:34 GMT
+      - Mon, 26 Jan 2015 23:45:50 GMT
       Set-Cookie:
-      - BrowserId=UKvS7fv1RxGLrkm7L7FrKg;Path=/;Domain=.salesforce.com;Expires=Fri,
-        27-Mar-2015 23:34:34 GMT
+      - BrowserId=qTxOHL8xTde9iLlaPvYNaQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:50 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=134/15000
+      - api-usage=141/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -122,10 +122,10 @@ http_interactions:
       encoding: UTF-8
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IyLlAAK"},"AccountId":"001j000000Etz6aAAB"}]}'
     http_version: 
-  recorded_at: Mon, 26 Jan 2015 23:34:34 GMT
+  recorded_at: Mon, 26 Jan 2015 23:45:50 GMT
 - request:
     method: get
-    uri: instance_url/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'agent@matrix.com'
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'agent@matrix.com'
     body:
       encoding: US-ASCII
       string: ''
@@ -144,14 +144,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 26 Jan 2015 23:34:35 GMT
+      - Mon, 26 Jan 2015 23:45:51 GMT
       Set-Cookie:
-      - BrowserId=ETygSdTxQFiLUDH-UnOrZw;Path=/;Domain=.salesforce.com;Expires=Fri,
-        27-Mar-2015 23:34:35 GMT
+      - BrowserId=LNyyw_zwTPOh80bWe-gY_w;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:51 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=134/15000
+      - api-usage=142/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -160,10 +160,10 @@ http_interactions:
       encoding: UTF-8
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IyLlAAK"},"Id":"003j0000008IyLlAAK"}]}'
     http_version: 
-  recorded_at: Mon, 26 Jan 2015 23:34:35 GMT
+  recorded_at: Mon, 26 Jan 2015 23:45:51 GMT
 - request:
     method: patch
-    uri: instance_url/services/data/v26.0/sobjects/Contact/003j0000008IyLlAAK
+    uri: https://na.salesforce.com/services/data/v26.0/sobjects/Contact/003j0000008IyLlAAK
     body:
       encoding: UTF-8
       string: '{"FirstName":"Agent","LastName":"Smith","Email":"agent@matrix.com","MailingStreet":"1234
@@ -187,17 +187,17 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Mon, 26 Jan 2015 23:34:36 GMT
+      - Mon, 26 Jan 2015 23:45:52 GMT
       Set-Cookie:
-      - BrowserId=OP_K3YzHS_WrX1yA0InaFw;Path=/;Domain=.salesforce.com;Expires=Fri,
-        27-Mar-2015 23:34:36 GMT
+      - BrowserId=InseTaS2T16Z14147P-TVA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:52 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=134/15000
+      - api-usage=142/15000
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Mon, 26 Jan 2015 23:34:36 GMT
+  recorded_at: Mon, 26 Jan 2015 23:45:52 GMT
 recorded_with: VCR 2.9.3

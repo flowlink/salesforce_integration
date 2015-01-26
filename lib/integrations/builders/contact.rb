@@ -13,7 +13,8 @@ module Integration
           'FirstName' => customer_name('firstname'),
           'LastName'  => customer_name('lastname'),
           'Email'     => customer_email
-        }
+        }.merge Hash(object['contact_custom_fields'])
+
         params.merge!(import_address_data('Mailing', shipping_address))
         params.merge!(import_address_data('Other', billing_address))
         params.merge!(import_phone_numbers)

@@ -22,7 +22,7 @@ module Integration
           'ProductCode'   => object['id'] || object['product_id'],
           'Description'   => object['description'],
           'DefaultPrice'  => object['price']
-        }
+        }.merge Hash(object['product_custom_fields'])
       end
     end
   end

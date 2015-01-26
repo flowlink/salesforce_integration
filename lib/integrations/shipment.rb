@@ -29,7 +29,7 @@ module Integration
           'Title'     => "Shipment # #{object['id']}",
           'Body'      => build_body(object),
           'IsPrivate' => false,
-        }
+        }.merge Hash(object['note_custom_fields'])
       end
 
       def build_body(object)

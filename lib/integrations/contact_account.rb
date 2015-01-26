@@ -7,8 +7,8 @@ module Integration
       super(config)
     end
 
-    def upsert!(account_id = {})
-      params = customer_params.merge account_id
+    def upsert!(params = nil)
+      params = customer_params.merge(params || { AccountId: account_id })
       contact_service.upsert!(customer_params['Email'], params)
     end
 

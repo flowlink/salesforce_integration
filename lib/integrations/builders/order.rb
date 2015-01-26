@@ -18,7 +18,7 @@ module Integration
           'Pricebook2Id'           => object['price_book_id'] || 'Standard Price Book',
           'LeadSource'             => object['lead_source'] || 'Web',
           'StageName'              => 'closed-won'
-        }
+        }.merge Hash(object['opportunity_custom_fields'])
       end
     end
   end

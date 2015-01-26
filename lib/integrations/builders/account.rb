@@ -16,7 +16,7 @@ module Integration
           import_address_data('Shipping', shipping_address)
         ).merge(
           import_address_data('Billing', billing_address)
-        )
+        ).merge Hash(object['account_custom_fields'])
       end
 
       private

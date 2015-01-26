@@ -11,7 +11,7 @@ module Integration
       def build
         params = {
           'Name' => name,
-          'AccountNumber' => object['id']
+          'AccountNumber' => object['email'],
         }.merge(
           import_address_data('Shipping', shipping_address)
         ).merge(

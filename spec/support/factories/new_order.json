@@ -1,9 +1,9 @@
 {
   "order": {
-    "id": "R434432432524354",
+    "id": "R4352REG43534545",
     "status": "complete",
     "channel": "spree",
-    "email": "peter@reggae.com",
+    "email": "dev@spreecommerce.com",
     "currency": "USD",
     "placed_on": "2015-01-20T17:29:15.219Z",
     "totals": {
@@ -35,8 +35,8 @@
       }
     ],
     "shipping_address": {
-      "firstname": "Joe",
-      "lastname": "Smith",
+      "firstname": "Dev",
+      "lastname": "Commerce",
       "address1": "1234 Awesome Street",
       "address2": "",
       "zipcode": "90210",
@@ -46,8 +46,8 @@
       "phone": "0000000000"
     },
     "billing_address": {
-      "firstname": "Joe",
-      "lastname": "Smith",
+      "firstname": "Dev",
+      "lastname": "Commerce",
       "address1": "1234 Awesome Street",
       "address2": "",
       "zipcode": "90210",

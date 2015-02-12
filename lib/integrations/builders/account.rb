@@ -11,10 +11,17 @@ module Integration
       def build
         params = {
           'Name' => name
-        }
+        }.merge record_type_id
       end
 
       private
+      def record_type_id
+        if object['sf_record_type_id']
+          { 'RecordTypeId' => object['sf_record_type_id'] }
+        else
+          {}
+        end
+      end
 
       def name
         "#{customer_name('firstname')} #{customer_name('lastname')}"

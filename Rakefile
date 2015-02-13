@@ -1,5 +1,8 @@
 $stdout.sync = true
 
+require 'bundler'
+Bundler.require(:default)
+
 desc 'Open pry console'
 task :console do
   require 'pry'
@@ -11,11 +14,13 @@ task :console do
     require 'dotenv'
     Dotenv.load
 
-    @client = Restforce.new(username:        ENV['SALESFORCE_USERNAME'],
-                            password:        ENV['SALESFORCE_PASSWORD'],
-                            security_token:  ENV['SALESFORCE_SECURITY_TOKEN'],
-                            client_id:       ENV['SALESFORCE_CLIENT_ID'],
-                            client_secret:   ENV['SALESFORCE_CLIENT_SECRET'])
+    @client = Restforce.new(
+      instance_url:    ENV['SALESFORCE_INSTANCE_URL'],
+      oauth_token:     ENV['SALESFORCE_ACCESS_TOKEN'],
+      refresh_token:   ENV['SALESFORCE_REFRESH_TOKEN'],
+      client_id:       ENV['SALESFORCE_CLIENT_ID'],
+      client_secret:   ENV['SALESFORCE_CLIENT_SECRET']
+    )
   end
 
   def client
@@ -25,4 +30,3 @@ task :console do
   ARGV.clear
   Pry.start
 end
-

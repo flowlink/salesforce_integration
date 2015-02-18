@@ -1,0 +1,258 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'mundolivre@sa.com'
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth access_token
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Wed, 18 Feb 2015 17:03:34 GMT
+      Set-Cookie:
+      - BrowserId=-ld-9KxBTISE0qPsAPTa7Q;Path=/;Domain=.salesforce.com;Expires=Sun,
+        19-Apr-2015 17:03:34 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Www-Authenticate:
+      - Token
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
+    http_version: 
+  recorded_at: Wed, 18 Feb 2015 17:03:34 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=refresh_token&client_id=spree_id&client_secret=spree_secret
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 18 Feb 2015 17:03:35 GMT
+      - Wed, 18 Feb 2015 17:03:35 GMT
+      Set-Cookie:
+      - BrowserId=THD_npY_SMGlVulO0uCEag;Path=/;Domain=.salesforce.com;Expires=Sun,
+        19-Apr-2015 17:03:35 GMT
+      - BrowserId=diqdL209QieNl3BLpgaHJA;Path=/;Domain=.salesforce.com;Expires=Sun,
+        19-Apr-2015 17:03:35 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      - no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1424279015341","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"UX4wauN+uKNS7NIOtA+u+66zlRvamy47ouY9pNr7HC8=","access_token":"00Dj0000000HAIT!AQoAQLUz2Z3B1xrYN0wPSjm1FE.mmUhltMXGs5BuRrs2wkWnHVLc9iCnr1TDWRjjRHk7otqnb9BnDqtZHfr0xd4IzX3Opv3H"}'
+    http_version: 
+  recorded_at: Wed, 18 Feb 2015 17:03:35 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'mundolivre@sa.com'
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQLUz2Z3B1xrYN0wPSjm1FE.mmUhltMXGs5BuRrs2wkWnHVLc9iCnr1TDWRjjRHk7otqnb9BnDqtZHfr0xd4IzX3Opv3H
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 18 Feb 2015 17:03:36 GMT
+      Set-Cookie:
+      - BrowserId=g4lU428AQI6TGIa0JyNcWg;Path=/;Domain=.salesforce.com;Expires=Sun,
+        19-Apr-2015 17:03:36 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=2/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":0,"done":true,"records":[]}'
+    http_version: 
+  recorded_at: Wed, 18 Feb 2015 17:03:36 GMT
+- request:
+    method: post
+    uri: https://na.salesforce.com/services/data/v26.0/sobjects/Account
+    body:
+      encoding: UTF-8
+      string: '{"ShippingStreet":"1234 Awesome Street","ShippingCity":"Hollywood","ShippingState":"California","ShippingPostalCode":"90210","ShippingCountry":"US","BillingStreet":"1234
+        Awesome Street","BillingCity":"Hollywood","BillingState":"California","BillingPostalCode":"90210","BillingCountry":"US","RecordTypeId":"012j0000000GYbLAAW","Name":"Mundo
+        Livre","AccountNumber":"mundolivre@sa.com"}'
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth access_token
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Wed, 18 Feb 2015 17:03:37 GMT
+      Set-Cookie:
+      - BrowserId=p8y-i907QuGGFDFwQhIkPg;Path=/;Domain=.salesforce.com;Expires=Sun,
+        19-Apr-2015 17:03:37 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Www-Authenticate:
+      - Token
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
+    http_version: 
+  recorded_at: Wed, 18 Feb 2015 17:03:37 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=refresh_token&client_id=spree_id&client_secret=spree_secret
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 18 Feb 2015 17:03:38 GMT
+      - Wed, 18 Feb 2015 17:03:38 GMT
+      Set-Cookie:
+      - BrowserId=Euob1upKRnWLwb6V-vOegA;Path=/;Domain=.salesforce.com;Expires=Sun,
+        19-Apr-2015 17:03:38 GMT
+      - BrowserId=m2aMW-0wS5ibHmakNLOdjQ;Path=/;Domain=.salesforce.com;Expires=Sun,
+        19-Apr-2015 17:03:38 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      - no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1424279018361","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"e8v60pIdaDzONV2TXD/SSRMQYM6YJLQt/13iFmvx1bw=","access_token":"00Dj0000000HAIT!AQoAQLUz2Z3B1xrYN0wPSjm1FE.mmUhltMXGs5BuRrs2wkWnHVLc9iCnr1TDWRjjRHk7otqnb9BnDqtZHfr0xd4IzX3Opv3H"}'
+    http_version: 
+  recorded_at: Wed, 18 Feb 2015 17:03:38 GMT
+- request:
+    method: post
+    uri: https://na.salesforce.com/services/data/v26.0/sobjects/Account
+    body:
+      encoding: UTF-8
+      string: '{"ShippingStreet":"1234 Awesome Street","ShippingCity":"Hollywood","ShippingState":"California","ShippingPostalCode":"90210","ShippingCountry":"US","BillingStreet":"1234
+        Awesome Street","BillingCity":"Hollywood","BillingState":"California","BillingPostalCode":"90210","BillingCountry":"US","RecordTypeId":"012j0000000GYbLAAW","Name":"Mundo
+        Livre","AccountNumber":"mundolivre@sa.com"}'
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQLUz2Z3B1xrYN0wPSjm1FE.mmUhltMXGs5BuRrs2wkWnHVLc9iCnr1TDWRjjRHk7otqnb9BnDqtZHfr0xd4IzX3Opv3H
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Wed, 18 Feb 2015 17:03:39 GMT
+      Set-Cookie:
+      - BrowserId=JzfUbf0jSNOupXbLi9mLFQ;Path=/;Domain=.salesforce.com;Expires=Sun,
+        19-Apr-2015 17:03:39 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=2/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[{"message":"Record Type ID: this ID value isn''t valid for the user:
+        012j0000000GYbLAAW","errorCode":"INVALID_CROSS_REFERENCE_KEY","fields":["RecordTypeId"]}]'
+    http_version: 
+  recorded_at: Wed, 18 Feb 2015 17:03:39 GMT
+recorded_with: VCR 2.9.3

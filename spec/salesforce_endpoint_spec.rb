@@ -18,9 +18,9 @@ describe SalesforceEndpoint do
 
     it "places a new opportunity with person account enabled" do
       payload = Factories.send("person_account_order_payload")
-      payload['order']['sf_record_type_id'] = "012j0000000GYbLAAW"
+      payload['order']['sf_record_type_id'] = "01280000000QAKvAAO"
 
-      VCR.use_cassette "requests/opportunity_person_account" do
+      VCR.use_cassette "requests/#{payload[:order][:id]}" do
         post "/send_order", payload.merge(parameters: config).to_json, auth
 
         expect(json_response["summary"]).to match "sent to Salesforce"

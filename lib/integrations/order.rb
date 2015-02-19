@@ -12,11 +12,20 @@ module Integration
     #
     # http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_objects_opportunity.htm
     # http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_objects_opportunitylineitem.htm
+    #
+    # NOTE we should probably create only one instance of the salesforce client
+    # per endpoint request and see if it avoids a bunch of requests to grab
+    # a new a valid token
     def upsert!
       # Create or Update the Contact. Set the account id
       contact_account = ContactAccount.new(config, object[:order])
       account_id = contact_account.account_id
-      contact_account.upsert! AccountId: account_id
+
+      if object[:order][:sf_record_type_id]
+        contact_account.person_contact_update account_id
+      else
+        contact_account.upsert! AccountId: account_id
+      end
 
       # Create or Update the Opportunity. Set the opportunity id
       params = order_params.merge AccountId: account_id

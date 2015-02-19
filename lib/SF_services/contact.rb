@@ -20,6 +20,11 @@ module SFService
       contact_id.present? ? update!(attributes.merge({ Id: contact_id })) : create!(attributes)
     end
 
+    def person_contact_update!(account_id, attributes)
+      results = salesforce.query("select Id from Contact where AccountId = '#{account_id}'")
+      update! attributes.merge(Id: results.first.to_h['Id'])
+    end
+
     def latest_updates(time = Time.now.utc.iso8601)
       since = time ? Time.parse(time).utc.iso8601 : Time.now.utc.iso8601
 

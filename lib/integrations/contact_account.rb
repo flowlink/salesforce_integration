@@ -12,6 +12,10 @@ module Integration
       contact_service.upsert!(customer_params['Email'], params)
     end
 
+    def person_contact_update(account_id)
+      contact_service.person_contact_update!(account_id, customer_params)
+    end
+
     def fetch_updates
       return [] if latest_contacts.to_a.empty?
 

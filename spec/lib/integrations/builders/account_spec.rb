@@ -19,12 +19,13 @@ describe Integration::Builder::Account do
       expect(subject.build.keys).to match_array default_expected
     end
 
-    it 'append record type id when available' do
+    it 'append record type id and name fields for person accounts' do
       payload['customer']['sf_record_type_id'] = 123
       subject = described_class.new payload['customer']
 
-      expected = default_expected.push "RecordTypeId"
-      expect(subject.build.keys).to match_array expected
+      default_expected.delete 'Name'
+      expected = default_expected.push ["RecordTypeId", "FirstName", "LastName"]
+      expect(subject.build.keys).to match_array expected.flatten
     end
   end
 end

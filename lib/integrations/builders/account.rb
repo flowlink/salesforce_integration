@@ -8,22 +8,25 @@ module Integration
       end
 
       def build
-        address_data('Shipping', shipping_address).
+        initial = address_data('Shipping', shipping_address).
           merge(address_data('Billing', billing_address)).
-          merge(record_type_id).
-          merge(Hash(object['account_custom_fields'])).
-          merge('Name' => name, 'AccountNumber' => object['email'])
-      end
+          merge('Name' => name, 'AccountNumber' => object['email']).
+          merge(Hash(object['account_custom_fields']))
 
-      private
-      def record_type_id
         if object['sf_record_type_id']
-          { 'RecordTypeId' => object['sf_record_type_id'] }
+          initial.delete 'Name'
+
+          initial.merge(
+            'RecordTypeId' => object['sf_record_type_id'],
+            'FirstName' => customer_name('firstname'),
+            'LastName'  => customer_name('lastname'),
+          )
         else
-          {}
+          initial
         end
       end
 
+      private
       def address_data(type, data)
         {
           "#{type}Street"     => [data['address1'], data['address2']].reject(&:empty?).join(' '),

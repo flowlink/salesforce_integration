@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Integration::Builder::Contact do
 
   context "when creating contact params from order payload" do
-    let(:payload) { Factories.add_order_payload }
+    let(:payload) { Factories.new_order_payload }
     subject { described_class.new(payload['order']) }
 
     describe '#build' do

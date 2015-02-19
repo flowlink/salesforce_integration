@@ -1,7 +1,6 @@
 module Integration
   module Builder
     class Account
-
       attr_reader :object
 
       def initialize(object)
@@ -9,18 +8,33 @@ module Integration
       end
 
       def build
-        params = {
-          'Name' => name
-        }.merge record_type_id
+        initial = address_data('Shipping', shipping_address).
+          merge(address_data('Billing', billing_address)).
+          merge('Name' => name, 'AccountNumber' => object['email']).
+          merge(Hash(object['account_custom_fields']))
+
+        if object['sf_record_type_id']
+          initial.delete 'Name'
+
+          initial.merge(
+            'RecordTypeId' => object['sf_record_type_id'],
+            'FirstName' => customer_name('firstname'),
+            'LastName'  => customer_name('lastname'),
+          )
+        else
+          initial
+        end
       end
 
       private
-      def record_type_id
-        if object['sf_record_type_id']
-          { 'RecordTypeId' => object['sf_record_type_id'] }
-        else
-          {}
-        end
+      def address_data(type, data)
+        {
+          "#{type}Street"     => [data['address1'], data['address2']].reject(&:empty?).join(' '),
+          "#{type}City"       => data['city'],
+          "#{type}State"      => data['state'],
+          "#{type}PostalCode" => data['zipcode'],
+          "#{type}Country"    => data['country']
+        }
       end
 
       def name

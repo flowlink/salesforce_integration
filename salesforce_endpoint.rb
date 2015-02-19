@@ -1,63 +1,77 @@
 require 'sinatra'
 require 'endpoint_base'
-require 'salesforce_integration'
+
+require File.expand_path(File.dirname(__FILE__) + '/lib/salesforce_integration')
 
 class SalesforceEndpoint < EndpointBase::Sinatra::Base
-  # INFO: This might cause potential security issue. It's commented out for special request from Spree Support.
-  # endpoint_key App.endpoint_key
   enable :logging
 
-  ['/add_order', '/update_order'].each do |path|
-    post path do
-      begin
-        SpreeService::Order.new(@payload, @config).upsert_contact_with_account!
-        SpreeService::Order.new(@payload, @config).upsert_order!
-        SpreeService::Product.new(@payload, @config).upsert_products!
-        SpreeService::Order.new(@payload, @config).upsert_lineitems!
-        SpreeService::Order.new(@payload, @config).upsert_payments!
-        set_summary "Contact for #{@payload["order"]["email"]} and order ##{@payload["order"]["id"]} updated (or created) in Salesforce"
-        result 200
-      rescue Exception => e
-        log_exception(e)
-        result 500, e.message
-      end
-    end
+  post '/send_order' do
+    Integration::Order.new(@config, @payload).upsert!
+    result 200, "Opportunity # #{@payload["order"]["id"]} sent to Salesforce"
   end
 
-  post '/add_returns' do
+  post '/send_return' do
+    Integration::Return.new(@config, @payload).upsert!
+    result 200, "Return # #{@payload[:return][:id]} updated as Note in Salesforce"
+  end
+
+  post '/send_customer' do
+    Integration::ContactAccount.new(@config, @payload[:customer]).upsert!
+    result 200, "Contact for #{@payload[:customer][:email]} updated in Salesforce"
+  end
+
+  post '/send_product' do
+    Integration::Product.new(@config, @payload[:product]).upsert!
+    set_summary "Product #{@payload["product"]["id"]} updated (or created) in Salesforce"
+    result 200
+  end
+
+  post '/send_shipment' do
     begin
-      SpreeService::Return.new(@payload, @config).handle_returns!
-      set_summary "Returns marked in Order ##{@payload["returns"].first["order_id"]} in Salesforce"
+      Integration::Shipment.new(@config, @payload).upsert!
+      result 200, "Shipment #{@payload[:shipment][:id]} updated as Note in Salesforce"
+    rescue Faraday::Error::ResourceNotFound
+      result 500, "Could not find Opportunity # #{@payload[:shipment][:order_id]}"
+    end
+  end
+
+  post "/get_products" do
+    product_service = Integration::Product.new(@config, @payload)
+    products = product_service.fetch_updates
+    products.each { |p| add_object "product", p }
+
+    if (count = products.count) > 0
+      add_parameter "salesforce_products_since", product_service.latest_timestamp_update
+      result 200, "Received #{count} #{"product".pluralize count} from Salesforce"
+    else
       result 200
-    rescue Exception => e
-      log_exception(e)
-      result 500, e.message
     end
   end
 
-  ['/add_customer', '/update_customer'].each do |path|
-    post path do
-      begin
-        SpreeService::Customer.new(@payload, @config).upsert_contact_with_account!
-        set_summary "Contact for #{@payload["customer"]["email"]} updated (or created) in Salesforce"
-        result 200
-      rescue Exception => e
-        log_exception(e)
-        result 500, e.message
-      end
+  post "/get_customers" do
+    contact_integration = Integration::ContactAccount.new(@config, @payload[:customer])
+    contacts = contact_integration.fetch_updates
+    add_value "customers", contacts
+
+    if (count = contacts.count) > 0
+      add_parameter "salesforce_contacts_since", contact_integration.latest_timestamp_update
+      result 200, "Received #{count} #{"customer".pluralize count} from Salesforce"
+    else
+      result 200
     end
   end
 
-  ['/add_product', '/update_product'].each do |path|
-    post path do
-      begin
-        SpreeService::Product.new(@payload, @config).upsert_product!
-        set_summary "Product #{@payload["product"]["sku"]} updated (or created) in Salesforce"
-        result 200
-      rescue Exception => e
-        log_exception(e)
-        result 500, e.message
-      end
+  post "/get_orders" do
+    integration = Integration::Order.new(@config)
+    orders = integration.fetch_updates
+
+    if (count = orders.count) > 0
+      add_value "orders", orders
+      add_parameter "salesforce_orders_since", integration.latest_timestamp_update
+      result 200, "Received #{count} #{"order".pluralize count} from Salesforce"
+    else
+      result 200
     end
   end
 end

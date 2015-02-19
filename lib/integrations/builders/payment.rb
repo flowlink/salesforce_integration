@@ -10,11 +10,19 @@ module Integration
 
       def build
         params = {
-          'Name'      => object['number'],
-          'Status__c' => object['status'],
-          'Amount__c' => object['amount'],
-          'Method__c' => object['payment_method'],
-        }
+          'Title'     => "Payment # #{object['number']}",
+          'Body'      => build_body(object),
+          'IsPrivate' => false,
+        }.merge Hash(object['note_custom_fields'])
+      end
+
+      def build_body(object)
+        <<-body
+Number: #{object['number']}
+Status: #{object['status']}
+Amount: #{object['amount']}
+Payment Method: #{object['payment_method']}
+        body
       end
     end
   end

@@ -9,34 +9,6 @@ describe SFService::Contact do
     it { should eq 'Contact' }
   end
 
-  describe '#find_id_by_email' do
-    it 'returns id when contact with given email exists' do
-      VCR.use_cassette 'services/contact_find_id_by_email_true' do
-        expect(subject.find_id_by_email('spree@example.com')).to be_a(String)
-      end
-    end
-
-    it 'returns nil if theres no contact with given email' do
-      VCR.use_cassette 'services/contact_find_id_by_email_false' do
-        expect(subject.find_id_by_email('not-available@test.com')).to be_nil
-      end
-    end
-  end
-
-  describe '#find_account_id_by_email' do
-    it 'returns account_id when contact with given email exists' do
-      VCR.use_cassette 'services/contact_find_account_id_by_email_true' do
-        expect(subject.find_account_id_by_email('spree@example.com')).to be_a(String)
-      end
-    end
-
-    it 'returns nil if theres no contact with given email' do
-      VCR.use_cassette 'services/contact_find_account_id_by_email_false' do
-        expect(subject.find_account_id_by_email('not-available@test.com')).to be_nil
-      end
-    end
-  end
-
   describe '#upsert!' do
     context "when contact doesnt exist" do
       before do

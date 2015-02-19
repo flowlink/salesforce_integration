@@ -1,30 +1,25 @@
 module Integration
   module Builder
     class Order
-
       attr_reader :object
 
       def initialize(object)
-        @object = object.with_indifferent_access
+        @object = object
       end
 
+      # Amount is rejected when Opportunity has products, the amount will
+      # then be calculated based on the sum of products
       def build
         params = {
-          'Name'             => object['id'],
-          'Status__c'        => object['status'],
-          'Channel__c'       => object['channel'],
-          'Email__c'         => object['email'],
-          'Currency__c'      => object['currency'],
-          'PlacedOn__c'      => object['placed_on'],
-          'Subtotal__c'      => object['totals']['item'],
-          'Adjustment__c'    => object['totals']['adjustment'],
-          'Tax__c'           => object['totals']['tax'],
-          'Shipping__c'      => object['totals']['shipping'],
-          'Payment__c'       => object['totals']['payment'],
-          'Total__c'         => object['totals']['order'],
-        }
+          'Amount'                 => object['totals']['order'],
+          'Probability'            => '100',
+          'CloseDate'              => object['placed_on'],
+          'Name'                   => object['id'],
+          'Pricebook2Id'           => object['price_book_id'] || 'Standard Price Book',
+          'LeadSource'             => object['lead_source'] || 'Web',
+          'StageName'              => 'closed-won'
+        }.merge Hash(object['opportunity_custom_fields'])
       end
-
     end
   end
 end

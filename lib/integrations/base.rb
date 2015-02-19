@@ -4,7 +4,7 @@ module Integration
     attr_reader :config
 
     def initialize(config)
-      @config = config.with_indifferent_access
+      @config = config
     end
 
     private
@@ -29,8 +29,16 @@ module Integration
       @line_item_service ||= SFService::LineItem.new(config)
     end
 
-    def payment_service
-      @payment_service ||= SFService::Payment.new(config)
+    def note_service
+      @note_service ||= SFService::Note.new(config)
+    end
+
+    def return_service
+      @return_service ||= SFService::Return.new(config)
+    end
+
+    def pricebook_entry_service
+      @pricebook_entry_service ||= SFService::Base.new "PricebookEntry", config
     end
   end
 end

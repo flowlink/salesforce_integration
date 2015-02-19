@@ -1,11 +1,49 @@
 ---
 http_interactions:
 - request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'agent@matrix.com'
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth access_token
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:45:44 GMT
+      Set-Cookie:
+      - BrowserId=AhDA7eURQxSSmlvd6aplnw;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:44 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Www-Authenticate:
+      - Token
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:45:44 GMT
+- request:
     method: post
     uri: https://login.salesforce.com/services/oauth2/token
     body:
       encoding: US-ASCII
-      string: grant_type=password&client_id=3MVG9WtWSKUDG.x5hyqXeboVoSErlfbiCvJNDfuwmN77rRhJ6tqCeFKFhuFvMNo0COBif7CT1NnevkMq464Qp&client_secret=3920716088724079571&username=tester%2Bnetguru%40netguru.co&password=testtest12398feCLrdLjqN7Ji8zhhWf3uc
+      string: grant_type=refresh_token&refresh_token=refresh_token&client_id=spree_id&client_secret=spree_secret
     headers:
       User-Agent:
       - Faraday v0.8.9
@@ -21,23 +59,35 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Apr 2014 08:56:47 GMT
+      - Mon, 26 Jan 2015 23:45:45 GMT
+      - Mon, 26 Jan 2015 23:45:45 GMT
+      Set-Cookie:
+      - BrowserId=1TCF9NafR7-_V6N-yqPxcw;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:45 GMT
+      - BrowserId=hMLyD5ENQUmGejeiIx2DTw;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:45 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
       Pragma:
+      - no-cache
       - no-cache
       Cache-Control:
       - no-cache, no-store
+      - no-store
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"id\":\"https://login.salesforce.com/id/00D20000000CtLCEA0/005200000039DC4AAM\",\"issued_at\":\"1398157008766\",\"token_type\":\"Bearer\",\"instance_url\":\"https://emea.salesforce.com\",\"signature\":\"gNjKjbLVk35l5SuL6Jkf7jVxGvtm+6iVj07LJh/uvlE=\",\"access_token\":\"00D20000000CtLC!ARcAQOQIBzjFw6NKiFX._jaU84nm9l_Q7FDu.X2sL8.1A5MGAXC.hBh7gqTlqgNVGvL6vZYDWKepw9w4M.UCRcqzopwK.tv6\"}"
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1422315945089","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"jcvtuldoCWgbuLeMejBOXVlvj3zKhihPUgdxn8F2EP4=","access_token":"00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi."}'
     http_version: 
-  recorded_at: Tue, 22 Apr 2014 08:56:59 GMT
+  recorded_at: Mon, 26 Jan 2015 23:45:45 GMT
 - request:
     method: get
-    uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Account__c%20from%20Contact%20where%20Email%20=%20'spree@example.com'
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20'agent@matrix.com'
     body:
       encoding: US-ASCII
       string: ''
@@ -45,7 +95,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00D20000000CtLC!ARcAQOQIBzjFw6NKiFX._jaU84nm9l_Q7FDu.X2sL8.1A5MGAXC.hBh7gqTlqgNVGvL6vZYDWKepw9w4M.UCRcqzopwK.tv6
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -56,21 +106,26 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Apr 2014 08:56:49 GMT
+      - Mon, 26 Jan 2015 23:45:46 GMT
+      Set-Cookie:
+      - BrowserId=EwYC05uDRkKHdmsjBiEQ4Q;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:46 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=61/5000
+      - api-usage=142/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ\"},\"Account__c\":\"00120000017cLeRAAU\"}]}"
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IyLlAAK"},"AccountId":"001j000000Etz6aAAB"}]}'
     http_version: 
-  recorded_at: Tue, 22 Apr 2014 08:57:00 GMT
+  recorded_at: Mon, 26 Jan 2015 23:45:46 GMT
 - request:
     method: get
-    uri: https://emea.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'spree@example.com'
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20Contact%20where%20Email%20=%20'agent@matrix.com'
     body:
       encoding: US-ASCII
       string: ''
@@ -78,7 +133,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00D20000000CtLC!ARcAQOQIBzjFw6NKiFX._jaU84nm9l_Q7FDu.X2sL8.1A5MGAXC.hBh7gqTlqgNVGvL6vZYDWKepw9w4M.UCRcqzopwK.tv6
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -89,33 +144,38 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 22 Apr 2014 08:56:50 GMT
+      - Mon, 26 Jan 2015 23:45:46 GMT
+      Set-Cookie:
+      - BrowserId=zUQHcOjWSFiZYo63CRaBdA;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:46 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=62/5000
+      - api-usage=141/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: "{\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Contact\",\"url\":\"/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ\"},\"Id\":\"0032000001CocEKAAZ\"}]}"
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008IyLlAAK"},"Id":"003j0000008IyLlAAK"}]}'
     http_version: 
-  recorded_at: Tue, 22 Apr 2014 08:57:01 GMT
+  recorded_at: Mon, 26 Jan 2015 23:45:47 GMT
 - request:
     method: patch
-    uri: https://emea.salesforce.com/services/data/v26.0/sobjects/Contact/0032000001CocEKAAZ
+    uri: https://na.salesforce.com/services/data/v26.0/sobjects/Contact/003j0000008IyLlAAK
     body:
       encoding: UTF-8
-      string: "{\"FirstName\":\"Brian\",\"LastName\":\"Smith\",\"Email\":\"spree@example.com\",\"MailingStreet\":\"1234
-        Awesome Street\",\"MailingCity\":\"Hollywood\",\"MailingState\":\"California\",\"MailingPostalCode\":\"90210\",\"MailingCountry\":\"US\",\"OtherStreet\":\"1234
-        Awesome Street\",\"OtherCity\":\"Hollywood\",\"OtherState\":\"California\",\"OtherPostalCode\":\"90210\",\"OtherCountry\":\"US\",\"Phone\":\"0000000000\",\"OtherPhone\":\"0000000000\",\"Account__c\":\"00120000017cLeRAAU\"}"
+      string: '{"FirstName":"Agent","LastName":"Smith","Email":"agent@matrix.com","MailingStreet":"1234
+        Awesome Street","MailingCity":"Hollywood","MailingState":"California","MailingPostalCode":"90210","MailingCountry":"US","OtherStreet":"1234
+        Awesome Street","OtherCity":"Hollywood","OtherState":"California","OtherPostalCode":"90210","OtherCountry":"US","Phone":"0000000000","OtherPhone":"0000000000","AccountId":"001j000000Etz6aAAB"}'
     headers:
       User-Agent:
       - Faraday v0.8.9
       Content-Type:
       - application/json
       Authorization:
-      - OAuth 00D20000000CtLC!ARcAQOQIBzjFw6NKiFX._jaU84nm9l_Q7FDu.X2sL8.1A5MGAXC.hBh7gqTlqgNVGvL6vZYDWKepw9w4M.UCRcqzopwK.tv6
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -126,12 +186,17 @@ http_interactions:
       message: No Content
     headers:
       Date:
-      - Tue, 22 Apr 2014 08:56:51 GMT
+      - Mon, 26 Jan 2015 23:45:47 GMT
+      Set-Cookie:
+      - BrowserId=rMkUKQPESsKHvzQC_r4TmQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:45:47 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=65/5000
+      - api-usage=141/15000
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 22 Apr 2014 08:57:02 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Mon, 26 Jan 2015 23:45:47 GMT
+recorded_with: VCR 2.9.3

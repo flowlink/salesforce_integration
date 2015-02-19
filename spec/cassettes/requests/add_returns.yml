@@ -1,0 +1,289 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/sobjects/Opportunity/Name/R43534532545
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth access_token
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:14 GMT
+      Set-Cookie:
+      - BrowserId=14WqgZgyQx-w5uXTMAFfiQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:14 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Www-Authenticate:
+      - Token
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:14 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=refresh_token&client_id=spree_id&client_secret=spree_secret
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:15 GMT
+      - Mon, 26 Jan 2015 23:47:15 GMT
+      Set-Cookie:
+      - BrowserId=fA99yrQtQ4-i1v9O_XXbuw;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:15 GMT
+      - BrowserId=owt9F2cgTtCslMjglHuztg;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:15 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      - no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1422316035573","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"2hhEW7ne+3Pd1M+BlWELiRQhAlXEfokJIR6QOPoRbZ0=","access_token":"00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi."}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:15 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/sobjects/Opportunity/Name/R43534532545
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:16 GMT
+      Set-Cookie:
+      - BrowserId=lKhBaaQHSRKQa5RFoVV_8w;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:16 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=179/15000
+      Last-Modified:
+      - Mon, 26 Jan 2015 23:46:47 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j0000002YAdbAAG"},"Id":"006j0000002YAdbAAG","IsDeleted":false,"AccountId":"001j0000001wYXZAA2","IsPrivate":false,"Name":"R43534532545","Description":null,"StageName":"closed-won","Amount":1600.0,"Probability":100.0,"ExpectedRevenue":1600.0,"TotalOpportunityQuantity":16.0,"CloseDate":"2014-02-03","Type":null,"NextStep":null,"LeadSource":"Web","IsClosed":false,"IsWon":false,"ForecastCategory":"Omitted","ForecastCategoryName":"Omitted","CampaignId":null,"HasOpportunityLineItem":true,"Pricebook2Id":"01sj0000000DbL5AAK","OwnerId":"005j000000Au8sKAAR","CreatedDate":"2014-12-16T03:47:35.000+0000","CreatedById":"005j000000Au8sKAAR","LastModifiedDate":"2015-01-26T23:46:47.000+0000","LastModifiedById":"005j000000Au8sKAAR","SystemModstamp":"2015-01-26T23:46:47.000+0000","LastActivityDate":null,"FiscalQuarter":1,"FiscalYear":2014,"Fiscal":"2014
+        1","DeliveryInstallationStatus__c":null,"TrackingNumber__c":null,"OrderNumber__c":null,"CurrentGenerators__c":null,"MainCompetitors__c":null}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:16 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Id%20FROM%20Note%20WHERE%20Title%20=%20'Return%20%23%2031'%20AND%20ParentId%20=%20'006j0000002YAdbAAG'%20LIMIT%201
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth access_token
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:17 GMT
+      Set-Cookie:
+      - BrowserId=ba7KpoQmS3meDMtOCWdbfQ;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:17 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Www-Authenticate:
+      - Token
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:17 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=refresh_token&client_id=spree_id&client_secret=spree_secret
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:18 GMT
+      - Mon, 26 Jan 2015 23:47:18 GMT
+      Set-Cookie:
+      - BrowserId=L8l8mW94S5aTE8OyvowoTw;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:18 GMT
+      - BrowserId=STbBGF0LQ0Ge4_MI6NoAsw;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:18 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      - no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1422316038353","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"2lTeeoTfzpj02/082+EovZoxa8bbbpctBPdDk17s+/I=","access_token":"00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi."}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:18 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Id%20FROM%20Note%20WHERE%20Title%20=%20'Return%20%23%2031'%20AND%20ParentId%20=%20'006j0000002YAdbAAG'%20LIMIT%201
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:19 GMT
+      Set-Cookie:
+      - BrowserId=EM-fSNYBTda8osLuPXr44A;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:19 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=185/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000001KrEHAA0"},"Id":"002j0000001KrEHAA0"}]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:19 GMT
+- request:
+    method: patch
+    uri: https://na.salesforce.com/services/data/v26.0/sobjects/Note/002j0000001KrEHAA0
+    body:
+      encoding: UTF-8
+      string: '{"Title":"Return # 31","Body":"Status: received\nAmount: 129.0\nReturned
+        items: SPREE-T-SHIRT: (2) \n","IsPrivate":false}'
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQCsyOIjRk6cQiGrDaPM52HauNlSEkCZyByvDzuTkAtSRu.1_WN1c9VekJVLwvH.01b0DtZ.MI8GuMxTmSgMdOCkYqQi.
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 23:47:20 GMT
+      Set-Cookie:
+      - BrowserId=knOBOyqPRUafLiuZcdwMCw;Path=/;Domain=.salesforce.com;Expires=Fri,
+        27-Mar-2015 23:47:20 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=185/15000
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 23:47:20 GMT
+recorded_with: VCR 2.9.3

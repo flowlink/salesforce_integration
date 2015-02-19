@@ -1,13 +1,11 @@
-test_config_hash = {
-  'salesforce_username' => 'tester+netguru@netguru.co',
-  'salesforce_password' => 'testtest123',
-  'salesforce_security_token' => '98feCLrdLjqN7Ji8zhhWf3uc',
-  'salesforce_client_id' => '3MVG9WtWSKUDG.x5hyqXeboVoSErlfbiCvJNDfuwmN77rRhJ6tqCeFKFhuFvMNo0COBif7CT1NnevkMq464Qp',
-  'salesforce_client_secret' => '3920716088724079571'
-}.with_indifferent_access
-
 shared_examples "config hash" do
-  let(:config) { test_config_hash }
+  let(:config) do
+    {
+      'salesforce_instance_url'   => ENV['SALESFORCE_INSTANCE_URL'],
+      'salesforce_access_token'   => ENV['SALESFORCE_ACCESS_TOKEN'],
+      'salesforce_refresh_token'  => ENV['SALESFORCE_REFRESH_TOKEN']
+    }.with_indifferent_access
+  end
 end
 
 shared_examples "product payload hash" do

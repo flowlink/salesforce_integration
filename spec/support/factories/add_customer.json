@@ -1,10 +1,10 @@
 {
   "request_id": "52f367367575e449c3000001",
   "customer": {
-    "id": "a123",
-    "firstname": "Brian",
+    "id": "b435232435",
+    "firstname": "Agent",
     "lastname": "Smith",
-    "email": "spree@example.com",
+    "email": "agent@matrix.com",
     "shipping_address": {
       "address1": "1234 Awesome Street",
       "address2": "",
@@ -22,9 +22,9 @@
       "state": "California",
       "country": "US",
       "phone": "0000000000"
+    },
+    "account_custom_fields": {
+      "channel__c": true
     }
   }
 }
-
-
-

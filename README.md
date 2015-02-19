@@ -9,6 +9,7 @@ product. With this integration you can perform the following functions:
 * Send returns to Salesforce
 * Send products to Salesforce
 * Send customers to Salesforce
+* Send custom fields to Salesforce
 
 [Wombat](http://wombat.co) allows you to connect to your own custom integrations.
 Feel free to modify the source code and host your own version of the integration

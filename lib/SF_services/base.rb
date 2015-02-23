@@ -19,6 +19,7 @@ module SFService
     def initialize(model_name, config)
       @model_name = model_name
       @config = config
+      @salesforce = config[:salesforce] || client
     end
 
     def create!(attributes = {})
@@ -29,11 +30,11 @@ module SFService
       salesforce.update!(model_name, attributes)
     end
 
-    private
-      def salesforce
-        @salesforce ||= Restforce.new user_credentials.merge(app_credentials)
-      end
+    def client
+      Restforce.new user_credentials.merge(app_credentials)
+    end
 
+    private
       def user_credentials
         if config[:salesforce_instance_url].present?
           oauth_params

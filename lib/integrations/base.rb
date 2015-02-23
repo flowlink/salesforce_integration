@@ -5,6 +5,7 @@ module Integration
 
     def initialize(config)
       @config = config
+      config[:salesforce] ||= SFService::Base.new("Foo", config).client
     end
 
     private

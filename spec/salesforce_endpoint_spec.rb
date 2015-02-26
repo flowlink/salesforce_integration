@@ -182,5 +182,16 @@ describe SalesforceEndpoint do
         expect(last_response.status).to eq 200
       end
     end
+
+    it "adds shipment as Note plus custom object" do
+      payload = Factories.shipment_custom_payload
+
+      VCR.use_cassette "requests/add_shipment_custom" do
+        post "/send_shipment", payload.merge(parameters: config).to_json, auth
+
+        expect(json_response["summary"]).to match "as Note in Salesforce"
+        expect(last_response.status).to eq 200
+      end
+    end
   end
 end

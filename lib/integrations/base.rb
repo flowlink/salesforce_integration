@@ -3,9 +3,16 @@ module Integration
 
     attr_reader :config
 
-    def initialize(config)
+    def initialize(config, payload = {})
       @config = config
       config[:salesforce] ||= SFService::Base.new("Foo", config).client
+    end
+
+    def custom_objects_upsert(params)
+      params.each do |object_name, attributes|
+        custom_service = SFService::Base.new(object_name, config)
+        custom_service.create! attributes
+      end
     end
 
     private

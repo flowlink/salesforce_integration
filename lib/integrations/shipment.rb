@@ -11,6 +11,8 @@ module Integration
       opportunity = order_service.find(object[:shipment][:order_id])
       attributes = Builder::Shipment.new(object[:shipment]).build
       note_service.upsert! attributes, opportunity[:Id]
+
+      custom_objects_upsert object[:shipment][:salesforce_custom].to_h
     end
   end
 

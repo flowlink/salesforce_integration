@@ -1,0 +1,29 @@
+{
+  "shipment": {
+    "id": "12836136992",
+    "order_id": "R4352REG43534545",
+    "email": "spree@example.com",
+    "cost": 5,
+    "status": "ready",
+    "stock_location": "default",
+    "shipping_method": "UPS Ground (USD)",
+    "tracking": "12345678",
+    "shipped_at": "2014-02-03T17:33:55.343Z",
+    "channel": "spree",
+    "items": [
+      {
+        "name": "Spree T-Shirt",
+        "product_id": "SPREE-T-SHIRT",
+        "quantity": 1,
+        "price": 30,
+        "options": {}
+      }
+    ],
+    "salesforce_custom": {
+      "Album__c": {
+        "Name": "Groundation A Miracle",
+        "Year__c": "2014"
+      }
+    }
+  }
+}

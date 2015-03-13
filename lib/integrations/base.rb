@@ -9,8 +9,21 @@ module Integration
     end
 
     def custom_objects_upsert(params)
-      params.each do |object_name, attributes|
+      params.to_h.each do |object_name, attributes|
         custom_service = SFService::Base.new(object_name, config)
+
+        if attributes.has_key? "Opportunity"
+          opportunity_id = SFService::Order.new(config).find_opportunity_id_by_name attributes["Opportunity"]
+          attributes["Opportunity__c"] = opportunity_id
+          attributes.delete "Opportunity"
+        end
+
+        if attributes.has_key? "Account"
+          account_id = SFService::Account.new(config).find_account_id_by_email attributes["Account"]
+          attributes["Account__c"] = account_id
+          attributes.delete "Account"
+        end
+
         custom_service.create! attributes
       end
     end

@@ -12,7 +12,7 @@ module Integration
       attributes = Builder::Shipment.new(object[:shipment]).build
       note_service.upsert! attributes, opportunity[:Id]
 
-      custom_objects_upsert object[:shipment][:salesforce_custom].to_h
+      custom_objects_upsert object[:shipment][:salesforce_custom]
     end
   end
 

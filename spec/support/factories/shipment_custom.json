@@ -21,8 +21,10 @@
     ],
     "salesforce_custom": {
       "Album__c": {
-        "Name": "Groundation A Miracle",
-        "Year__c": "2014"
+        "Opportunity": "R154085346427558",
+        "Account": "pelico@music.com",
+        "Name": "Unplugged in New York",
+        "Year__c": "1994"
       }
     }
   }

@@ -23,15 +23,15 @@ module Integration
         contact_account.upsert! AccountId: account_id
       end
 
-      # Create or Update the Opportunity. Set the opportunity id
-      params = order_params.merge AccountId: account_id
-      opportunity_id = order_service.upsert! params
-
       product_integration = Product.new(config, object[:order])
       line_item_integration = LineItem.new(config)
 
       # Opportunity lines needs to ref a product pricebook entry
-      standard_id = product_integration.standard_pricebook["Id"]
+      standard_id = product_integration.standard_pricebook(object[:order][:sf_pricebook_name])["Id"]
+
+      # Create or Update the Opportunity. Set the opportunity id
+      params = order_params.merge AccountId: account_id, Pricebook2Id: standard_id
+      opportunity_id = order_service.upsert! params
 
       object[:order][:line_items].each do |line_item|
 

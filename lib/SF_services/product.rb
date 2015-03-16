@@ -6,8 +6,13 @@ module SFService
       super("Product2", config)
     end
 
-    def standard_pricebook
-      standard = salesforce.query("SELECT Id FROM Pricebook2 WHERE isStandard = true").first
+    def standard_pricebook(pricebook_name = nil)
+      if pricebook_name
+        standard = salesforce.query("SELECT Id FROM Pricebook2 WHERE Name = '#{pricebook_name}'").first
+      else
+        standard = salesforce.query("SELECT Id FROM Pricebook2 WHERE isStandard = true").first
+      end
+
       raise SalesfoceIntegrationError, "Standard Pricebook not found" unless standard
       standard
     end

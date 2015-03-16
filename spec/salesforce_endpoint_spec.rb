@@ -16,6 +16,19 @@ describe SalesforceEndpoint do
       end
     end
 
+    it "places a new order with custom pricebook" do
+      payload = Factories.send("new_order_payload")
+      payload['order']['id'] = "R442535235245"
+      payload['order']['sf_pricebook_name'] = "Sales Price"
+
+      VCR.use_cassette "requests/new_order_pricebook" do
+        post "/send_order", payload.merge(parameters: config).to_json, auth
+
+        expect(json_response["summary"]).to match "sent to Salesforce"
+        expect(last_response.status).to eq 200
+      end
+    end
+
     it "places a new opportunity with person account enabled" do
       payload = Factories.send("person_account_order_payload")
       payload['order']['sf_record_type_id'] = "01280000000QAKvAAO"

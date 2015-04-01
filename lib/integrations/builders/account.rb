@@ -29,7 +29,7 @@ module Integration
       private
       def address_data(type, data)
         {
-          "#{type}Street"     => [data['address1'], data['address2']].reject(&:empty?).join(' '),
+          "#{type}Street"     => [data['address1'].to_s, data['address2'].to_s].reject(&:empty?).join(' '),
           "#{type}City"       => data['city'],
           "#{type}State"      => data['state'],
           "#{type}PostalCode" => data['zipcode'],

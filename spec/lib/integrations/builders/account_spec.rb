@@ -14,6 +14,13 @@ describe Integration::Builder::Account do
       ]
     end
 
+    it 'doesnt fail on nil address' do
+      payload['customer']['billing_address']['address1'] = nil
+      payload['customer']['billing_address']['address2'] = nil
+      subject = described_class.new payload['customer']
+      expect(subject.build['BillingStreet']).to eq ''
+    end
+
     it 'returns hash with address data' do
       expect(subject.build).to be_kind_of Hash
       expect(subject.build.keys).to match_array default_expected

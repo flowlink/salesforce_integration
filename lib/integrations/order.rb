@@ -54,6 +54,8 @@ module Integration
       object[:order][:payments].each do |payment|
         payment_integration.upsert! payment, opportunity_id
       end
+
+      custom_objects_upsert object[:order][:salesforce_custom]
     end
 
     def fetch_updates

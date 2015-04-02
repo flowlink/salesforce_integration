@@ -24,11 +24,27 @@ module Integration
           attributes.delete "Account"
         end
 
+        if arbitrary_object_id = find_custom_object(custom_service, attributes)
+          attributes.delete "_identifier"
+          custom_service.update! attributes.merge(Id: arbitrary_object_id)
+          next
+        end
+
         custom_service.create! attributes
       end
     end
 
     private
+
+    def find_custom_object(service, attributes)
+      if attributes.has_key? "_identifier"
+        identifier = attributes["_identifier"]
+        query = "SELECT Id FROM #{service.model_name} WHERE #{identifier} = '#{attributes[identifier]}' LIMIT 1"
+
+        result = service.salesforce.query query
+        result.first.to_h['Id']
+      end
+    end
 
     def contact_service
       @contact_service ||= SFService::Contact.new(config)

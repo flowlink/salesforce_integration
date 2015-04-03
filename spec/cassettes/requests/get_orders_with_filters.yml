@@ -1,0 +1,126 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20Name,%20Amount,%20CloseDate,%20LastModifiedDate,%20Account.Id,%20(SELECT%20Quantity,%20UnitPrice,%20PricebookEntry.Product2.Name,%20PricebookEntry.Product2.ProductCode%20FROM%20OpportunityLineItems),%20(SELECT%20Title,%20Body%20FROM%20Notes%20WHERE%20Title%20LIKE%20'Payment%25')%20FROM%20Opportunity%20WHERE%20TrackingNumber__c%20=%20'123'%20AND%20StageName%20=%20'closed-won'%20AND%20LastModifiedDate%20%3E%202014-12-17T12:08:52Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth access_token
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Thu, 02 Apr 2015 21:13:51 GMT
+      Set-Cookie:
+      - BrowserId=RpPxdUvTQSmGsk4LplB3tw;Path=/;Domain=.salesforce.com;Expires=Mon,
+        01-Jun-2015 21:13:51 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Www-Authenticate:
+      - Token
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
+    http_version: 
+  recorded_at: Thu, 02 Apr 2015 21:13:52 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=refresh_token&client_id=spree_id&client_secret=spree_secret
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 02 Apr 2015 21:13:52 GMT
+      - Thu, 02 Apr 2015 21:13:53 GMT
+      Set-Cookie:
+      - BrowserId=mLnU1mABQJ-4Cg0hsAifxQ;Path=/;Domain=.salesforce.com;Expires=Mon,
+        01-Jun-2015 21:13:53 GMT
+      - BrowserId=rSNzhMkgSR2VRXMR0nKkQA;Path=/;Domain=.salesforce.com;Expires=Mon,
+        01-Jun-2015 21:13:52 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      - no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1428009233048","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"W3oV6NEoPSICt5uKOwuNwTgwdJ5qjnLxSvvcdoZaPLc=","access_token":"00Dj0000000HAIT!AQoAQHMWRVBICMQiVIkearAFOjBgDETm5Nz7esTlB9wMZJg_05S.FgV1UMCtAjimkWKvvJcoYCrS1wGZFbdxzEmg87RyMt8m"}'
+    http_version: 
+  recorded_at: Thu, 02 Apr 2015 21:13:53 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20Name,%20Amount,%20CloseDate,%20LastModifiedDate,%20Account.Id,%20(SELECT%20Quantity,%20UnitPrice,%20PricebookEntry.Product2.Name,%20PricebookEntry.Product2.ProductCode%20FROM%20OpportunityLineItems),%20(SELECT%20Title,%20Body%20FROM%20Notes%20WHERE%20Title%20LIKE%20'Payment%25')%20FROM%20Opportunity%20WHERE%20TrackingNumber__c%20=%20'123'%20AND%20StageName%20=%20'closed-won'%20AND%20LastModifiedDate%20%3E%202014-12-17T12:08:52Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQHMWRVBICMQiVIkearAFOjBgDETm5Nz7esTlB9wMZJg_05S.FgV1UMCtAjimkWKvvJcoYCrS1wGZFbdxzEmg87RyMt8m
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 02 Apr 2015 21:13:53 GMT
+      Set-Cookie:
+      - BrowserId=cCi0lCw5QpqMJeCs6Vu1Rw;Path=/;Domain=.salesforce.com;Expires=Mon,
+        01-Jun-2015 21:13:53 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=60/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":0,"done":true,"records":[]}'
+    http_version: 
+  recorded_at: Thu, 02 Apr 2015 21:13:54 GMT
+recorded_with: VCR 2.9.3

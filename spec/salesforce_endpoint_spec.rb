@@ -53,7 +53,7 @@ describe SalesforceEndpoint do
     end
 
     it "get orders" do
-      config.merge! salesforce_orders_since: "2014-12-17T12:08:52Z"
+      config[:salesforce_orders_since] = "2014-12-17T12:08:52Z"
 
       VCR.use_cassette "requests/get_orders" do
         post "/get_orders", { parameters: config }.to_json, auth
@@ -62,6 +62,18 @@ describe SalesforceEndpoint do
         expect(last_response.status).to eq 200
 
         expect(json_response["orders"].count).to be >= 1
+      end
+    end
+
+    it "get orders with filters" do
+      config[:salesforce_orders_since] = "2014-12-17T12:08:52Z"
+      config[:salesforce_order_filters] = "[{\"TrackingNumber__c\":\"123\",\"StageName\":\"closed-won\"}]"
+
+      VCR.use_cassette "requests/get_orders_with_filters" do
+        post "/get_orders", { parameters: config }.to_json, auth
+
+        expect(json_response["summary"]).to eq nil
+        expect(last_response.status).to eq 200
       end
     end
   end

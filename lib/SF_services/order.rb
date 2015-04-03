@@ -24,7 +24,17 @@ module SFService
                 "(#{line_nested})",
                 "(#{notes_nested})"].join(", ")
 
-      constraints = "LeadSource = 'Web' AND StageName = 'closed-won'"
+      if config[:salesforce_order_filters].is_a? String
+        mappings = JSON.parse(config[:salesforce_order_filters])[0]
+
+        filters = mappings.each_with_object([]) do |pair, filters|
+          filters.push "#{pair[0]} = '#{pair[1]}'"
+        end
+        constraints = filters.join(" AND ")
+      else
+        constraints = "LeadSource = 'Web' AND StageName = 'closed-won'"
+      end
+
       filter = "LastModifiedDate > #{since} ORDER BY LastModifiedDate ASC LIMIT 100"
 
       salesforce.query("SELECT #{fields} FROM Opportunity WHERE #{constraints} AND #{filter}")

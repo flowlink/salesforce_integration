@@ -16,6 +16,7 @@ module SFService
                 "Account.BillingPostalCode",
                 "Account.BillingState",
                 "Account.BillingStreet",
+                "Account.Name",
                 "Account.Phone",
                 "Account.ShippingCity",
                 "Account.ShippingCountry",

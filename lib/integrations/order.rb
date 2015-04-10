@@ -76,7 +76,8 @@ module Integration
           payments: build_payments(o[:Notes]),
           shipping_address: build_address(account, "Shipping"),
           billing_address: build_address(account),
-          salesforce_id: o[:Id]
+          salesforce_id: o[:Id],
+          sf_account_name: account.to_h['Name']
         }
       end
     end

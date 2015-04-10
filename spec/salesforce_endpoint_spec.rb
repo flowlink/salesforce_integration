@@ -53,7 +53,7 @@ describe SalesforceEndpoint do
     end
 
     it "get orders" do
-      config[:salesforce_orders_since] = "2014-12-17T12:08:52Z"
+      config[:salesforce_orders_since] = "2015-03-01T12:08:52Z"
 
       VCR.use_cassette "requests/get_orders" do
         post "/get_orders", { parameters: config }.to_json, auth
@@ -63,6 +63,7 @@ describe SalesforceEndpoint do
 
         expect(json_response["orders"].count).to be >= 1
         expect(json_response["orders"].first["email"]).to be
+        expect(json_response["orders"].first["sf_account_name"]).to be
       end
     end
 

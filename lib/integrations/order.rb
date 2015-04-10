@@ -61,7 +61,7 @@ module Integration
     def fetch_updates
       latest_opportunities.map do |o|
         account = accounts_by_id.find { |a| a[:Id] == o[:Account][:Id] }
-        contact = account[:Contacts].first
+        contact = account[:Contacts].to_a.first.to_h
 
         {
           id: o[:Name],
@@ -87,7 +87,7 @@ module Integration
 
     def accounts_by_id
       ids = latest_opportunities.map { |o| "'#{o[:Account][:Id]}'" }
-      account_service.fetch_contacts_along ids
+      @accounts_by_id ||= account_service.fetch_contacts_along ids
     end
 
     def latest_timestamp_update(orders = nil)

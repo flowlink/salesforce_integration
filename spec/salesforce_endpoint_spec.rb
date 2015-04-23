@@ -62,6 +62,7 @@ describe SalesforceEndpoint do
         expect(last_response.status).to eq 200
 
         expect(json_response["orders"].count).to be >= 1
+        expect(json_response["orders"].first["email"]).to be
       end
     end
 

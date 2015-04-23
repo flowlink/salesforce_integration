@@ -65,7 +65,7 @@ module Integration
 
         {
           id: o[:Name],
-          email: contact[:Email],
+          email: contact['Email'],
           placed_on: o[:CloseDate],
           channel: 'salesforce',
           updated_at: o[:LastModifiedDate],

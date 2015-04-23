@@ -55,6 +55,7 @@ describe SalesforceEndpoint do
     it "get orders" do
       config[:salesforce_orders_since] = "2015-04-21T12:08:52Z"
       config[:salesforce_orders_fields] = "carrier__c"
+      config[:salesforce_order_filters] = "[{}]"
 
       VCR.use_cassette "requests/get_orders" do
         post "/get_orders", { parameters: config }.to_json, auth

@@ -33,7 +33,9 @@ module SFService
           filters.push "#{pair[0]} = '#{pair[1]}'"
         end
         constraints = filters.join(" AND ")
-      else
+      end
+
+      if constraints.empty?
         constraints = "LeadSource = 'Web' AND StageName = 'closed-won'"
       end
 

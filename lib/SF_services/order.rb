@@ -22,7 +22,9 @@ module SFService
                 "LastModifiedDate",
                 "Account.Id",
                 "(#{line_nested})",
-                "(#{notes_nested})"].join(", ")
+                "(#{notes_nested})"]
+
+      fields = fields.push(custom_fields).flatten.join(", ")
 
       if config[:salesforce_order_filters].is_a? String
         mappings = JSON.parse(config[:salesforce_order_filters])[0]
@@ -65,6 +67,10 @@ module SFService
       else
         create!(order_attr)
       end
+    end
+
+    def custom_fields
+      @custom_fields ||= config[:salesforce_orders_fields].to_s.split(',')
     end
   end
 end

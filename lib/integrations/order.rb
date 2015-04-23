@@ -63,7 +63,7 @@ module Integration
         account = accounts_by_id.find { |a| a[:Id] == o[:Account][:Id] }
         contact = account[:Contacts].to_a.first.to_h
 
-        {
+        order = {
           id: o[:Name],
           email: contact['Email'],
           placed_on: o[:CloseDate],
@@ -79,6 +79,8 @@ module Integration
           salesforce_id: o[:Id],
           sf_account_name: account.to_h['Name']
         }
+
+        grab_custom_fields(o).merge order
       end
     end
 
@@ -100,6 +102,12 @@ module Integration
     end
 
     private
+      def grab_custom_fields(opportunity)
+        order_service.custom_fields.each_with_object({}) do |field, customs|
+          customs[field] = opportunity[field]
+        end
+      end
+
       def build_payments(notes)
         notes.to_a.map do |note|
           {

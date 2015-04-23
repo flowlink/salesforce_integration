@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20Name,%20Amount,%20CloseDate,%20LastModifiedDate,%20Account.Id,%20(SELECT%20Quantity,%20UnitPrice,%20PricebookEntry.Product2.Name,%20PricebookEntry.Product2.ProductCode%20FROM%20OpportunityLineItems),%20(SELECT%20Title,%20Body%20FROM%20Notes%20WHERE%20Title%20LIKE%20'Payment%25')%20FROM%20Opportunity%20WHERE%20LeadSource%20=%20'Web'%20AND%20StageName%20=%20'closed-won'%20AND%20LastModifiedDate%20%3E%202015-03-01T12:08:52Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20Name,%20Amount,%20CloseDate,%20LastModifiedDate,%20Account.Id,%20(SELECT%20Quantity,%20UnitPrice,%20PricebookEntry.Product2.Name,%20PricebookEntry.Product2.ProductCode%20FROM%20OpportunityLineItems),%20(SELECT%20Title,%20Body%20FROM%20Notes%20WHERE%20Title%20LIKE%20'Payment%25'),%20carrier__c%20FROM%20Opportunity%20WHERE%20LeadSource%20=%20'Web'%20AND%20StageName%20=%20'closed-won'%20AND%20LastModifiedDate%20%3E%202015-04-21T12:08:52Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
     body:
       encoding: US-ASCII
       string: ''
@@ -21,10 +21,10 @@ http_interactions:
       message: Unauthorized
     headers:
       Date:
-      - Fri, 10 Apr 2015 13:41:48 GMT
+      - Thu, 23 Apr 2015 21:12:55 GMT
       Set-Cookie:
-      - BrowserId=g1OcURI9TMigtsY9En07aA;Path=/;Domain=.salesforce.com;Expires=Tue,
-        09-Jun-2015 13:41:48 GMT
+      - BrowserId=1TU0VkvrTcmo-EczDRwCqg;Path=/;Domain=.salesforce.com;Expires=Mon,
+        22-Jun-2015 21:12:55 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Www-Authenticate:
@@ -37,7 +37,7 @@ http_interactions:
       encoding: UTF-8
       string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
     http_version: 
-  recorded_at: Fri, 10 Apr 2015 13:41:48 GMT
+  recorded_at: Thu, 23 Apr 2015 21:12:55 GMT
 - request:
     method: post
     uri: https://login.salesforce.com/services/oauth2/token
@@ -59,13 +59,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 10 Apr 2015 13:41:49 GMT
-      - Fri, 10 Apr 2015 13:41:49 GMT
+      - Thu, 23 Apr 2015 21:12:55 GMT
+      - Thu, 23 Apr 2015 21:12:55 GMT
       Set-Cookie:
-      - BrowserId=2O8wFyVMT1-Og9EMaP2jMg;Path=/;Domain=.salesforce.com;Expires=Tue,
-        09-Jun-2015 13:41:49 GMT
-      - BrowserId=jY2vz4M1QYWqC8ngVdHXHg;Path=/;Domain=.salesforce.com;Expires=Tue,
-        09-Jun-2015 13:41:49 GMT
+      - BrowserId=sHux6WDRQcOsBkEziZdP9g;Path=/;Domain=.salesforce.com;Expires=Mon,
+        22-Jun-2015 21:12:55 GMT
+      - BrowserId=v4p8OeOMThKiRPcSPCsuiw;Path=/;Domain=.salesforce.com;Expires=Mon,
+        22-Jun-2015 21:12:55 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       - Thu, 01 Jan 1970 00:00:00 GMT
@@ -81,13 +81,13 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1428673309142","scope":"api
-        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"mdbCvBjTwSFpVVKZyicbEd1tlzohwl1e8h//jwb5TFI=","access_token":"00Dj0000000HAIT!AQoAQKdgOzxd2BCzEvjf4TCkNvTjHDoSVTo5.03JOTOpAM6N0UpvBkr7z._PksvsJl3iAufSXN9rRiyKnei8WxcV2OmQiFlP"}'
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1429823575817","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"so3TXC/gATZDQYbLQ/03RT0/XXLVpKQXLVh4VWxJm04=","access_token":"00Dj0000000HAIT!AQoAQJ3koyt8qZ.HZWzABYduZmsEETHnLmw0_aESZI4S6IUyqMAB997Lr6iwF3qo38EqFZLM1phBa19QBHNLb9scireH_Gjs"}'
     http_version: 
-  recorded_at: Fri, 10 Apr 2015 13:41:49 GMT
+  recorded_at: Thu, 23 Apr 2015 21:12:55 GMT
 - request:
     method: get
-    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20Name,%20Amount,%20CloseDate,%20LastModifiedDate,%20Account.Id,%20(SELECT%20Quantity,%20UnitPrice,%20PricebookEntry.Product2.Name,%20PricebookEntry.Product2.ProductCode%20FROM%20OpportunityLineItems),%20(SELECT%20Title,%20Body%20FROM%20Notes%20WHERE%20Title%20LIKE%20'Payment%25')%20FROM%20Opportunity%20WHERE%20LeadSource%20=%20'Web'%20AND%20StageName%20=%20'closed-won'%20AND%20LastModifiedDate%20%3E%202015-03-01T12:08:52Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Id,%20Name,%20Amount,%20CloseDate,%20LastModifiedDate,%20Account.Id,%20(SELECT%20Quantity,%20UnitPrice,%20PricebookEntry.Product2.Name,%20PricebookEntry.Product2.ProductCode%20FROM%20OpportunityLineItems),%20(SELECT%20Title,%20Body%20FROM%20Notes%20WHERE%20Title%20LIKE%20'Payment%25'),%20carrier__c%20FROM%20Opportunity%20WHERE%20LeadSource%20=%20'Web'%20AND%20StageName%20=%20'closed-won'%20AND%20LastModifiedDate%20%3E%202015-04-21T12:08:52Z%20ORDER%20BY%20LastModifiedDate%20ASC%20LIMIT%20100
     body:
       encoding: US-ASCII
       string: ''
@@ -95,7 +95,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQKdgOzxd2BCzEvjf4TCkNvTjHDoSVTo5.03JOTOpAM6N0UpvBkr7z._PksvsJl3iAufSXN9rRiyKnei8WxcV2OmQiFlP
+      - OAuth 00Dj0000000HAIT!AQoAQJ3koyt8qZ.HZWzABYduZmsEETHnLmw0_aESZI4S6IUyqMAB997Lr6iwF3qo38EqFZLM1phBa19QBHNLb9scireH_Gjs
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -106,40 +106,28 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 10 Apr 2015 13:41:50 GMT
+      - Thu, 23 Apr 2015 21:12:55 GMT
       Set-Cookie:
-      - BrowserId=KsjWF42dRw2cJ6rjh7Vn8g;Path=/;Domain=.salesforce.com;Expires=Tue,
-        09-Jun-2015 13:41:50 GMT
+      - BrowserId=uypxwc4oTomiuPH_ou36zg;Path=/;Domain=.salesforce.com;Expires=Mon,
+        22-Jun-2015 21:12:55 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=3/15000
+      - api-usage=10/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":6,"done":true,"records":[{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j000000A0XS5AAN"},"Id":"006j000000A0XS5AAN","Name":"R442535235245","Amount":45.32,"CloseDate":"2015-01-20","LastModifiedDate":"2015-03-16T13:21:31.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj00000040Vn2AAE"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000002htRNAAY"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000i0nUAAQ"},"Name":"JS","ProductCode":"324324134"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj00000040Vn7AAE"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000002htSkAAI"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000003I8yzAAC"},"Title":"Payment
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j000000A0XcqAAF"},"Id":"006j000000A0XcqAAF","Name":"R454325425345","Amount":45.32,"CloseDate":"2015-01-20","LastModifiedDate":"2015-04-23T21:10:47.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj00000040VnlAAE"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj00000040VngAAE"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S98KAAS"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000i0nUAAQ"},"Name":"JS","ProductCode":"324324134"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000003I90bAAC"},"Title":"Payment
         # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
-        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j000000A0XcqAAF"},"Id":"006j000000A0XcqAAF","Name":"R454325425345","Amount":45.32,"CloseDate":"2015-01-20","LastModifiedDate":"2015-03-16T13:25:14.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj00000040VngAAE"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000S98KAAS"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000i0nUAAQ"},"Name":"JS","ProductCode":"324324134"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj00000040VnlAAE"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000000RcMQAA0"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj00000009HO6AAM"},"Name":"Java","ProductCode":"09238888"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000003I90bAAC"},"Title":"Payment
-        # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
-        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j000000A0XhmAAF"},"Id":"006j000000A0XhmAAF","Name":"R223452352345FRF","Amount":210.0,"CloseDate":"2015-01-20","LastModifiedDate":"2015-03-16T13:29:31.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ"},"OpportunityLineItems":null,"Notes":null},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j000000A0XkBAAV"},"Id":"006j000000A0XkBAAV","Name":"R4352345432","Amount":45.32,"CloseDate":"2015-01-20","LastModifiedDate":"2015-03-16T13:41:29.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ"},"OpportunityLineItems":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj00000040VoUAAU"},"Quantity":2.0,"UnitPrice":12.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000002htU7AAI"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000kzVFAAY"},"Name":"JS","ProductCode":"889324878774"}}},{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj00000040VoZAAU"},"Quantity":2.0,"UnitPrice":10.33,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000002htUCAAY"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000000kzVKAAY"},"Name":"Clojure","ProductCode":"r435324er"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000003I91jAAC"},"Title":"Payment
-        # 63","Body":"Number: 63\nStatus: completed\nAmount: 210\nPayment Method:
-        Credit Card"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j000000AqQgEAAV"},"Id":"006j000000AqQgEAAV","Name":"R903892113","Amount":229.0,"CloseDate":"2015-04-02","LastModifiedDate":"2015-04-02T13:46:43.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000KQgCSAA1"},"Id":"001j000000KQgCSAA1"},"OpportunityLineItems":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj0000004147mAAA"},"Quantity":1.0,"UnitPrice":229.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000002iRWhAAM"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000001FspCAAS"},"Name":"Haystack
-        (Frame Color: Dark Walnut & Pearl Grey Acetate, Inlay Options: , Lens Options:
-        G15 Polarized, Engraving: , Rx: No)","ProductCode":"16762"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000003Ls6hAAC"},"Title":"Payment
-        # YB8XRTKV","Body":"Number: YB8XRTKV\nStatus: completed\nAmount: 229\nPayment
-        Method: Credit / Debit (USD)"}]}},{"attributes":{"type":"Opportunity","url":"/services/data/v26.0/sobjects/Opportunity/006j000000B0qxMAAR"},"Id":"006j000000B0qxMAAR","Name":"R345880066","Amount":239.0,"CloseDate":"2015-04-01","LastModifiedDate":"2015-04-05T04:58:55.000+0000","Account":{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Kzr0cAAB"},"Id":"001j000000Kzr0cAAB"},"OpportunityLineItems":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"OpportunityLineItem","url":"/services/data/v26.0/sobjects/OpportunityLineItem/00kj000000415mhAAA"},"Quantity":1.0,"UnitPrice":239.0,"PricebookEntry":{"attributes":{"type":"PricebookEntry","url":"/services/data/v26.0/sobjects/PricebookEntry/01uj0000002iTRjAAM"},"Product2":{"attributes":{"type":"Product2","url":"/services/data/v26.0/sobjects/Product2/01tj0000001GEaLAAW"},"Name":"Canby
-        Newspaper (Frame Color: Walnut, Inlay Options: , Lens Options: Grey Polarized,
-        Engraving: , Rx: No)","ProductCode":"16677"}}}]},"Notes":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Note","url":"/services/data/v26.0/sobjects/Note/002j0000003M9hKAAS"},"Title":"Payment
-        # 86BH9DE6","Body":"Number: 86BH9DE6\nStatus: completed\nAmount: 239\nPayment
-        Method: Credit / Debit  (EUR)"}]}}]}'
+        Credit Card"}]},"carrier__c":"Huhu"}]}'
     http_version: 
-  recorded_at: Fri, 10 Apr 2015 13:41:50 GMT
+  recorded_at: Thu, 23 Apr 2015 21:12:56 GMT
 - request:
     method: get
-    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Name,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j000000EtyDOAAZ',%20'001j000000KQgCSAA1',%20'001j000000Kzr0cAAB')
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Account.Id,%20Account.BillingCity,%20Account.BillingCountry,%20Account.BillingPostalCode,%20Account.BillingState,%20Account.BillingStreet,%20Account.Name,%20Account.Phone,%20Account.ShippingCity,%20Account.ShippingCountry,%20Account.ShippingPostalCode,%20Account.ShippingState,%20Account.ShippingStreet,%20(SELECT%20FirstName,%20LastName,%20Email%20FROM%20Contacts)%20FROM%20Account%20WHERE%20Id%20IN%20('001j000000EtyDOAAZ')
     body:
       encoding: US-ASCII
       string: ''
@@ -147,7 +135,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.8.9
       Authorization:
-      - OAuth 00Dj0000000HAIT!AQoAQKdgOzxd2BCzEvjf4TCkNvTjHDoSVTo5.03JOTOpAM6N0UpvBkr7z._PksvsJl3iAufSXN9rRiyKnei8WxcV2OmQiFlP
+      - OAuth 00Dj0000000HAIT!AQoAQJ3koyt8qZ.HZWzABYduZmsEETHnLmw0_aESZI4S6IUyqMAB997Lr6iwF3qo38EqFZLM1phBa19QBHNLb9scireH_Gjs
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -158,28 +146,23 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 10 Apr 2015 13:41:51 GMT
+      - Thu, 23 Apr 2015 21:12:56 GMT
       Set-Cookie:
-      - BrowserId=oROW1j_xSUCLOa55EbVx1Q;Path=/;Domain=.salesforce.com;Expires=Tue,
-        09-Jun-2015 13:41:51 GMT
+      - BrowserId=TT27sW9gTwSVKLiWLFw0Ww;Path=/;Domain=.salesforce.com;Expires=Mon,
+        22-Jun-2015 21:12:56 GMT
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=3/15000
+      - api-usage=10/15000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalSize":3,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000EtyDOAAZ"},"Id":"001j000000EtyDOAAZ","BillingCity":"Hollywood","BillingCountry":"US","BillingPostalCode":"90210","BillingState":"California","BillingStreet":"1234
         Awesome Street","Name":"Dev Commerce","Phone":null,"ShippingCity":"Hollywood","ShippingCountry":"US","ShippingPostalCode":"90210","ShippingState":"California","ShippingStreet":"1234
-        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000KQgCSAA1"},"Id":"001j000000KQgCSAA1","BillingCity":"Lyndhurst","BillingCountry":"US","BillingPostalCode":"07071","BillingState":"NJ","BillingStreet":"4516
-        Vermella Way","Name":"Matt Middleton","Phone":null,"ShippingCity":"Lyndhurst","ShippingCountry":"US","ShippingPostalCode":"07071","ShippingState":"NJ","ShippingStreet":"4516
-        Vermella Way","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j000000EsLoeAAF"},"FirstName":"Matt","LastName":"Middleton","Email":"mattmiddleton36@gmail.com"}]}},{"attributes":{"type":"Account","url":"/services/data/v26.0/sobjects/Account/001j000000Kzr0cAAB"},"Id":"001j000000Kzr0cAAB","BillingCity":"Nottingham","BillingCountry":"GB","BillingPostalCode":"NG14
-        6HF","BillingState":null,"BillingStreet":"29 Spindle View","Name":"Matthew
-        Pilkington","Phone":null,"ShippingCity":"Nottingham","ShippingCountry":"GB","ShippingPostalCode":"NG14
-        6HF","ShippingState":null,"ShippingStreet":"29 Spindle View","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j000000EujzfAAB"},"FirstName":"Matthew","LastName":"Pilkington","Email":"matt@pilkington.org.uk"}]}}]}'
+        Awesome Street","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000008Iy1MAAS"},"FirstName":"Dev","LastName":"Commerce","Email":"dev@spreecommerce.com"}]}}]}'
     http_version: 
-  recorded_at: Fri, 10 Apr 2015 13:41:51 GMT
+  recorded_at: Thu, 23 Apr 2015 21:12:56 GMT
 recorded_with: VCR 2.9.3

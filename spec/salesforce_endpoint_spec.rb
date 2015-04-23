@@ -53,7 +53,8 @@ describe SalesforceEndpoint do
     end
 
     it "get orders" do
-      config[:salesforce_orders_since] = "2015-03-01T12:08:52Z"
+      config[:salesforce_orders_since] = "2015-04-21T12:08:52Z"
+      config[:salesforce_orders_fields] = "carrier__c"
 
       VCR.use_cassette "requests/get_orders" do
         post "/get_orders", { parameters: config }.to_json, auth
@@ -62,8 +63,11 @@ describe SalesforceEndpoint do
         expect(last_response.status).to eq 200
 
         expect(json_response["orders"].count).to be >= 1
-        expect(json_response["orders"].first["email"]).to be
-        expect(json_response["orders"].first["sf_account_name"]).to be
+
+        order = json_response["orders"].first
+        expect(order["email"]).to be
+        expect(order["sf_account_name"]).to be
+        expect(order["carrier__c"]).to be
       end
     end
 

@@ -19,7 +19,7 @@ module Integration
 
       if object[:order][:sf_record_type_id]
         contact_account.person_contact_update account_id
-      else
+      elsif has_address?
         contact_account.upsert! AccountId: account_id
       end
 
@@ -33,7 +33,7 @@ module Integration
       params = order_params.merge AccountId: account_id, Pricebook2Id: standard_id
       opportunity_id = order_service.upsert! params
 
-      object[:order][:line_items].each do |line_item|
+      object[:order][:line_items].to_a.each do |line_item|
 
         # Create Product in case it doesn't exist in Salesforce yet
         unless product_id = product_integration.find_id_by_code(line_item[:product_id])
@@ -51,7 +51,7 @@ module Integration
 
       payment_integration = Payment.new(config)
 
-      object[:order][:payments].each do |payment|
+      object[:order][:payments].to_a.each do |payment|
         payment_integration.upsert! payment, opportunity_id
       end
 
@@ -102,6 +102,10 @@ module Integration
     end
 
     private
+      def has_address?
+        object[:order][:billing_address] || object[:order][:shipping_address]
+      end
+
       def grab_custom_fields(opportunity)
         order_service.custom_fields.each_with_object({}) do |field, customs|
           customs[field] = opportunity[field]

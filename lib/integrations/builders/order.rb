@@ -11,7 +11,7 @@ module Integration
       # then be calculated based on the sum of products
       def build
         params = {
-          'Amount'                 => object['totals']['order'],
+          'Amount'                 => object['totals'].to_h['order'],
           'Probability'            => '100',
           'CloseDate'              => object['placed_on'],
           'Name'                   => object['id'],

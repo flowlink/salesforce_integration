@@ -44,16 +44,16 @@ module Integration
       end
 
       def billing_address
-        object['billing_address']
+        object.to_h['billing_address'].to_h
       end
 
       def shipping_address
-        object['shipping_address']
+        object.to_h['shipping_address'].to_h
       end
 
       def customer_name(type)
         return object[type] unless object[type].nil?
-        billing_address[type].empty? ? shipping_address[type] : billing_address[type]
+        billing_address[type].present? ? shipping_address[type] : billing_address[type]
       end
     end
   end

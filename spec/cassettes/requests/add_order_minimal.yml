@@ -1,0 +1,244 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20''
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth access_token
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Fri, 08 May 2015 02:58:50 GMT
+      Set-Cookie:
+      - BrowserId=69sXsvorQQCj_g7jlVAwbw;Path=/;Domain=.salesforce.com;Expires=Tue,
+        07-Jul-2015 02:58:50 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Www-Authenticate:
+      - Token
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[{"message":"Session expired or invalid","errorCode":"INVALID_SESSION_ID"}]'
+    http_version: 
+  recorded_at: Fri, 08 May 2015 02:58:50 GMT
+- request:
+    method: post
+    uri: https://login.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=refresh_token&client_id=spree_id&client_secret=spree_secret
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 08 May 2015 02:58:51 GMT
+      - Fri, 08 May 2015 02:58:51 GMT
+      Set-Cookie:
+      - BrowserId=0uq3Ug6mR1aMto6r2zfcJA;Path=/;Domain=.salesforce.com;Expires=Tue,
+        07-Jul-2015 02:58:51 GMT
+      - BrowserId=M0qRBtHVQXK2SWLrsAWwbQ;Path=/;Domain=.salesforce.com;Expires=Tue,
+        07-Jul-2015 02:58:51 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store
+      - no-store
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"https://login.salesforce.com/id/00Dj0000000HAITEA4/005j000000Au8sKAAR","issued_at":"1431053931273","scope":"api
+        refresh_token","instance_url":"https://na.salesforce.com","token_type":"Bearer","signature":"MQPwUh60VNhBPat+qyIEht24jR7t3GI+8l26zc3c/jc=","access_token":"00Dj0000000HAIT!AQoAQLOMx8UYooG3xHIiJMq4MhxNQzifmpT63QzQAzxjuLqa6cmvvYExXM0xu26FoSRjFynpjNIUzywvhOiZK7z19z4O1lsB"}'
+    http_version: 
+  recorded_at: Fri, 08 May 2015 02:58:51 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20AccountId%20from%20Contact%20where%20Email%20=%20''
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQLOMx8UYooG3xHIiJMq4MhxNQzifmpT63QzQAzxjuLqa6cmvvYExXM0xu26FoSRjFynpjNIUzywvhOiZK7z19z4O1lsB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 08 May 2015 02:58:52 GMT
+      Set-Cookie:
+      - BrowserId=po1GyCqZTCy14aHE8GAhKQ;Path=/;Domain=.salesforce.com;Expires=Tue,
+        07-Jul-2015 02:58:52 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=10/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":2,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001YVPiAAO"},"AccountId":"001j0000002Kg4IAAS"},{"attributes":{"type":"Contact","url":"/services/data/v26.0/sobjects/Contact/003j0000001YVPjAAO"},"AccountId":"001j0000002Kg4IAAS"}]}'
+    http_version: 
+  recorded_at: Fri, 08 May 2015 02:58:52 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=select%20Id%20from%20PriceBook2%20where%20Name%20=%20'Standard%20Price%20Book'
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQLOMx8UYooG3xHIiJMq4MhxNQzifmpT63QzQAzxjuLqa6cmvvYExXM0xu26FoSRjFynpjNIUzywvhOiZK7z19z4O1lsB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 08 May 2015 02:58:52 GMT
+      Set-Cookie:
+      - BrowserId=C7N8g-20Rkix7dnR7qiyiQ;Path=/;Domain=.salesforce.com;Expires=Tue,
+        07-Jul-2015 02:58:52 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=10/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Pricebook2","url":"/services/data/v26.0/sobjects/Pricebook2/01sj0000000DbL5AAK"},"Id":"01sj0000000DbL5AAK"}]}'
+    http_version: 
+  recorded_at: Fri, 08 May 2015 02:58:53 GMT
+- request:
+    method: get
+    uri: https://na.salesforce.com/services/data/v26.0/query?q=SELECT%20Id%20FROM%20Opportunity%20WHERE%20Name%20=%20'WOoOOOOoooowOWWOWOowWOO'%20LIMIT%201
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQLOMx8UYooG3xHIiJMq4MhxNQzifmpT63QzQAzxjuLqa6cmvvYExXM0xu26FoSRjFynpjNIUzywvhOiZK7z19z4O1lsB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 08 May 2015 02:58:53 GMT
+      Set-Cookie:
+      - BrowserId=fHJn5EyJSTa1CEBa5k7mrw;Path=/;Domain=.salesforce.com;Expires=Tue,
+        07-Jul-2015 02:58:53 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=10/15000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":0,"done":true,"records":[]}'
+    http_version: 
+  recorded_at: Fri, 08 May 2015 02:58:53 GMT
+- request:
+    method: post
+    uri: https://na.salesforce.com/services/data/v26.0/sobjects/Opportunity
+    body:
+      encoding: UTF-8
+      string: '{"Amount":null,"Probability":"100","CloseDate":"2015-04-29T15:42:21","Name":"WOoOOOOoooowOWWOWOowWOO","Pricebook2Id":"01sj0000000DbL5AAK","LeadSource":"Web","StageName":"closed-won","AccountId":"001j0000002Kg4IAAS"}'
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 00Dj0000000HAIT!AQoAQLOMx8UYooG3xHIiJMq4MhxNQzifmpT63QzQAzxjuLqa6cmvvYExXM0xu26FoSRjFynpjNIUzywvhOiZK7z19z4O1lsB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 08 May 2015 02:58:54 GMT
+      Set-Cookie:
+      - BrowserId=Pwb0GeJvS7uvwdryGCFzSg;Path=/;Domain=.salesforce.com;Expires=Tue,
+        07-Jul-2015 02:58:54 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=10/15000
+      Location:
+      - "/services/data/v26.0/sobjects/Opportunity/006j000000EBWQGAA5"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":"006j000000EBWQGAA5","success":true,"errors":[]}'
+    http_version: 
+  recorded_at: Fri, 08 May 2015 02:58:54 GMT
+recorded_with: VCR 2.9.3

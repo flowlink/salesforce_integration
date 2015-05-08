@@ -16,6 +16,16 @@ describe SalesforceEndpoint do
       end
     end
 
+    it "places order with minimal info required" do
+      payload = Factories.send("order_minimal_payload")
+
+      VCR.use_cassette "requests/add_order_minimal" do
+        post "/send_order", payload.merge(parameters: config).to_json, auth
+        expect(json_response["summary"]).to match "sent to Salesforce"
+        expect(last_response.status).to eq 200
+      end
+    end
+
     it "places a new order with custom pricebook" do
       payload = Factories.send("new_order_payload")
       payload['order']['id'] = "R442535235245"

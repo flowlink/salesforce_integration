@@ -26,11 +26,15 @@ module Integration
       product_integration = Product.new(config, object[:order])
       line_item_integration = LineItem.new(config)
 
-      # Opportunity lines needs to ref a product pricebook entry
-      standard_id = product_integration.standard_pricebook(object[:order][:sf_pricebook_name])["Id"]
+      params = order_params.merge AccountId: account_id
+
+      if !object[:order][:line_items].to_a.empty? || !object[:order][:sf_pricebook_name].to_s.empty?
+        # Opportunity lines needs to ref a product pricebook entry
+        standard_id = product_integration.standard_pricebook(object[:order][:sf_pricebook_name])["Id"]
+        params = params.merge Pricebook2Id: standard_id
+      end
 
       # Create or Update the Opportunity. Set the opportunity id
-      params = order_params.merge AccountId: account_id, Pricebook2Id: standard_id
       opportunity_id = order_service.upsert! params
 
       object[:order][:line_items].to_a.each do |line_item|

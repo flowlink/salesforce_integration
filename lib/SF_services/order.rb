@@ -59,10 +59,6 @@ module SFService
     end
 
     def upsert!(order_attr = {})
-      price_book_id = find_price_book_by_id(order_attr.fetch 'Pricebook2Id')
-
-      order_attr = order_attr.merge( { 'Pricebook2Id' => price_book_id } ) if price_book_id.present?
-
       if opportunity_id = find_opportunity_id_by_name(order_attr.fetch 'Name')
         update! order_attr.merge(Id: opportunity_id)
         opportunity_id

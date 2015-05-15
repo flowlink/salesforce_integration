@@ -13,20 +13,11 @@ module Integration
     # http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_objects_opportunity.htm
     # http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_objects_opportunitylineitem.htm
     def upsert!
-      # Create or Update the Contact. Set the account id
-      contact_account = ContactAccount.new(config, object[:order])
-      account_id = contact_account.account_id
-
-      if object[:order][:sf_record_type_id]
-        contact_account.person_contact_update account_id
-      elsif has_address?
-        contact_account.upsert! AccountId: account_id
-      end
-
       product_integration = Product.new(config, object[:order])
       line_item_integration = LineItem.new(config)
 
-      params = order_params.merge AccountId: account_id
+      # Create or Update the Contact. Set the account id is email is present
+      params = order_params.merge handle_contact_account
 
       if !object[:order][:line_items].to_a.empty? || !object[:order][:sf_pricebook_name].to_s.empty?
         # Opportunity lines needs to ref a product pricebook entry
@@ -106,6 +97,24 @@ module Integration
     end
 
     private
+
+      def handle_contact_account
+        if object[:order][:email].to_s.empty?
+          {}
+        else
+          contact_account = ContactAccount.new(config, object[:order])
+          account_id = contact_account.account_id
+
+          if object[:order][:sf_record_type_id]
+            contact_account.person_contact_update account_id
+          elsif has_address?
+            contact_account.upsert! AccountId: account_id
+          end
+
+          { AccountId: account_id }
+        end
+      end
+
       def has_address?
         object[:order][:billing_address] || object[:order][:shipping_address]
       end

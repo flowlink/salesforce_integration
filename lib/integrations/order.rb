@@ -16,11 +16,11 @@ module Integration
       product_integration = Product.new(config, object[:order])
       line_item_integration = LineItem.new(config)
 
-      # Create or Update the Contact. Set the account id is email is present
+      # Create or Update the Contact. Set the account id if email is present
       params = order_params.merge handle_contact_account
 
       if !object[:order][:line_items].to_a.empty? || !object[:order][:sf_pricebook_name].to_s.empty?
-        # Opportunity lines needs to ref a product pricebook entry
+        # Opportunity lines needs to keep reference of a product pricebook entry
         standard_id = product_integration.standard_pricebook(object[:order][:sf_pricebook_name])["Id"]
         params = params.merge Pricebook2Id: standard_id
       end

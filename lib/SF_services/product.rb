@@ -46,12 +46,6 @@ module SFService
       pricebook_entry = find_pricebook_entry standard_id, product_id
 
       if pricebook_entry
-        pricebook_entry_service.update!(
-          Id: pricebook_entry["Id"],
-          IsActive: true,
-          UnitPrice: price
-        )
-
         pricebook_entry["Id"]
       else
         pricebook_entry_service.create!(

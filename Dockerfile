@@ -20,4 +20,4 @@ ADD ./ /app
 EXPOSE 5000
 
 ENTRYPOINT [ "bundle", "exec" ]
-CMD [ "unicorn", "-c", "./config/unicorn.rb", "-p", "5000" ]
+CMD [ "foreman", "start" ]

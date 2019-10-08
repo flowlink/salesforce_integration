@@ -1,5 +1,4 @@
-FROM rlister/ruby:2.1.5
-MAINTAINER Ric Lister, ric@spreecommerce.com
+FROM nurelmdevelopment/ruby-base-image
 
 ## bundle deps for nokogiri and github gems
 RUN DEBIAN_FRONTEND=noninteractive \

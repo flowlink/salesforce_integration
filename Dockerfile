@@ -1,8 +1,4 @@
-FROM debian:jessie
-MAINTAINER Ric Lister, ric@spreecommerce.com
-
-ADD https://33a6871815e79f57702b-41c4a87573b0a371a9ac50d3802e995d.ssl.cf2.rackcdn.com/ruby2.0_2.0.0-p481_amd64.deb /tmp/
-RUN dpkg -i /tmp/ruby2.0_2.0.0-p481_amd64.deb && rm -f /tmp/ruby2.0_2.0.0-p481_amd64.deb
+FROM nurelmdevelopment/ruby-base-image
 
 RUN apt-get update && apt-get install -y \
     build-essential zlib1g-dev libreadline6-dev libyaml-dev libssl-dev \

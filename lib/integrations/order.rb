@@ -5,6 +5,7 @@ module Integration
 
     def initialize(config, object = {})
       @object = object
+      @now = Time.now.utc.iso8601
       super(config)
     end
 
@@ -92,7 +93,7 @@ module Integration
       if order = (orders || latest_opportunities).last
         Time.parse(order["LastModifiedDate"]).utc.iso8601
       else
-        Time.now.utc.iso8601
+        @now
       end
     end
 

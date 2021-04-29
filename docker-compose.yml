@@ -2,13 +2,10 @@ version: '3'
 services:
   salesforce-integration:
     build: .
-    image: salesforce-integration
     environment:
       - SALESFORCE_CLIENT_ID
       - SALESFORCE_CLIENT_SECRET
-      - VIRTUAL_HOST=salesforce_integration.flowlink.io
-    restart: always
-    network_mode: bridge
+    ports:
+    - '3001:5000'
     volumes:
       - .:/app
-

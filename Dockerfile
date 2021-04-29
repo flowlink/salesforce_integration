@@ -1,28 +1,15 @@
-FROM ruby:2.4.2-slim-stretch
+FROM ruby:2.7-alpine
 MAINTAINER NuRelm <development@nurelm.com>
 
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive \
-    apt-get install -yq \
-    build-essential zlib1g-dev libreadline6-dev libyaml-dev libssl-dev \
-    locales libsqlite3-dev sqlite3 \
-    git libcurl3 libcurl3-gnutls libcurl4-openssl-dev
-
-## set the locale so gems built for utf8
-RUN dpkg-reconfigure locales && \
-    locale-gen C.UTF-8 && \
-    /usr/sbin/update-locale LANG=C.UTF-8
-ENV LC_ALL C.UTF-8
-
-## help docker cache bundle
-WORKDIR /tmp
-COPY ./Gemfile /tmp/
-COPY ./Gemfile.lock /tmp/
-
-RUN bundle install
+RUN apk add --no-cache --update build-base libcurl linux-headers git shared-mime-info tzdata
 
 WORKDIR /app
 COPY ./ /app
+
+RUN gem install bundler:1.16.0
+RUN bundle install --jobs 5
+
+RUN apk del build-base linux-headers git
 
 ENTRYPOINT [ "bundle", "exec" ]
 CMD [ "foreman", "start" ]

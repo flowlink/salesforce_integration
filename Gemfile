@@ -9,6 +9,8 @@ gem 'executrix'
 gem 'honeybadger'
 gem 'rollbar'
 gem 'rake'
+gem 'foreman'
+gem 'puma'
 
 group :development, :test do
   gem 'pry'
@@ -21,9 +23,4 @@ group :test do
   gem 'rspec', '~> 2.14'
   gem 'rack-test'
   gem 'webmock'
-end
-
-group :production do
-  gem 'foreman'
-  gem 'puma'
 end

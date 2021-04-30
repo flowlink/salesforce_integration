@@ -7,7 +7,8 @@ gem 'restforce'
 gem 'endpoint_base', github: 'spree/endpoint_base'
 gem 'executrix'
 gem 'honeybadger'
-gem 'rollbar'
+gem 'foreman'
+gem 'puma'
 
 group :development do
   gem "rake"
@@ -19,9 +20,4 @@ group :test do
   gem 'rspec', '~> 2.14'
   gem 'rack-test'
   gem 'webmock'
-end
-
-group :production do
-  gem 'foreman'
-  gem 'puma'
 end

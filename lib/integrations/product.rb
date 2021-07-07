@@ -7,6 +7,7 @@ module Integration
 
     def initialize(config, object)
       @object = object
+      @now = Time.now.utc.iso8601
       super(config)
     end
 
@@ -46,7 +47,7 @@ module Integration
       if product = (products || latest_products).to_a.last
         Time.parse(product["LastModifiedDate"]).utc.iso8601
       else
-        Time.now.utc.iso8601
+        @now
       end
     end
 

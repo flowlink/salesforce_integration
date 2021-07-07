@@ -4,6 +4,7 @@ module Integration
 
     def initialize(config, object)
       @object = object
+      @now = Time.now.utc.iso8601
       super(config)
     end
 
@@ -39,7 +40,7 @@ module Integration
       if contact = (contacts || latest_contacts).to_a.last
         Time.parse(contact["LastModifiedDate"]).utc.iso8601
       else
-        Time.now.utc.iso8601
+        @now
       end
     end
 
